@@ -29890,7 +29890,7 @@ _ZNR9hb_iter_tI10hb_array_tIKN2OT7IntTypeItLj2EEEERS4_EppEv.exit.i.i.i.i.i.i.i.i
   %51 = zext i8 %.val1.i.i.i.i.i.i.i.i.i.i to i32
   %52 = or disjoint i32 %50, %51
   tail call void %.val2.val.i.i(ptr noundef %46, i32 noundef %52, ptr noundef %.val2.val3.i.i)
-  %53 = add i32 %.sroa.4.07.i.i.i.i.i.i.i.i.i.i, -1
+  %53 = add nsw i32 %.sroa.4.07.i.i.i.i.i.i.i.i.i.i, -1
   %54 = getelementptr inbounds nuw i8, ptr %.sroa.0.08.i.i.i.i.i.i.i.i.i.i, i64 2
   %.not.i.i.i.i.i.i.i.i.i.i = icmp eq i32 %53, 0
   br i1 %.not.i.i.i.i.i.i.i.i.i.i, label %_ZN2OTL13collect_arrayINS_7IntTypeItLj2EEEEEvPNS_27hb_collect_glyphs_context_tEP8hb_set_tjPKT_PFvS6_jPKvESB_.exit.i.i.i.i.i.i.i, label %_ZNR9hb_iter_tI10hb_array_tIKN2OT7IntTypeItLj2EEEERS4_EppEv.exit.i.i.i.i.i.i.i.i.i.i, !llvm.loop !166
@@ -30413,7 +30413,7 @@ _ZNR9hb_iter_tI10hb_array_tIKN2OT7IntTypeItLj2EEEERS4_EppEv.exit.i.i.i.i: ; pred
   %49 = getelementptr inbounds nuw i8, ptr %48, i64 %.sroa.2.0.extract.trunc.i
   %.0.i.i.i = select i1 %45, ptr @_hb_NullPool, ptr %49
   %50 = tail call noundef zeroext i1 @_ZNK2OT6Layout6Common8Coverage16collect_coverageI8hb_set_tEEbPT_(ptr noundef nonnull align 1 dereferenceable(10) %.0.i.i.i, ptr noundef %36)
-  %51 = add i32 %.sroa.4.07.i.i.i.i, -1
+  %51 = add nsw i32 %.sroa.4.07.i.i.i.i, -1
   %52 = getelementptr inbounds nuw i8, ptr %.sroa.0.08.i.i.i.i, i64 2
   %.not.i.i.i.i = icmp eq i32 %51, 0
   br i1 %.not.i.i.i.i, label %_ZN2OTL13collect_arrayINS_7IntTypeItLj2EEEEEvPNS_27hb_collect_glyphs_context_tEP8hb_set_tjPKT_PFvS6_jPKvESB_.exit.i, label %_ZNR9hb_iter_tI10hb_array_tIKN2OT7IntTypeItLj2EEEERS4_EppEv.exit.i.i.i.i, !llvm.loop !166
@@ -32821,7 +32821,7 @@ _ZNR9hb_iter_tI10hb_array_tIKN2OT7IntTypeItLj2EEEERS4_EppEv.exit.i.i.i22.i: ; pr
   %105 = getelementptr inbounds nuw i8, ptr %104, i64 %.sroa.2.0.extract.trunc.i17
   %.0.i.i.i19 = select i1 %101, ptr @_hb_NullPool, ptr %105
   %106 = tail call noundef zeroext i1 @_ZNK2OT6Layout6Common8Coverage16collect_coverageI8hb_set_tEEbPT_(ptr noundef nonnull align 1 dereferenceable(10) %.0.i.i.i19, ptr noundef %93)
-  %107 = add i32 %.sroa.4.07.i.i.i24.i, -1
+  %107 = add nsw i32 %.sroa.4.07.i.i.i24.i, -1
   %108 = getelementptr inbounds nuw i8, ptr %.sroa.0.08.i.i.i23.i, i64 2
   %.not.i.i.i27.i = icmp eq i32 %107, 0
   br i1 %.not.i.i.i27.i, label %_ZN2OTL13collect_arrayINS_7IntTypeItLj2EEEEEvPNS_27hb_collect_glyphs_context_tEP8hb_set_tjPKT_PFvS6_jPKvESB_.exit28.i, label %_ZNR9hb_iter_tI10hb_array_tIKN2OT7IntTypeItLj2EEEERS4_EppEv.exit.i.i.i22.i, !llvm.loop !166

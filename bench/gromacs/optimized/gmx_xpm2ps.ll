@@ -2503,7 +2503,7 @@ _ZNSt12_Vector_baseI9t_mappingSaIS0_EEC2EmRKS1_.exit.i.i.i.i: ; preds = %_ZNSt6v
   store ptr %925, ptr %924, align 8, !tbaa !116, !noalias !112
   %926 = getelementptr inbounds nuw i8, ptr %.08.i.i.i.i.i.i.i.i, i64 40
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %926, i8 0, i64 24, i1 false), !noalias !112
-  %927 = add i64 %.057.i.i.i.i.i.i.i.i, -1
+  %927 = add nsw i64 %.057.i.i.i.i.i.i.i.i, -1
   %928 = getelementptr inbounds nuw i8, ptr %.08.i.i.i.i.i.i.i.i, i64 64
   %.not.i.i.i.i.i.i.i.i = icmp eq i64 %927, 0
   br i1 %.not.i.i.i.i.i.i.i.i, label %.loopexit.i.i.i, label %.lr.ph.i.i.i.i.i.i.i.i, !llvm.loop !117

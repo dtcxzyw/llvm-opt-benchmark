@@ -2210,14 +2210,14 @@ define void @_ZN7rocksdb10BlobSource12MultiGetBlobERKNS_11ReadOptionsERNS_10auto
   %23 = getelementptr inbounds nuw i8, ptr %6, i64 8
   br label %24
 
-._crit_edge:                                      ; preds = %83, %4
-  %.0.lcssa = phi i64 [ 0, %4 ], [ %86, %83 ]
+._crit_edge:                                      ; preds = %79, %4
+  %.0.lcssa = phi i64 [ 0, %4 ], [ %82, %79 ]
   %.not = icmp eq ptr %3, null
-  br i1 %.not, label %89, label %88
+  br i1 %.not, label %85, label %84
 
-24:                                               ; preds = %.lr.ph, %83
-  %.040 = phi i64 [ 0, %.lr.ph ], [ %86, %83 ]
-  %.sroa.5.039 = phi i64 [ 0, %.lr.ph ], [ %87, %83 ]
+24:                                               ; preds = %.lr.ph, %79
+  %.040 = phi i64 [ 0, %.lr.ph ], [ %82, %79 ]
+  %.sroa.5.039 = phi i64 [ 0, %.lr.ph ], [ %83, %79 ]
   %25 = icmp ult i64 %.sroa.5.039, 8
   %26 = load ptr, ptr %22, align 8
   %27 = getelementptr inbounds nuw %"class.std::tuple.155", ptr %26, i64 %.sroa.5.039
@@ -2239,7 +2239,7 @@ define void @_ZN7rocksdb10BlobSource12MultiGetBlobERKNS_11ReadOptionsERNS_10auto
   call void @llvm.lifetime.start.p0(ptr nonnull %9)
   call void @llvm.lifetime.start.p0(ptr nonnull %10)
   %.not.i.i = icmp eq i64 %41, 0
-  br i1 %.not.i.i, label %83, label %42
+  br i1 %.not.i.i, label %79, label %42
 
 42:                                               ; preds = %24
   store ptr %.0.i.i, ptr %9, align 8, !tbaa !245
@@ -2255,7 +2255,7 @@ define void @_ZN7rocksdb10BlobSource12MultiGetBlobERKNS_11ReadOptionsERNS_10auto
   call void @llvm.lifetime.start.p0(ptr nonnull %7)
   call void @llvm.lifetime.start.p0(ptr nonnull %8)
   %46 = icmp sgt i64 %41, 16
-  br i1 %46, label %.lr.ph.i.i.i.i, label %82
+  br i1 %46, label %.lr.ph.i.i.i.i, label %78
 
 .lr.ph.i.i.i.i:                                   ; preds = %42
   store ptr %.0.i.i, ptr %5, align 8, !tbaa !245
@@ -2267,76 +2267,73 @@ define void @_ZN7rocksdb10BlobSource12MultiGetBlobERKNS_11ReadOptionsERNS_10auto
   br label %48
 
 48:                                               ; preds = %.loopexit.i.i.i.i, %.lr.ph.i.i.i.i
-  %.sroa.5.08.i.i.i.i = phi i64 [ 16, %.lr.ph.i.i.i.i ], [ %81, %.loopexit.i.i.i.i ]
+  %.sroa.5.08.i.i.i.i = phi i64 [ 16, %.lr.ph.i.i.i.i ], [ %77, %.loopexit.i.i.i.i ]
   call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.6.i.i.i.i.i)
-  %49 = icmp ult i64 %.sroa.5.08.i.i.i.i, 8
-  %50 = load ptr, ptr %47, align 8
-  %51 = getelementptr inbounds nuw %"struct.rocksdb::BlobReadRequest", ptr %50, i64 %.sroa.5.08.i.i.i.i
-  %52 = load ptr, ptr %33, align 8
-  %53 = getelementptr %"struct.rocksdb::BlobReadRequest", ptr %52, i64 %.sroa.5.08.i.i.i.i
-  %54 = getelementptr i8, ptr %53, i64 -384
-  %.0.i.i.i.i.i.i.i = select i1 %49, ptr %51, ptr %54
-  %.sroa.016.0.copyload.i.i.i.i.i = load ptr, ptr %.0.i.i.i.i.i.i.i, align 8, !tbaa !253
-  %.sroa.5.0..0.i.i.sroa_idx.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i.i.i.i, i64 8
+  %49 = load ptr, ptr %47, align 8
+  %50 = load ptr, ptr %33, align 8
+  %51 = getelementptr %"struct.rocksdb::BlobReadRequest", ptr %50, i64 %.sroa.5.08.i.i.i.i
+  %52 = getelementptr i8, ptr %51, i64 -384
+  %.sroa.016.0.copyload.i.i.i.i.i = load ptr, ptr %52, align 8, !tbaa !253
+  %.sroa.5.0..0.i.i.sroa_idx.i.i.i.i.i = getelementptr i8, ptr %51, i64 -376
   %.sroa.5.0.copyload.i.i.i.i.i = load i64, ptr %.sroa.5.0..0.i.i.sroa_idx.i.i.i.i.i, align 8, !tbaa !86
-  %.sroa.6.0..0.i.i.sroa_idx.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i.i.i.i, i64 16
+  %.sroa.6.0..0.i.i.sroa_idx.i.i.i.i.i = getelementptr i8, ptr %51, i64 -368
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %.sroa.6.i.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(32) %.sroa.6.0..0.i.i.sroa_idx.i.i.i.i.i, i64 32, i1 false), !tbaa.struct !254
-  %.sroa.7.019.i.i.i.i.i = add i64 %.sroa.5.08.i.i.i.i, -1
-  %55 = icmp ult i64 %.sroa.7.019.i.i.i.i.i, 8
-  %56 = getelementptr inbounds nuw %"struct.rocksdb::BlobReadRequest", ptr %50, i64 %.sroa.7.019.i.i.i.i.i
-  %57 = getelementptr %"struct.rocksdb::BlobReadRequest", ptr %52, i64 %.sroa.7.019.i.i.i.i.i
-  %58 = getelementptr i8, ptr %57, i64 -384
-  %.0.i.i.i22.i.i.i.i.i = select i1 %55, ptr %56, ptr %58
-  %59 = getelementptr i8, ptr %.0.i.i.i22.i.i.i.i.i, i64 8
-  %.val2.i23.i.i.i.i.i = load i64, ptr %59, align 8, !tbaa !260
-  %60 = icmp ult i64 %.sroa.5.0.copyload.i.i.i.i.i, %.val2.i23.i.i.i.i.i
-  br i1 %60, label %.lr.ph.i.i.i.i.i, label %.loopexit.i.i.i.i
+  %.sroa.7.019.i.i.i.i.i = add nsw i64 %.sroa.5.08.i.i.i.i, -1
+  %53 = getelementptr %"struct.rocksdb::BlobReadRequest", ptr %50, i64 %.sroa.7.019.i.i.i.i.i
+  %54 = getelementptr i8, ptr %53, i64 -376
+  %.val2.i23.i.i.i.i.i = load i64, ptr %54, align 8, !tbaa !260
+  %55 = icmp ult i64 %.sroa.5.0.copyload.i.i.i.i.i, %.val2.i23.i.i.i.i.i
+  br i1 %55, label %.lr.ph.i.i.i.i.i.preheader, label %.loopexit.i.i.i.i
 
-.lr.ph.i.i.i.i.i:                                 ; preds = %48, %.lr.ph.i.i.i.i.i
-  %61 = phi ptr [ %.val3.val5.i.i.i.i.i, %.lr.ph.i.i.i.i.i ], [ %52, %48 ]
-  %62 = phi ptr [ %.val3.val.i.i.i.i.i, %.lr.ph.i.i.i.i.i ], [ %50, %48 ]
-  %63 = phi i64 [ %.sroa.7.024.i.i.i.i.i, %.lr.ph.i.i.i.i.i ], [ %.sroa.5.08.i.i.i.i, %48 ]
-  %.0.i.i.i25.i.i.i.i.i = phi ptr [ %.0.i.i.i.i.i.i.i.i, %.lr.ph.i.i.i.i.i ], [ %.0.i.i.i22.i.i.i.i.i, %48 ]
-  %.sroa.7.024.i.i.i.i.i = phi i64 [ %.sroa.7.0.i.i.i.i.i, %.lr.ph.i.i.i.i.i ], [ %.sroa.7.019.i.i.i.i.i, %48 ]
-  %64 = icmp ult i64 %63, 8
-  %65 = getelementptr inbounds nuw %"struct.rocksdb::BlobReadRequest", ptr %62, i64 %63
-  %66 = getelementptr %"struct.rocksdb::BlobReadRequest", ptr %61, i64 %63
-  %67 = getelementptr i8, ptr %66, i64 -384
-  %.0.i.i7.i.i.i.i.i = select i1 %64, ptr %65, ptr %67
+.lr.ph.i.i.i.i.i.preheader:                       ; preds = %48
+  %56 = getelementptr i8, ptr %53, i64 -384
+  br label %.lr.ph.i.i.i.i.i
+
+.lr.ph.i.i.i.i.i:                                 ; preds = %.lr.ph.i.i.i.i.i.preheader, %.lr.ph.i.i.i.i.i
+  %57 = phi ptr [ %.val3.val5.i.i.i.i.i, %.lr.ph.i.i.i.i.i ], [ %50, %.lr.ph.i.i.i.i.i.preheader ]
+  %58 = phi ptr [ %.val3.val.i.i.i.i.i, %.lr.ph.i.i.i.i.i ], [ %49, %.lr.ph.i.i.i.i.i.preheader ]
+  %59 = phi i64 [ %.sroa.7.024.i.i.i.i.i, %.lr.ph.i.i.i.i.i ], [ %.sroa.5.08.i.i.i.i, %.lr.ph.i.i.i.i.i.preheader ]
+  %.0.i.i.i25.i.i.i.i.i = phi ptr [ %.0.i.i.i.i.i.i.i.i, %.lr.ph.i.i.i.i.i ], [ %56, %.lr.ph.i.i.i.i.i.preheader ]
+  %.sroa.7.024.i.i.i.i.i = phi i64 [ %.sroa.7.0.i.i.i.i.i, %.lr.ph.i.i.i.i.i ], [ %.sroa.7.019.i.i.i.i.i, %.lr.ph.i.i.i.i.i.preheader ]
+  %60 = icmp ult i64 %59, 8
+  %61 = getelementptr inbounds nuw %"struct.rocksdb::BlobReadRequest", ptr %58, i64 %59
+  %62 = getelementptr %"struct.rocksdb::BlobReadRequest", ptr %57, i64 %59
+  %63 = getelementptr i8, ptr %62, i64 -384
+  %.0.i.i7.i.i.i.i.i = select i1 %60, ptr %61, ptr %63
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %.0.i.i7.i.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(48) %.0.i.i.i25.i.i.i.i.i, i64 48, i1 false), !tbaa.struct !262
   %.sroa.7.0.i.i.i.i.i = add i64 %.sroa.7.024.i.i.i.i.i, -1
   %.val3.val.i.i.i.i.i = load ptr, ptr %47, align 8
   %.val3.val5.i.i.i.i.i = load ptr, ptr %33, align 8
-  %68 = icmp ult i64 %.sroa.7.0.i.i.i.i.i, 8
-  %69 = getelementptr inbounds nuw %"struct.rocksdb::BlobReadRequest", ptr %.val3.val.i.i.i.i.i, i64 %.sroa.7.0.i.i.i.i.i
-  %70 = getelementptr %"struct.rocksdb::BlobReadRequest", ptr %.val3.val5.i.i.i.i.i, i64 %.sroa.7.0.i.i.i.i.i
-  %71 = getelementptr i8, ptr %70, i64 -384
-  %.0.i.i.i.i.i.i.i.i = select i1 %68, ptr %69, ptr %71
-  %72 = getelementptr i8, ptr %.0.i.i.i.i.i.i.i.i, i64 8
-  %.val2.i.i.i.i.i.i = load i64, ptr %72, align 8, !tbaa !260
-  %73 = icmp ult i64 %.sroa.5.0.copyload.i.i.i.i.i, %.val2.i.i.i.i.i.i
-  br i1 %73, label %.lr.ph.i.i.i.i.i, label %.loopexit.i.i.i.i, !llvm.loop !263
+  %64 = icmp ult i64 %.sroa.7.0.i.i.i.i.i, 8
+  %65 = getelementptr inbounds nuw %"struct.rocksdb::BlobReadRequest", ptr %.val3.val.i.i.i.i.i, i64 %.sroa.7.0.i.i.i.i.i
+  %66 = getelementptr %"struct.rocksdb::BlobReadRequest", ptr %.val3.val5.i.i.i.i.i, i64 %.sroa.7.0.i.i.i.i.i
+  %67 = getelementptr i8, ptr %66, i64 -384
+  %.0.i.i.i.i.i.i.i.i = select i1 %64, ptr %65, ptr %67
+  %68 = getelementptr i8, ptr %.0.i.i.i.i.i.i.i.i, i64 8
+  %.val2.i.i.i.i.i.i = load i64, ptr %68, align 8, !tbaa !260
+  %69 = icmp ult i64 %.sroa.5.0.copyload.i.i.i.i.i, %.val2.i.i.i.i.i.i
+  br i1 %69, label %.lr.ph.i.i.i.i.i, label %.loopexit.i.i.i.i, !llvm.loop !263
 
 .loopexit.i.i.i.i:                                ; preds = %.lr.ph.i.i.i.i.i, %48
-  %74 = phi ptr [ %52, %48 ], [ %.val3.val5.i.i.i.i.i, %.lr.ph.i.i.i.i.i ]
-  %75 = phi ptr [ %50, %48 ], [ %.val3.val.i.i.i.i.i, %.lr.ph.i.i.i.i.i ]
-  %76 = phi i64 [ %.sroa.5.08.i.i.i.i, %48 ], [ %.sroa.7.024.i.i.i.i.i, %.lr.ph.i.i.i.i.i ]
-  %77 = icmp ult i64 %76, 8
-  %78 = getelementptr inbounds nuw %"struct.rocksdb::BlobReadRequest", ptr %75, i64 %76
-  %79 = getelementptr %"struct.rocksdb::BlobReadRequest", ptr %74, i64 %76
-  %80 = getelementptr i8, ptr %79, i64 -384
-  %.0.i.i8.i.i.i.i.i = select i1 %77, ptr %78, ptr %80
+  %70 = phi ptr [ %50, %48 ], [ %.val3.val5.i.i.i.i.i, %.lr.ph.i.i.i.i.i ]
+  %71 = phi ptr [ %49, %48 ], [ %.val3.val.i.i.i.i.i, %.lr.ph.i.i.i.i.i ]
+  %72 = phi i64 [ %.sroa.5.08.i.i.i.i, %48 ], [ %.sroa.7.024.i.i.i.i.i, %.lr.ph.i.i.i.i.i ]
+  %73 = icmp ult i64 %72, 8
+  %74 = getelementptr inbounds nuw %"struct.rocksdb::BlobReadRequest", ptr %71, i64 %72
+  %75 = getelementptr %"struct.rocksdb::BlobReadRequest", ptr %70, i64 %72
+  %76 = getelementptr i8, ptr %75, i64 -384
+  %.0.i.i8.i.i.i.i.i = select i1 %73, ptr %74, ptr %76
   store ptr %.sroa.016.0.copyload.i.i.i.i.i, ptr %.0.i.i8.i.i.i.i.i, align 8, !tbaa !253
   %.sroa.5.0..0.i.i8.sroa_idx.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %.0.i.i8.i.i.i.i.i, i64 8
   store i64 %.sroa.5.0.copyload.i.i.i.i.i, ptr %.sroa.5.0..0.i.i8.sroa_idx.i.i.i.i.i, align 8, !tbaa !86
   %.sroa.6.0..0.i.i8.sroa_idx.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %.0.i.i8.i.i.i.i.i, i64 16
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %.sroa.6.0..0.i.i8.sroa_idx.i.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(32) %.sroa.6.i.i.i.i.i, i64 32, i1 false), !tbaa.struct !254
   call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.6.i.i.i.i.i)
-  %81 = add i64 %.sroa.5.08.i.i.i.i, 1
-  %.not.i.i.i.i = icmp eq i64 %81, %41
+  %77 = add nuw nsw i64 %.sroa.5.08.i.i.i.i, 1
+  %.not.i.i.i.i = icmp eq i64 %77, %41
   br i1 %.not.i.i.i.i, label %.loopexit.i.i, label %48, !llvm.loop !264
 
-82:                                               ; preds = %42
+78:                                               ; preds = %42
   store ptr %.0.i.i, ptr %7, align 8, !tbaa !245
   store i64 0, ptr %.sroa.5.0..sroa_idx14.i.i, align 8, !tbaa !86
   store ptr %.0.i.i, ptr %8, align 8, !tbaa !245
@@ -2344,29 +2341,29 @@ define void @_ZN7rocksdb10BlobSource12MultiGetBlobERKNS_11ReadOptionsERNS_10auto
   call fastcc void @"_ZSt16__insertion_sortIN7rocksdb10autovectorINS0_15BlobReadRequestELm8EE13iterator_implIS3_S2_EEN9__gnu_cxx5__ops15_Iter_comp_iterIZNS0_10BlobSource12MultiGetBlobERKNS0_11ReadOptionsERNS1_ISt5tupleIJmmS3_EELm8EEEPmE3$_0EEEvT_SK_T0_"(ptr noundef %7, ptr noundef %8)
   br label %.loopexit.i.i
 
-.loopexit.i.i:                                    ; preds = %.loopexit.i.i.i.i, %82
+.loopexit.i.i:                                    ; preds = %.loopexit.i.i.i.i, %78
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
-  br label %83
+  br label %79
 
-83:                                               ; preds = %.loopexit.i.i, %24
+79:                                               ; preds = %.loopexit.i.i, %24
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
   call void @llvm.lifetime.end.p0(ptr nonnull %10)
-  %84 = load i64, ptr %31, align 8, !tbaa !86
-  call void @_ZN7rocksdb10BlobSource23MultiGetBlobFromOneFileERKNS_11ReadOptionsEmmRNS_10autovectorINS_15BlobReadRequestELm8EEEPm(ptr noundef nonnull align 8 dereferenceable(57) %0, ptr noundef nonnull align 8 dereferenceable(168) %1, i64 noundef %84, i64 poison, ptr noundef nonnull align 8 dereferenceable(424) %.0.i.i, ptr noundef nonnull %11)
-  %85 = load i64, ptr %11, align 8, !tbaa !86
-  %86 = add i64 %85, %.040
-  %87 = add nuw i64 %.sroa.5.039, 1
-  %.not37 = icmp eq i64 %87, %21
+  %80 = load i64, ptr %31, align 8, !tbaa !86
+  call void @_ZN7rocksdb10BlobSource23MultiGetBlobFromOneFileERKNS_11ReadOptionsEmmRNS_10autovectorINS_15BlobReadRequestELm8EEEPm(ptr noundef nonnull align 8 dereferenceable(57) %0, ptr noundef nonnull align 8 dereferenceable(168) %1, i64 noundef %80, i64 poison, ptr noundef nonnull align 8 dereferenceable(424) %.0.i.i, ptr noundef nonnull %11)
+  %81 = load i64, ptr %11, align 8, !tbaa !86
+  %82 = add i64 %81, %.040
+  %83 = add nuw i64 %.sroa.5.039, 1
+  %.not37 = icmp eq i64 %83, %21
   br i1 %.not37, label %._crit_edge, label %24
 
-88:                                               ; preds = %._crit_edge
+84:                                               ; preds = %._crit_edge
   store i64 %.0.lcssa, ptr %3, align 8, !tbaa !86
-  br label %89
+  br label %85
 
-89:                                               ; preds = %88, %._crit_edge
+85:                                               ; preds = %84, %._crit_edge
   call void @llvm.lifetime.end.p0(ptr nonnull %11)
   ret void
 }

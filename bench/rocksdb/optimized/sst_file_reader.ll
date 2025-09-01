@@ -2519,7 +2519,7 @@ _ZN7rocksdb10autovectorINS_12MergeContextELm32EE12emplace_backIJEEEvDpOT_.exit: 
 
 .noexc.i.i.i:                                     ; preds = %.noexc.i.i, %.noexc._crit_edge.i.i.i.i
   %.sroa.510.020.i.i.i.i = phi i64 [ %275, %.noexc._crit_edge.i.i.i.i ], [ 16, %.noexc.i.i ]
-  %231 = icmp ult i64 %.sroa.510.020.i.i.i.i, 32
+  %231 = icmp samesign ult i64 %.sroa.510.020.i.i.i.i, 32
   %232 = load ptr, ptr %102, align 8
   %233 = getelementptr inbounds nuw ptr, ptr %232, i64 %.sroa.510.020.i.i.i.i
   %234 = load ptr, ptr %104, align 8
@@ -2527,9 +2527,9 @@ _ZN7rocksdb10autovectorINS_12MergeContextELm32EE12emplace_backIJEEEvDpOT_.exit: 
   %236 = getelementptr i8, ptr %235, i64 -256
   %.0.i.i.i.i.i.i.i = select i1 %231, ptr %233, ptr %236
   %237 = load ptr, ptr %.0.i.i.i.i.i.i.i, align 8, !tbaa !359
-  %.sroa.7.0.i13.i.i.i.i = add i64 %.sroa.510.020.i.i.i.i, -1
+  %.sroa.7.0.i13.i.i.i.i = add nsw i64 %.sroa.510.020.i.i.i.i, -1
   %.val1.val.i14.i.i.i.i = load ptr, ptr %237, align 8, !tbaa !399
-  %238 = icmp ult i64 %.sroa.7.0.i13.i.i.i.i, 32
+  %238 = icmp samesign ult i64 %.sroa.510.020.i.i.i.i, 33
   %239 = getelementptr inbounds nuw ptr, ptr %232, i64 %.sroa.7.0.i13.i.i.i.i
   %240 = getelementptr ptr, ptr %234, i64 %.sroa.7.0.i13.i.i.i.i
   %241 = getelementptr i8, ptr %240, i64 -256
@@ -2594,7 +2594,7 @@ _ZN7rocksdb10autovectorINS_12MergeContextELm32EE12emplace_backIJEEEvDpOT_.exit: 
   %274 = getelementptr i8, ptr %273, i64 -256
   %.0.i.i7.i.i.i.i.i = select i1 %269, ptr %271, ptr %274
   store ptr %237, ptr %.0.i.i7.i.i.i.i.i, align 8, !tbaa !359
-  %275 = add i64 %.sroa.510.020.i.i.i.i, 1
+  %275 = add nuw nsw i64 %.sroa.510.020.i.i.i.i, 1
   %.not.i.i.i.i100 = icmp eq i64 %275, %224
   br i1 %.not.i.i.i.i100, label %.loopexit.i.i, label %.noexc.i.i.i, !llvm.loop !421
 

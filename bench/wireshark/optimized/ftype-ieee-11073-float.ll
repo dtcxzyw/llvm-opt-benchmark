@@ -712,7 +712,7 @@ sfloat_to_normal_form.exit90.i:                   ; preds = %._crit_edge.thread.
 .lr.ph17.i:                                       ; preds = %.preheader.i, %.lr.ph17.i
   %.04316.i = phi i8 [ %82, %.lr.ph17.i ], [ %narrow.i, %.preheader.i ]
   %.215.i = phi i16 [ %83, %.lr.ph17.i ], [ %.047.i, %.preheader.i ]
-  %82 = add i8 %.04316.i, -1
+  %82 = add nsw i8 %.04316.i, -1
   %83 = mul i16 %.215.i, 10
   %.not66.i = icmp eq i8 %82, 0
   br i1 %.not66.i, label %sfloat_ieee_11073_cmp_lt.exit, label %.lr.ph17.i, !llvm.loop !32
@@ -729,7 +729,7 @@ sfloat_to_normal_form.exit90.i:                   ; preds = %._crit_edge.thread.
 .lr.ph.i:                                         ; preds = %.preheader4.i, %.lr.ph.i
   %.013.i = phi i8 [ %87, %.lr.ph.i ], [ %85, %.preheader4.i ]
   %.35212.i = phi i16 [ %88, %.lr.ph.i ], [ %spec.select.i, %.preheader4.i ]
-  %87 = add i8 %.013.i, -1
+  %87 = add nsw i8 %.013.i, -1
   %88 = mul i16 %.35212.i, 10
   %.not65.i = icmp eq i8 %87, 0
   br i1 %.not65.i, label %sfloat_ieee_11073_cmp_lt.exit, label %.lr.ph.i, !llvm.loop !33

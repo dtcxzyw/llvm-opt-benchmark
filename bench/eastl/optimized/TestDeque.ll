@@ -95611,7 +95611,7 @@ for.body.i:                                       ; preds = %for.body.i, %for.bo
   %sub25.i = sub nsw i64 0, %i.041.i
   %arrayidx.i = getelementptr inbounds ptr, ptr %9, i64 %sub25.i
   store ptr %call.i.i.i.i, ptr %arrayidx.i, align 8, !noalias !4912
-  %inc.i = add nuw i64 %i.041.i, 1
+  %inc.i = add nuw nsw i64 %i.041.i, 1
   %exitcond42.not.i = icmp eq i64 %inc.i, %8
   br i1 %exitcond42.not.i, label %if.end26.i, label %for.body.i, !llvm.loop !3346
 
@@ -95744,7 +95744,7 @@ for.body70.i:                                     ; preds = %for.body70.i, %for.
   %26 = load ptr, ptr %mpCurrentArrayPtr48.i, align 8, !noalias !4924
   %arrayidx74.i = getelementptr inbounds nuw ptr, ptr %26, i64 %i44.039.i
   store ptr %call.i.i.i16.i, ptr %arrayidx74.i, align 8, !noalias !4924
-  %inc76.i = add nuw i64 %i44.039.i, 1
+  %inc76.i = add nuw nsw i64 %i44.039.i, 1
   %exitcond.not.i = icmp eq i64 %inc76.i, %25
   br i1 %exitcond.not.i, label %if.end78.i, label %for.body70.i, !llvm.loop !3359
 
@@ -95905,7 +95905,7 @@ for.body.i147:                                    ; preds = %for.body.i147, %for
   %sub25.i150 = sub nsw i64 0, %i.041.i148
   %arrayidx.i151 = getelementptr inbounds ptr, ptr %47, i64 %sub25.i150
   store ptr %call.i.i.i.i149, ptr %arrayidx.i151, align 8, !noalias !4935
-  %inc.i152 = add nuw i64 %i.041.i148, 1
+  %inc.i152 = add nuw nsw i64 %i.041.i148, 1
   %exitcond42.not.i153 = icmp eq i64 %inc.i152, %46
   br i1 %exitcond42.not.i153, label %if.end26.i114, label %for.body.i147, !llvm.loop !3346
 
@@ -96289,7 +96289,7 @@ for.body70.i381:                                  ; preds = %for.body70.i381, %f
   %84 = load ptr, ptr %mpCurrentArrayPtr.i.i, align 8, !noalias !4992
   %arrayidx74.i384 = getelementptr inbounds nuw ptr, ptr %84, i64 %i44.039.i382
   store ptr %call.i.i.i16.i383, ptr %arrayidx74.i384, align 8, !noalias !4992
-  %inc76.i385 = add nuw i64 %i44.039.i382, 1
+  %inc76.i385 = add nuw nsw i64 %i44.039.i382, 1
   %exitcond.not.i386 = icmp eq i64 %inc76.i385, %83
   br i1 %exitcond.not.i386, label %if.end78.i344, label %for.body70.i381, !llvm.loop !3359
 
@@ -106815,7 +106815,7 @@ for.body.i:                                       ; preds = %for.body.i, %for.bo
   %sub25.i = sub nsw i64 0, %i.041.i
   %arrayidx.i = getelementptr inbounds ptr, ptr %9, i64 %sub25.i
   store ptr %call.i.i.i.i, ptr %arrayidx.i, align 8, !noalias !5856
-  %inc.i = add nuw i64 %i.041.i, 1
+  %inc.i = add nuw nsw i64 %i.041.i, 1
   %exitcond42.not.i = icmp eq i64 %inc.i, %8
   br i1 %exitcond42.not.i, label %if.end26.i, label %for.body.i, !llvm.loop !3740
 
@@ -106968,7 +106968,7 @@ for.body70.i:                                     ; preds = %for.body70.i, %for.
   %37 = load ptr, ptr %mpCurrentArrayPtr48.i, align 8, !noalias !5868
   %arrayidx74.i = getelementptr inbounds nuw ptr, ptr %37, i64 %i44.039.i
   store ptr %call.i.i.i16.i, ptr %arrayidx74.i, align 8, !noalias !5868
-  %inc76.i = add nuw i64 %i44.039.i, 1
+  %inc76.i = add nuw nsw i64 %i44.039.i, 1
   %exitcond.not.i = icmp eq i64 %inc76.i, %36
   br i1 %exitcond.not.i, label %if.end78.i, label %for.body70.i, !llvm.loop !3753
 
@@ -107149,7 +107149,7 @@ for.body.i147:                                    ; preds = %for.body.i147, %for
   %sub25.i150 = sub nsw i64 0, %i.041.i148
   %arrayidx.i151 = getelementptr inbounds ptr, ptr %69, i64 %sub25.i150
   store ptr %call.i.i.i.i149, ptr %arrayidx.i151, align 8, !noalias !5879
-  %inc.i152 = add nuw i64 %i.041.i148, 1
+  %inc.i152 = add nuw nsw i64 %i.041.i148, 1
   %exitcond42.not.i153 = icmp eq i64 %inc.i152, %68
   br i1 %exitcond42.not.i153, label %if.end26.i114, label %for.body.i147, !llvm.loop !3740
 
@@ -107672,7 +107672,7 @@ for.body70.i410:                                  ; preds = %for.body70.i410, %f
   %149 = load ptr, ptr %mpCurrentArrayPtr.i.i, align 8, !noalias !5936
   %arrayidx74.i413 = getelementptr inbounds nuw ptr, ptr %149, i64 %i44.039.i411
   store ptr %call.i.i.i16.i412, ptr %arrayidx74.i413, align 8, !noalias !5936
-  %inc76.i414 = add nuw i64 %i44.039.i411, 1
+  %inc76.i414 = add nuw nsw i64 %i44.039.i411, 1
   %exitcond.not.i415 = icmp eq i64 %inc76.i414, %148
   br i1 %exitcond.not.i415, label %if.end78.i373, label %for.body70.i410, !llvm.loop !3753
 

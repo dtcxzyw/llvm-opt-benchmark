@@ -24244,7 +24244,7 @@ _ZNSt15__new_allocatorIN4CGAL8internal16chained_map_elemIbEEE8allocateEmPKv.exit
   %101 = load ptr, ptr %6, align 8, !tbaa !460
   %102 = getelementptr inbounds nuw %"class.CGAL::internal::chained_map_elem", ptr %101, i64 %.01921.i.i
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %102, i8 0, i64 24, i1 false)
-  %103 = add nuw i64 %.01921.i.i, 1
+  %103 = add nuw nsw i64 %.01921.i.i, 1
   %exitcond.not.i.i = icmp eq i64 %103, %90
   br i1 %exitcond.not.i.i, label %._crit_edge.loopexit.i.i, label %.lr.ph.i.i, !llvm.loop !487
 
@@ -39255,7 +39255,7 @@ _ZNSt15__new_allocatorIN4CGAL8internal16chained_map_elemIbEEE8allocateEmPKv.exit
   %28 = load ptr, ptr %0, align 8, !tbaa !460
   %29 = getelementptr inbounds nuw %"class.CGAL::internal::chained_map_elem", ptr %28, i64 %.01921.i
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %29, i8 0, i64 24, i1 false)
-  %30 = add nuw i64 %.01921.i, 1
+  %30 = add nuw nsw i64 %.01921.i, 1
   %exitcond.not.i = icmp eq i64 %30, %15
   br i1 %exitcond.not.i, label %._crit_edge.loopexit.i, label %.lr.ph.i, !llvm.loop !487
 
@@ -39425,7 +39425,7 @@ _ZNSt15__new_allocatorIN4CGAL8internal16chained_map_elemIbEEE8allocateEmPKv.exit
   %28 = load ptr, ptr %0, align 8, !tbaa !460
   %29 = getelementptr inbounds nuw %"class.CGAL::internal::chained_map_elem", ptr %28, i64 %.01921.i
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %29, i8 0, i64 24, i1 false)
-  %30 = add nuw i64 %.01921.i, 1
+  %30 = add nuw nsw i64 %.01921.i, 1
   %exitcond.not.i = icmp eq i64 %30, %16
   br i1 %exitcond.not.i, label %._crit_edge.loopexit.i, label %.lr.ph.i, !llvm.loop !487
 
@@ -63045,7 +63045,7 @@ _ZNSt15__new_allocatorIN4CGAL8internal16chained_map_elemIbEEE8allocateEmPKv.exit
   %101 = load ptr, ptr %6, align 8, !tbaa !460
   %102 = getelementptr inbounds nuw %"class.CGAL::internal::chained_map_elem", ptr %101, i64 %.01921.i.i
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %102, i8 0, i64 24, i1 false)
-  %103 = add nuw i64 %.01921.i.i, 1
+  %103 = add nuw nsw i64 %.01921.i.i, 1
   %exitcond.not.i.i = icmp eq i64 %103, %90
   br i1 %exitcond.not.i.i, label %._crit_edge.loopexit.i.i, label %.lr.ph.i.i, !llvm.loop !487
 

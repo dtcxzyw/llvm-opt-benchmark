@@ -32178,13 +32178,13 @@ _ZN3ide19syntax_highlighting8injector8Injector12add_unmapped17hf33a392297098406E
 
 .lr.ph.i.i:                                       ; preds = %608, %612
   %.05.i.i = phi i64 [ %613, %612 ], [ 0, %608 ]
-  %609 = getelementptr inbounds i8, ptr %604, i64 %.05.i.i
+  %609 = getelementptr inbounds nuw i8, ptr %604, i64 %.05.i.i
   %610 = load i8, ptr %609, align 1, !alias.scope !5867, !noalias !5870, !noundef !9
   %611 = icmp eq i8 %610, 10
   br i1 %611, label %_ZN4core5slice6memchr12memchr_naive17hc161699a4e4d4b77E.llvm.1684962189325099908.exit.i, label %612
 
 612:                                              ; preds = %.lr.ph.i.i
-  %613 = add nuw i64 %.05.i.i, 1
+  %613 = add nuw nsw i64 %.05.i.i, 1
   %exitcond.not.i.i = icmp eq i64 %613, %.sroa.7.046.i
   br i1 %exitcond.not.i.i, label %_ZN4core5slice6memchr12memchr_naive17hc161699a4e4d4b77E.llvm.1684962189325099908.exit.i, label %.lr.ph.i.i
 

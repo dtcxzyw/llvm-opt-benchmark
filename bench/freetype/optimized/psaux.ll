@@ -13917,7 +13917,7 @@ cf2_buf_readByte.exit.i:                          ; preds = %1922, %1920, %1918,
   %.0.i9.i = phi i8 [ %1917, %1915 ], [ 0, %1918 ], [ 0, %1920 ], [ 0, %1922 ]
   %1923 = getelementptr inbounds nuw i8, ptr %150, i64 %.011.i
   store i8 %.0.i9.i, ptr %1923, align 1, !tbaa !37
-  %1924 = add nuw i64 %.011.i, 1
+  %1924 = add nuw nsw i64 %.011.i, 1
   %exitcond.not.i = icmp eq i64 %1924, %1910
   br i1 %exitcond.not.i, label %cf2_hintmask_read.exit, label %.lr.ph.i, !llvm.loop !672
 
@@ -13989,7 +13989,7 @@ cf2_buf_readByte.exit.i1577:                      ; preds = %1945, %1943, %1941,
   %.0.i9.i1578 = phi i8 [ %1940, %1938 ], [ 0, %1941 ], [ 0, %1943 ], [ 0, %1945 ]
   %1946 = getelementptr inbounds nuw i8, ptr %146, i64 %.011.i1574
   store i8 %.0.i9.i1578, ptr %1946, align 1, !tbaa !37
-  %1947 = add nuw i64 %.011.i1574, 1
+  %1947 = add nuw nsw i64 %.011.i1574, 1
   %exitcond.not.i1579 = icmp eq i64 %1947, %1933
   br i1 %exitcond.not.i1579, label %cf2_hintmask_read.exit1582, label %.lr.ph.i1573, !llvm.loop !672
 

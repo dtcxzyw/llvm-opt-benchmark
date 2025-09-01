@@ -7397,7 +7397,7 @@ stbtt_MakeGlyphBitmapSubpixel.exit:               ; preds = %stbtt_GetGlyphBitma
   %388 = zext i8 %387 to i32
   %389 = sub nsw i32 %384, %388
   %390 = add i32 %389, %.0131.i
-  %391 = add nuw i64 %indvars.iv174.i, 2
+  %391 = add nuw nsw i64 %indvars.iv174.i, 2
   %392 = and i64 %391, 7
   %393 = getelementptr inbounds nuw i8, ptr %7, i64 %392
   store i8 %383, ptr %393, align 1
@@ -7420,7 +7420,7 @@ stbtt_MakeGlyphBitmapSubpixel.exit:               ; preds = %stbtt_GetGlyphBitma
   %402 = zext i8 %401 to i32
   %403 = sub nsw i32 %398, %402
   %404 = add i32 %403, %.2125.i
-  %405 = add nuw i64 %indvars.iv169.i, 3
+  %405 = add nuw nsw i64 %indvars.iv169.i, 3
   %406 = and i64 %405, 7
   %407 = getelementptr inbounds nuw i8, ptr %7, i64 %406
   store i8 %397, ptr %407, align 1
@@ -7465,7 +7465,7 @@ stbtt_MakeGlyphBitmapSubpixel.exit:               ; preds = %stbtt_GetGlyphBitma
   %429 = zext i8 %428 to i32
   %430 = sub nsw i32 %425, %429
   %431 = add i32 %430, %.4115.i
-  %432 = add nuw i64 %indvars.iv.i, 5
+  %432 = add nuw nsw i64 %indvars.iv.i, 5
   %433 = and i64 %432, 7
   %434 = getelementptr inbounds nuw i8, ptr %7, i64 %433
   store i8 %424, ptr %434, align 1
@@ -7614,7 +7614,7 @@ _ZL18stbtt__h_prefilterPhiiij.exit:               ; preds = %_ZL18stbtt__h_prefi
   %494 = zext i8 %493 to i32
   %495 = sub nsw i32 %490, %494
   %496 = add i32 %495, %.0146.i
-  %497 = add nuw i64 %indvars.iv189.i, 2
+  %497 = add nuw nsw i64 %indvars.iv189.i, 2
   %498 = and i64 %497, 7
   %499 = getelementptr inbounds nuw i8, ptr %6, i64 %498
   store i8 %489, ptr %499, align 1
@@ -7638,7 +7638,7 @@ _ZL18stbtt__h_prefilterPhiiij.exit:               ; preds = %_ZL18stbtt__h_prefi
   %509 = zext i8 %508 to i32
   %510 = sub nsw i32 %505, %509
   %511 = add i32 %510, %.2140.i
-  %512 = add nuw i64 %indvars.iv184.i151, 3
+  %512 = add nuw nsw i64 %indvars.iv184.i151, 3
   %513 = and i64 %512, 7
   %514 = getelementptr inbounds nuw i8, ptr %6, i64 %513
   store i8 %504, ptr %514, align 1
@@ -7685,7 +7685,7 @@ _ZL18stbtt__h_prefilterPhiiij.exit:               ; preds = %_ZL18stbtt__h_prefi
   %538 = zext i8 %537 to i32
   %539 = sub nsw i32 %534, %538
   %540 = add i32 %539, %.4130.i
-  %541 = add nuw i64 %indvars.iv.i142, 5
+  %541 = add nuw nsw i64 %indvars.iv.i142, 5
   %542 = and i64 %541, 7
   %543 = getelementptr inbounds nuw i8, ptr %6, i64 %542
   store i8 %533, ptr %543, align 1

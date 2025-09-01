@@ -7737,7 +7737,7 @@ stbtt_MakeGlyphBitmapSubpixel.exit:               ; preds = %stbtt_GetGlyphBitma
   %390 = zext i8 %389 to i32
   %391 = sub nsw i32 %386, %390
   %392 = add i32 %391, %.0131.i
-  %393 = add nuw i64 %indvars.iv174.i, 2
+  %393 = add nuw nsw i64 %indvars.iv174.i, 2
   %394 = and i64 %393, 7
   %395 = getelementptr inbounds nuw i8, ptr %7, i64 %394
   store i8 %385, ptr %395, align 1
@@ -7760,7 +7760,7 @@ stbtt_MakeGlyphBitmapSubpixel.exit:               ; preds = %stbtt_GetGlyphBitma
   %404 = zext i8 %403 to i32
   %405 = sub nsw i32 %400, %404
   %406 = add i32 %405, %.2125.i
-  %407 = add nuw i64 %indvars.iv169.i, 3
+  %407 = add nuw nsw i64 %indvars.iv169.i, 3
   %408 = and i64 %407, 7
   %409 = getelementptr inbounds nuw i8, ptr %7, i64 %408
   store i8 %399, ptr %409, align 1
@@ -7805,7 +7805,7 @@ stbtt_MakeGlyphBitmapSubpixel.exit:               ; preds = %stbtt_GetGlyphBitma
   %431 = zext i8 %430 to i32
   %432 = sub nsw i32 %427, %431
   %433 = add i32 %432, %.4115.i
-  %434 = add nuw i64 %indvars.iv.i, 5
+  %434 = add nuw nsw i64 %indvars.iv.i, 5
   %435 = and i64 %434, 7
   %436 = getelementptr inbounds nuw i8, ptr %7, i64 %435
   store i8 %426, ptr %436, align 1
@@ -7954,7 +7954,7 @@ stbtt__h_prefilter.exit:                          ; preds = %stbtt__h_prefilter.
   %496 = zext i8 %495 to i32
   %497 = sub nsw i32 %492, %496
   %498 = add i32 %497, %.0146.i
-  %499 = add nuw i64 %indvars.iv189.i, 2
+  %499 = add nuw nsw i64 %indvars.iv189.i, 2
   %500 = and i64 %499, 7
   %501 = getelementptr inbounds nuw i8, ptr %6, i64 %500
   store i8 %491, ptr %501, align 1
@@ -7978,7 +7978,7 @@ stbtt__h_prefilter.exit:                          ; preds = %stbtt__h_prefilter.
   %511 = zext i8 %510 to i32
   %512 = sub nsw i32 %507, %511
   %513 = add i32 %512, %.2140.i
-  %514 = add nuw i64 %indvars.iv184.i151, 3
+  %514 = add nuw nsw i64 %indvars.iv184.i151, 3
   %515 = and i64 %514, 7
   %516 = getelementptr inbounds nuw i8, ptr %6, i64 %515
   store i8 %506, ptr %516, align 1
@@ -8025,7 +8025,7 @@ stbtt__h_prefilter.exit:                          ; preds = %stbtt__h_prefilter.
   %540 = zext i8 %539 to i32
   %541 = sub nsw i32 %536, %540
   %542 = add i32 %541, %.4130.i
-  %543 = add nuw i64 %indvars.iv.i142, 5
+  %543 = add nuw nsw i64 %indvars.iv.i142, 5
   %544 = and i64 %543, 7
   %545 = getelementptr inbounds nuw i8, ptr %6, i64 %544
   store i8 %535, ptr %545, align 1

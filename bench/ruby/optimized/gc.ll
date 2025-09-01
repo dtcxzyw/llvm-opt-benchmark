@@ -21930,94 +21930,91 @@ define internal fastcc void @gc_sweep_page(ptr noundef %0, ptr noundef readonly 
 31:                                               ; preds = %23, %3
   %32 = add nuw nsw i64 %21, 63
   %33 = lshr i64 %32, 6
-  %34 = trunc nuw nsw i64 %33 to i32
-  %35 = load i64, ptr %11, align 8, !tbaa !93
-  %36 = xor i64 %35, -1
-  %37 = lshr i64 %36, %.zext
-  %.not52 = icmp eq i64 %37, 0
-  br i1 %.not52, label %39, label %38
+  %34 = load i64, ptr %11, align 8, !tbaa !93
+  %35 = xor i64 %34, -1
+  %36 = lshr i64 %35, %.zext
+  %.not52 = icmp eq i64 %36, 0
+  br i1 %.not52, label %38, label %37
 
-38:                                               ; preds = %31
-  tail call fastcc void @gc_sweep_plane(ptr noundef %0, i64 noundef %10, i64 noundef %37, ptr noundef %2)
-  br label %39
+37:                                               ; preds = %31
+  tail call fastcc void @gc_sweep_plane(ptr noundef %0, i64 noundef %10, i64 noundef %36, ptr noundef %2)
+  br label %38
 
-39:                                               ; preds = %38, %31
-  %40 = icmp samesign ugt i64 %21, 64
-  br i1 %40, label %.lr.ph.preheader, label %._crit_edge
+38:                                               ; preds = %37, %31
+  %39 = icmp samesign ugt i64 %21, 64
+  br i1 %39, label %.lr.ph.preheader, label %._crit_edge
 
-.lr.ph.preheader:                                 ; preds = %39
-  %41 = sub nsw i64 64, %.zext
-  %42 = mul nsw i64 %41, 40
-  %43 = add i64 %42, %10
-  %umax = tail call i32 @llvm.umax.i32(i32 %34, i32 2)
-  %wide.trip.count = zext nneg i32 %umax to i64
+.lr.ph.preheader:                                 ; preds = %38
+  %40 = sub nsw i64 64, %.zext
+  %41 = mul nsw i64 %40, 40
+  %42 = add i64 %41, %10
   br label %.lr.ph
 
-._crit_edge:                                      ; preds = %50, %39
-  %44 = getelementptr inbounds nuw i8, ptr %1, i64 104
-  %45 = load ptr, ptr %44, align 8, !tbaa !539
-  %.not53 = icmp eq ptr %45, null
-  br i1 %.not53, label %52, label %54
+._crit_edge:                                      ; preds = %49, %38
+  %43 = getelementptr inbounds nuw i8, ptr %1, i64 104
+  %44 = load ptr, ptr %43, align 8, !tbaa !539
+  %.not53 = icmp eq ptr %44, null
+  br i1 %.not53, label %51, label %53
 
-.lr.ph:                                           ; preds = %.lr.ph.preheader, %50
-  %indvars.iv = phi i64 [ 1, %.lr.ph.preheader ], [ %indvars.iv.next, %50 ]
-  %.04859 = phi i64 [ %43, %.lr.ph.preheader ], [ %51, %50 ]
-  %46 = getelementptr i64, ptr %11, i64 %indvars.iv
-  %47 = load i64, ptr %46, align 8, !tbaa !93
-  %.not56 = icmp eq i64 %47, -1
-  br i1 %.not56, label %50, label %48
+.lr.ph:                                           ; preds = %.lr.ph.preheader, %49
+  %indvars.iv = phi i64 [ 1, %.lr.ph.preheader ], [ %indvars.iv.next, %49 ]
+  %.04859 = phi i64 [ %42, %.lr.ph.preheader ], [ %50, %49 ]
+  %45 = getelementptr i64, ptr %11, i64 %indvars.iv
+  %46 = load i64, ptr %45, align 8, !tbaa !93
+  %.not56 = icmp eq i64 %46, -1
+  br i1 %.not56, label %49, label %47
 
-48:                                               ; preds = %.lr.ph
-  %49 = xor i64 %47, -1
-  tail call fastcc void @gc_sweep_plane(ptr noundef %0, i64 noundef %.04859, i64 noundef %49, ptr noundef %2)
-  br label %50
+47:                                               ; preds = %.lr.ph
+  %48 = xor i64 %46, -1
+  tail call fastcc void @gc_sweep_plane(ptr noundef %0, i64 noundef %.04859, i64 noundef %48, ptr noundef %2)
+  br label %49
 
-50:                                               ; preds = %48, %.lr.ph
-  %51 = add i64 %.04859, 2560
+49:                                               ; preds = %47, %.lr.ph
+  %50 = add i64 %.04859, 2560
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
+  %exitcond.not = icmp eq i64 %indvars.iv.next, %33
   br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !609
 
-52:                                               ; preds = %._crit_edge
-  %53 = getelementptr inbounds nuw i8, ptr %4, i64 488
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(208) %11, ptr noundef nonnull readonly align 1 dereferenceable(208) %53, i64 noundef range(i64 1, 34359738361) 208, i1 noundef false) #6
-  br label %54
+51:                                               ; preds = %._crit_edge
+  %52 = getelementptr inbounds nuw i8, ptr %4, i64 488
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(208) %11, ptr noundef nonnull readonly align 1 dereferenceable(208) %52, i64 noundef range(i64 1, 34359738361) 208, i1 noundef false) #6
+  br label %53
 
-54:                                               ; preds = %52, %._crit_edge
-  %55 = getelementptr inbounds nuw i8, ptr %2, i64 12
-  %56 = load i32, ptr %55, align 4, !tbaa !584
-  %57 = getelementptr inbounds nuw i8, ptr %2, i64 16
-  %58 = load i32, ptr %57, align 8, !tbaa !585
-  %59 = add i32 %58, %56
-  %60 = load i16, ptr %8, align 4, !tbaa !512
-  %61 = trunc i32 %59 to i16
-  %62 = add i16 %60, %61
-  store i16 %62, ptr %8, align 4, !tbaa !512
-  %63 = sext i32 %56 to i64
-  %64 = getelementptr inbounds nuw i8, ptr %4, i64 16
-  %65 = load ptr, ptr %64, align 8, !tbaa !242
-  %66 = getelementptr inbounds nuw i8, ptr %65, i64 40
-  %67 = load i64, ptr %66, align 8, !tbaa !401
-  %68 = add i64 %67, %63
-  store i64 %68, ptr %66, align 8, !tbaa !401
-  %69 = getelementptr inbounds nuw i8, ptr %0, i64 888
-  %70 = load i64, ptr %69, align 8, !tbaa !238
-  %.not54 = icmp eq i64 %70, 0
-  br i1 %.not54, label %76, label %71
+53:                                               ; preds = %51, %._crit_edge
+  %54 = getelementptr inbounds nuw i8, ptr %2, i64 12
+  %55 = load i32, ptr %54, align 4, !tbaa !584
+  %56 = getelementptr inbounds nuw i8, ptr %2, i64 16
+  %57 = load i32, ptr %56, align 8, !tbaa !585
+  %58 = add i32 %57, %55
+  %59 = load i16, ptr %8, align 4, !tbaa !512
+  %60 = trunc i32 %58 to i16
+  %61 = add i16 %59, %60
+  store i16 %61, ptr %8, align 4, !tbaa !512
+  %62 = sext i32 %55 to i64
+  %63 = getelementptr inbounds nuw i8, ptr %4, i64 16
+  %64 = load ptr, ptr %63, align 8, !tbaa !242
+  %65 = getelementptr inbounds nuw i8, ptr %64, i64 40
+  %66 = load i64, ptr %65, align 8, !tbaa !401
+  %67 = add i64 %66, %62
+  store i64 %67, ptr %65, align 8, !tbaa !401
+  %68 = getelementptr inbounds nuw i8, ptr %0, i64 888
+  %69 = load i64, ptr %68, align 8, !tbaa !238
+  %.not54 = icmp eq i64 %69, 0
+  br i1 %.not54, label %75, label %70
 
-71:                                               ; preds = %54
-  %72 = getelementptr inbounds nuw i8, ptr %0, i64 776
-  %73 = load i32, ptr %72, align 8, !tbaa !610
-  %.not55 = icmp eq i32 %73, 0
-  br i1 %.not55, label %74, label %76
+70:                                               ; preds = %53
+  %71 = getelementptr inbounds nuw i8, ptr %0, i64 776
+  %72 = load i32, ptr %71, align 8, !tbaa !610
+  %.not55 = icmp eq i32 %72, 0
+  br i1 %.not55, label %73, label %75
 
-74:                                               ; preds = %71
-  %75 = getelementptr i8, ptr %0, i64 2216
-  %.val = load i32, ptr %75, align 8, !tbaa !139
+73:                                               ; preds = %70
+  %74 = getelementptr i8, ptr %0, i64 2216
+  %.val = load i32, ptr %74, align 8, !tbaa !139
   tail call void @rb_postponed_job_trigger(i32 noundef %.val) #6
-  br label %76
+  br label %75
 
-76:                                               ; preds = %74, %71, %54
+75:                                               ; preds = %73, %70, %53
   ret void
 }
 
@@ -32029,9 +32026,6 @@ declare i64 @llvm.smax.i64(i64, i64) #58
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i64 @llvm.usub.sat.i64(i64, i64) #58
-
-; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i32 @llvm.umax.i32(i32, i32) #58
 
 ; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: readwrite)
 declare void @llvm.memmove.p0.p0.i64(ptr writeonly captures(none), ptr readonly captures(none), i64, i1 immarg) #59

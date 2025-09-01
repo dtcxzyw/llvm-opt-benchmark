@@ -5931,44 +5931,45 @@ define dso_local range(i64 -2147483648, 2147483648) i64 @byteapos(ptr noundef re
   %.not46 = icmp eq i8 %52, 0
   %.v47 = select i1 %.not46, i64 4, i64 1
   %53 = getelementptr inbounds nuw i8, ptr %9, i64 %.v47
-  %54 = sub nsw i32 %30, %51
-  %.not4853 = icmp slt i32 %54, 0
+  %.not4853 = icmp slt i32 %30, %51
   br i1 %.not4853, label %.loopexit, label %.lr.ph
 
 .lr.ph:                                           ; preds = %.thread
-  %55 = and i8 %10, 1
-  %.not45 = icmp eq i8 %55, 0
+  %54 = and i8 %10, 1
+  %.not45 = icmp eq i8 %54, 0
   %.v = select i1 %.not45, i64 4, i64 1
-  %56 = getelementptr inbounds nuw i8, ptr %5, i64 %.v
-  %57 = load i8, ptr %53, align 1
-  %58 = zext nneg i32 %51 to i64
-  br label %59
+  %55 = getelementptr inbounds nuw i8, ptr %5, i64 %.v
+  %56 = load i8, ptr %53, align 1
+  %57 = zext nneg i32 %51 to i64
+  %58 = add nuw nsw i32 %30, 1
+  %59 = sub nsw i32 %58, %51
+  br label %60
 
-59:                                               ; preds = %.lr.ph, %67
-  %.03655 = phi ptr [ %56, %.lr.ph ], [ %68, %67 ]
-  %.03854 = phi i32 [ 0, %.lr.ph ], [ %69, %67 ]
-  %60 = load i8, ptr %.03655, align 1
-  %61 = icmp eq i8 %57, %60
-  br i1 %61, label %62, label %67
+60:                                               ; preds = %.lr.ph, %68
+  %.03655 = phi ptr [ %55, %.lr.ph ], [ %69, %68 ]
+  %.03854 = phi i32 [ 0, %.lr.ph ], [ %70, %68 ]
+  %61 = load i8, ptr %.03655, align 1
+  %62 = icmp eq i8 %56, %61
+  br i1 %62, label %63, label %68
 
-62:                                               ; preds = %59
-  %bcmp = tail call i32 @bcmp(ptr noundef nonnull dereferenceable(1) %.03655, ptr noundef nonnull dereferenceable(1) %53, i64 %58)
-  %63 = icmp eq i32 %bcmp, 0
-  br i1 %63, label %64, label %67
+63:                                               ; preds = %60
+  %bcmp = tail call i32 @bcmp(ptr noundef nonnull dereferenceable(1) %.03655, ptr noundef nonnull dereferenceable(1) %53, i64 %57)
+  %64 = icmp eq i32 %bcmp, 0
+  br i1 %64, label %65, label %68
 
-64:                                               ; preds = %62
-  %65 = add nuw i32 %.03854, 1
-  %66 = sext i32 %65 to i64
+65:                                               ; preds = %63
+  %66 = add nuw i32 %.03854, 1
+  %67 = sext i32 %66 to i64
   br label %.loopexit
 
-67:                                               ; preds = %62, %59
-  %68 = getelementptr inbounds nuw i8, ptr %.03655, i64 1
-  %69 = add nuw nsw i32 %.03854, 1
-  %.not48.not = icmp slt i32 %.03854, %54
-  br i1 %.not48.not, label %59, label %.loopexit, !llvm.loop !14
+68:                                               ; preds = %63, %60
+  %69 = getelementptr inbounds nuw i8, ptr %.03655, i64 1
+  %70 = add nuw nsw i32 %.03854, 1
+  %exitcond = icmp eq i32 %70, %59
+  br i1 %exitcond, label %.loopexit, label %60, !llvm.loop !14
 
-.loopexit:                                        ; preds = %67, %.thread, %64, %48
-  %.0 = phi i64 [ 1, %48 ], [ %66, %64 ], [ 0, %.thread ], [ 0, %67 ]
+.loopexit:                                        ; preds = %68, %.thread, %65, %48
+  %.0 = phi i64 [ 1, %48 ], [ %67, %65 ], [ 0, %.thread ], [ 0, %68 ]
   ret i64 %.0
 }
 
