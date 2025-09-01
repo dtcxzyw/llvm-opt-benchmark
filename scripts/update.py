@@ -6,6 +6,7 @@ from multiprocessing import Pool, current_process
 import tqdm
 import json
 import argparse
+import time
 
 parser = argparse.ArgumentParser(description="Update opt.ll")
 parser.add_argument("--stats",
@@ -356,10 +357,17 @@ def update_baseline():
             "git commit -m 'llvm: Update baseline to {}'".format(LLVM_REV)):
         return True
 
-    if not os_do("git push"):
-        return False
+    for _ in range(5):
+        try:
+            out = subprocess.check_output(['git', 'push'], stderr=subprocess.STDOUT, timeout=1800).decode()
+            if "Your branch is up to date with" in out:
+                return True
+            time.sleep(10.0)
+        except Exception:
+            time.sleep(10.0)
+            pass
 
-    return True
+    return False
 
 
 def update_pr():
