@@ -5880,7 +5880,6 @@ define hidden range(i32 -1, 1) i32 @_PyMonitoring_ClearToolId(i32 noundef %0) lo
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 16
   %5 = load ptr, ptr %4, align 8, !tbaa !47
   %6 = sext i32 %0 to i64
-  %.idx.i = mul nsw i64 %6, 152
   br label %10
 
 7:                                                ; preds = %_PyMonitoring_RegisterCallback.exit
@@ -5897,8 +5896,8 @@ define hidden range(i32 -1, 1) i32 @_PyMonitoring_ClearToolId(i32 noundef %0) lo
   br i1 %11, label %15, label %31
 
 15:                                               ; preds = %10
-  %16 = getelementptr i8, ptr %14, i64 223120
-  %17 = getelementptr i8, ptr %16, i64 %.idx.i
+  %16 = getelementptr [19 x ptr], ptr %14, i64 %6
+  %17 = getelementptr i8, ptr %16, i64 223120
   %18 = atomicrmw xchg ptr %17, i64 0 seq_cst, align 8
   %19 = inttoptr i64 %18 to ptr
   %.not.i36.i = icmp eq i64 %18, 0
@@ -5923,8 +5922,8 @@ Py_XDECREF.exit.i:                                ; preds = %25, %22, %20, %15
   %26 = load ptr, ptr %2, align 8, !tbaa !76
   %27 = getelementptr inbounds nuw i8, ptr %26, i64 16
   %28 = load ptr, ptr %27, align 8, !tbaa !47
-  %29 = getelementptr i8, ptr %28, i64 223112
-  %30 = getelementptr i8, ptr %29, i64 %.idx.i
+  %29 = getelementptr [19 x ptr], ptr %28, i64 %6
+  %30 = getelementptr i8, ptr %29, i64 223112
   br label %35
 
 31:                                               ; preds = %10
@@ -6142,9 +6141,8 @@ make_branch_handler.exit35:                       ; preds = %22, %26
   %41 = getelementptr inbounds nuw i8, ptr %40, i64 16
   %42 = load ptr, ptr %41, align 8, !tbaa !47
   %43 = sext i32 %0 to i64
-  %.idx = mul nsw i64 %43, 152
-  %44 = getelementptr i8, ptr %42, i64 223120
-  %45 = getelementptr i8, ptr %44, i64 %.idx
+  %44 = getelementptr [19 x ptr], ptr %42, i64 %43
+  %45 = getelementptr i8, ptr %44, i64 223120
   %46 = atomicrmw xchg ptr %45, i64 %.024 seq_cst, align 8
   %47 = inttoptr i64 %46 to ptr
   %.not.i36 = icmp eq i64 %46, 0
@@ -6169,8 +6167,8 @@ Py_XDECREF.exit:                                  ; preds = %38, %48, %50, %53
   %54 = load ptr, ptr %39, align 8, !tbaa !76
   %55 = getelementptr inbounds nuw i8, ptr %54, i64 16
   %56 = load ptr, ptr %55, align 8, !tbaa !47
-  %57 = getelementptr i8, ptr %56, i64 223112
-  %58 = getelementptr i8, ptr %57, i64 %.idx
+  %57 = getelementptr [19 x ptr], ptr %56, i64 %43
+  %58 = getelementptr i8, ptr %57, i64 223112
   %59 = atomicrmw xchg ptr %58, i64 %.025 seq_cst, align 8
   br label %77
 

@@ -1722,18 +1722,17 @@ for.cond.preheader:                               ; preds = %_ZNK8facebook5velox
   %_M_finish.i = getelementptr inbounds nuw i8, ptr %this, i64 968
   %5 = load ptr, ptr %_M_finish.i, align 8
   %6 = load ptr, ptr %sizeClasses_, align 8
-  %cmp32.not = icmp eq ptr %5, %6
-  br i1 %cmp32.not, label %for.end, label %for.body.lr.ph
+  %cmp31.not = icmp eq ptr %5, %6
+  br i1 %cmp31.not, label %for.end, label %for.body.lr.ph
 
 for.body.lr.ph:                                   ; preds = %for.cond.preheader
   %sizeClassSizes_ = getelementptr inbounds nuw i8, ptr %this, i64 24
-  %stats_ = getelementptr inbounds nuw i8, ptr %this, i64 72
   br label %for.body
 
 for.body:                                         ; preds = %for.body.lr.ph, %if.end18
   %indvars.iv = phi i64 [ 0, %for.body.lr.ph ], [ %indvars.iv.next, %if.end18 ]
   %7 = phi ptr [ %6, %for.body.lr.ph ], [ %24, %if.end18 ]
-  %numFreed.034 = phi i64 [ 0, %for.body.lr.ph ], [ %add, %if.end18 ]
+  %numFreed.033 = phi i64 [ 0, %for.body.lr.ph ], [ %add, %if.end18 ]
   %add.ptr.i = getelementptr inbounds nuw %"class.std::unique_ptr.9", ptr %7, i64 %indvars.iv
   %8 = tail call noundef i64 @llvm.x86.rdtsc()
   %9 = load ptr, ptr %add.ptr.i, align 8
@@ -1769,14 +1768,13 @@ if.end.i.i12:                                     ; preds = %if.then10
   %16 = trunc nuw nsw i64 %15 to i32
   %17 = xor i32 %16, 63
   %18 = tail call i32 @llvm.umin.i32(i32 %17, i32 19)
-  %narrow = mul nuw nsw i32 %18, 40
-  %narrow26 = add nuw nsw i32 %narrow, 16
-  %19 = zext nneg i32 %narrow26 to i64
+  %19 = zext nneg i32 %18 to i64
   br label %_ZN8facebook5velox6memory5Stats9sizeIndexEl.exit
 
 _ZN8facebook5velox6memory5Stats9sizeIndexEl.exit: ; preds = %if.then10, %if.end.i.i12
-  %retval.0.i = phi i64 [ 16, %if.then10 ], [ %19, %if.end.i.i12 ]
-  %freeClocks = getelementptr inbounds nuw i8, ptr %stats_, i64 %retval.0.i
+  %retval.0.i = phi i64 [ 0, %if.then10 ], [ %19, %if.end.i.i12 ]
+  %arrayidx.i.i = getelementptr %"struct.facebook::velox::memory::SizeClassStats", ptr %this, i64 %retval.0.i
+  %freeClocks = getelementptr i8, ptr %arrayidx.i.i, i64 88
   %20 = atomicrmw add ptr %freeClocks, i64 %sub.i seq_cst, align 8
   br label %if.end18
 
@@ -1789,7 +1787,7 @@ _ZN8facebook5velox10ClockTimerD2Ev.exit21:        ; preds = %for.body
 if.end18:                                         ; preds = %_ZN8facebook5velox6memory5Stats9sizeIndexEl.exit, %_ZN8facebook5velox10ClockTimerD2Ev.exit
   %sext = shl i64 %call7, 32
   %conv19 = ashr exact i64 %sext, 32
-  %add = add i64 %conv19, %numFreed.034
+  %add = add i64 %conv19, %numFreed.033
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %23 = load ptr, ptr %_M_finish.i, align 8
   %24 = load ptr, ptr %sizeClasses_, align 8
@@ -1802,11 +1800,11 @@ if.end18:                                         ; preds = %_ZN8facebook5velox6
 
 for.end.loopexit:                                 ; preds = %if.end18
   %.pre = load ptr, ptr %runs_.i.i, align 8
-  %.pre38 = load ptr, ptr %_M_finish.i.i.i, align 8
+  %.pre37 = load ptr, ptr %_M_finish.i.i.i, align 8
   br label %for.end
 
 for.end:                                          ; preds = %for.end.loopexit, %for.cond.preheader
-  %25 = phi ptr [ %2, %for.cond.preheader ], [ %.pre38, %for.end.loopexit ]
+  %25 = phi ptr [ %2, %for.cond.preheader ], [ %.pre37, %for.end.loopexit ]
   %26 = phi ptr [ %1, %for.cond.preheader ], [ %.pre, %for.end.loopexit ]
   %numFreed.0.lcssa = phi i64 [ 0, %for.cond.preheader ], [ %add, %for.end.loopexit ]
   %tobool.not.i.i.i = icmp eq ptr %25, %26

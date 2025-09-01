@@ -4,6 +4,7 @@ target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:
 target triple = "x86_64-pc-linux-gnu"
 
 %union.anon = type { i64 }
+%struct.AVComponentDescriptor = type { i32, i32, i32, i32, i32 }
 %struct.AVBPrint = type { ptr, i32, i32, i32, [1 x i8], [1000 x i8] }
 %struct.__va_list_tag = type { i32, i32, ptr, ptr }
 %struct.anon = type { ptr, i32 }
@@ -2255,15 +2256,15 @@ define noundef i32 @show_pix_fmts(ptr noundef readnone captures(none) %0, ptr no
 
 .lr.ph:                                           ; preds = %.lr.ph25, %.lr.ph
   %indvars.iv = phi i64 [ %indvars.iv.next, %.lr.ph ], [ 1, %.lr.ph25 ]
-  %.idx = mul nuw nsw i64 %indvars.iv, 20
-  %30 = getelementptr inbounds nuw i8, ptr %24, i64 %.idx
-  %31 = load i32, ptr %30, align 4, !tbaa !97
-  %32 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.27, i32 noundef %31)
+  %30 = getelementptr inbounds nuw %struct.AVComponentDescriptor, ptr %5, i64 %indvars.iv
+  %31 = getelementptr inbounds nuw i8, ptr %30, i64 40
+  %32 = load i32, ptr %31, align 4, !tbaa !97
+  %33 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.27, i32 noundef %32)
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %33 = load i8, ptr %20, align 8, !tbaa !96
-  %34 = zext i8 %33 to i64
-  %35 = icmp samesign ult i64 %indvars.iv.next, %34
-  br i1 %35, label %.lr.ph, label %._crit_edge, !llvm.loop !100
+  %34 = load i8, ptr %20, align 8, !tbaa !96
+  %35 = zext i8 %34 to i64
+  %36 = icmp samesign ult i64 %indvars.iv.next, %35
+  br i1 %36, label %.lr.ph, label %._crit_edge, !llvm.loop !100
 
 ._crit_edge26:                                    ; preds = %._crit_edge, %3
   ret i32 0

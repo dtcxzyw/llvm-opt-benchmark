@@ -60,25 +60,24 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEmcRKS3_.exit:
   %11 = udiv i64 %.01012.i, 36
   %12 = add nsw i64 %.013.i, -1
   %.not.i = icmp eq i64 %12, 0
-  br i1 %.not.i, label %_ZN7rocksdb12PutBaseCharsILm36EEEvPPcmmb.exit, label %.lr.ph.i, !llvm.loop !14
+  br i1 %.not.i, label %.lr.ph.i7.preheader, label %.lr.ph.i, !llvm.loop !14
 
-_ZN7rocksdb12PutBaseCharsILm36EEEvPPcmmb.exit:    ; preds = %.lr.ph.i
+.lr.ph.i7.preheader:                              ; preds = %.lr.ph.i
   %13 = and i64 %2, 4611686018427387903
-  %14 = getelementptr inbounds nuw i8, ptr %4, i64 8
   br label %.lr.ph.i7
 
-.lr.ph.i7:                                        ; preds = %.lr.ph.i7, %_ZN7rocksdb12PutBaseCharsILm36EEEvPPcmmb.exit
-  %.013.i8 = phi i64 [ %21, %.lr.ph.i7 ], [ 12, %_ZN7rocksdb12PutBaseCharsILm36EEEvPPcmmb.exit ]
-  %.01012.i9 = phi i64 [ %20, %.lr.ph.i7 ], [ %13, %_ZN7rocksdb12PutBaseCharsILm36EEEvPPcmmb.exit ]
-  %15 = urem i64 %.01012.i9, 36
-  %16 = getelementptr inbounds nuw i8, ptr @.str.15, i64 %15
-  %17 = load i8, ptr %16, align 1, !tbaa !13
-  %18 = getelementptr i8, ptr %14, i64 %.013.i8
-  %19 = getelementptr i8, ptr %18, i64 -1
-  store i8 %17, ptr %19, align 1, !tbaa !13
-  %20 = udiv i64 %.01012.i9, 36
-  %21 = add nsw i64 %.013.i8, -1
-  %.not.i10 = icmp eq i64 %21, 0
+.lr.ph.i7:                                        ; preds = %.lr.ph.i7.preheader, %.lr.ph.i7
+  %.013.i8 = phi i64 [ %20, %.lr.ph.i7 ], [ 12, %.lr.ph.i7.preheader ]
+  %.01012.i9 = phi i64 [ %19, %.lr.ph.i7 ], [ %13, %.lr.ph.i7.preheader ]
+  %14 = urem i64 %.01012.i9, 36
+  %15 = getelementptr inbounds nuw i8, ptr @.str.15, i64 %14
+  %16 = load i8, ptr %15, align 1, !tbaa !13
+  %17 = getelementptr i8, ptr %4, i64 %.013.i8
+  %18 = getelementptr i8, ptr %17, i64 7
+  store i8 %16, ptr %18, align 1, !tbaa !13
+  %19 = udiv i64 %.01012.i9, 36
+  %20 = add nsw i64 %.013.i8, -1
+  %.not.i10 = icmp eq i64 %20, 0
   br i1 %.not.i10, label %_ZN7rocksdb12PutBaseCharsILm36EEEvPPcmmb.exit11, label %.lr.ph.i7, !llvm.loop !14
 
 _ZN7rocksdb12PutBaseCharsILm36EEEvPPcmmb.exit11:  ; preds = %.lr.ph.i7

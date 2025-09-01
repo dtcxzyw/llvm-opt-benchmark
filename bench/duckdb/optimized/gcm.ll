@@ -801,36 +801,32 @@ _ZL8gcm_maskP19mbedtls_gcm_contextPhmmPKhS1_.exit103: ; preds = %_ZL8gcm_incrPh.
   %.275.lcssa = phi ptr [ %.073, %.thread ], [ %118, %116 ]
   %.2.lcssa = phi ptr [ %.071, %.thread ], [ %119, %116 ]
   %.not90 = icmp eq i64 %.278.lcssa, 0
-  br i1 %.not90, label %131, label %121
+  br i1 %.not90, label %128, label %.preheader
 
-121:                                              ; preds = %._crit_edge
-  %122 = getelementptr inbounds nuw i8, ptr %0, i64 360
-  br label %123
+.preheader:                                       ; preds = %._crit_edge, %.preheader
+  %.03.i104 = phi i64 [ %125, %.preheader ], [ 16, %._crit_edge ]
+  %121 = getelementptr i8, ptr %0, i64 %.03.i104
+  %122 = getelementptr i8, ptr %121, i64 359
+  %123 = load i8, ptr %122, align 1, !tbaa !15
+  %124 = add i8 %123, 1
+  store i8 %124, ptr %122, align 1, !tbaa !15
+  %.not.i105 = icmp eq i8 %124, 0
+  %125 = add nsw i64 %.03.i104, -1
+  %126 = icmp ugt i64 %125, 12
+  %or.cond.i106 = select i1 %.not.i105, i1 %126, i1 false
+  br i1 %or.cond.i106, label %.preheader, label %_ZL8gcm_incrPh.exit107, !llvm.loop !36
 
-123:                                              ; preds = %123, %121
-  %.03.i104 = phi i64 [ 16, %121 ], [ %128, %123 ]
-  %124 = getelementptr i8, ptr %122, i64 %.03.i104
-  %125 = getelementptr i8, ptr %124, i64 -1
-  %126 = load i8, ptr %125, align 1, !tbaa !15
-  %127 = add i8 %126, 1
-  store i8 %127, ptr %125, align 1, !tbaa !15
-  %.not.i105 = icmp eq i8 %127, 0
-  %128 = add nsw i64 %.03.i104, -1
-  %129 = icmp ugt i64 %128, 12
-  %or.cond.i106 = select i1 %.not.i105, i1 %129, i1 false
-  br i1 %or.cond.i106, label %123, label %_ZL8gcm_incrPh.exit107, !llvm.loop !36
+_ZL8gcm_incrPh.exit107:                           ; preds = %.preheader
+  %127 = call fastcc noundef i32 @_ZL8gcm_maskP19mbedtls_gcm_contextPhmmPKhS1_(ptr noundef nonnull %0, ptr noundef %9, i64 noundef 0, i64 noundef %.278.lcssa, ptr noundef %.275.lcssa, ptr noundef %.2.lcssa)
+  %.not91 = icmp eq i32 %127, 0
+  br i1 %.not91, label %128, label %.critedge
 
-_ZL8gcm_incrPh.exit107:                           ; preds = %123
-  %130 = call fastcc noundef i32 @_ZL8gcm_maskP19mbedtls_gcm_contextPhmmPKhS1_(ptr noundef nonnull %0, ptr noundef %9, i64 noundef 0, i64 noundef %.278.lcssa, ptr noundef %.275.lcssa, ptr noundef %.2.lcssa)
-  %.not91 = icmp eq i32 %130, 0
-  br i1 %.not91, label %131, label %.critedge
-
-131:                                              ; preds = %_ZL8gcm_incrPh.exit107, %._crit_edge
+128:                                              ; preds = %_ZL8gcm_incrPh.exit107, %._crit_edge
   call void @mbedtls_platform_zeroize(ptr noundef nonnull %9, i64 noundef 16)
   br label %.critedge
 
-.critedge:                                        ; preds = %_ZL8gcm_maskP19mbedtls_gcm_contextPhmmPKhS1_.exit103, %_ZL8gcm_maskP19mbedtls_gcm_contextPhmmPKhS1_.exit, %_ZL8gcm_incrPh.exit107, %19, %13, %11, %6, %131
-  %.070 = phi i32 [ 0, %131 ], [ -22, %6 ], [ 0, %11 ], [ -20, %13 ], [ -20, %19 ], [ %92, %_ZL8gcm_maskP19mbedtls_gcm_contextPhmmPKhS1_.exit103 ], [ %130, %_ZL8gcm_incrPh.exit107 ], [ %39, %_ZL8gcm_maskP19mbedtls_gcm_contextPhmmPKhS1_.exit ]
+.critedge:                                        ; preds = %_ZL8gcm_maskP19mbedtls_gcm_contextPhmmPKhS1_.exit103, %_ZL8gcm_maskP19mbedtls_gcm_contextPhmmPKhS1_.exit, %_ZL8gcm_incrPh.exit107, %19, %13, %11, %6, %128
+  %.070 = phi i32 [ 0, %128 ], [ -22, %6 ], [ 0, %11 ], [ -20, %13 ], [ -20, %19 ], [ %92, %_ZL8gcm_maskP19mbedtls_gcm_contextPhmmPKhS1_.exit103 ], [ %127, %_ZL8gcm_incrPh.exit107 ], [ %39, %_ZL8gcm_maskP19mbedtls_gcm_contextPhmmPKhS1_.exit ]
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
   ret i32 %.070
 }

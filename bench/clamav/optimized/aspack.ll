@@ -1135,8 +1135,8 @@ getbits.exit78.thread:                            ; preds = %37
 
 176:                                              ; preds = %173, %175
   %indvars.iv150 = phi i64 [ 0, %173 ], [ %indvars.iv.next151, %175 ]
-  %177 = getelementptr inbounds nuw i8, ptr %62, i64 %indvars.iv150
-  %178 = getelementptr inbounds nuw i8, ptr %177, i64 750
+  %177 = getelementptr inbounds nuw i8, ptr %0, i64 %indvars.iv150
+  %178 = getelementptr inbounds nuw i8, ptr %177, i64 1882
   %179 = load i8, ptr %178, align 1, !tbaa !17
   %.not65 = icmp eq i8 %179, 3
   br i1 %.not65, label %175, label %180
@@ -1383,9 +1383,8 @@ define internal fastcc i32 @getdec(ptr noundef nonnull captures(none) %0, i8 nou
 
 34:                                               ; preds = %.loopexit
   %35 = lshr i32 %30, 16
-  %.idx = mul nuw nsw i64 %5, 24
-  %36 = getelementptr inbounds nuw i8, ptr %0, i64 248
-  %37 = getelementptr inbounds nuw i8, ptr %36, i64 %.idx
+  %36 = getelementptr inbounds nuw %struct.DICT_HELPER, ptr %0, i64 %5
+  %37 = getelementptr inbounds nuw i8, ptr %36, i64 248
   %38 = load ptr, ptr %37, align 8, !tbaa !11
   %39 = zext nneg i32 %35 to i64
   %40 = getelementptr inbounds nuw i8, ptr %38, i64 %39

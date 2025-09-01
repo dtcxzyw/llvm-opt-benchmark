@@ -1122,7 +1122,7 @@ define void @_ZN11GLLogStream14backToBookmarkEv(ptr noundef nonnull align 8 dere
   br i1 %14, label %.lr.ph, label %.loopexit
 
 .lr.ph:                                           ; preds = %.preheader, %_ZN5QListISt4pairIi7QStringEE10removeLastEv.exit
-  %15 = phi ptr [ %28, %_ZN5QListISt4pairIi7QStringEE10removeLastEv.exit ], [ %8, %.preheader ]
+  %15 = phi ptr [ %27, %_ZN5QListISt4pairIi7QStringEE10removeLastEv.exit ], [ %8, %.preheader ]
   call void @llvm.lifetime.start.p0(ptr nonnull %2)
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %16 = load atomic i32, ptr %15 monotonic, align 4, !noalias !20
@@ -1138,25 +1138,24 @@ define void @_ZN11GLLogStream14backToBookmarkEv(ptr noundef nonnull align 8 dere
 
 _ZN5QListISt4pairIi7QStringEE10removeLastEv.exit: ; preds = %.lr.ph, %18
   %21 = phi ptr [ %15, %.lr.ph ], [ %.pre.i.i, %18 ]
-  %22 = getelementptr inbounds nuw i8, ptr %21, i64 16
-  %23 = getelementptr inbounds nuw i8, ptr %21, i64 12
-  %24 = load i32, ptr %23, align 4, !noalias !20
-  %25 = sext i32 %24 to i64
-  %26 = getelementptr inbounds ptr, ptr %22, i64 %25
-  %27 = getelementptr inbounds i8, ptr %26, i64 -8
-  store ptr %27, ptr %2, align 8
+  %22 = getelementptr inbounds nuw i8, ptr %21, i64 12
+  %23 = load i32, ptr %22, align 4, !noalias !20
+  %24 = sext i32 %23 to i64
+  %25 = getelementptr ptr, ptr %21, i64 %24
+  %26 = getelementptr i8, ptr %25, i64 8
+  store ptr %26, ptr %2, align 8
   call void @_ZN5QListISt4pairIi7QStringEE5eraseENS3_8iteratorE(ptr dead_on_unwind nonnull writable sret(%"class.QList<std::pair<int, QString>>::iterator") align 8 %3, ptr noundef nonnull align 8 dereferenceable(8) %7, ptr noundef nonnull %2)
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
-  %28 = load ptr, ptr %7, align 8
-  %29 = getelementptr inbounds nuw i8, ptr %28, i64 12
-  %30 = load i32, ptr %29, align 4
-  %31 = getelementptr inbounds nuw i8, ptr %28, i64 8
-  %32 = load i32, ptr %31, align 8
-  %33 = sub nsw i32 %30, %32
-  %34 = load i32, ptr %4, align 8
-  %35 = icmp sgt i32 %33, %34
-  br i1 %35, label %.lr.ph, label %.loopexit, !llvm.loop !23
+  %27 = load ptr, ptr %7, align 8
+  %28 = getelementptr inbounds nuw i8, ptr %27, i64 12
+  %29 = load i32, ptr %28, align 4
+  %30 = getelementptr inbounds nuw i8, ptr %27, i64 8
+  %31 = load i32, ptr %30, align 8
+  %32 = sub nsw i32 %29, %31
+  %33 = load i32, ptr %4, align 8
+  %34 = icmp sgt i32 %32, %33
+  br i1 %34, label %.lr.ph, label %.loopexit, !llvm.loop !23
 
 .loopexit:                                        ; preds = %_ZN5QListISt4pairIi7QStringEE10removeLastEv.exit, %.preheader, %1
   ret void

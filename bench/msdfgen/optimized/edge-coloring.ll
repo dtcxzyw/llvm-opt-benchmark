@@ -48,7 +48,6 @@ entry:
 
 for.body.lr.ph:                                   ; preds = %entry
   %arrayidx80 = getelementptr inbounds nuw i8, ptr %colors, i64 8
-  %arrayidx182 = getelementptr inbounds nuw i8, ptr %colors, i64 4
   %arrayidx183 = getelementptr inbounds nuw i8, ptr %parts, i64 8
   %arrayidx186 = getelementptr inbounds nuw i8, ptr %parts, i64 16
   %arrayidx169 = getelementptr inbounds nuw i8, ptr %parts, i64 24
@@ -344,8 +343,8 @@ for.body93:                                       ; preds = %for.body93.lr.ph, %
   %add97 = fadd double %sub96, 5.000000e-01
   %conv98 = fptosi double %add97 to i32
   %29 = sext i32 %conv98 to i64
-  %30 = getelementptr i32, ptr %arrayidx182, i64 %29
-  %arrayidx100 = getelementptr i8, ptr %30, i64 -12
+  %30 = getelementptr i32, ptr %colors, i64 %29
+  %arrayidx100 = getelementptr i8, ptr %30, i64 -8
   %31 = load i32, ptr %arrayidx100, align 4
   %add103 = add nsw i32 %i.0251, %27
   %rem = srem i32 %add103, %conv
@@ -668,7 +667,6 @@ entry:
 
 for.body.lr.ph:                                   ; preds = %entry
   %arrayidx87 = getelementptr inbounds nuw i8, ptr %colors, i64 8
-  %arrayidx192 = getelementptr inbounds nuw i8, ptr %colors, i64 4
   %arrayidx193 = getelementptr inbounds nuw i8, ptr %parts, i64 8
   %arrayidx196 = getelementptr inbounds nuw i8, ptr %parts, i64 16
   %arrayidx179 = getelementptr inbounds nuw i8, ptr %parts, i64 24
@@ -1026,8 +1024,8 @@ for.body102:                                      ; preds = %for.body102.lr.ph, 
   %add107 = fadd double %sub106, 5.000000e-01
   %conv108 = fptosi double %add107 to i32
   %36 = sext i32 %conv108 to i64
-  %37 = getelementptr i32, ptr %arrayidx192, i64 %36
-  %arrayidx110 = getelementptr i8, ptr %37, i64 -12
+  %37 = getelementptr i32, ptr %colors, i64 %36
+  %arrayidx110 = getelementptr i8, ptr %37, i64 -8
   %38 = load i32, ptr %arrayidx110, align 4
   %add113 = add nsw i32 %i.0322, %34
   %rem = srem i32 %add113, %conv

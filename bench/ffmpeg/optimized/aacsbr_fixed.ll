@@ -2417,8 +2417,8 @@ fixed_log.exit.i20.i:                             ; preds = %925
 
 1063:                                             ; preds = %1061
   %1064 = zext nneg i32 %1049 to i64
-  %1065 = getelementptr i8, ptr %999, i64 %1064
-  %1066 = getelementptr i8, ptr %1065, i64 -1
+  %1065 = getelementptr i8, ptr %16, i64 %1064
+  %1066 = getelementptr i8, ptr %1065, i64 347907
   %1067 = load i8, ptr %1066, align 1, !tbaa !9
   %1068 = icmp ult i8 %1067, 3
   br i1 %1068, label %1069, label %sbr_make_f_derived.exit.i
@@ -4912,8 +4912,8 @@ sbr_env_estimate.exit:                            ; preds = %.loopexit140.i, %.l
   %821 = getelementptr inbounds nuw [48 x %struct.SoftFloat], ptr %323, i64 %indvars.iv1636.i
   %822 = getelementptr inbounds nuw [48 x %struct.SoftFloat], ptr %336, i64 %indvars.iv1636.i
   %823 = getelementptr inbounds nuw [48 x %struct.SoftFloat], ptr %337, i64 %indvars.iv1636.i
-  %824 = getelementptr inbounds nuw [48 x i8], ptr %494, i64 %indvars.iv1636.i
-  %825 = getelementptr inbounds nuw i8, ptr %824, i64 48
+  %824 = getelementptr inbounds nuw [48 x i8], ptr %348, i64 %indvars.iv1636.i
+  %825 = getelementptr inbounds nuw i8, ptr %824, i64 102224
   %826 = getelementptr inbounds nuw [48 x i8], ptr %325, i64 %indvars.iv1636.i
   %827 = getelementptr inbounds nuw [48 x %struct.SoftFloat], ptr %338, i64 %indvars.iv1636.i
   %828 = getelementptr inbounds nuw [48 x %struct.SoftFloat], ptr %331, i64 %indvars.iv1636.i
@@ -10536,8 +10536,8 @@ get_vlc2.exit:                                    ; preds = %31, %52
   store i32 %96, ptr %15, align 8, !tbaa !35
   %97 = shl nuw nsw i32 %94, %18
   %98 = trunc nuw nsw i32 %97 to i8
-  %99 = getelementptr inbounds nuw [5 x i8], ptr %14, i64 %indvars.iv89
-  %100 = getelementptr inbounds nuw i8, ptr %99, i64 5
+  %99 = getelementptr inbounds nuw [5 x i8], ptr %3, i64 %indvars.iv89
+  %100 = getelementptr inbounds nuw i8, ptr %99, i64 106501
   store i8 %98, ptr %100, align 1, !tbaa !9
   %101 = load i32, ptr %13, align 8, !tbaa !108
   %102 = icmp sgt i32 %101, 1
@@ -11464,9 +11464,8 @@ av_add_sf.exit297:                                ; preds = %av_add_sf.exit, %av
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
 define internal noundef i32 @sbr_x_gen(ptr noundef readonly captures(none) %0, ptr noundef writeonly captures(none) initializes((0, 19456)) %1, ptr noundef readonly captures(none) %2, ptr noundef readonly captures(none) %3, ptr noundef readonly captures(none) %4, i32 noundef %5) #9 {
   %7 = sext i32 %5 to i64
-  %.idx = mul nsw i64 %7, 106672
-  %8 = getelementptr i8, ptr %0, i64 106753
-  %9 = getelementptr i8, ptr %8, i64 %.idx
+  %8 = getelementptr %struct.SBRData, ptr %0, i64 %7
+  %9 = getelementptr i8, ptr %8, i64 106753
   %10 = load i8, ptr %9, align 1, !tbaa !120
   %11 = icmp ugt i8 %10, 16
   %12 = zext i8 %10 to i32

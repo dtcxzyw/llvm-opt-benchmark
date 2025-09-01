@@ -62,12 +62,12 @@ define hidden void @av1_set_entropy_contexts(ptr noundef readonly captures(none)
   %20 = getelementptr inbounds nuw i32, ptr @tx_size_high_unit, i64 %17
   %21 = load i32, ptr %20, align 4
   %.not = icmp eq i32 %5, 0
-  br i1 %.not, label %.thread49, label %23
+  br i1 %.not, label %.thread48, label %23
 
-.thread49:                                        ; preds = %8
+.thread48:                                        ; preds = %8
   %22 = sext i32 %19 to i64
   tail call void @llvm.memset.p0.i64(ptr align 1 %12, i8 0, i64 %22, i1 false)
-  br label %72
+  br label %71
 
 23:                                               ; preds = %8
   %24 = getelementptr inbounds nuw i8, ptr %0, i64 7928
@@ -81,9 +81,8 @@ define hidden void @av1_set_entropy_contexts(ptr noundef readonly captures(none)
   %29 = load i8, ptr %28, align 1
   %30 = zext i8 %29 to i32
   %31 = sext i32 %2 to i64
-  %.idx.i = mul nsw i64 %31, 2608
-  %32 = getelementptr i8, ptr %0, i64 20
-  %33 = getelementptr i8, ptr %32, i64 %.idx.i
+  %32 = getelementptr %struct.macroblockd_plane, ptr %0, i64 %31
+  %33 = getelementptr i8, ptr %32, i64 20
   %34 = load i32, ptr %33, align 4
   %35 = add nsw i32 %34, 3
   %36 = ashr i32 %25, %35
@@ -110,7 +109,7 @@ define hidden void @av1_set_entropy_contexts(ptr noundef readonly captures(none)
   %50 = getelementptr inbounds nuw i8, ptr %0, i64 7936
   %51 = load i32, ptr %50, align 16
   %52 = icmp slt i32 %51, 0
-  br i1 %52, label %max_block_high.exit, label %72
+  br i1 %52, label %max_block_high.exit, label %71
 
 max_block_high.exit:                              ; preds = %49
   %53 = zext i8 %3 to i64
@@ -118,32 +117,30 @@ max_block_high.exit:                              ; preds = %49
   %55 = load i8, ptr %54, align 1
   %56 = zext i8 %55 to i32
   %57 = sext i32 %2 to i64
-  %.idx.i48 = mul nsw i64 %57, 2608
-  %58 = getelementptr i8, ptr %0, i64 24
-  %59 = getelementptr i8, ptr %58, i64 %.idx.i48
-  %60 = load i32, ptr %59, align 8
-  %61 = add nsw i32 %60, 3
-  %62 = ashr i32 %51, %61
-  %63 = add nsw i32 %62, %56
-  %64 = ashr i32 %63, 2
-  %65 = sub nsw i32 %64, %7
-  %66 = tail call i32 @llvm.smin.i32(i32 %21, i32 %65)
-  %67 = trunc i32 %5 to i8
-  %68 = sext i32 %66 to i64
-  tail call void @llvm.memset.p0.i64(ptr align 1 %16, i8 %67, i64 %68, i1 false)
-  %69 = getelementptr inbounds i8, ptr %16, i64 %68
-  %70 = sub nsw i32 %21, %66
-  %71 = sext i32 %70 to i64
-  tail call void @llvm.memset.p0.i64(ptr align 1 %69, i8 0, i64 %71, i1 false)
-  br label %75
+  %58 = getelementptr %struct.macroblockd_plane, ptr %0, i64 %57, i32 3, i32 1
+  %59 = load i32, ptr %58, align 8
+  %60 = add nsw i32 %59, 3
+  %61 = ashr i32 %51, %60
+  %62 = add nsw i32 %61, %56
+  %63 = ashr i32 %62, 2
+  %64 = sub nsw i32 %63, %7
+  %65 = tail call i32 @llvm.smin.i32(i32 %21, i32 %64)
+  %66 = trunc i32 %5 to i8
+  %67 = sext i32 %65 to i64
+  tail call void @llvm.memset.p0.i64(ptr align 1 %16, i8 %66, i64 %67, i1 false)
+  %68 = getelementptr inbounds i8, ptr %16, i64 %67
+  %69 = sub nsw i32 %21, %65
+  %70 = sext i32 %69 to i64
+  tail call void @llvm.memset.p0.i64(ptr align 1 %68, i8 0, i64 %70, i1 false)
+  br label %74
 
-72:                                               ; preds = %.thread49, %49
-  %73 = trunc i32 %5 to i8
-  %74 = sext i32 %21 to i64
-  tail call void @llvm.memset.p0.i64(ptr align 1 %16, i8 %73, i64 %74, i1 false)
-  br label %75
+71:                                               ; preds = %.thread48, %49
+  %72 = trunc i32 %5 to i8
+  %73 = sext i32 %21 to i64
+  tail call void @llvm.memset.p0.i64(ptr align 1 %16, i8 %72, i64 %73, i1 false)
+  br label %74
 
-75:                                               ; preds = %72, %max_block_high.exit
+74:                                               ; preds = %71, %max_block_high.exit
   ret void
 }
 

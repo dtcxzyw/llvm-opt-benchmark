@@ -1355,9 +1355,8 @@ _ZNSt13unordered_mapIjN3net22PriorityWriteSchedulerIjE10StreamInfoESt4hashIjESt8
   %45 = getelementptr inbounds nuw i8, ptr %.sroa.06.1.i.i, i64 12
   %46 = load i8, ptr %45, align 4, !tbaa !85
   %47 = zext i8 %46 to i64
-  %.idx = mul nuw nsw i64 %47, 88
-  %48 = getelementptr inbounds nuw i8, ptr %0, i64 96
-  %49 = getelementptr inbounds nuw i8, ptr %48, i64 %.idx
+  %48 = getelementptr inbounds nuw %"struct.net::PriorityWriteScheduler<unsigned int>::PriorityInfo", ptr %0, i64 %47
+  %49 = getelementptr inbounds nuw i8, ptr %48, i64 96
   %50 = load i64, ptr %49, align 8, !tbaa !111
   %.sroa.speculated = tail call i64 @llvm.smax.i64(i64 %50, i64 %2)
   store i64 %.sroa.speculated, ptr %49, align 8, !tbaa !19
@@ -1468,26 +1467,25 @@ _ZNKSt13unordered_mapIjN3net22PriorityWriteSchedulerIjE10StreamInfoESt4hashIjESt
   %44 = getelementptr inbounds nuw i8, ptr %.sroa.06.1.i.i, i64 12
   %45 = load i8, ptr %44, align 4, !tbaa !54
   %.not = icmp eq i8 %45, 0
-  br i1 %.not, label %.critedge14, label %.lr.ph
+  br i1 %.not, label %.critedge14, label %.lr.ph.preheader
 
-.lr.ph:                                           ; preds = %_ZNKSt13unordered_mapIjN3net22PriorityWriteSchedulerIjE10StreamInfoESt4hashIjESt8equal_toIjESaISt4pairIKjS3_EEE4findERS9_.exit
-  %46 = getelementptr inbounds nuw i8, ptr %0, i64 96
+.lr.ph.preheader:                                 ; preds = %_ZNKSt13unordered_mapIjN3net22PriorityWriteSchedulerIjE10StreamInfoESt4hashIjESt8equal_toIjESaISt4pairIKjS3_EEE4findERS9_.exit
   %wide.trip.count = zext i8 %45 to i64
-  br label %47
+  br label %.lr.ph
 
-47:                                               ; preds = %.lr.ph, %47
-  %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %47 ]
-  %.02532 = phi i64 [ 0, %.lr.ph ], [ %.sroa.speculated, %47 ]
-  %.idx = mul nuw nsw i64 %indvars.iv, 88
-  %48 = getelementptr inbounds nuw i8, ptr %46, i64 %.idx
-  %49 = load i64, ptr %48, align 8, !tbaa !111
-  %.sroa.speculated = tail call i64 @llvm.smax.i64(i64 %.02532, i64 %49)
+.lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
+  %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %.lr.ph ]
+  %.02532 = phi i64 [ 0, %.lr.ph.preheader ], [ %.sroa.speculated, %.lr.ph ]
+  %46 = getelementptr inbounds nuw %"struct.net::PriorityWriteScheduler<unsigned int>::PriorityInfo", ptr %0, i64 %indvars.iv
+  %47 = getelementptr inbounds nuw i8, ptr %46, i64 96
+  %48 = load i64, ptr %47, align 8, !tbaa !111
+  %.sroa.speculated = tail call i64 @llvm.smax.i64(i64 %.02532, i64 %48)
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %.critedge14, label %47, !llvm.loop !112
+  br i1 %exitcond.not, label %.critedge14, label %.lr.ph, !llvm.loop !112
 
-.critedge14:                                      ; preds = %47, %_ZNKSt13unordered_mapIjN3net22PriorityWriteSchedulerIjE10StreamInfoESt4hashIjESt8equal_toIjESaISt4pairIKjS3_EEE4findERS9_.exit, %.critedge, %.loopexit
-  %.011 = phi i64 [ 0, %.loopexit ], [ 0, %.critedge ], [ 0, %_ZNKSt13unordered_mapIjN3net22PriorityWriteSchedulerIjE10StreamInfoESt4hashIjESt8equal_toIjESaISt4pairIKjS3_EEE4findERS9_.exit ], [ %.sroa.speculated, %47 ]
+.critedge14:                                      ; preds = %.lr.ph, %_ZNKSt13unordered_mapIjN3net22PriorityWriteSchedulerIjE10StreamInfoESt4hashIjESt8equal_toIjESaISt4pairIKjS3_EEE4findERS9_.exit, %.critedge, %.loopexit
+  %.011 = phi i64 [ 0, %.loopexit ], [ 0, %.critedge ], [ 0, %_ZNKSt13unordered_mapIjN3net22PriorityWriteSchedulerIjE10StreamInfoESt4hashIjESt8equal_toIjESaISt4pairIKjS3_EEE4findERS9_.exit ], [ %.sroa.speculated, %.lr.ph ]
   ret i64 %.011
 }
 

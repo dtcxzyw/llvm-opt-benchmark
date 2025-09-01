@@ -874,91 +874,90 @@ define internal fastcc void @do_slabs_free(ptr noundef %0, i32 noundef %1) unnam
   br label %do_slabs_free_chunked.exit
 
 25:                                               ; preds = %6
-  %26 = getelementptr inbounds nuw i8, ptr %0, i64 48
-  %27 = getelementptr inbounds nuw i8, ptr %0, i64 41
-  %28 = load i8, ptr %27, align 1, !tbaa !12
-  %29 = zext i8 %28 to i64
-  %30 = getelementptr inbounds nuw i8, ptr %26, i64 %29
-  %31 = getelementptr inbounds nuw i8, ptr %30, i64 1
-  %32 = zext i16 %10 to i32
-  %33 = lshr i32 %32, 6
-  %34 = and i32 %33, 4
-  %35 = zext nneg i32 %34 to i64
-  %36 = getelementptr inbounds nuw i8, ptr %31, i64 %35
-  %37 = shl nuw nsw i32 %32, 2
-  %38 = and i32 %37, 8
-  %39 = zext nneg i32 %38 to i64
-  %40 = getelementptr inbounds nuw i8, ptr %36, i64 %39
+  %26 = getelementptr inbounds nuw i8, ptr %0, i64 41
+  %27 = load i8, ptr %26, align 1, !tbaa !12
+  %28 = zext i8 %27 to i64
+  %29 = getelementptr inbounds nuw i8, ptr %0, i64 %28
+  %30 = getelementptr inbounds nuw i8, ptr %29, i64 49
+  %31 = zext i16 %10 to i32
+  %32 = lshr i32 %31, 6
+  %33 = and i32 %32, 4
+  %34 = zext nneg i32 %33 to i64
+  %35 = getelementptr inbounds nuw i8, ptr %30, i64 %34
+  %36 = shl nuw nsw i32 %31, 2
+  %37 = and i32 %36, 8
+  %38 = zext nneg i32 %37 to i64
+  %39 = getelementptr inbounds nuw i8, ptr %35, i64 %38
   store i16 4, ptr %9, align 2, !tbaa !18
-  %41 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %42 = getelementptr inbounds nuw i8, ptr %40, i64 41
-  %43 = load i8, ptr %42, align 1, !tbaa !12
-  %44 = zext i8 %43 to i64
-  %45 = getelementptr inbounds nuw %struct.slabclass_t, ptr @slabclass, i64 %44
-  %46 = getelementptr inbounds nuw i8, ptr %0, i64 40
-  store i8 %43, ptr %46, align 8, !tbaa !12
-  %47 = load ptr, ptr %40, align 8, !tbaa !49
-  %.not.i = icmp eq ptr %47, null
-  br i1 %.not.i, label %50, label %48
+  %40 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %41 = getelementptr inbounds nuw i8, ptr %39, i64 41
+  %42 = load i8, ptr %41, align 1, !tbaa !12
+  %43 = zext i8 %42 to i64
+  %44 = getelementptr inbounds nuw %struct.slabclass_t, ptr @slabclass, i64 %43
+  %45 = getelementptr inbounds nuw i8, ptr %0, i64 40
+  store i8 %42, ptr %45, align 8, !tbaa !12
+  %46 = load ptr, ptr %39, align 8, !tbaa !49
+  %.not.i = icmp eq ptr %46, null
+  br i1 %.not.i, label %49, label %47
 
-48:                                               ; preds = %25
-  %49 = getelementptr inbounds nuw i8, ptr %47, i64 8
-  store ptr null, ptr %49, align 8, !tbaa !49
-  br label %50
+47:                                               ; preds = %25
+  %48 = getelementptr inbounds nuw i8, ptr %46, i64 8
+  store ptr null, ptr %48, align 8, !tbaa !49
+  br label %49
 
-50:                                               ; preds = %48, %25
-  store ptr null, ptr %41, align 8, !tbaa !20
-  %51 = getelementptr inbounds nuw i8, ptr %45, i64 8
-  %52 = load ptr, ptr %51, align 8, !tbaa !22
-  store ptr %52, ptr %0, align 8, !tbaa !20
-  %.not38.i = icmp eq ptr %52, null
-  br i1 %.not38.i, label %55, label %53
+49:                                               ; preds = %47, %25
+  store ptr null, ptr %40, align 8, !tbaa !20
+  %50 = getelementptr inbounds nuw i8, ptr %44, i64 8
+  %51 = load ptr, ptr %50, align 8, !tbaa !22
+  store ptr %51, ptr %0, align 8, !tbaa !20
+  %.not38.i = icmp eq ptr %51, null
+  br i1 %.not38.i, label %54, label %52
 
-53:                                               ; preds = %50
-  %54 = getelementptr inbounds nuw i8, ptr %52, i64 8
-  store ptr %0, ptr %54, align 8, !tbaa !20
-  br label %55
+52:                                               ; preds = %49
+  %53 = getelementptr inbounds nuw i8, ptr %51, i64 8
+  store ptr %0, ptr %53, align 8, !tbaa !20
+  br label %54
 
-55:                                               ; preds = %53, %50
-  store ptr %0, ptr %51, align 8, !tbaa !22
-  %56 = getelementptr inbounds nuw i8, ptr %45, i64 16
-  %57 = load i32, ptr %56, align 8, !tbaa !23
-  %58 = add i32 %57, 1
-  store i32 %58, ptr %56, align 8, !tbaa !23
+54:                                               ; preds = %52, %49
+  store ptr %0, ptr %50, align 8, !tbaa !22
+  %55 = getelementptr inbounds nuw i8, ptr %44, i64 16
+  %56 = load i32, ptr %55, align 8, !tbaa !23
+  %57 = add i32 %56, 1
+  store i32 %57, ptr %55, align 8, !tbaa !23
   br i1 %.not.i, label %do_slabs_free_chunked.exit, label %.lr.ph.i
 
-.lr.ph.i:                                         ; preds = %55, %70
-  %.142.i = phi ptr [ %64, %70 ], [ %47, %55 ]
-  %59 = getelementptr inbounds nuw i8, ptr %.142.i, i64 38
-  store i16 4, ptr %59, align 2, !tbaa !18
-  %60 = getelementptr inbounds nuw i8, ptr %.142.i, i64 40
-  %61 = load i8, ptr %60, align 8, !tbaa !12
-  %62 = zext i8 %61 to i64
-  %63 = getelementptr inbounds nuw %struct.slabclass_t, ptr @slabclass, i64 %62
-  %64 = load ptr, ptr %.142.i, align 8, !tbaa !49
-  %65 = getelementptr inbounds nuw i8, ptr %.142.i, i64 8
-  store ptr null, ptr %65, align 8, !tbaa !49
-  %66 = getelementptr inbounds nuw i8, ptr %63, i64 8
-  %67 = load ptr, ptr %66, align 8, !tbaa !22
-  store ptr %67, ptr %.142.i, align 8, !tbaa !49
-  %.not40.i = icmp eq ptr %67, null
-  br i1 %.not40.i, label %70, label %68
+.lr.ph.i:                                         ; preds = %54, %69
+  %.142.i = phi ptr [ %63, %69 ], [ %46, %54 ]
+  %58 = getelementptr inbounds nuw i8, ptr %.142.i, i64 38
+  store i16 4, ptr %58, align 2, !tbaa !18
+  %59 = getelementptr inbounds nuw i8, ptr %.142.i, i64 40
+  %60 = load i8, ptr %59, align 8, !tbaa !12
+  %61 = zext i8 %60 to i64
+  %62 = getelementptr inbounds nuw %struct.slabclass_t, ptr @slabclass, i64 %61
+  %63 = load ptr, ptr %.142.i, align 8, !tbaa !49
+  %64 = getelementptr inbounds nuw i8, ptr %.142.i, i64 8
+  store ptr null, ptr %64, align 8, !tbaa !49
+  %65 = getelementptr inbounds nuw i8, ptr %62, i64 8
+  %66 = load ptr, ptr %65, align 8, !tbaa !22
+  store ptr %66, ptr %.142.i, align 8, !tbaa !49
+  %.not40.i = icmp eq ptr %66, null
+  br i1 %.not40.i, label %69, label %67
 
-68:                                               ; preds = %.lr.ph.i
-  %69 = getelementptr inbounds nuw i8, ptr %67, i64 8
-  store ptr %.142.i, ptr %69, align 8, !tbaa !49
-  br label %70
+67:                                               ; preds = %.lr.ph.i
+  %68 = getelementptr inbounds nuw i8, ptr %66, i64 8
+  store ptr %.142.i, ptr %68, align 8, !tbaa !49
+  br label %69
 
-70:                                               ; preds = %68, %.lr.ph.i
-  store ptr %.142.i, ptr %66, align 8, !tbaa !22
-  %71 = getelementptr inbounds nuw i8, ptr %63, i64 16
-  %72 = load i32, ptr %71, align 8, !tbaa !23
-  %73 = add i32 %72, 1
-  store i32 %73, ptr %71, align 8, !tbaa !23
-  %.not39.i = icmp eq ptr %64, null
+69:                                               ; preds = %67, %.lr.ph.i
+  store ptr %.142.i, ptr %65, align 8, !tbaa !22
+  %70 = getelementptr inbounds nuw i8, ptr %62, i64 16
+  %71 = load i32, ptr %70, align 8, !tbaa !23
+  %72 = add i32 %71, 1
+  store i32 %72, ptr %70, align 8, !tbaa !23
+  %.not39.i = icmp eq ptr %63, null
   br i1 %.not39.i, label %do_slabs_free_chunked.exit, label %.lr.ph.i, !llvm.loop !51
 
-do_slabs_free_chunked.exit:                       ; preds = %70, %55, %21, %2
+do_slabs_free_chunked.exit:                       ; preds = %69, %54, %21, %2
   ret void
 }
 

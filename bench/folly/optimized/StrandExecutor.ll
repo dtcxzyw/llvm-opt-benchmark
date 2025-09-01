@@ -68,6 +68,9 @@ target triple = "x86_64-pc-linux-gnu"
 %class.anon.45 = type { ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr }
 %"struct.std::array.46" = type { [256 x i8] }
 %"class.std::bad_alloc" = type { %"class.std::exception" }
+%"class.folly::UnboundedQueue<folly::StrandContext::QueueItem, false, true, false, 6>::Entry" = type { %"class.folly::SaturatingSemaphore", [12 x i8], %"union.std::aligned_storage<96, 16>::type" }
+%"class.folly::SaturatingSemaphore" = type { %"struct.std::atomic.10" }
+%"union.std::aligned_storage<96, 16>::type" = type { [96 x i8] }
 %"struct.google::CheckOpString" = type { ptr }
 %"class.google::LogMessageFatal" = type { %"class.google::LogMessage" }
 %"class.std::stack" = type { %"class.std::deque" }
@@ -83,9 +86,6 @@ target triple = "x86_64-pc-linux-gnu"
 %"class.std::shared_ptr.59" = type { %"class.std::__shared_ptr.60" }
 %"class.std::__shared_ptr.60" = type { ptr, %"class.std::__shared_count" }
 %"class.folly::hazptr_tc_entry" = type { ptr }
-%"class.folly::UnboundedQueue<folly::StrandContext::QueueItem, false, true, false, 6>::Entry" = type { %"class.folly::SaturatingSemaphore", [12 x i8], %"union.std::aligned_storage<96, 16>::type" }
-%"class.folly::SaturatingSemaphore" = type { %"struct.std::atomic.10" }
-%"union.std::aligned_storage<96, 16>::type" = type { [96 x i8] }
 %"class.std::chrono::time_point" = type { %"class.std::chrono::duration" }
 %"class.folly::WaitOptions" = type <{ %"class.std::chrono::duration", i8, [7 x i8] }>
 %"class.folly::StrandContext::Task" = type { %"class.std::shared_ptr" }
@@ -4282,7 +4282,7 @@ define linkonce_odr void @_ZN5folly14UnboundedQueueINS_13StrandContext9QueueItem
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %_ZN5folly13StrandContext9QueueItemD2Ev.exit
   %.012 = phi ptr [ %.1, %_ZN5folly13StrandContext9QueueItemD2Ev.exit ], [ %.0.i.i, %.lr.ph.preheader ]
-  %.01011 = phi i64 [ %56, %_ZN5folly13StrandContext9QueueItemD2Ev.exit ], [ %6, %.lr.ph.preheader ]
+  %.01011 = phi i64 [ %55, %_ZN5folly13StrandContext9QueueItemD2Ev.exit ], [ %6, %.lr.ph.preheader ]
   %8 = getelementptr inbounds nuw i8, ptr %.012, i64 40
   %9 = load i64, ptr %8, align 8, !tbaa !191
   %10 = add i64 %9, 64
@@ -4299,92 +4299,90 @@ define linkonce_odr void @_ZN5folly14UnboundedQueueINS_13StrandContext9QueueItem
   %.1 = phi ptr [ %.0.i.i.i, %11 ], [ %.012, %.lr.ph ]
   %15 = mul i64 %.01011, 27
   %16 = and i64 %15, 63
-  %.idx = mul nuw nsw i64 %16, 112
-  %17 = getelementptr inbounds nuw i8, ptr %.1, i64 80
-  %18 = getelementptr inbounds nuw i8, ptr %17, i64 %.idx
-  %19 = getelementptr inbounds nuw i8, ptr %18, i64 88
-  %20 = load ptr, ptr %19, align 8, !tbaa !7
-  %.not.i.i.i = icmp eq ptr %20, null
-  br i1 %.not.i.i.i, label %_ZNSt12__shared_ptrIN5folly14RequestContextELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit.i, label %21
+  %17 = getelementptr inbounds nuw %"class.folly::UnboundedQueue<folly::StrandContext::QueueItem, false, true, false, 6>::Entry", ptr %.1, i64 %16, i32 2, i32 0, i64 64
+  %18 = getelementptr inbounds nuw %"class.folly::UnboundedQueue<folly::StrandContext::QueueItem, false, true, false, 6>::Entry", ptr %.1, i64 %16, i32 2, i32 0, i64 152
+  %19 = load ptr, ptr %18, align 8, !tbaa !7
+  %.not.i.i.i = icmp eq ptr %19, null
+  br i1 %.not.i.i.i, label %_ZNSt12__shared_ptrIN5folly14RequestContextELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit.i, label %20
 
-21:                                               ; preds = %14
-  %22 = getelementptr inbounds nuw i8, ptr %20, i64 8
-  %23 = load atomic i64, ptr %22 acquire, align 8
-  %24 = icmp eq i64 %23, 4294967297
-  %25 = trunc i64 %23 to i32
-  br i1 %24, label %26, label %34
+20:                                               ; preds = %14
+  %21 = getelementptr inbounds nuw i8, ptr %19, i64 8
+  %22 = load atomic i64, ptr %21 acquire, align 8
+  %23 = icmp eq i64 %22, 4294967297
+  %24 = trunc i64 %22 to i32
+  br i1 %23, label %25, label %33
 
-26:                                               ; preds = %21
-  store i32 0, ptr %22, align 8, !tbaa !13
-  %27 = getelementptr inbounds nuw i8, ptr %20, i64 12
-  store i32 0, ptr %27, align 4, !tbaa !16
-  %28 = load ptr, ptr %20, align 8, !tbaa !17
-  %29 = getelementptr inbounds nuw i8, ptr %28, i64 16
-  %30 = load ptr, ptr %29, align 8
-  tail call void %30(ptr noundef nonnull align 8 dereferenceable(16) %20) #27
-  %31 = load ptr, ptr %20, align 8, !tbaa !17
-  %32 = getelementptr inbounds nuw i8, ptr %31, i64 24
-  %33 = load ptr, ptr %32, align 8
-  tail call void %33(ptr noundef nonnull align 8 dereferenceable(16) %20) #27
+25:                                               ; preds = %20
+  store i32 0, ptr %21, align 8, !tbaa !13
+  %26 = getelementptr inbounds nuw i8, ptr %19, i64 12
+  store i32 0, ptr %26, align 4, !tbaa !16
+  %27 = load ptr, ptr %19, align 8, !tbaa !17
+  %28 = getelementptr inbounds nuw i8, ptr %27, i64 16
+  %29 = load ptr, ptr %28, align 8
+  tail call void %29(ptr noundef nonnull align 8 dereferenceable(16) %19) #27
+  %30 = load ptr, ptr %19, align 8, !tbaa !17
+  %31 = getelementptr inbounds nuw i8, ptr %30, i64 24
+  %32 = load ptr, ptr %31, align 8
+  tail call void %32(ptr noundef nonnull align 8 dereferenceable(16) %19) #27
   br label %_ZNSt12__shared_ptrIN5folly14RequestContextELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit.i
 
-34:                                               ; preds = %21
-  %35 = load i8, ptr @__libc_single_threaded, align 1, !tbaa !19
-  %.not.i.i.i.i = icmp eq i8 %35, 0
-  br i1 %.not.i.i.i.i, label %38, label %36
+33:                                               ; preds = %20
+  %34 = load i8, ptr @__libc_single_threaded, align 1, !tbaa !19
+  %.not.i.i.i.i = icmp eq i8 %34, 0
+  br i1 %.not.i.i.i.i, label %37, label %35
 
-36:                                               ; preds = %34
-  %37 = add nsw i32 %25, -1
-  store i32 %37, ptr %22, align 4, !tbaa !20
+35:                                               ; preds = %33
+  %36 = add nsw i32 %24, -1
+  store i32 %36, ptr %21, align 4, !tbaa !20
   br label %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i
 
-38:                                               ; preds = %34
-  %39 = atomicrmw volatile add ptr %22, i32 -1 acq_rel, align 4
+37:                                               ; preds = %33
+  %38 = atomicrmw volatile add ptr %21, i32 -1 acq_rel, align 4
   br label %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i
 
-_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i: ; preds = %38, %36
-  %.0.i.i.i.i.i = phi i32 [ %25, %36 ], [ %39, %38 ]
-  %40 = icmp eq i32 %.0.i.i.i.i.i, 1
-  br i1 %40, label %41, label %_ZNSt12__shared_ptrIN5folly14RequestContextELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit.i, !prof !21
+_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i: ; preds = %37, %35
+  %.0.i.i.i.i.i = phi i32 [ %24, %35 ], [ %38, %37 ]
+  %39 = icmp eq i32 %.0.i.i.i.i.i, 1
+  br i1 %39, label %40, label %_ZNSt12__shared_ptrIN5folly14RequestContextELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit.i, !prof !21
 
-41:                                               ; preds = %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i
-  tail call void @_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv(ptr noundef nonnull align 8 dereferenceable(16) %20) #27
+40:                                               ; preds = %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i
+  tail call void @_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv(ptr noundef nonnull align 8 dereferenceable(16) %19) #27
   br label %_ZNSt12__shared_ptrIN5folly14RequestContextELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit.i
 
-_ZNSt12__shared_ptrIN5folly14RequestContextELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit.i: ; preds = %41, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i, %26, %14
-  %42 = getelementptr inbounds nuw i8, ptr %18, i64 64
-  %43 = load i64, ptr %42, align 8, !tbaa !22
-  %44 = and i64 %43, -4
-  %45 = inttoptr i64 %44 to ptr
-  %.not.i.i1.i = icmp eq i64 %44, 0
-  br i1 %.not.i.i1.i, label %_ZN5folly8Executor9KeepAliveIS0_ED2Ev.exit.i, label %46
+_ZNSt12__shared_ptrIN5folly14RequestContextELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit.i: ; preds = %40, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i, %25, %14
+  %41 = getelementptr inbounds nuw %"class.folly::UnboundedQueue<folly::StrandContext::QueueItem, false, true, false, 6>::Entry", ptr %.1, i64 %16, i32 2, i32 0, i64 128
+  %42 = load i64, ptr %41, align 8, !tbaa !22
+  %43 = and i64 %42, -4
+  %44 = inttoptr i64 %43 to ptr
+  %.not.i.i1.i = icmp eq i64 %43, 0
+  br i1 %.not.i.i1.i, label %_ZN5folly8Executor9KeepAliveIS0_ED2Ev.exit.i, label %45
 
-46:                                               ; preds = %_ZNSt12__shared_ptrIN5folly14RequestContextELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit.i
-  store i64 0, ptr %42, align 8, !tbaa !25
-  %47 = and i64 %43, 3
-  %.not3.i.i.i = icmp eq i64 %47, 0
-  br i1 %.not3.i.i.i, label %48, label %_ZN5folly8Executor9KeepAliveIS0_ED2Ev.exit.i
+45:                                               ; preds = %_ZNSt12__shared_ptrIN5folly14RequestContextELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit.i
+  store i64 0, ptr %41, align 8, !tbaa !25
+  %46 = and i64 %42, 3
+  %.not3.i.i.i = icmp eq i64 %46, 0
+  br i1 %.not3.i.i.i, label %47, label %_ZN5folly8Executor9KeepAliveIS0_ED2Ev.exit.i
 
-48:                                               ; preds = %46
-  %49 = load ptr, ptr %45, align 8, !tbaa !17
-  %50 = getelementptr inbounds nuw i8, ptr %49, i64 48
-  %51 = load ptr, ptr %50, align 8
-  tail call void %51(ptr noundef nonnull align 8 dereferenceable(8) %45) #27
+47:                                               ; preds = %45
+  %48 = load ptr, ptr %44, align 8, !tbaa !17
+  %49 = getelementptr inbounds nuw i8, ptr %48, i64 48
+  %50 = load ptr, ptr %49, align 8
+  tail call void %50(ptr noundef nonnull align 8 dereferenceable(8) %44) #27
   br label %_ZN5folly8Executor9KeepAliveIS0_ED2Ev.exit.i
 
-_ZN5folly8Executor9KeepAliveIS0_ED2Ev.exit.i:     ; preds = %48, %46, %_ZNSt12__shared_ptrIN5folly14RequestContextELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit.i
-  %52 = getelementptr inbounds nuw i8, ptr %18, i64 56
-  %53 = load ptr, ptr %52, align 8, !tbaa !31
-  %.not.i.i2.i = icmp eq ptr %53, null
-  br i1 %.not.i.i2.i, label %_ZN5folly13StrandContext9QueueItemD2Ev.exit, label %54
+_ZN5folly8Executor9KeepAliveIS0_ED2Ev.exit.i:     ; preds = %47, %45, %_ZNSt12__shared_ptrIN5folly14RequestContextELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit.i
+  %51 = getelementptr inbounds nuw %"class.folly::UnboundedQueue<folly::StrandContext::QueueItem, false, true, false, 6>::Entry", ptr %.1, i64 %16, i32 2, i32 0, i64 120
+  %52 = load ptr, ptr %51, align 8, !tbaa !31
+  %.not.i.i2.i = icmp eq ptr %52, null
+  br i1 %.not.i.i2.i, label %_ZN5folly13StrandContext9QueueItemD2Ev.exit, label %53
 
-54:                                               ; preds = %_ZN5folly8Executor9KeepAliveIS0_ED2Ev.exit.i
-  %55 = tail call noundef i64 %53(i32 noundef 1, ptr noundef nonnull align 16 dereferenceable(96) %18, ptr noundef null) #27
+53:                                               ; preds = %_ZN5folly8Executor9KeepAliveIS0_ED2Ev.exit.i
+  %54 = tail call noundef i64 %52(i32 noundef 1, ptr noundef nonnull align 16 dereferenceable(96) %17, ptr noundef null) #27
   br label %_ZN5folly13StrandContext9QueueItemD2Ev.exit
 
-_ZN5folly13StrandContext9QueueItemD2Ev.exit:      ; preds = %_ZN5folly8Executor9KeepAliveIS0_ED2Ev.exit.i, %54
-  %56 = add i64 %.01011, 1
-  %exitcond.not = icmp eq i64 %56, %3
+_ZN5folly13StrandContext9QueueItemD2Ev.exit:      ; preds = %_ZN5folly8Executor9KeepAliveIS0_ED2Ev.exit.i, %53
+  %55 = add i64 %.01011, 1
+  %exitcond.not = icmp eq i64 %55, %3
   br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !196
 }
 

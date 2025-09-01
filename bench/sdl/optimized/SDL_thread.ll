@@ -38,7 +38,7 @@ define hidden ptr @SDL_GetTLS_REAL(ptr noundef %0) local_unnamed_addr #0 {
 
 3:                                                ; preds = %1
   %4 = tail call zeroext i1 (ptr, ...) @SDL_SetError_REAL(ptr noundef nonnull @.str, ptr noundef nonnull @.str.1) #6
-  br label %18
+  br label %17
 
 5:                                                ; preds = %1
   %6 = tail call i32 @SDL_GetAtomicInt_REAL(ptr noundef nonnull %0) #6
@@ -46,23 +46,22 @@ define hidden ptr @SDL_GetTLS_REAL(ptr noundef %0) local_unnamed_addr #0 {
   %8 = icmp eq ptr %7, null
   %9 = icmp slt i32 %6, 1
   %or.cond = select i1 %8, i1 true, i1 %9
-  br i1 %or.cond, label %18, label %10
+  br i1 %or.cond, label %17, label %10
 
 10:                                               ; preds = %5
   %11 = load i32, ptr %7, align 8
   %.not.not = icmp sgt i32 %6, %11
-  br i1 %.not.not, label %18, label %12
+  br i1 %.not.not, label %17, label %12
 
 12:                                               ; preds = %10
-  %13 = getelementptr inbounds nuw i8, ptr %7, i64 8
-  %14 = zext nneg i32 %6 to i64
-  %15 = getelementptr %struct.anon, ptr %13, i64 %14
-  %16 = getelementptr i8, ptr %15, i64 -16
-  %17 = load ptr, ptr %16, align 8
-  br label %18
+  %13 = zext nneg i32 %6 to i64
+  %14 = getelementptr %struct.anon, ptr %7, i64 %13
+  %15 = getelementptr i8, ptr %14, i64 -8
+  %16 = load ptr, ptr %15, align 8
+  br label %17
 
-18:                                               ; preds = %5, %10, %12, %3
-  %.0 = phi ptr [ null, %3 ], [ %17, %12 ], [ null, %10 ], [ null, %5 ]
+17:                                               ; preds = %5, %10, %12, %3
+  %.0 = phi ptr [ null, %3 ], [ %16, %12 ], [ null, %10 ], [ null, %5 ]
   ret ptr %.0
 }
 
@@ -147,13 +146,11 @@ define hidden zeroext i1 @SDL_SetTLS_REAL(ptr noundef %0, ptr noundef %1, ptr no
 
 39:                                               ; preds = %37, %17
   %.035 = phi ptr [ %24, %37 ], [ %16, %17 ]
-  %40 = getelementptr inbounds nuw i8, ptr %.035, i64 8
-  %41 = sext i32 %.037.in to i64
-  %42 = getelementptr %struct.anon, ptr %40, i64 %41
-  %43 = getelementptr i8, ptr %42, i64 -16
-  store ptr %1, ptr %43, align 8
-  %44 = getelementptr i8, ptr %42, i64 -8
-  store ptr %2, ptr %44, align 8
+  %40 = sext i32 %.037.in to i64
+  %41 = getelementptr %struct.anon, ptr %.035, i64 %40
+  %42 = getelementptr i8, ptr %41, i64 -8
+  store ptr %1, ptr %42, align 8
+  store ptr %2, ptr %41, align 8
   br label %.critedge47
 
 .critedge47:                                      ; preds = %36, %.critedge, %39, %5
@@ -480,52 +477,51 @@ define hidden ptr @SDL_GetErrBuf(i1 noundef zeroext %0) local_unnamed_addr #0 {
   br i1 %.not.not.i, label %SDL_GetTLS_REAL.exit, label %10
 
 10:                                               ; preds = %8
-  %11 = getelementptr inbounds nuw i8, ptr %5, i64 8
-  %12 = zext nneg i32 %4 to i64
-  %13 = getelementptr %struct.anon, ptr %11, i64 %12
-  %14 = getelementptr i8, ptr %13, i64 -16
-  %15 = load ptr, ptr %14, align 8
+  %11 = zext nneg i32 %4 to i64
+  %12 = getelementptr %struct.anon, ptr %5, i64 %11
+  %13 = getelementptr i8, ptr %12, i64 -8
+  %14 = load ptr, ptr %13, align 8
   br label %SDL_GetTLS_REAL.exit
 
 SDL_GetTLS_REAL.exit:                             ; preds = %1, %8, %10
-  %.0.i = phi ptr [ %15, %10 ], [ null, %8 ], [ null, %1 ]
+  %.0.i = phi ptr [ %14, %10 ], [ null, %8 ], [ null, %1 ]
   %.not = icmp eq ptr %.0.i, null
   %brmerge.not = and i1 %0, %.not
-  br i1 %brmerge.not, label %16, label %27
+  br i1 %brmerge.not, label %15, label %26
 
-16:                                               ; preds = %SDL_GetTLS_REAL.exit
+15:                                               ; preds = %SDL_GetTLS_REAL.exit
   call void @llvm.lifetime.start.p0(ptr nonnull %2)
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
   call void @SDL_GetOriginalMemoryFunctions_REAL(ptr noundef null, ptr noundef null, ptr noundef nonnull %2, ptr noundef nonnull %3) #6
-  %17 = load ptr, ptr %2, align 8
-  %18 = call ptr %17(ptr noundef null, i64 noundef 40) #6
-  %.not13.not = icmp eq ptr %18, null
-  br i1 %.not13.not, label %19, label %20
+  %16 = load ptr, ptr %2, align 8
+  %17 = call ptr %16(ptr noundef null, i64 noundef 40) #6
+  %.not13.not = icmp eq ptr %17, null
+  br i1 %.not13.not, label %18, label %19
 
-19:                                               ; preds = %16
+18:                                               ; preds = %15
   store ptr @SDL_GetStaticErrBuf.SDL_global_error_str, ptr getelementptr inbounds nuw (i8, ptr @SDL_GetStaticErrBuf.SDL_global_error, i64 8), align 8
   store i64 128, ptr getelementptr inbounds nuw (i8, ptr @SDL_GetStaticErrBuf.SDL_global_error, i64 16), align 8
-  br label %26
+  br label %25
 
-20:                                               ; preds = %16
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %18, i8 0, i64 24, i1 false)
-  %21 = load ptr, ptr %2, align 8
-  %22 = getelementptr inbounds nuw i8, ptr %18, i64 24
-  store ptr %21, ptr %22, align 8
-  %23 = load ptr, ptr %3, align 8
-  %24 = getelementptr inbounds nuw i8, ptr %18, i64 32
-  store ptr %23, ptr %24, align 8
-  %25 = call zeroext i1 @SDL_SetTLS_REAL(ptr noundef nonnull @SDL_GetErrBuf.tls_errbuf, ptr noundef nonnull %18, ptr noundef nonnull @SDL_FreeErrBuf)
-  br label %26
+19:                                               ; preds = %15
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %17, i8 0, i64 24, i1 false)
+  %20 = load ptr, ptr %2, align 8
+  %21 = getelementptr inbounds nuw i8, ptr %17, i64 24
+  store ptr %20, ptr %21, align 8
+  %22 = load ptr, ptr %3, align 8
+  %23 = getelementptr inbounds nuw i8, ptr %17, i64 32
+  store ptr %22, ptr %23, align 8
+  %24 = call zeroext i1 @SDL_SetTLS_REAL(ptr noundef nonnull @SDL_GetErrBuf.tls_errbuf, ptr noundef nonnull %17, ptr noundef nonnull @SDL_FreeErrBuf)
+  br label %25
 
-26:                                               ; preds = %20, %19
-  %spec.select = phi ptr [ %18, %20 ], [ @SDL_GetStaticErrBuf.SDL_global_error, %19 ]
+25:                                               ; preds = %19, %18
+  %spec.select = phi ptr [ %17, %19 ], [ @SDL_GetStaticErrBuf.SDL_global_error, %18 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
-  br label %27
+  br label %26
 
-27:                                               ; preds = %26, %SDL_GetTLS_REAL.exit
-  %.010 = phi ptr [ %.0.i, %SDL_GetTLS_REAL.exit ], [ %spec.select, %26 ]
+26:                                               ; preds = %25, %SDL_GetTLS_REAL.exit
+  %.010 = phi ptr [ %.0.i, %SDL_GetTLS_REAL.exit ], [ %spec.select, %25 ]
   ret ptr %.010
 }
 

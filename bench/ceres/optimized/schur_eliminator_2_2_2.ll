@@ -2803,65 +2803,64 @@ _ZN4absl12lts_2024011612log_internal10LogMessagelsILi20EEERS2_RAT__Kc.exit.i: ; 
   unreachable
 
 _ZN5ceres9FindOrDieIN4absl12lts_202401169btree_mapIiiSt4lessIiESaISt4pairIKiiEEEEEERKNT_10value_type11second_typeERKSB_RKNSC_10first_typeE.exit: ; preds = %_ZNK4absl12lts_2024011618container_internal15btree_containerINS1_5btreeINS1_10map_paramsIiiSt4lessIiESaISt4pairIKiiEELi256ELb0EEEEEE4findIiEENS1_14btree_iteratorIKNS1_10btree_nodeISB_EERKS9_PSJ_EERS8_.exit.i
-  %160 = shl i32 %.sroa.7.0.i.i.i.i.i, 3
-  %161 = and i32 %160, 2040
-  %162 = zext nneg i32 %161 to i64
-  %163 = getelementptr inbounds nuw i8, ptr %149, i64 %162
-  %164 = getelementptr inbounds nuw i8, ptr %163, i64 4
-  %165 = load i32, ptr %164, align 4, !tbaa !90
-  %166 = sext i32 %165 to i64
-  %167 = getelementptr inbounds double, ptr %7, i64 %166
-  %168 = getelementptr inbounds nuw i8, ptr %113, i64 4
-  %169 = load i32, ptr %168, align 4, !tbaa !170
-  %170 = sext i32 %169 to i64
-  %171 = getelementptr inbounds double, ptr %14, i64 %170
-  %172 = sext i32 %117 to i64
-  %173 = load double, ptr %46, align 8, !tbaa !139
-  %174 = load double, ptr %171, align 8, !tbaa !139
-  %175 = fmul double %173, %174
-  %176 = load double, ptr %49, align 8, !tbaa !139
-  %177 = getelementptr i8, ptr %171, i64 16
-  %178 = load double, ptr %177, align 8, !tbaa !139
-  %179 = fmul double %176, %178
-  %180 = fadd double %175, %179
-  %181 = load double, ptr %167, align 8, !tbaa !139
-  %182 = fadd double %181, %180
-  store double %182, ptr %167, align 8, !tbaa !139
-  %183 = getelementptr i8, ptr %167, i64 8
-  %184 = getelementptr inbounds nuw i8, ptr %171, i64 8
-  %185 = load double, ptr %46, align 8, !tbaa !139
-  %186 = load double, ptr %184, align 8, !tbaa !139
-  %187 = fmul double %185, %186
-  %188 = load double, ptr %49, align 8, !tbaa !139
-  %189 = getelementptr i8, ptr %171, i64 24
-  %190 = load double, ptr %189, align 8, !tbaa !139
-  %191 = fmul double %188, %190
-  %192 = fadd double %187, %191
-  %193 = load double, ptr %183, align 8, !tbaa !139
-  %194 = fadd double %193, %192
-  store double %194, ptr %183, align 8, !tbaa !139
-  %195 = getelementptr double, ptr %167, i64 %172
-  %196 = load double, ptr %55, align 8, !tbaa !139
-  %197 = load double, ptr %171, align 8, !tbaa !139
-  %198 = fmul double %196, %197
-  %199 = load double, ptr %60, align 8, !tbaa !139
-  %200 = load double, ptr %177, align 8, !tbaa !139
-  %201 = fmul double %199, %200
-  %202 = fadd double %198, %201
-  %203 = load double, ptr %195, align 8, !tbaa !139
-  %204 = fadd double %203, %202
-  store double %204, ptr %195, align 8, !tbaa !139
-  %205 = getelementptr double, ptr %183, i64 %172
-  %206 = load double, ptr %55, align 8, !tbaa !139
-  %207 = load double, ptr %184, align 8, !tbaa !139
-  %208 = fmul double %206, %207
-  %209 = load double, ptr %60, align 8, !tbaa !139
-  %210 = load double, ptr %189, align 8, !tbaa !139
-  %211 = fmul double %209, %210
-  %212 = fadd double %208, %211
-  %213 = load double, ptr %205, align 8, !tbaa !139
-  %214 = fadd double %213, %212
-  store double %214, ptr %205, align 8, !tbaa !139
+  %160 = and i32 %.sroa.7.0.i.i.i.i.i, 255
+  %161 = zext nneg i32 %160 to i64
+  %162 = getelementptr inbounds nuw %"union.absl::lts_20240116::container_internal::map_slot_type", ptr %.sroa.0.0.i6.i.i.i.i, i64 %161
+  %163 = getelementptr inbounds nuw i8, ptr %162, i64 16
+  %164 = load i32, ptr %163, align 4, !tbaa !90
+  %165 = sext i32 %164 to i64
+  %166 = getelementptr inbounds double, ptr %7, i64 %165
+  %167 = getelementptr inbounds nuw i8, ptr %113, i64 4
+  %168 = load i32, ptr %167, align 4, !tbaa !170
+  %169 = sext i32 %168 to i64
+  %170 = getelementptr inbounds double, ptr %14, i64 %169
+  %171 = sext i32 %117 to i64
+  %172 = load double, ptr %46, align 8, !tbaa !139
+  %173 = load double, ptr %170, align 8, !tbaa !139
+  %174 = fmul double %172, %173
+  %175 = load double, ptr %49, align 8, !tbaa !139
+  %176 = getelementptr i8, ptr %170, i64 16
+  %177 = load double, ptr %176, align 8, !tbaa !139
+  %178 = fmul double %175, %177
+  %179 = fadd double %174, %178
+  %180 = load double, ptr %166, align 8, !tbaa !139
+  %181 = fadd double %180, %179
+  store double %181, ptr %166, align 8, !tbaa !139
+  %182 = getelementptr i8, ptr %166, i64 8
+  %183 = getelementptr inbounds nuw i8, ptr %170, i64 8
+  %184 = load double, ptr %46, align 8, !tbaa !139
+  %185 = load double, ptr %183, align 8, !tbaa !139
+  %186 = fmul double %184, %185
+  %187 = load double, ptr %49, align 8, !tbaa !139
+  %188 = getelementptr i8, ptr %170, i64 24
+  %189 = load double, ptr %188, align 8, !tbaa !139
+  %190 = fmul double %187, %189
+  %191 = fadd double %186, %190
+  %192 = load double, ptr %182, align 8, !tbaa !139
+  %193 = fadd double %192, %191
+  store double %193, ptr %182, align 8, !tbaa !139
+  %194 = getelementptr double, ptr %166, i64 %171
+  %195 = load double, ptr %55, align 8, !tbaa !139
+  %196 = load double, ptr %170, align 8, !tbaa !139
+  %197 = fmul double %195, %196
+  %198 = load double, ptr %60, align 8, !tbaa !139
+  %199 = load double, ptr %176, align 8, !tbaa !139
+  %200 = fmul double %198, %199
+  %201 = fadd double %197, %200
+  %202 = load double, ptr %194, align 8, !tbaa !139
+  %203 = fadd double %202, %201
+  store double %203, ptr %194, align 8, !tbaa !139
+  %204 = getelementptr double, ptr %182, i64 %171
+  %205 = load double, ptr %55, align 8, !tbaa !139
+  %206 = load double, ptr %183, align 8, !tbaa !139
+  %207 = fmul double %205, %206
+  %208 = load double, ptr %60, align 8, !tbaa !139
+  %209 = load double, ptr %188, align 8, !tbaa !139
+  %210 = fmul double %208, %209
+  %211 = fadd double %207, %210
+  %212 = load double, ptr %204, align 8, !tbaa !139
+  %213 = fadd double %212, %211
+  store double %213, ptr %204, align 8, !tbaa !139
   %indvars.iv.next = add nuw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %104
   br i1 %exitcond.not, label %._crit_edge, label %112, !llvm.loop !185

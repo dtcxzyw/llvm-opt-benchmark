@@ -4225,7 +4225,7 @@ _ZL8inflatevP8ucvectorPKhmPK25LodePNGDecompressSettings.exit.thread33: ; preds =
   br label %.lr.ph.i.i
 
 .lr.ph.i.i:                                       ; preds = %.lr.ph.i.i.preheader, %70
-  %.032.i.i = phi ptr [ %scevgep38.i.i, %70 ], [ %61, %.lr.ph.i.i.preheader ]
+  %.032.i.i = phi ptr [ %73, %70 ], [ %61, %.lr.ph.i.i.preheader ]
   %.01831.i.i = phi i32 [ %75, %70 ], [ 0, %.lr.ph.i.i.preheader ]
   %.02030.i.i = phi i32 [ %74, %70 ], [ 1, %.lr.ph.i.i.preheader ]
   %.02229.i.i = phi i32 [ %71, %70 ], [ %60, %.lr.ph.i.i.preheader ]
@@ -4248,10 +4248,8 @@ _ZL8inflatevP8ucvectorPKhmPK25LodePNGDecompressSettings.exit.thread33: ; preds =
 
 70:                                               ; preds = %63
   %71 = sub i32 %.02229.i.i, %62
-  %scevgep.i.i = getelementptr i8, ptr %.032.i.i, i64 1
   %72 = zext nneg i32 %62 to i64
-  %73 = getelementptr i8, ptr %scevgep.i.i, i64 %72
-  %scevgep38.i.i = getelementptr i8, ptr %73, i64 -1
+  %73 = getelementptr i8, ptr %.032.i.i, i64 %72
   %74 = urem i32 %67, 65521
   %75 = urem i32 %68, 65521
   %.not.i.i = icmp eq i32 %71, 0
@@ -4320,7 +4318,7 @@ _ZL7deflatePPhPmPKhmPK23LodePNGCompressSettings.exit.thread: ; preds = %10, %_ZL
   br i1 %.not28.i.i, label %_ZL7adler32PKhj.exit, label %.lr.ph.i.i
 
 .lr.ph.i.i:                                       ; preds = %16, %26
-  %.032.i.i = phi ptr [ %scevgep38.i.i, %26 ], [ %2, %16 ]
+  %.032.i.i = phi ptr [ %29, %26 ], [ %2, %16 ]
   %.01831.i.i = phi i32 [ %31, %26 ], [ 0, %16 ]
   %.02030.i.i = phi i32 [ %30, %26 ], [ 1, %16 ]
   %.02229.i.i = phi i32 [ %27, %26 ], [ %17, %16 ]
@@ -4343,10 +4341,8 @@ _ZL7deflatePPhPmPKhmPK23LodePNGCompressSettings.exit.thread: ; preds = %10, %_ZL
 
 26:                                               ; preds = %19
   %27 = sub i32 %.02229.i.i, %18
-  %scevgep.i.i = getelementptr i8, ptr %.032.i.i, i64 1
   %28 = zext nneg i32 %18 to i64
-  %29 = getelementptr i8, ptr %scevgep.i.i, i64 %28
-  %scevgep38.i.i = getelementptr i8, ptr %29, i64 -1
+  %29 = getelementptr i8, ptr %.032.i.i, i64 %28
   %30 = urem i32 %23, 65521
   %31 = urem i32 %24, 65521
   %.not.i.i = icmp eq i32 %27, 0

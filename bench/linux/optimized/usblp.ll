@@ -602,7 +602,7 @@ declare dso_local ptr @usb_get_intf(ptr noundef) local_unnamed_addr #1
 define internal fastcc range(i32 -2147483648, 1) i32 @usblp_set_protocol(ptr noundef captures(none) %0, i32 noundef %1) unnamed_addr #2 align 16 {
   %3 = add i32 %1, -4
   %4 = icmp ult i32 %3, -3
-  br i1 %4, label %36, label %5
+  br i1 %4, label %35, label %5
 
 5:                                                ; preds = %2
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 208
@@ -618,7 +618,7 @@ define internal fastcc range(i32 -2147483648, 1) i32 @usblp_set_protocol(ptr nou
   %14 = getelementptr %struct.anon.3, ptr %12, i64 %13
   %15 = load i32, ptr %14, align 8
   %16 = icmp slt i32 %15, 0
-  br i1 %16, label %36, label %17
+  br i1 %16, label %35, label %17
 
 17:                                               ; preds = %11
   %18 = load ptr, ptr %0, align 8
@@ -631,26 +631,25 @@ define internal fastcc range(i32 -2147483648, 1) i32 @usblp_set_protocol(ptr nou
 23:                                               ; preds = %17
   %24 = load i32, ptr %19, align 4
   %25 = tail call i32 (ptr, ...) @_printk(ptr noundef nonnull @.str.15, i32 noundef %15, i32 noundef %24) #13
-  br label %36
+  br label %35
 
 26:                                               ; preds = %17, %5
-  %27 = getelementptr inbounds nuw i8, ptr %0, i64 216
   %narrow = mul nuw nsw i32 %1, 24
-  %28 = zext nneg i32 %narrow to i64
-  %29 = getelementptr i8, ptr %27, i64 %28
-  %30 = getelementptr i8, ptr %29, i64 16
-  %31 = load ptr, ptr %30, align 8
-  %32 = icmp ne ptr %31, null
-  %33 = zext i1 %32 to i8
-  %34 = getelementptr inbounds nuw i8, ptr %0, i64 346
-  store i8 %33, ptr %34, align 2
-  %35 = getelementptr inbounds nuw i8, ptr %0, i64 312
-  store i32 %1, ptr %35, align 8
-  br label %36
+  %27 = zext nneg i32 %narrow to i64
+  %28 = getelementptr i8, ptr %0, i64 %27
+  %29 = getelementptr i8, ptr %28, i64 232
+  %30 = load ptr, ptr %29, align 8
+  %31 = icmp ne ptr %30, null
+  %32 = zext i1 %31 to i8
+  %33 = getelementptr inbounds nuw i8, ptr %0, i64 346
+  store i8 %32, ptr %33, align 2
+  %34 = getelementptr inbounds nuw i8, ptr %0, i64 312
+  store i32 %1, ptr %34, align 8
+  br label %35
 
-36:                                               ; preds = %26, %23, %11, %2
-  %37 = phi i32 [ %21, %23 ], [ 0, %26 ], [ -22, %2 ], [ -22, %11 ]
-  ret i32 %37
+35:                                               ; preds = %26, %23, %11, %2
+  %36 = phi i32 [ %21, %23 ], [ 0, %26 ], [ -22, %2 ], [ -22, %11 ]
+  ret i32 %36
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid

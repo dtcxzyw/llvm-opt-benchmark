@@ -2590,16 +2590,15 @@ define hidden i32 @duckdb_fsst_export(ptr noundef readonly captures(none) %0, pt
   br i1 %exitcond.not, label %23, label %32, !llvm.loop !114
 
 .preheader:                                       ; preds = %.preheader.preheader, %._crit_edge
-  %40 = phi ptr [ %24, %.preheader.preheader ], [ %46, %._crit_edge ]
+  %40 = phi ptr [ %24, %.preheader.preheader ], [ %45, %._crit_edge ]
   %indvars.iv41 = phi i64 [ %31, %.preheader.preheader ], [ %indvars.iv.next42, %._crit_edge ]
   %.02732 = phi i32 [ 17, %.preheader.preheader ], [ %.1.lcssa, %._crit_edge ]
-  %41 = getelementptr inbounds nuw i8, ptr %40, i64 131584
   %.idx = shl nuw nsw i64 %indvars.iv41, 4
-  %42 = getelementptr inbounds nuw i8, ptr %41, i64 %.idx
-  %43 = getelementptr inbounds nuw i8, ptr %42, i64 8
-  %44 = load i64, ptr %43, align 8, !tbaa !3
-  %45 = and i64 %44, 1152921504338411520
-  %.not = icmp eq i64 %45, 0
+  %41 = getelementptr inbounds nuw i8, ptr %40, i64 %.idx
+  %42 = getelementptr inbounds nuw i8, ptr %41, i64 131592
+  %43 = load i64, ptr %42, align 8, !tbaa !3
+  %44 = and i64 %43, 1152921504338411520
+  %.not = icmp eq i64 %44, 0
   br i1 %.not, label %._crit_edge, label %.lr.ph
 
 ._crit_edge34:                                    ; preds = %._crit_edge, %23
@@ -2607,37 +2606,36 @@ define hidden i32 @duckdb_fsst_export(ptr noundef readonly captures(none) %0, pt
   ret i32 %.027.lcssa
 
 ._crit_edge:                                      ; preds = %.lr.ph, %.preheader
-  %46 = phi ptr [ %40, %.preheader ], [ %59, %.lr.ph ]
-  %.1.lcssa = phi i32 [ %.02732, %.preheader ], [ %56, %.lr.ph ]
+  %45 = phi ptr [ %40, %.preheader ], [ %58, %.lr.ph ]
+  %.1.lcssa = phi i32 [ %.02732, %.preheader ], [ %55, %.lr.ph ]
   %indvars.iv.next42 = add nuw nsw i64 %indvars.iv41, 1
-  %47 = getelementptr inbounds nuw i8, ptr %46, i64 156160
-  %48 = load i16, ptr %47, align 8, !tbaa !60
-  %49 = zext i16 %48 to i64
-  %50 = icmp samesign ult i64 %indvars.iv.next42, %49
-  br i1 %50, label %.preheader, label %._crit_edge34, !llvm.loop !115
+  %46 = getelementptr inbounds nuw i8, ptr %45, i64 156160
+  %47 = load i16, ptr %46, align 8, !tbaa !60
+  %48 = zext i16 %47 to i64
+  %49 = icmp samesign ult i64 %indvars.iv.next42, %48
+  br i1 %49, label %.preheader, label %._crit_edge34, !llvm.loop !115
 
 .lr.ph:                                           ; preds = %.preheader, %.lr.ph
   %indvars.iv38 = phi i64 [ %indvars.iv.next39, %.lr.ph ], [ 0, %.preheader ]
-  %51 = phi ptr [ %59, %.lr.ph ], [ %40, %.preheader ]
-  %.130 = phi i32 [ %56, %.lr.ph ], [ %.02732, %.preheader ]
-  %52 = getelementptr inbounds nuw i8, ptr %51, i64 131584
-  %53 = getelementptr inbounds nuw %struct.Symbol, ptr %52, i64 %indvars.iv41
-  %54 = getelementptr inbounds nuw i8, ptr %53, i64 %indvars.iv38
-  %55 = load i8, ptr %54, align 1, !tbaa !8
-  %56 = add i32 %.130, 1
-  %57 = zext i32 %.130 to i64
-  %58 = getelementptr inbounds nuw i8, ptr %1, i64 %57
-  store i8 %55, ptr %58, align 1, !tbaa !8
+  %50 = phi ptr [ %58, %.lr.ph ], [ %40, %.preheader ]
+  %.130 = phi i32 [ %55, %.lr.ph ], [ %.02732, %.preheader ]
+  %51 = getelementptr inbounds nuw i8, ptr %50, i64 131584
+  %52 = getelementptr inbounds nuw %struct.Symbol, ptr %51, i64 %indvars.iv41
+  %53 = getelementptr inbounds nuw i8, ptr %52, i64 %indvars.iv38
+  %54 = load i8, ptr %53, align 1, !tbaa !8
+  %55 = add i32 %.130, 1
+  %56 = zext i32 %.130 to i64
+  %57 = getelementptr inbounds nuw i8, ptr %1, i64 %56
+  store i8 %54, ptr %57, align 1, !tbaa !8
   %indvars.iv.next39 = add nuw nsw i64 %indvars.iv38, 1
-  %59 = load ptr, ptr %0, align 8, !tbaa !110
-  %60 = getelementptr inbounds nuw i8, ptr %59, i64 131584
-  %61 = getelementptr inbounds nuw i8, ptr %60, i64 %.idx
-  %62 = getelementptr inbounds nuw i8, ptr %61, i64 8
-  %63 = load i64, ptr %62, align 8, !tbaa !3
-  %64 = lshr i64 %63, 28
-  %65 = and i64 %64, 4294967295
-  %66 = icmp samesign ult i64 %indvars.iv.next39, %65
-  br i1 %66, label %.lr.ph, label %._crit_edge, !llvm.loop !116
+  %58 = load ptr, ptr %0, align 8, !tbaa !110
+  %59 = getelementptr inbounds nuw i8, ptr %58, i64 %.idx
+  %60 = getelementptr inbounds nuw i8, ptr %59, i64 131592
+  %61 = load i64, ptr %60, align 8, !tbaa !3
+  %62 = lshr i64 %61, 28
+  %63 = and i64 %62, 4294967295
+  %64 = icmp samesign ult i64 %indvars.iv.next39, %63
+  br i1 %64, label %.lr.ph, label %._crit_edge, !llvm.loop !116
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
@@ -3420,8 +3418,8 @@ define hidden void @duckdb_fsst_decoder(ptr dead_on_unwind noalias writable writ
   %indvars.iv41.i = phi i64 [ %28, %.preheader.preheader.i ], [ %indvars.iv.next42.i, %._crit_edge.i ]
   %.02732.i = phi i32 [ 17, %.preheader.preheader.i ], [ %.1.lcssa.i, %._crit_edge.i ]
   %.idx.i = shl nuw nsw i64 %indvars.iv41.i, 4
-  %36 = getelementptr inbounds nuw i8, ptr %29, i64 %.idx.i
-  %37 = getelementptr inbounds nuw i8, ptr %36, i64 8
+  %36 = getelementptr inbounds nuw i8, ptr %5, i64 %.idx.i
+  %37 = getelementptr inbounds nuw i8, ptr %36, i64 131592
   %38 = load i64, ptr %37, align 8, !tbaa !3
   %39 = and i64 %38, 1152921504338411520
   %.not.i = icmp eq i64 %39, 0

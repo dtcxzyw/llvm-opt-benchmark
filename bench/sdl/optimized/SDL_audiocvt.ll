@@ -91,7 +91,7 @@ define hidden noundef zeroext i1 @SDL_ChannelMapIsDefault(ptr noundef readonly c
 ; Function Attrs: nounwind uwtable
 define hidden void @ConvertAudio(i32 noundef %0, ptr noundef %1, i32 noundef %2, i32 noundef %3, ptr noundef %4, ptr noundef %5, i32 noundef %6, i32 noundef %7, ptr noundef %8, ptr noundef %9, float noundef %10) local_unnamed_addr #1 {
   %.not = icmp eq i32 %0, 0
-  br i1 %.not, label %73, label %12
+  br i1 %.not, label %72, label %12
 
 12:                                               ; preds = %11
   %13 = and i32 %6, 255
@@ -135,18 +135,18 @@ define hidden void @ConvertAudio(i32 noundef %0, ptr noundef %1, i32 noundef %2,
 
 26:                                               ; preds = %25
   tail call fastcc void @SwizzleAudio(i32 noundef %0, ptr noundef %5, ptr noundef %.0, i32 noundef %3, ptr noundef %21, i32 noundef %6)
-  br label %73
+  br label %72
 
 27:                                               ; preds = %25
   %.not157 = icmp eq ptr %.0, %5
-  br i1 %.not157, label %73, label %28
+  br i1 %.not157, label %72, label %28
 
 28:                                               ; preds = %27
   %29 = mul i32 %3, %0
   %30 = mul i32 %29, %14
   %31 = sext i32 %30 to i64
   tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %5, ptr align 1 %.0, i64 %31, i1 false)
-  br label %73
+  br label %72
 
 32:                                               ; preds = %23
   %33 = xor i32 %6, %2
@@ -165,7 +165,7 @@ define hidden void @ConvertAudio(i32 noundef %0, ptr noundef %1, i32 noundef %2,
   %.1 = phi ptr [ %5, %36 ], [ %.0, %35 ]
   %38 = mul nsw i32 %3, %0
   tail call void @ConvertAudioSwapEndian(ptr noundef %5, ptr noundef %.1, i32 noundef %38, i32 noundef %13) #11
-  br label %73
+  br label %72
 
 .thread165.thread:                                ; preds = %.thread162, %32, %.thread165
   %.0201 = phi ptr [ %.0, %32 ], [ %.0, %.thread165 ], [ %1, %.thread162 ]
@@ -234,39 +234,38 @@ define hidden void @ConvertAudio(i32 noundef %0, ptr noundef %1, i32 noundef %2,
 
 .loopexit:                                        ; preds = %.lr.ph, %.lr.ph172, %.preheader168, %.preheader, %45
   %.3 = phi ptr [ %.2, %45 ], [ %48, %.preheader ], [ %48, %.preheader168 ], [ %48, %.lr.ph172 ], [ %48, %.lr.ph ]
-  br i1 %40, label %59, label %68
+  br i1 %40, label %59, label %67
 
 59:                                               ; preds = %.loopexit
   %60 = sext i32 %3 to i64
   %61 = getelementptr [8 x ptr], ptr @channel_converters, i64 %60
-  %62 = getelementptr i8, ptr %61, i64 -64
-  %63 = sext i32 %7 to i64
-  %64 = getelementptr ptr, ptr %62, i64 %63
-  %65 = getelementptr i8, ptr %64, i64 -8
-  %66 = load ptr, ptr %65, align 8
-  %67 = select i1 %41, ptr %spec.select159, ptr %5
-  tail call void %66(ptr noundef %67, ptr noundef %.3, i32 noundef %0) #11
-  br label %68
+  %62 = sext i32 %7 to i64
+  %63 = getelementptr ptr, ptr %61, i64 %62
+  %64 = getelementptr i8, ptr %63, i64 -72
+  %65 = load ptr, ptr %64, align 8
+  %66 = select i1 %41, ptr %spec.select159, ptr %5
+  tail call void %65(ptr noundef %66, ptr noundef %.3, i32 noundef %0) #11
+  br label %67
 
-68:                                               ; preds = %59, %.loopexit
-  %.4 = phi ptr [ %67, %59 ], [ %.3, %.loopexit ]
-  br i1 %41, label %69, label %71
+67:                                               ; preds = %59, %.loopexit
+  %.4 = phi ptr [ %66, %59 ], [ %.3, %.loopexit ]
+  br i1 %41, label %68, label %70
 
-69:                                               ; preds = %68
-  %70 = mul nsw i32 %7, %0
-  tail call void @ConvertAudioFromFloat(ptr noundef %5, ptr noundef %.4, i32 noundef %70, i32 noundef %6) #11
-  br label %71
+68:                                               ; preds = %67
+  %69 = mul nsw i32 %7, %0
+  tail call void @ConvertAudioFromFloat(ptr noundef %5, ptr noundef %.4, i32 noundef %69, i32 noundef %6) #11
+  br label %70
 
-71:                                               ; preds = %68, %69
-  %.5 = phi ptr [ %5, %69 ], [ %.4, %68 ]
+70:                                               ; preds = %67, %68
+  %.5 = phi ptr [ %5, %68 ], [ %.4, %67 ]
   %.not154 = icmp eq ptr %39, null
-  br i1 %.not154, label %73, label %72
+  br i1 %.not154, label %72, label %71
 
-72:                                               ; preds = %71
+71:                                               ; preds = %70
   tail call fastcc void @SwizzleAudio(i32 noundef %0, ptr noundef %5, ptr noundef %.5, i32 noundef %7, ptr noundef %39, i32 noundef %6)
-  br label %73
+  br label %72
 
-73:                                               ; preds = %37, %27, %28, %26, %72, %71, %11
+72:                                               ; preds = %37, %27, %28, %26, %71, %70, %11
   ret void
 }
 

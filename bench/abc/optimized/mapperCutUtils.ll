@@ -107,9 +107,8 @@ declare noundef i32 @printf(ptr noundef readonly captures(none), ...) local_unna
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
 define float @Map_CutGetRootArea(ptr noundef readonly captures(none) %0, i32 noundef %1) local_unnamed_addr #5 {
   %3 = sext i32 %1 to i64
-  %.idx = mul nsw i64 %3, 40
-  %4 = getelementptr i8, ptr %0, i64 96
-  %5 = getelementptr i8, ptr %4, i64 %.idx
+  %4 = getelementptr %struct.Map_MatchStruct_t_, ptr %0, i64 %3
+  %5 = getelementptr i8, ptr %4, i64 96
   %6 = load ptr, ptr %5, align 8, !tbaa !38
   %7 = getelementptr inbounds nuw i8, ptr %6, i64 236
   %8 = load float, ptr %7, align 4, !tbaa !39
@@ -119,9 +118,8 @@ define float @Map_CutGetRootArea(ptr noundef readonly captures(none) %0, i32 nou
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define range(i32 0, 2) i32 @Map_CutGetLeafPhase(ptr noundef readonly captures(none) %0, i32 noundef %1, i32 noundef %2) local_unnamed_addr #6 {
   %4 = sext i32 %1 to i64
-  %.idx = mul nsw i64 %4, 40
-  %5 = getelementptr i8, ptr %0, i64 92
-  %6 = getelementptr i8, ptr %5, i64 %.idx
+  %5 = getelementptr %struct.Map_MatchStruct_t_, ptr %0, i64 %4
+  %6 = getelementptr i8, ptr %5, i64 92
   %7 = load i32, ptr %6, align 4, !tbaa !42
   %8 = xor i32 %7, -1
   %9 = lshr i32 %8, %2
@@ -135,9 +133,8 @@ define range(i32 0, 2) i32 @Map_NodeGetLeafPhase(ptr noundef readonly captures(n
   %5 = sext i32 %1 to i64
   %6 = getelementptr inbounds ptr, ptr %4, i64 %5
   %7 = load ptr, ptr %6, align 8, !tbaa !43
-  %.idx = mul nsw i64 %5, 40
-  %8 = getelementptr i8, ptr %7, i64 92
-  %9 = getelementptr i8, ptr %8, i64 %.idx
+  %8 = getelementptr %struct.Map_MatchStruct_t_, ptr %7, i64 %5
+  %9 = getelementptr i8, ptr %8, i64 92
   %10 = load i32, ptr %9, align 4, !tbaa !42
   %11 = xor i32 %10, -1
   %12 = lshr i32 %11, %2

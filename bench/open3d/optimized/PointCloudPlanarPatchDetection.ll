@@ -7783,80 +7783,79 @@ define internal void @_ZNSt23_Sp_counted_ptr_inplaceIN6open3d8geometry12_GLOBAL_
 
 ; Function Attrs: mustprogress nounwind ssp uwtable
 define internal void @_ZNSt23_Sp_counted_ptr_inplaceIN6open3d8geometry12_GLOBAL__N_123BoundaryVolumeHierarchyESaIvELN9__gnu_cxx12_Lock_policyE2EE10_M_disposeEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(248) %0) unnamed_addr #8 align 2 personality ptr @__gxx_personality_v0 {
-  %2 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %3 = getelementptr inbounds nuw i8, ptr %0, i64 224
-  %4 = load ptr, ptr %3, align 8, !tbaa !48
-  %.not.i.i.i.i.i = icmp eq ptr %4, null
-  br i1 %.not.i.i.i.i.i, label %_ZNSt6vectorImSaImEED2Ev.exit.i.i.preheader, label %5
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 224
+  %3 = load ptr, ptr %2, align 8, !tbaa !48
+  %.not.i.i.i.i.i = icmp eq ptr %3, null
+  br i1 %.not.i.i.i.i.i, label %_ZNSt6vectorImSaImEED2Ev.exit.i.i.preheader, label %4
 
-5:                                                ; preds = %1
-  %6 = getelementptr inbounds nuw i8, ptr %0, i64 240
-  %7 = load ptr, ptr %6, align 8, !tbaa !50
-  %8 = ptrtoint ptr %7 to i64
-  %9 = ptrtoint ptr %4 to i64
-  %10 = sub i64 %8, %9
-  tail call void @_ZdlPvm(ptr noundef nonnull %4, i64 noundef %10) #36
+4:                                                ; preds = %1
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 240
+  %6 = load ptr, ptr %5, align 8, !tbaa !50
+  %7 = ptrtoint ptr %6 to i64
+  %8 = ptrtoint ptr %3 to i64
+  %9 = sub i64 %7, %8
+  tail call void @_ZdlPvm(ptr noundef nonnull %3, i64 noundef %9) #36
   br label %_ZNSt6vectorImSaImEED2Ev.exit.i.i.preheader
 
-_ZNSt6vectorImSaImEED2Ev.exit.i.i.preheader:      ; preds = %5, %1
+_ZNSt6vectorImSaImEED2Ev.exit.i.i.preheader:      ; preds = %4, %1
   br label %_ZNSt6vectorImSaImEED2Ev.exit.i.i
 
 _ZNSt6vectorImSaImEED2Ev.exit.i.i:                ; preds = %_ZNSt6vectorImSaImEED2Ev.exit.i.i.preheader, %_ZNSt12__shared_ptrIN6open3d8geometry12_GLOBAL__N_123BoundaryVolumeHierarchyELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit.i.i.i
   %.idx.i.i = phi i64 [ %.add.i.i, %_ZNSt12__shared_ptrIN6open3d8geometry12_GLOBAL__N_123BoundaryVolumeHierarchyELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit.i.i.i ], [ 136, %_ZNSt6vectorImSaImEED2Ev.exit.i.i.preheader ]
-  %.ptr.i.i = getelementptr inbounds i8, ptr %2, i64 %.idx.i.i
+  %.ptr.i.i = getelementptr i8, ptr %0, i64 %.idx.i.i
   %.add.i.i = add nsw i64 %.idx.i.i, -16
-  %11 = getelementptr i8, ptr %.ptr.i.i, i64 -8
-  %.val.i.i.i = load ptr, ptr %11, align 8, !tbaa !53
+  %10 = getelementptr i8, ptr %.ptr.i.i, i64 8
+  %.val.i.i.i = load ptr, ptr %10, align 8, !tbaa !53
   %.not.i.i.i1.i.i = icmp eq ptr %.val.i.i.i, null
-  br i1 %.not.i.i.i1.i.i, label %_ZNSt12__shared_ptrIN6open3d8geometry12_GLOBAL__N_123BoundaryVolumeHierarchyELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit.i.i.i, label %12
+  br i1 %.not.i.i.i1.i.i, label %_ZNSt12__shared_ptrIN6open3d8geometry12_GLOBAL__N_123BoundaryVolumeHierarchyELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit.i.i.i, label %11
 
-12:                                               ; preds = %_ZNSt6vectorImSaImEED2Ev.exit.i.i
-  %13 = getelementptr inbounds nuw i8, ptr %.val.i.i.i, i64 8
-  %14 = load atomic i64, ptr %13 acquire, align 8
-  %15 = icmp eq i64 %14, 4294967297
-  %16 = trunc i64 %14 to i32
-  br i1 %15, label %17, label %25
+11:                                               ; preds = %_ZNSt6vectorImSaImEED2Ev.exit.i.i
+  %12 = getelementptr inbounds nuw i8, ptr %.val.i.i.i, i64 8
+  %13 = load atomic i64, ptr %12 acquire, align 8
+  %14 = icmp eq i64 %13, 4294967297
+  %15 = trunc i64 %13 to i32
+  br i1 %14, label %16, label %24
 
-17:                                               ; preds = %12
-  store i32 0, ptr %13, align 8, !tbaa !24
-  %18 = getelementptr inbounds nuw i8, ptr %.val.i.i.i, i64 12
-  store i32 0, ptr %18, align 4, !tbaa !27
-  %19 = load ptr, ptr %.val.i.i.i, align 8, !tbaa !11
-  %20 = getelementptr inbounds nuw i8, ptr %19, i64 16
-  %21 = load ptr, ptr %20, align 8
-  tail call void %21(ptr noundef nonnull align 8 dereferenceable(16) %.val.i.i.i) #4
-  %22 = load ptr, ptr %.val.i.i.i, align 8, !tbaa !11
-  %23 = getelementptr inbounds nuw i8, ptr %22, i64 24
-  %24 = load ptr, ptr %23, align 8
-  tail call void %24(ptr noundef nonnull align 8 dereferenceable(16) %.val.i.i.i) #4
+16:                                               ; preds = %11
+  store i32 0, ptr %12, align 8, !tbaa !24
+  %17 = getelementptr inbounds nuw i8, ptr %.val.i.i.i, i64 12
+  store i32 0, ptr %17, align 4, !tbaa !27
+  %18 = load ptr, ptr %.val.i.i.i, align 8, !tbaa !11
+  %19 = getelementptr inbounds nuw i8, ptr %18, i64 16
+  %20 = load ptr, ptr %19, align 8
+  tail call void %20(ptr noundef nonnull align 8 dereferenceable(16) %.val.i.i.i) #4
+  %21 = load ptr, ptr %.val.i.i.i, align 8, !tbaa !11
+  %22 = getelementptr inbounds nuw i8, ptr %21, i64 24
+  %23 = load ptr, ptr %22, align 8
+  tail call void %23(ptr noundef nonnull align 8 dereferenceable(16) %.val.i.i.i) #4
   br label %_ZNSt12__shared_ptrIN6open3d8geometry12_GLOBAL__N_123BoundaryVolumeHierarchyELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit.i.i.i
 
-25:                                               ; preds = %12
-  %26 = load i8, ptr @__libc_single_threaded, align 1, !tbaa !13
-  %.not.i.i.i.i.i.i = icmp eq i8 %26, 0
-  br i1 %.not.i.i.i.i.i.i, label %29, label %27
+24:                                               ; preds = %11
+  %25 = load i8, ptr @__libc_single_threaded, align 1, !tbaa !13
+  %.not.i.i.i.i.i.i = icmp eq i8 %25, 0
+  br i1 %.not.i.i.i.i.i.i, label %28, label %26
 
-27:                                               ; preds = %25
-  %28 = add nsw i32 %16, -1
-  store i32 %28, ptr %13, align 4, !tbaa !64
+26:                                               ; preds = %24
+  %27 = add nsw i32 %15, -1
+  store i32 %27, ptr %12, align 4, !tbaa !64
   br label %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i
 
-29:                                               ; preds = %25
-  %30 = atomicrmw volatile add ptr %13, i32 -1 acq_rel, align 4
+28:                                               ; preds = %24
+  %29 = atomicrmw volatile add ptr %12, i32 -1 acq_rel, align 4
   br label %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i
 
-_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i: ; preds = %29, %27
-  %.0.i.i.i.i.i.i.i = phi i32 [ %16, %27 ], [ %30, %29 ]
-  %31 = icmp eq i32 %.0.i.i.i.i.i.i.i, 1
-  br i1 %31, label %32, label %_ZNSt12__shared_ptrIN6open3d8geometry12_GLOBAL__N_123BoundaryVolumeHierarchyELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit.i.i.i, !prof !87
+_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i: ; preds = %28, %26
+  %.0.i.i.i.i.i.i.i = phi i32 [ %15, %26 ], [ %29, %28 ]
+  %30 = icmp eq i32 %.0.i.i.i.i.i.i.i, 1
+  br i1 %30, label %31, label %_ZNSt12__shared_ptrIN6open3d8geometry12_GLOBAL__N_123BoundaryVolumeHierarchyELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit.i.i.i, !prof !87
 
-32:                                               ; preds = %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i
+31:                                               ; preds = %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i
   tail call void @_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv(ptr noundef nonnull align 8 dereferenceable(16) %.val.i.i.i) #4
   br label %_ZNSt12__shared_ptrIN6open3d8geometry12_GLOBAL__N_123BoundaryVolumeHierarchyELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit.i.i.i
 
-_ZNSt12__shared_ptrIN6open3d8geometry12_GLOBAL__N_123BoundaryVolumeHierarchyELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit.i.i.i: ; preds = %32, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i, %17, %_ZNSt6vectorImSaImEED2Ev.exit.i.i
-  %33 = icmp eq i64 %.add.i.i, 8
-  br i1 %33, label %_ZSt8_DestroyIN6open3d8geometry12_GLOBAL__N_123BoundaryVolumeHierarchyEEvPT_.exit, label %_ZNSt6vectorImSaImEED2Ev.exit.i.i
+_ZNSt12__shared_ptrIN6open3d8geometry12_GLOBAL__N_123BoundaryVolumeHierarchyELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit.i.i.i: ; preds = %31, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i, %16, %_ZNSt6vectorImSaImEED2Ev.exit.i.i
+  %32 = icmp eq i64 %.add.i.i, 8
+  br i1 %32, label %_ZSt8_DestroyIN6open3d8geometry12_GLOBAL__N_123BoundaryVolumeHierarchyEEvPT_.exit, label %_ZNSt6vectorImSaImEED2Ev.exit.i.i
 
 _ZSt8_DestroyIN6open3d8geometry12_GLOBAL__N_123BoundaryVolumeHierarchyEEvPT_.exit: ; preds = %_ZNSt12__shared_ptrIN6open3d8geometry12_GLOBAL__N_123BoundaryVolumeHierarchyELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit.i.i.i
   ret void

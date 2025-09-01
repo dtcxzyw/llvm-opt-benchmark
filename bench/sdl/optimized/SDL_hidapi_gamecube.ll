@@ -925,12 +925,12 @@ define internal zeroext i1 @HIDAPI_DriverGameCube_RumbleJoystick(ptr noundef rea
 
 11:                                               ; preds = %4
   %12 = tail call zeroext i1 (ptr, ...) @SDL_SetError_REAL(ptr noundef nonnull @.str.5) #7
-  br label %52
+  br label %51
 
 13:                                               ; preds = %14
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 4
-  br i1 %exitcond.not, label %50, label %14, !llvm.loop !13
+  br i1 %exitcond.not, label %49, label %14, !llvm.loop !13
 
 14:                                               ; preds = %.preheader, %13
   %indvars.iv = phi i64 [ 0, %.preheader ], [ %indvars.iv.next, %13 ]
@@ -948,7 +948,7 @@ define internal zeroext i1 @HIDAPI_DriverGameCube_RumbleJoystick(ptr noundef rea
 
 22:                                               ; preds = %18
   %23 = tail call zeroext i1 (ptr, ...) @SDL_SetError_REAL(ptr noundef nonnull @.str.6) #7
-  br label %52
+  br label %51
 
 24:                                               ; preds = %18
   %25 = getelementptr inbounds nuw i8, ptr %6, i64 72
@@ -959,7 +959,7 @@ define internal zeroext i1 @HIDAPI_DriverGameCube_RumbleJoystick(ptr noundef rea
 
 28:                                               ; preds = %24
   %29 = tail call zeroext i1 (ptr, ...) @SDL_SetError_REAL(ptr noundef nonnull @.str.7) #7
-  br label %52
+  br label %51
 
 30:                                               ; preds = %24
   %31 = getelementptr inbounds nuw i8, ptr %6, i64 82
@@ -987,25 +987,24 @@ define internal zeroext i1 @HIDAPI_DriverGameCube_RumbleJoystick(ptr noundef rea
 
 43:                                               ; preds = %37, %34, %39
   %.0 = phi i8 [ %42, %39 ], [ 0, %34 ], [ %., %37 ]
-  %44 = getelementptr inbounds nuw i8, ptr %6, i64 76
-  %45 = getelementptr inbounds nuw i8, ptr %44, i64 %indvars.iv
-  %46 = getelementptr inbounds nuw i8, ptr %45, i64 1
-  %47 = load i8, ptr %46, align 1
-  %.not34 = icmp eq i8 %.0, %47
-  br i1 %.not34, label %52, label %48
+  %44 = getelementptr inbounds nuw i8, ptr %6, i64 %indvars.iv
+  %45 = getelementptr inbounds nuw i8, ptr %44, i64 77
+  %46 = load i8, ptr %45, align 1
+  %.not34 = icmp eq i8 %.0, %46
+  br i1 %.not34, label %51, label %47
 
-48:                                               ; preds = %43
-  store i8 %.0, ptr %46, align 1
-  %49 = getelementptr inbounds nuw i8, ptr %6, i64 81
-  store i8 1, ptr %49, align 1
-  br label %52
+47:                                               ; preds = %43
+  store i8 %.0, ptr %45, align 1
+  %48 = getelementptr inbounds nuw i8, ptr %6, i64 81
+  store i8 1, ptr %48, align 1
+  br label %51
 
-50:                                               ; preds = %13
-  %51 = tail call zeroext i1 (ptr, ...) @SDL_SetError_REAL(ptr noundef nonnull @.str.8) #7
-  br label %52
+49:                                               ; preds = %13
+  %50 = tail call zeroext i1 (ptr, ...) @SDL_SetError_REAL(ptr noundef nonnull @.str.8) #7
+  br label %51
 
-52:                                               ; preds = %43, %48, %50, %28, %22, %11
-  %.031 = phi i1 [ %12, %11 ], [ %23, %22 ], [ %29, %28 ], [ %51, %50 ], [ true, %48 ], [ true, %43 ]
+51:                                               ; preds = %43, %47, %49, %28, %22, %11
+  %.031 = phi i1 [ %12, %11 ], [ %23, %22 ], [ %29, %28 ], [ %50, %49 ], [ true, %47 ], [ true, %43 ]
   ret i1 %.031
 }
 

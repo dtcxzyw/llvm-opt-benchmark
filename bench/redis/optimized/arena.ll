@@ -961,14 +961,13 @@ define hidden void @je_arena_extent_dalloc_large_prep(ptr noundef readnone captu
   %22 = add nsw i32 %reass.sub, 232
   %23 = tail call i32 @llvm.usub.sat.i32(i32 %22, i32 39)
   %24 = zext nneg i32 %23 to i64
-  %25 = mul nuw nsw i64 %24, 48
   br label %arena_large_dalloc_stats_update.exit
 
 arena_large_dalloc_stats_update.exit:             ; preds = %3, %9
-  %.0.i.i = phi i64 [ %25, %9 ], [ 9408, %3 ]
-  %26 = getelementptr inbounds nuw i8, ptr %1, i64 984
-  %27 = getelementptr inbounds nuw i8, ptr %26, i64 %.0.i.i
-  %28 = atomicrmw add ptr %27, i64 1 monotonic, align 8
+  %.0.i.i = phi i64 [ %24, %9 ], [ 196, %3 ]
+  %25 = getelementptr inbounds nuw %struct.arena_stats_large_s, ptr %1, i64 %.0.i.i
+  %26 = getelementptr inbounds nuw i8, ptr %25, i64 984
+  %27 = atomicrmw add ptr %26, i64 1 monotonic, align 8
   ret void
 }
 
@@ -1028,14 +1027,13 @@ arena_large_malloc_stats_update.exit.i:           ; preds = %10, %4
   %43 = add nsw i32 %reass.sub6, 232
   %44 = tail call i32 @llvm.usub.sat.i32(i32 %43, i32 39)
   %45 = zext nneg i32 %44 to i64
-  %46 = mul nuw nsw i64 %45, 48
   br label %arena_large_ralloc_stats_update.exit
 
 arena_large_ralloc_stats_update.exit:             ; preds = %arena_large_malloc_stats_update.exit.i, %30
-  %.0.i.i7.i = phi i64 [ %46, %30 ], [ 9408, %arena_large_malloc_stats_update.exit.i ]
-  %47 = getelementptr inbounds nuw i8, ptr %1, i64 984
-  %48 = getelementptr inbounds nuw i8, ptr %47, i64 %.0.i.i7.i
-  %49 = atomicrmw add ptr %48, i64 1 monotonic, align 8
+  %.0.i.i7.i = phi i64 [ %45, %30 ], [ 196, %arena_large_malloc_stats_update.exit.i ]
+  %46 = getelementptr inbounds nuw %struct.arena_stats_large_s, ptr %1, i64 %.0.i.i7.i
+  %47 = getelementptr inbounds nuw i8, ptr %46, i64 984
+  %48 = atomicrmw add ptr %47, i64 1 monotonic, align 8
   ret void
 }
 
@@ -1095,14 +1093,13 @@ arena_large_malloc_stats_update.exit.i:           ; preds = %10, %4
   %43 = add nsw i32 %reass.sub6, 232
   %44 = tail call i32 @llvm.usub.sat.i32(i32 %43, i32 39)
   %45 = zext nneg i32 %44 to i64
-  %46 = mul nuw nsw i64 %45, 48
   br label %arena_large_ralloc_stats_update.exit
 
 arena_large_ralloc_stats_update.exit:             ; preds = %arena_large_malloc_stats_update.exit.i, %30
-  %.0.i.i7.i = phi i64 [ %46, %30 ], [ 9408, %arena_large_malloc_stats_update.exit.i ]
-  %47 = getelementptr inbounds nuw i8, ptr %1, i64 984
-  %48 = getelementptr inbounds nuw i8, ptr %47, i64 %.0.i.i7.i
-  %49 = atomicrmw add ptr %48, i64 1 monotonic, align 8
+  %.0.i.i7.i = phi i64 [ %45, %30 ], [ 196, %arena_large_malloc_stats_update.exit.i ]
+  %46 = getelementptr inbounds nuw %struct.arena_stats_large_s, ptr %1, i64 %.0.i.i7.i
+  %47 = getelementptr inbounds nuw i8, ptr %46, i64 984
+  %48 = atomicrmw add ptr %47, i64 1 monotonic, align 8
   ret void
 }
 

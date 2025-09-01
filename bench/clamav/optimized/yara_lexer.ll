@@ -2287,48 +2287,47 @@ yara_yyget_lineno.exit:                           ; preds = %17, %12, %9, %3
   %21 = getelementptr inbounds nuw i8, ptr %1, i64 552
   %22 = load i32, ptr %21, align 8, !tbaa !71
   %23 = icmp sgt i32 %22, 0
-  br i1 %23, label %24, label %30
+  br i1 %23, label %24, label %29
 
 24:                                               ; preds = %yara_yyget_lineno.exit
-  %25 = getelementptr inbounds nuw i8, ptr %1, i64 424
-  %26 = zext nneg i32 %22 to i64
-  %27 = getelementptr ptr, ptr %25, i64 %26
-  %28 = getelementptr i8, ptr %27, i64 -8
-  %29 = load ptr, ptr %28, align 8, !tbaa !72
-  br label %30
+  %25 = zext nneg i32 %22 to i64
+  %26 = getelementptr ptr, ptr %1, i64 %25
+  %27 = getelementptr i8, ptr %26, i64 416
+  %28 = load ptr, ptr %27, align 8, !tbaa !72
+  br label %29
 
-30:                                               ; preds = %yara_yyget_lineno.exit, %24
-  %.0 = phi ptr [ %29, %24 ], [ null, %yara_yyget_lineno.exit ]
+29:                                               ; preds = %yara_yyget_lineno.exit, %24
+  %.0 = phi ptr [ %28, %24 ], [ null, %yara_yyget_lineno.exit ]
   %.not28 = icmp eq ptr %2, null
-  %31 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  br i1 %.not28, label %38, label %32
+  %30 = getelementptr inbounds nuw i8, ptr %1, i64 8
+  br i1 %.not28, label %37, label %31
 
-32:                                               ; preds = %30
-  %33 = getelementptr inbounds nuw i8, ptr %1, i64 692
-  %34 = tail call i64 @cli_strlcpy(ptr noundef nonnull %33, ptr noundef nonnull %2, i64 noundef 256) #29
-  store i32 11, ptr %31, align 8, !tbaa !73
+31:                                               ; preds = %29
+  %32 = getelementptr inbounds nuw i8, ptr %1, i64 692
+  %33 = tail call i64 @cli_strlcpy(ptr noundef nonnull %32, ptr noundef nonnull %2, i64 noundef 256) #29
+  store i32 11, ptr %30, align 8, !tbaa !73
   %.not30 = icmp eq ptr %.0, null
-  %35 = select i1 %.not30, ptr @.str.25, ptr %.0
-  %36 = getelementptr inbounds nuw i8, ptr %1, i64 12
-  %37 = load i32, ptr %36, align 4, !tbaa !70
-  tail call void (ptr, ...) @cli_errmsg(ptr noundef nonnull @.str.26, ptr noundef nonnull %35, i32 noundef %37, ptr noundef nonnull %2) #29
-  br label %45
+  %34 = select i1 %.not30, ptr @.str.25, ptr %.0
+  %35 = getelementptr inbounds nuw i8, ptr %1, i64 12
+  %36 = load i32, ptr %35, align 4, !tbaa !70
+  tail call void (ptr, ...) @cli_errmsg(ptr noundef nonnull @.str.26, ptr noundef nonnull %34, i32 noundef %36, ptr noundef nonnull %2) #29
+  br label %44
 
-38:                                               ; preds = %30
-  %39 = getelementptr inbounds nuw i8, ptr %1, i64 16
-  %40 = load i32, ptr %39, align 8, !tbaa !63
-  store i32 %40, ptr %31, align 8, !tbaa !73
-  %41 = call ptr @yr_compiler_get_error_message(ptr noundef nonnull %1, ptr noundef nonnull %4, i32 noundef 512) #29
+37:                                               ; preds = %29
+  %38 = getelementptr inbounds nuw i8, ptr %1, i64 16
+  %39 = load i32, ptr %38, align 8, !tbaa !63
+  store i32 %39, ptr %30, align 8, !tbaa !73
+  %40 = call ptr @yr_compiler_get_error_message(ptr noundef nonnull %1, ptr noundef nonnull %4, i32 noundef 512) #29
   %.not29 = icmp eq ptr %.0, null
-  %42 = select i1 %.not29, ptr @.str.27, ptr %.0
-  %43 = getelementptr inbounds nuw i8, ptr %1, i64 12
-  %44 = load i32, ptr %43, align 4, !tbaa !70
-  call void (ptr, ...) @cli_errmsg(ptr noundef nonnull @.str.26, ptr noundef nonnull %42, i32 noundef %44, ptr noundef nonnull %4) #29
-  br label %45
+  %41 = select i1 %.not29, ptr @.str.27, ptr %.0
+  %42 = getelementptr inbounds nuw i8, ptr %1, i64 12
+  %43 = load i32, ptr %42, align 4, !tbaa !70
+  call void (ptr, ...) @cli_errmsg(ptr noundef nonnull @.str.26, ptr noundef nonnull %41, i32 noundef %43, ptr noundef nonnull %4) #29
+  br label %44
 
-45:                                               ; preds = %38, %32
-  %46 = getelementptr inbounds nuw i8, ptr %1, i64 16
-  store i32 0, ptr %46, align 8, !tbaa !63
+44:                                               ; preds = %37, %31
+  %45 = getelementptr inbounds nuw i8, ptr %1, i64 16
+  store i32 0, ptr %45, align 8, !tbaa !63
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret void
 }
@@ -3368,23 +3367,22 @@ define void @yara_yywarning(ptr noundef readonly captures(none) %0, ptr noundef 
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 552
   %5 = load i32, ptr %4, align 8, !tbaa !71
   %6 = icmp sgt i32 %5, 0
-  br i1 %6, label %7, label %13
+  br i1 %6, label %7, label %12
 
 7:                                                ; preds = %2
-  %8 = getelementptr inbounds nuw i8, ptr %3, i64 424
-  %9 = zext nneg i32 %5 to i64
-  %10 = getelementptr ptr, ptr %8, i64 %9
-  %11 = getelementptr i8, ptr %10, i64 -8
-  %12 = load ptr, ptr %11, align 8, !tbaa !72
-  br label %13
+  %8 = zext nneg i32 %5 to i64
+  %9 = getelementptr ptr, ptr %3, i64 %8
+  %10 = getelementptr i8, ptr %9, i64 416
+  %11 = load ptr, ptr %10, align 8, !tbaa !72
+  br label %12
 
-13:                                               ; preds = %2, %7
-  %.0 = phi ptr [ %12, %7 ], [ null, %2 ]
+12:                                               ; preds = %2, %7
+  %.0 = phi ptr [ %11, %7 ], [ null, %2 ]
   %.not = icmp eq ptr %.0, null
-  %14 = select i1 %.not, ptr @.str.25, ptr %.0
-  %15 = getelementptr inbounds nuw i8, ptr %3, i64 12
-  %16 = load i32, ptr %15, align 4, !tbaa !70
-  tail call void (ptr, ...) @cli_warnmsg(ptr noundef nonnull @.str.24, ptr noundef nonnull %14, i32 noundef %16, ptr noundef %1) #29
+  %13 = select i1 %.not, ptr @.str.25, ptr %.0
+  %14 = getelementptr inbounds nuw i8, ptr %3, i64 12
+  %15 = load i32, ptr %14, align 4, !tbaa !70
+  tail call void (ptr, ...) @cli_warnmsg(ptr noundef nonnull @.str.24, ptr noundef nonnull %13, i32 noundef %15, ptr noundef %1) #29
   ret void
 }
 

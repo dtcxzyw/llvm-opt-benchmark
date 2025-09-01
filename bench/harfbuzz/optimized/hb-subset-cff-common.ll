@@ -832,27 +832,28 @@ _ZN3CFF11FDSelect3_4IN2OT7IntTypeItLj2EEENS2_IhLj1EEEE10_cmp_rangeEPKvS7_.exit.t
 
 42:                                               ; preds = %.loopexit.i
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #11, !srcloc !109
-  %43 = getelementptr inbounds nuw i8, ptr %0, i64 3
-  %44 = zext i16 %17 to i64
-  %45 = getelementptr %"struct.CFF::FDSelect3_4_Range", ptr %43, i64 %44
+  %43 = zext i16 %17 to i64
   %.sroa.0.0.copyload.i10.pre.i = load i16, ptr %13, align 1, !tbaa !112
-  %46 = getelementptr i8, ptr %45, i64 -1
-  %47 = load i8, ptr %46, align 1, !tbaa !107
+  %.idx = mul nuw nsw i64 %43, 3
+  %44 = getelementptr i8, ptr %13, i64 %.idx
+  %45 = getelementptr i8, ptr %44, i64 1
+  %46 = load i8, ptr %45, align 1, !tbaa !107
   %.not.i11.not.i = icmp eq i16 %.sroa.0.0.copyload.i10.pre.i, 0
-  br i1 %.not.i11.not.i, label %_ZNK3CFF11FDSelect3_4IN2OT7IntTypeItLj2EEENS2_IhLj1EEEE12get_fd_rangeEj.exit, label %48, !prof !114
+  br i1 %.not.i11.not.i, label %_ZNK3CFF11FDSelect3_4IN2OT7IntTypeItLj2EEENS2_IhLj1EEEE12get_fd_rangeEj.exit, label %47, !prof !114
 
-48:                                               ; preds = %42
-  %49 = tail call noundef i16 @llvm.bswap.i16(i16 %.sroa.0.0.copyload.i10.pre.i)
-  %50 = zext i16 %49 to i64
-  %51 = add nuw nsw i64 %50, 4294967295
+47:                                               ; preds = %42
+  %48 = tail call noundef i16 @llvm.bswap.i16(i16 %.sroa.0.0.copyload.i10.pre.i)
+  %49 = zext i16 %48 to i64
+  %50 = add nuw nsw i64 %49, 4294967295
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #11, !srcloc !109
-  %52 = and i64 %51, 4294967295
-  %53 = getelementptr inbounds nuw %"struct.CFF::FDSelect3_4_Range", ptr %43, i64 %52
+  %51 = getelementptr inbounds nuw i8, ptr %0, i64 3
+  %52 = and i64 %50, 4294967295
+  %53 = getelementptr inbounds nuw %"struct.CFF::FDSelect3_4_Range", ptr %51, i64 %52
   br label %_ZNK3CFF11FDSelect3_4IN2OT7IntTypeItLj2EEENS2_IhLj1EEEE12get_fd_rangeEj.exit
 
-_ZNK3CFF11FDSelect3_4IN2OT7IntTypeItLj2EEENS2_IhLj1EEEE12get_fd_rangeEj.exit: ; preds = %.thread.i, %38, %42, %48
-  %.in.i = phi i8 [ %41, %38 ], [ %47, %42 ], [ %47, %48 ], [ %37, %.thread.i ]
-  %54 = phi ptr [ %39, %38 ], [ @_hb_NullPool, %42 ], [ %53, %48 ], [ @_hb_NullPool, %.thread.i ]
+_ZNK3CFF11FDSelect3_4IN2OT7IntTypeItLj2EEENS2_IhLj1EEEE12get_fd_rangeEj.exit: ; preds = %.thread.i, %38, %42, %47
+  %.in.i = phi i8 [ %41, %38 ], [ %46, %42 ], [ %46, %47 ], [ %37, %.thread.i ]
+  %54 = phi ptr [ %39, %38 ], [ @_hb_NullPool, %42 ], [ %53, %47 ], [ @_hb_NullPool, %.thread.i ]
   %55 = load i16, ptr %54, align 1, !tbaa !110
   %56 = tail call noundef i16 @llvm.bswap.i16(i16 %55)
   %.sroa.5.0.extract.trunc6 = zext i16 %56 to i32

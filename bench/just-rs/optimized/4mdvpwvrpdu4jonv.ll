@@ -1601,10 +1601,9 @@ define hidden noundef align 8 dereferenceable_or_null(272) ptr @"_ZN4core6option
   %.sroa.27.0.copyload.i.i = load i64, ptr %.sroa.27.0..sroa_idx.i.i, align 8, !noalias !218
   %15 = icmp ult i64 %.sroa.27.0.copyload.i.i, 11
   tail call void @llvm.assume(i1 %15)
+  %16 = getelementptr inbounds nuw { [13 x i64] }, ptr %.sroa.0.0.copyload.i.i, i64 %.sroa.27.0.copyload.i.i
   call void @llvm.lifetime.end.p0(ptr nonnull %3), !noalias !218
-  %.idx.i = mul nuw nsw i64 %.sroa.27.0.copyload.i.i, 104
-  %16 = getelementptr inbounds nuw i8, ptr %.sroa.0.0.copyload.i.i, i64 208
-  %17 = getelementptr inbounds nuw i8, ptr %16, i64 %.idx.i
+  %17 = getelementptr inbounds nuw i8, ptr %16, i64 208
   %18 = load ptr, ptr %17, align 8, !noalias !221, !nonnull !13, !noundef !13
   %19 = getelementptr inbounds nuw i8, ptr %18, i64 16
   br label %"_ZN4just8justfile8Justfile10get_recipe28_$u7b$$u7b$closure$u7d$$u7d$17h05f532fd48daf23fE.llvm.12352545699060731367.exit"
@@ -15290,10 +15289,9 @@ define hidden noundef align 8 dereferenceable_or_null(272) ptr @_ZN4just8justfil
   %.sroa.27.0.copyload.i.i.i = load i64, ptr %.sroa.27.0..sroa_idx.i.i.i, align 8, !noalias !2958
   %29 = icmp ult i64 %.sroa.27.0.copyload.i.i.i, 11
   tail call void @llvm.assume(i1 %29)
+  %30 = getelementptr inbounds nuw { [13 x i64] }, ptr %.sroa.0.0.copyload.i.i.i, i64 %.sroa.27.0.copyload.i.i.i
   call void @llvm.lifetime.end.p0(ptr nonnull %4), !noalias !2958
-  %.idx.i.i = mul nuw nsw i64 %.sroa.27.0.copyload.i.i.i, 104
-  %30 = getelementptr inbounds nuw i8, ptr %.sroa.0.0.copyload.i.i.i, i64 208
-  %31 = getelementptr inbounds nuw i8, ptr %30, i64 %.idx.i.i
+  %31 = getelementptr inbounds nuw i8, ptr %30, i64 208
   %32 = load ptr, ptr %31, align 8, !noalias !2960, !nonnull !13, !noundef !13
   %33 = getelementptr inbounds nuw i8, ptr %32, i64 16
   br label %"_ZN4core6option15Option$LT$T$GT$7or_else17hd8ad7c1da7f48b47E.llvm.12352545699060731367.exit"
@@ -15337,10 +15335,9 @@ define hidden noundef align 8 dereferenceable_or_null(272) ptr @"_ZN4just8justfi
   %.sroa.27.0.copyload.i = load i64, ptr %.sroa.27.0..sroa_idx.i, align 8, !noalias !2966
   %17 = icmp ult i64 %.sroa.27.0.copyload.i, 11
   tail call void @llvm.assume(i1 %17)
+  %18 = getelementptr inbounds nuw { [13 x i64] }, ptr %.sroa.0.0.copyload.i, i64 %.sroa.27.0.copyload.i
   call void @llvm.lifetime.end.p0(ptr nonnull %2), !noalias !2966
-  %.idx = mul nuw nsw i64 %.sroa.27.0.copyload.i, 104
-  %18 = getelementptr inbounds nuw i8, ptr %.sroa.0.0.copyload.i, i64 208
-  %19 = getelementptr inbounds nuw i8, ptr %18, i64 %.idx
+  %19 = getelementptr inbounds nuw i8, ptr %18, i64 208
   %20 = load ptr, ptr %19, align 8, !nonnull !13, !noundef !13
   %21 = getelementptr inbounds nuw i8, ptr %20, i64 16
   br label %"_ZN5alloc11collections5btree3map25BTreeMap$LT$K$C$V$C$A$GT$3get17he11bde792bbddc3fE.exit.thread"
@@ -15517,10 +15514,9 @@ define internal fastcc void @_ZN4just8justfile8Justfile10invocation17h522a289368
   %.sroa.27.0.copyload.i.i.i.i = load i64, ptr %.sroa.27.0..sroa_idx.i.i.i.i, align 8, !noalias !3006
   %91 = icmp ult i64 %.sroa.27.0.copyload.i.i.i.i, 11
   tail call void @llvm.assume(i1 %91)
+  %92 = getelementptr inbounds nuw { [13 x i64] }, ptr %.sroa.0.0.copyload.i.i.i.i, i64 %.sroa.27.0.copyload.i.i.i.i
   call void @llvm.lifetime.end.p0(ptr nonnull %26), !noalias !3006
-  %.idx.i.i.i = mul nuw nsw i64 %.sroa.27.0.copyload.i.i.i.i, 104
-  %92 = getelementptr inbounds nuw i8, ptr %.sroa.0.0.copyload.i.i.i.i, i64 208
-  %93 = getelementptr inbounds nuw i8, ptr %92, i64 %.idx.i.i.i
+  %93 = getelementptr inbounds nuw i8, ptr %92, i64 208
   br label %_ZN4just8justfile8Justfile10get_recipe17h84e5a7b4c755d461E.exit
 
 "_ZN5alloc11collections5btree3map25BTreeMap$LT$K$C$V$C$A$GT$3get17hceef0998d04bc143E.exit.thread": ; preds = %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17h7ca1c97baf188841E.exit", %"_ZN5alloc11collections5btree3map25BTreeMap$LT$K$C$V$C$A$GT$3get17hceef0998d04bc143E.exit.thread151"

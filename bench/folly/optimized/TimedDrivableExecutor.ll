@@ -3955,19 +3955,18 @@ define linkonce_odr void @_ZN5folly14UnboundedQueueINS_8FunctionIFvvEEELb0ELb1EL
   %.1.i = phi ptr [ %.0.i.i.i.i, %11 ], [ %.012.i, %.lr.ph.i ]
   %15 = mul i64 %.01011.i, 27
   %16 = and i64 %15, 255
-  %.idx.i = mul nuw nsw i64 %16, 80
-  %17 = getelementptr inbounds nuw i8, ptr %.1.i, i64 80
-  %18 = getelementptr inbounds nuw i8, ptr %17, i64 %.idx.i
-  %19 = getelementptr inbounds nuw i8, ptr %18, i64 56
-  %20 = load ptr, ptr %19, align 8, !tbaa !12
-  %.not.i.i.i = icmp eq ptr %20, null
-  br i1 %.not.i.i.i, label %_ZN5folly8FunctionIFvvEED2Ev.exit.i, label %21
+  %17 = getelementptr inbounds nuw %"class.folly::UnboundedQueue<folly::Function<void ()>, false, true, true>::Entry", ptr %.1.i, i64 %16
+  %18 = getelementptr inbounds nuw i8, ptr %17, i64 136
+  %19 = load ptr, ptr %18, align 8, !tbaa !12
+  %.not.i.i.i = icmp eq ptr %19, null
+  br i1 %.not.i.i.i, label %_ZN5folly8FunctionIFvvEED2Ev.exit.i, label %20
 
-21:                                               ; preds = %14
-  %22 = tail call noundef i64 %20(i32 noundef 1, ptr noundef nonnull align 16 dereferenceable(64) %18, ptr noundef null) #27
+20:                                               ; preds = %14
+  %21 = getelementptr inbounds nuw i8, ptr %17, i64 80
+  %22 = tail call noundef i64 %19(i32 noundef 1, ptr noundef nonnull align 16 dereferenceable(64) %21, ptr noundef null) #27
   br label %_ZN5folly8FunctionIFvvEED2Ev.exit.i
 
-_ZN5folly8FunctionIFvvEED2Ev.exit.i:              ; preds = %21, %14
+_ZN5folly8FunctionIFvvEED2Ev.exit.i:              ; preds = %20, %14
   %23 = add i64 %.01011.i, 1
   %exitcond.not.i = icmp eq i64 %23, %3
   br i1 %exitcond.not.i, label %_ZN5folly14UnboundedQueueINS_8FunctionIFvvEEELb0ELb1ELb1ELm8ELm6ESt6atomicE21cleanUpRemainingItemsEv.exit, label %.lr.ph.i, !llvm.loop !184

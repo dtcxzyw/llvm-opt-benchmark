@@ -409,9 +409,8 @@ define hidden void @je_tcache_bin_flush_small(ptr noundef %0, ptr noundef readon
   %6 = alloca [16 x %struct.bin_remote_free_data_s], align 16
   %7 = load ptr, ptr %1, align 8, !tbaa !42
   %8 = zext i32 %3 to i64
-  %.idx.i = shl nuw nsw i64 %8, 1
-  %9 = getelementptr inbounds nuw i8, ptr %7, i64 77
-  %10 = getelementptr inbounds nuw i8, ptr %9, i64 %.idx.i
+  %9 = getelementptr inbounds nuw %struct.cache_bin_fill_ctl_s, ptr %7, i64 %8
+  %10 = getelementptr inbounds nuw i8, ptr %9, i64 77
   store i8 0, ptr %10, align 1, !tbaa !51
   %11 = getelementptr i8, ptr %2, i64 20
   tail call void @je_tcache_bin_flush_stashed(ptr noundef %0, ptr noundef nonnull %1, ptr noundef %2, i32 noundef %3, i1 noundef zeroext true)
@@ -3758,21 +3757,20 @@ define hidden void @je_thread_tcache_max_set(ptr noundef %0, i64 noundef %1) loc
 8:                                                ; preds = %2
   %9 = getelementptr inbounds nuw i8, ptr %5, i64 40
   %10 = load ptr, ptr %9, align 8, !tbaa !55
-  %11 = getelementptr i8, ptr %0, i64 958
-  br label %12
+  br label %11
 
-12:                                               ; preds = %12, %8
-  %indvars.iv.i = phi i64 [ 0, %8 ], [ %indvars.iv.next.i, %12 ]
-  %13 = getelementptr inbounds nuw %struct.cache_bin_info_s, ptr %3, i64 %indvars.iv.i
-  %.idx.i = mul nuw nsw i64 %indvars.iv.i, 24
-  %14 = getelementptr i8, ptr %11, i64 %.idx.i
+11:                                               ; preds = %11, %8
+  %indvars.iv.i = phi i64 [ 0, %8 ], [ %indvars.iv.next.i, %11 ]
+  %12 = getelementptr inbounds nuw %struct.cache_bin_info_s, ptr %3, i64 %indvars.iv.i
+  %13 = getelementptr %struct.cache_bin_s, ptr %4, i64 %indvars.iv.i
+  %14 = getelementptr i8, ptr %13, i64 30
   %.val.i = load i16, ptr %14, align 2, !tbaa !44
-  call void @je_cache_bin_info_init(ptr noundef nonnull %13, i16 noundef zeroext %.val.i) #16
+  call void @je_cache_bin_info_init(ptr noundef nonnull %12, i16 noundef zeroext %.val.i) #16
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, 73
-  br i1 %exitcond.not.i, label %tcache_bin_settings_backup.exit, label %12, !llvm.loop !185
+  br i1 %exitcond.not.i, label %tcache_bin_settings_backup.exit, label %11, !llvm.loop !185
 
-tcache_bin_settings_backup.exit:                  ; preds = %12
+tcache_bin_settings_backup.exit:                  ; preds = %11
   %15 = load i8, ptr %0, align 1, !tbaa !20, !range !22, !noundef !23
   %16 = trunc nuw i8 %15 to i1
   br i1 %16, label %17, label %je_tcache_cleanup.exit
@@ -3993,28 +3991,27 @@ sz_size2index_compute.exit19:                     ; preds = %sz_size2index_compu
 ; Function Attrs: nounwind uwtable
 define hidden noundef zeroext i1 @je_tcache_bins_ncached_max_write(ptr noundef %0, ptr noundef %1, i64 noundef %2) local_unnamed_addr #0 {
   %4 = alloca [73 x %struct.cache_bin_info_s], align 16
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 928
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
-  %5 = getelementptr i8, ptr %0, i64 958
   br label %6
 
 6:                                                ; preds = %6, %3
   %indvars.iv.i = phi i64 [ 0, %3 ], [ %indvars.iv.next.i, %6 ]
   %7 = getelementptr inbounds nuw %struct.cache_bin_info_s, ptr %4, i64 %indvars.iv.i
-  %.idx.i = mul nuw nsw i64 %indvars.iv.i, 24
-  %8 = getelementptr i8, ptr %5, i64 %.idx.i
-  %.val.i = load i16, ptr %8, align 2, !tbaa !44
+  %8 = getelementptr %struct.cache_bin_s, ptr %5, i64 %indvars.iv.i
+  %9 = getelementptr i8, ptr %8, i64 30
+  %.val.i = load i16, ptr %9, align 2, !tbaa !44
   call void @je_cache_bin_info_init(ptr noundef nonnull %7, i16 noundef zeroext %.val.i) #16
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, 73
   br i1 %exitcond.not.i, label %tcache_bin_settings_backup.exit, label %6, !llvm.loop !185
 
 tcache_bin_settings_backup.exit:                  ; preds = %6
-  %9 = getelementptr inbounds nuw i8, ptr %0, i64 928
   %10 = call fastcc zeroext i1 @tcache_bin_info_settings_parse(ptr noundef %1, i64 noundef %2, ptr noundef nonnull %4, ptr noundef null)
   br i1 %10, label %19, label %11
 
 11:                                               ; preds = %tcache_bin_settings_backup.exit
-  %12 = load ptr, ptr %9, align 8, !tbaa !42
+  %12 = load ptr, ptr %5, align 8, !tbaa !42
   %13 = getelementptr inbounds nuw i8, ptr %12, i64 40
   %14 = load ptr, ptr %13, align 8, !tbaa !55
   %15 = load i8, ptr %0, align 8, !tbaa !20, !range !22, !noundef !23
@@ -4022,7 +4019,7 @@ tcache_bin_settings_backup.exit:                  ; preds = %6
   br i1 %16, label %17, label %je_tcache_cleanup.exit
 
 17:                                               ; preds = %11
-  call fastcc void @tcache_destroy(ptr noundef nonnull %0, ptr noundef nonnull %9, i1 noundef zeroext true)
+  call fastcc void @tcache_destroy(ptr noundef nonnull %0, ptr noundef nonnull %5, i1 noundef zeroext true)
   %18 = getelementptr inbounds nuw i8, ptr %0, i64 936
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(1752) %18, i8 0, i64 1752, i1 false)
   br label %je_tcache_cleanup.exit

@@ -736,7 +736,7 @@ dt_iop_denoiseprofile_get_auto_profile.exit:      ; preds = %60, %40, %51, %58
 .preheader347:                                    ; preds = %.preheader348, %258
   %indvars.iv464 = phi i64 [ 0, %.preheader348 ], [ %indvars.iv.next465, %258 ]
   %invariant.gep379 = getelementptr inbounds nuw float, ptr %230, i64 %indvars.iv464
-  %invariant.gep381 = getelementptr inbounds nuw float, ptr %226, i64 %indvars.iv464
+  %invariant.gep381 = getelementptr inbounds nuw float, ptr %3, i64 %indvars.iv464
   br label %259
 
 233:                                              ; preds = %258
@@ -783,7 +783,8 @@ dt_iop_denoiseprofile_get_auto_profile.exit:      ; preds = %60, %40, %51, %58
   %indvars.iv460 = phi i64 [ 0, %.preheader347 ], [ %indvars.iv.next461, %259 ]
   %gep380 = getelementptr inbounds nuw [5 x float], ptr %invariant.gep379, i64 %indvars.iv460
   %260 = load float, ptr %gep380, align 4, !tbaa !36
-  %261 = getelementptr inbounds nuw [7 x float], ptr %invariant.gep381, i64 %indvars.iv460, i64 2
+  %gep382 = getelementptr inbounds nuw [7 x float], ptr %invariant.gep381, i64 %indvars.iv460
+  %261 = getelementptr inbounds nuw i8, ptr %gep382, i64 236
   store float %260, ptr %261, align 4, !tbaa !36
   %indvars.iv.next461 = add nuw nsw i64 %indvars.iv460, 1
   %exitcond463.not = icmp eq i64 %indvars.iv.next461, 4

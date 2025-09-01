@@ -1183,14 +1183,14 @@ define hidden void @"_ZN4core3ptr105drop_in_place$LT$std..sync..mpmc..list..Chan
   %.not18.i = icmp eq i64 %8, %9
   br i1 %.not18.i, label %._crit_edge.i, label %.lr.ph.i
 
-._crit_edge.i:                                    ; preds = %20, %1
-  %.014.lcssa.i = phi ptr [ %7, %1 ], [ %.1.i, %20 ]
+._crit_edge.i:                                    ; preds = %19, %1
+  %.014.lcssa.i = phi ptr [ %7, %1 ], [ %.1.i, %19 ]
   %10 = icmp eq ptr %.014.lcssa.i, null
   br i1 %10, label %"_ZN81_$LT$std..sync..mpmc..list..Channel$LT$T$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17hdffe7cdff90ed812E.llvm.3531809010164697281.exit", label %13
 
-.lr.ph.i:                                         ; preds = %1, %20
-  %.020.i = phi i64 [ %21, %20 ], [ %8, %1 ]
-  %.01419.i = phi ptr [ %.1.i, %20 ], [ %7, %1 ]
+.lr.ph.i:                                         ; preds = %1, %19
+  %.020.i = phi i64 [ %20, %19 ], [ %8, %1 ]
+  %.01419.i = phi ptr [ %.1.i, %19 ], [ %7, %1 ]
   %11 = lshr exact i64 %.020.i, 1
   %12 = and i64 %11, 31
   %.not16.i = icmp eq i64 %12, 31
@@ -1204,45 +1204,43 @@ define hidden void @"_ZN4core3ptr105drop_in_place$LT$std..sync..mpmc..list..Chan
   %15 = load atomic i64, ptr %.01419.i monotonic, align 8, !noalias !326
   %16 = inttoptr i64 %15 to ptr
   tail call void @__rust_dealloc(ptr noundef nonnull %.01419.i, i64 noundef 4224, i64 noundef 8) #25, !noalias !326
-  br label %20
+  br label %19
 
 17:                                               ; preds = %.lr.ph.i
-  %.idx.i = mul nuw nsw i64 %12, 136
-  %18 = getelementptr inbounds nuw i8, ptr %.01419.i, i64 16
-  %19 = getelementptr inbounds nuw i8, ptr %18, i64 %.idx.i
-  tail call void @"_ZN4core3ptr51drop_in_place$LT$uu_sort..chunks..RecycledChunk$GT$17hfef13e84c9784637E"(ptr noalias noundef nonnull readonly align 8 dereferenceable(120) %19), !noalias !326
-  br label %20
+  %18 = getelementptr inbounds nuw { { { [16 x i64] } }, { i64 } }, ptr %.01419.i, i64 %12, i32 0, i32 0, i32 0, i64 2
+  tail call void @"_ZN4core3ptr51drop_in_place$LT$uu_sort..chunks..RecycledChunk$GT$17hfef13e84c9784637E"(ptr noalias noundef nonnull readonly align 8 dereferenceable(120) %18), !noalias !326
+  br label %19
 
-20:                                               ; preds = %17, %14
+19:                                               ; preds = %17, %14
   %.1.i = phi ptr [ %.01419.i, %17 ], [ %16, %14 ]
-  %21 = add i64 %.020.i, 2
-  %.not.i = icmp eq i64 %21, %9
+  %20 = add i64 %.020.i, 2
+  %.not.i = icmp eq i64 %20, %9
   br i1 %.not.i, label %._crit_edge.i, label %.lr.ph.i
 
 "_ZN81_$LT$std..sync..mpmc..list..Channel$LT$T$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17hdffe7cdff90ed812E.llvm.3531809010164697281.exit": ; preds = %13, %._crit_edge.i
-  %22 = getelementptr inbounds nuw i8, ptr %0, i64 264
-  invoke fastcc void @"_ZN4core3ptr73drop_in_place$LT$alloc..vec..Vec$LT$std..sync..mpmc..waker..Entry$GT$$GT$17hbcc1d2a9b29198feE"(ptr noalias noundef readonly align 8 dereferenceable(48) %22)
-          to label %"_ZN4core3ptr54drop_in_place$LT$std..sync..mpmc..waker..SyncWaker$GT$17ha80ba35f8405ce1fE.llvm.3531809010164697281.exit" unwind label %23
+  %21 = getelementptr inbounds nuw i8, ptr %0, i64 264
+  invoke fastcc void @"_ZN4core3ptr73drop_in_place$LT$alloc..vec..Vec$LT$std..sync..mpmc..waker..Entry$GT$$GT$17hbcc1d2a9b29198feE"(ptr noalias noundef readonly align 8 dereferenceable(48) %21)
+          to label %"_ZN4core3ptr54drop_in_place$LT$std..sync..mpmc..waker..SyncWaker$GT$17ha80ba35f8405ce1fE.llvm.3531809010164697281.exit" unwind label %22
 
-23:                                               ; preds = %"_ZN81_$LT$std..sync..mpmc..list..Channel$LT$T$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17hdffe7cdff90ed812E.llvm.3531809010164697281.exit"
-  %24 = landingpad { ptr, i32 }
+22:                                               ; preds = %"_ZN81_$LT$std..sync..mpmc..list..Channel$LT$T$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17hdffe7cdff90ed812E.llvm.3531809010164697281.exit"
+  %23 = landingpad { ptr, i32 }
           cleanup
-  %25 = getelementptr inbounds nuw i8, ptr %0, i64 288
-  invoke fastcc void @"_ZN4core3ptr73drop_in_place$LT$alloc..vec..Vec$LT$std..sync..mpmc..waker..Entry$GT$$GT$17hbcc1d2a9b29198feE"(ptr noalias noundef readonly align 8 dereferenceable(24) %25) #27
-          to label %28 unwind label %26
+  %24 = getelementptr inbounds nuw i8, ptr %0, i64 288
+  invoke fastcc void @"_ZN4core3ptr73drop_in_place$LT$alloc..vec..Vec$LT$std..sync..mpmc..waker..Entry$GT$$GT$17hbcc1d2a9b29198feE"(ptr noalias noundef readonly align 8 dereferenceable(24) %24) #27
+          to label %27 unwind label %25
 
-26:                                               ; preds = %23
-  %27 = landingpad { ptr, i32 }
+25:                                               ; preds = %22
+  %26 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
   tail call void @_ZN4core9panicking16panic_in_cleanup17hbacfddf1bcf21a1eE() #26, !noalias !329
   unreachable
 
-28:                                               ; preds = %23
-  resume { ptr, i32 } %24
+27:                                               ; preds = %22
+  resume { ptr, i32 } %23
 
 "_ZN4core3ptr54drop_in_place$LT$std..sync..mpmc..waker..SyncWaker$GT$17ha80ba35f8405ce1fE.llvm.3531809010164697281.exit": ; preds = %"_ZN81_$LT$std..sync..mpmc..list..Channel$LT$T$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17hdffe7cdff90ed812E.llvm.3531809010164697281.exit"
-  %29 = getelementptr inbounds nuw i8, ptr %0, i64 288
-  tail call fastcc void @"_ZN4core3ptr73drop_in_place$LT$alloc..vec..Vec$LT$std..sync..mpmc..waker..Entry$GT$$GT$17hbcc1d2a9b29198feE"(ptr noalias noundef readonly align 8 dereferenceable(24) %29)
+  %28 = getelementptr inbounds nuw i8, ptr %0, i64 288
+  tail call fastcc void @"_ZN4core3ptr73drop_in_place$LT$alloc..vec..Vec$LT$std..sync..mpmc..waker..Entry$GT$$GT$17hbcc1d2a9b29198feE"(ptr noalias noundef readonly align 8 dereferenceable(24) %28)
   ret void
 }
 
@@ -24417,14 +24415,14 @@ define hidden void @"_ZN81_$LT$std..sync..mpmc..list..Channel$LT$T$GT$$u20$as$u2
   %.not18 = icmp eq i64 %8, %9
   br i1 %.not18, label %._crit_edge, label %.lr.ph
 
-._crit_edge:                                      ; preds = %21, %1
-  %.014.lcssa = phi ptr [ %7, %1 ], [ %.1, %21 ]
+._crit_edge:                                      ; preds = %20, %1
+  %.014.lcssa = phi ptr [ %7, %1 ], [ %.1, %20 ]
   %10 = icmp eq ptr %.014.lcssa, null
   br i1 %10, label %14, label %13
 
-.lr.ph:                                           ; preds = %1, %21
-  %.020 = phi i64 [ %22, %21 ], [ %8, %1 ]
-  %.01419 = phi ptr [ %.1, %21 ], [ %7, %1 ]
+.lr.ph:                                           ; preds = %1, %20
+  %.020 = phi i64 [ %21, %20 ], [ %8, %1 ]
+  %.01419 = phi ptr [ %.1, %20 ], [ %7, %1 ]
   %11 = lshr exact i64 %.020, 1
   %12 = and i64 %11, 31
   %.not16 = icmp eq i64 %12, 31
@@ -24441,19 +24439,17 @@ define hidden void @"_ZN81_$LT$std..sync..mpmc..list..Channel$LT$T$GT$$u20$as$u2
   %16 = load atomic i64, ptr %.01419 monotonic, align 8
   %17 = inttoptr i64 %16 to ptr
   tail call void @__rust_dealloc(ptr noundef nonnull %.01419, i64 noundef 4224, i64 noundef 8) #25
-  br label %21
+  br label %20
 
 18:                                               ; preds = %.lr.ph
-  %.idx = mul nuw nsw i64 %12, 136
-  %19 = getelementptr inbounds nuw i8, ptr %.01419, i64 16
-  %20 = getelementptr inbounds nuw i8, ptr %19, i64 %.idx
-  tail call void @"_ZN4core3ptr51drop_in_place$LT$uu_sort..chunks..RecycledChunk$GT$17hfef13e84c9784637E"(ptr noalias noundef nonnull readonly align 8 dereferenceable(120) %20)
-  br label %21
+  %19 = getelementptr inbounds nuw { { { [16 x i64] } }, { i64 } }, ptr %.01419, i64 %12, i32 0, i32 0, i32 0, i64 2
+  tail call void @"_ZN4core3ptr51drop_in_place$LT$uu_sort..chunks..RecycledChunk$GT$17hfef13e84c9784637E"(ptr noalias noundef nonnull readonly align 8 dereferenceable(120) %19)
+  br label %20
 
-21:                                               ; preds = %18, %15
+20:                                               ; preds = %18, %15
   %.1 = phi ptr [ %.01419, %18 ], [ %17, %15 ]
-  %22 = add i64 %.020, 2
-  %.not = icmp eq i64 %22, %9
+  %21 = add i64 %.020, 2
+  %.not = icmp eq i64 %21, %9
   br i1 %.not, label %._crit_edge, label %.lr.ph
 }
 

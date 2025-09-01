@@ -61,8 +61,8 @@ define range(i32 0, 3) i32 @range_convert_str_work(ptr noundef %0, ptr noundef w
   ]
 
 .preheader:                                       ; preds = %15
-  %.not141 = icmp eq i32 %14, 0
-  br i1 %.not141, label %._crit_edge, label %.lr.ph
+  %.not140 = icmp eq i32 %14, 0
+  br i1 %.not140, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %.preheader
   %17 = getelementptr inbounds nuw i8, ptr %.0104, i64 4
@@ -90,15 +90,15 @@ define range(i32 0, 3) i32 @range_convert_str_work(ptr noundef %0, ptr noundef w
   %.1105 = phi ptr [ %27, %21 ], [ %.0104, %20 ]
   %.1102 = phi i32 [ %.2103, %21 ], [ %.0101, %20 ]
   %29 = icmp eq i8 %16, 45
-  br i1 %29, label %.loopexit119.thread, label %34
+  br i1 %29, label %.loopexit118.thread, label %34
 
-.loopexit119.thread:                              ; preds = %28
+.loopexit118.thread:                              ; preds = %28
   %30 = getelementptr inbounds nuw i8, ptr %.1105, i64 4
   %31 = load i32, ptr %.1105, align 4
   %32 = zext i32 %31 to i64
   %33 = getelementptr %struct.range_admin_tag, ptr %30, i64 %32
   store i32 1, ptr %33, align 4
-  br label %.preheader118.preheader
+  br label %.preheader117.preheader
 
 34:                                               ; preds = %28
   %35 = zext i8 %16 to i64
@@ -154,7 +154,7 @@ define range(i32 0, 3) i32 @range_convert_str_work(ptr noundef %0, ptr noundef w
   switch i8 %58, label %102 [
     i8 32, label %59
     i8 9, label %59
-    i8 45, label %.preheader118.preheader
+    i8 45, label %.preheader117.preheader
     i8 44, label %96
     i8 0, label %96
   ]
@@ -167,34 +167,33 @@ define range(i32 0, 3) i32 @range_convert_str_work(ptr noundef %0, ptr noundef w
   call void @wmem_free(ptr noundef %0, ptr noundef %.1105)
   br label %118
 
-.preheader118.preheader:                          ; preds = %57, %.loopexit119.thread
-  %.2173 = phi ptr [ %.1100, %.loopexit119.thread ], [ %.3, %57 ]
-  %62 = phi i32 [ %31, %.loopexit119.thread ], [ %54, %57 ]
-  br label %.preheader118
+.preheader117.preheader:                          ; preds = %57, %.loopexit118.thread
+  %.2172 = phi ptr [ %.1100, %.loopexit118.thread ], [ %.3, %57 ]
+  %62 = phi i32 [ %31, %.loopexit118.thread ], [ %54, %57 ]
+  br label %.preheader117
 
-.preheader118:                                    ; preds = %.preheader118.backedge, %.preheader118.preheader
-  %.2.pn = phi ptr [ %.2173, %.preheader118.preheader ], [ %.4, %.preheader118.backedge ]
+.preheader117:                                    ; preds = %.preheader117.backedge, %.preheader117.preheader
+  %.2.pn = phi ptr [ %.2172, %.preheader117.preheader ], [ %.4, %.preheader117.backedge ]
   %.4 = getelementptr i8, ptr %.2.pn, i64 1
   %63 = load i8, ptr %.4, align 1
   switch i8 %63, label %68 [
-    i8 32, label %.preheader118.backedge
-    i8 9, label %.preheader118.backedge
+    i8 32, label %.preheader117.backedge
+    i8 9, label %.preheader117.backedge
     i8 44, label %64
     i8 0, label %64
   ]
 
-.preheader118.backedge:                           ; preds = %.preheader118, %.preheader118
-  br label %.preheader118, !llvm.loop !9
+.preheader117.backedge:                           ; preds = %.preheader117, %.preheader117
+  br label %.preheader117, !llvm.loop !9
 
-64:                                               ; preds = %.preheader118, %.preheader118
+64:                                               ; preds = %.preheader117, %.preheader117
   %65 = zext i32 %62 to i64
-  %.idx117 = shl nuw nsw i64 %65, 3
-  %66 = getelementptr i8, ptr %.1105, i64 8
-  %67 = getelementptr i8, ptr %66, i64 %.idx117
+  %66 = getelementptr %struct.range_admin_tag, ptr %.1105, i64 %65
+  %67 = getelementptr i8, ptr %66, i64 8
   store i32 %3, ptr %67, align 4
   br label %.loopexit
 
-68:                                               ; preds = %.preheader118
+68:                                               ; preds = %.preheader117
   %69 = zext i8 %63 to i64
   %70 = getelementptr i16, ptr %12, i64 %69
   %71 = load i16, ptr %70, align 2
@@ -237,9 +236,8 @@ define range(i32 0, 3) i32 @range_convert_str_work(ptr noundef %0, ptr noundef w
   %86 = load ptr, ptr %6, align 8
   %87 = load i32, ptr %.1105, align 4
   %88 = zext i32 %87 to i64
-  %.idx = shl nuw nsw i64 %88, 3
-  %89 = getelementptr i8, ptr %.1105, i64 8
-  %90 = getelementptr i8, ptr %89, i64 %.idx
+  %89 = getelementptr %struct.range_admin_tag, ptr %.1105, i64 %88
+  %90 = getelementptr i8, ptr %89, i64 8
   store i32 %85, ptr %90, align 4
   br label %91
 
@@ -442,9 +440,8 @@ define noundef zeroext i1 @range_add_value(ptr noundef %0, ptr noundef captures(
   %33 = add i32 %32, 1
   store i32 %33, ptr %31, align 4
   %34 = load ptr, ptr %1, align 8
-  %.idx = shl nuw nsw i64 %.0.lcssa, 3
-  %35 = getelementptr i8, ptr %34, i64 8
-  %36 = getelementptr i8, ptr %35, i64 %.idx
+  %35 = getelementptr %struct.range_admin_tag, ptr %34, i64 %.0.lcssa
+  %36 = getelementptr i8, ptr %35, i64 8
   store i32 %2, ptr %36, align 4
   %37 = load ptr, ptr %1, align 8
   %38 = getelementptr inbounds nuw i8, ptr %37, i64 4
@@ -516,36 +513,35 @@ define noundef zeroext i1 @range_remove_value(ptr noundef %0, ptr noundef captur
 .lr.ph72:                                         ; preds = %22
   %31 = getelementptr inbounds nuw i8, ptr %28, i64 4
   %32 = getelementptr inbounds nuw i8, ptr %27, i64 4
-  %33 = getelementptr i8, ptr %28, i64 8
-  %34 = and i64 %indvars.iv, 4294967295
-  %35 = zext i32 %29 to i64
-  br label %36
+  %33 = and i64 %indvars.iv, 4294967295
+  %34 = zext i32 %29 to i64
+  br label %35
 
-36:                                               ; preds = %.lr.ph72, %47
+35:                                               ; preds = %.lr.ph72, %47
   %indvars.iv84 = phi i64 [ 0, %.lr.ph72 ], [ %indvars.iv.next85, %47 ]
   %.04971 = phi i32 [ 0, %.lr.ph72 ], [ %.1, %47 ]
-  %37 = icmp eq i64 %indvars.iv84, %34
-  br i1 %37, label %47, label %38
+  %36 = icmp eq i64 %indvars.iv84, %33
+  br i1 %36, label %47, label %37
 
-38:                                               ; preds = %36
-  %39 = getelementptr %struct.range_admin_tag, ptr %31, i64 %indvars.iv84
-  %40 = load i32, ptr %39, align 4
-  %41 = zext i32 %.04971 to i64
-  %42 = getelementptr %struct.range_admin_tag, ptr %32, i64 %41
-  store i32 %40, ptr %42, align 4
-  %.idx = shl nuw nsw i64 %indvars.iv84, 3
-  %43 = getelementptr i8, ptr %33, i64 %.idx
+37:                                               ; preds = %35
+  %38 = getelementptr %struct.range_admin_tag, ptr %31, i64 %indvars.iv84
+  %39 = load i32, ptr %38, align 4
+  %40 = zext i32 %.04971 to i64
+  %41 = getelementptr %struct.range_admin_tag, ptr %32, i64 %40
+  store i32 %39, ptr %41, align 4
+  %42 = getelementptr %struct.range_admin_tag, ptr %28, i64 %indvars.iv84
+  %43 = getelementptr i8, ptr %42, i64 8
   %44 = load i32, ptr %43, align 4
-  %45 = getelementptr inbounds nuw i8, ptr %42, i64 4
+  %45 = getelementptr inbounds nuw i8, ptr %41, i64 4
   store i32 %44, ptr %45, align 4
   %46 = add i32 %.04971, 1
   br label %47
 
-47:                                               ; preds = %36, %38
-  %.1 = phi i32 [ %.04971, %36 ], [ %46, %38 ]
+47:                                               ; preds = %35, %37
+  %.1 = phi i32 [ %.04971, %35 ], [ %46, %37 ]
   %indvars.iv.next85 = add nuw nsw i64 %indvars.iv84, 1
-  %48 = icmp samesign ult i64 %indvars.iv.next85, %35
-  br i1 %48, label %36, label %._crit_edge, !llvm.loop !14
+  %48 = icmp samesign ult i64 %indvars.iv.next85, %34
+  br i1 %48, label %35, label %._crit_edge, !llvm.loop !14
 
 ._crit_edge:                                      ; preds = %47, %22
   tail call void @wmem_free(ptr noundef %0, ptr noundef %28)

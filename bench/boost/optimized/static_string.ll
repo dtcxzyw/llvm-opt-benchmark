@@ -6886,22 +6886,20 @@ define weak_odr hidden noundef nonnull align 1 dereferenceable(1) ptr @_ZNK5boos
 
 ; Function Attrs: mustprogress nounwind uwtable
 define weak_odr hidden noundef nonnull align 1 dereferenceable(1) ptr @_ZN5boost14static_strings19basic_static_stringILm420EcSt11char_traitsIcEE4backEv(ptr noundef nonnull align 2 dereferenceable(423) %0) local_unnamed_addr #3 comdat align 2 {
-  %2 = getelementptr inbounds nuw i8, ptr %0, i64 2
-  %3 = load i16, ptr %0, align 2, !tbaa !4
-  %4 = zext i16 %3 to i64
-  %5 = getelementptr i8, ptr %2, i64 %4
-  %6 = getelementptr i8, ptr %5, i64 -1
-  ret ptr %6
+  %2 = load i16, ptr %0, align 2, !tbaa !4
+  %3 = zext i16 %2 to i64
+  %4 = getelementptr i8, ptr %0, i64 %3
+  %5 = getelementptr i8, ptr %4, i64 1
+  ret ptr %5
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
 define weak_odr hidden noundef nonnull align 1 dereferenceable(1) ptr @_ZNK5boost14static_strings19basic_static_stringILm420EcSt11char_traitsIcEE4backEv(ptr noundef nonnull align 2 dereferenceable(423) %0) local_unnamed_addr #3 comdat align 2 {
-  %2 = getelementptr inbounds nuw i8, ptr %0, i64 2
-  %3 = load i16, ptr %0, align 2, !tbaa !4
-  %4 = zext i16 %3 to i64
-  %5 = getelementptr i8, ptr %2, i64 %4
-  %6 = getelementptr i8, ptr %5, i64 -1
-  ret ptr %6
+  %2 = load i16, ptr %0, align 2, !tbaa !4
+  %3 = zext i16 %2 to i64
+  %4 = getelementptr i8, ptr %0, i64 %3
+  %5 = getelementptr i8, ptr %4, i64 1
+  ret ptr %5
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
@@ -9767,20 +9765,19 @@ _ZNSt11char_traitsIcE7compareEPKcS2_m.exit:       ; preds = %8, %6, %2
 define weak_odr hidden noundef zeroext i1 @_ZNK5boost14static_strings19basic_static_stringILm420EcSt11char_traitsIcEE9ends_withEc(ptr noundef nonnull align 2 dereferenceable(423) %0, i8 noundef signext %1) local_unnamed_addr #3 comdat align 2 {
   %3 = load i16, ptr %0, align 2, !tbaa !4
   %4 = icmp eq i16 %3, 0
-  br i1 %4, label %12, label %5
+  br i1 %4, label %11, label %5
 
 5:                                                ; preds = %2
-  %6 = getelementptr inbounds nuw i8, ptr %0, i64 2
-  %7 = zext i16 %3 to i64
-  %8 = getelementptr i8, ptr %6, i64 %7
-  %9 = getelementptr i8, ptr %8, i64 -1
-  %10 = load i8, ptr %9, align 1, !tbaa !9
-  %11 = icmp eq i8 %10, %1
-  br label %12
+  %6 = zext i16 %3 to i64
+  %7 = getelementptr i8, ptr %0, i64 %6
+  %8 = getelementptr i8, ptr %7, i64 1
+  %9 = load i8, ptr %8, align 1, !tbaa !9
+  %10 = icmp eq i8 %9, %1
+  br label %11
 
-12:                                               ; preds = %5, %2
-  %13 = phi i1 [ false, %2 ], [ %11, %5 ]
-  ret i1 %13
+11:                                               ; preds = %5, %2
+  %12 = phi i1 [ false, %2 ], [ %10, %5 ]
+  ret i1 %12
 }
 
 ; Function Attrs: mustprogress nounwind uwtable

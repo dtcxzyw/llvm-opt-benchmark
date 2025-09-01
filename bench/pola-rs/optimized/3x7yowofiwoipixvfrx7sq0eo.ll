@@ -71890,15 +71890,14 @@ define internal fastcc void @"_ZN111_$LT$polars_expr..hot_groups..binview..Binvi
   %38 = zext i32 %37 to i64
   %39 = icmp ugt i64 %35, %38
   tail call void @llvm.assume(i1 %39)
-  %40 = getelementptr inbounds nuw i8, ptr %12, i64 12
-  %41 = load i32, ptr %40, align 4, !alias.scope !7720, !noalias !7727, !noundef !3
-  %42 = zext i32 %41 to i64
-  %.idx.i = mul nuw nsw i64 %38, 24
-  %43 = getelementptr inbounds nuw i8, ptr %33, i64 24
-  %44 = getelementptr inbounds nuw i8, ptr %43, i64 %.idx.i
+  %40 = getelementptr inbounds nuw { ptr, ptr, i64 }, ptr %33, i64 %38
+  %41 = getelementptr inbounds nuw i8, ptr %12, i64 12
+  %42 = load i32, ptr %41, align 4, !alias.scope !7720, !noalias !7727, !noundef !3
+  %43 = zext i32 %42 to i64
+  %44 = getelementptr inbounds nuw i8, ptr %40, i64 24
   %45 = load ptr, ptr %44, align 8, !noalias !7729, !noundef !3
   %46 = zext i32 %30 to i64
-  %47 = getelementptr inbounds nuw i8, ptr %45, i64 %42
+  %47 = getelementptr inbounds nuw i8, ptr %45, i64 %43
   store ptr %47, ptr %7, align 8, !noalias !7725
   %48 = getelementptr inbounds nuw i8, ptr %7, i64 8
   store i64 %46, ptr %48, align 8, !noalias !7725
@@ -72133,15 +72132,14 @@ define internal fastcc void @"_ZN111_$LT$polars_expr..hot_groups..binview..Binvi
   %37 = zext i32 %36 to i64
   %38 = icmp ugt i64 %34, %37
   tail call void @llvm.assume(i1 %38)
-  %39 = getelementptr inbounds nuw i8, ptr %11, i64 12
-  %40 = load i32, ptr %39, align 4, !alias.scope !7741, !noalias !7748, !noundef !3
-  %41 = zext i32 %40 to i64
-  %.idx.i = mul nuw nsw i64 %37, 24
-  %42 = getelementptr inbounds nuw i8, ptr %32, i64 24
-  %43 = getelementptr inbounds nuw i8, ptr %42, i64 %.idx.i
+  %39 = getelementptr inbounds nuw { ptr, ptr, i64 }, ptr %32, i64 %37
+  %40 = getelementptr inbounds nuw i8, ptr %11, i64 12
+  %41 = load i32, ptr %40, align 4, !alias.scope !7741, !noalias !7748, !noundef !3
+  %42 = zext i32 %41 to i64
+  %43 = getelementptr inbounds nuw i8, ptr %39, i64 24
   %44 = load ptr, ptr %43, align 8, !noalias !7750, !noundef !3
   %45 = zext i32 %29 to i64
-  %46 = getelementptr inbounds nuw i8, ptr %44, i64 %41
+  %46 = getelementptr inbounds nuw i8, ptr %44, i64 %42
   store ptr %46, ptr %7, align 8, !noalias !7746
   %47 = getelementptr inbounds nuw i8, ptr %7, i64 8
   store i64 %45, ptr %47, align 8, !noalias !7746

@@ -1146,12 +1146,11 @@ _ZNKSt8functionIFvRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEclES7_
   br i1 %or.cond, label %85, label %.thread
 
 85:                                               ; preds = %79
-  %86 = getelementptr inbounds nuw i8, ptr %0, i64 40
-  %87 = getelementptr i64, ptr %86, i64 %81
-  %88 = getelementptr i8, ptr %87, i64 -8
-  %89 = load i64, ptr %88, align 8
-  %90 = add i64 %89, -1
-  store i64 %90, ptr %88, align 8
+  %86 = getelementptr i64, ptr %0, i64 %81
+  %87 = getelementptr i8, ptr %86, i64 32
+  %88 = load i64, ptr %87, align 8
+  %89 = add i64 %88, -1
+  store i64 %89, ptr %87, align 8
   br label %.thread
 
 .thread:                                          ; preds = %70, %85, %79, %_ZNKSt8functionIFvRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEclES7_.exit

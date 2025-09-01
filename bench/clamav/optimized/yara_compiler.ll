@@ -168,18 +168,17 @@ define ptr @yr_compiler_get_current_file_name(ptr noundef readonly captures(none
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 552
   %3 = load i32, ptr %2, align 8, !tbaa !23
   %4 = icmp sgt i32 %3, 0
-  br i1 %4, label %5, label %11
+  br i1 %4, label %5, label %10
 
 5:                                                ; preds = %1
-  %6 = getelementptr inbounds nuw i8, ptr %0, i64 424
-  %7 = zext nneg i32 %3 to i64
-  %8 = getelementptr ptr, ptr %6, i64 %7
-  %9 = getelementptr i8, ptr %8, i64 -8
-  %10 = load ptr, ptr %9, align 8, !tbaa !24
-  br label %11
+  %6 = zext nneg i32 %3 to i64
+  %7 = getelementptr ptr, ptr %0, i64 %6
+  %8 = getelementptr i8, ptr %7, i64 416
+  %9 = load ptr, ptr %8, align 8, !tbaa !24
+  br label %10
 
-11:                                               ; preds = %1, %5
-  %.0 = phi ptr [ %10, %5 ], [ null, %1 ]
+10:                                               ; preds = %1, %5
+  %.0 = phi ptr [ %9, %5 ], [ null, %1 ]
   ret ptr %.0
 }
 
