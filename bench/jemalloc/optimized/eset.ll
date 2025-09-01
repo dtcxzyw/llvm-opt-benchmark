@@ -59,7 +59,7 @@ define hidden i64 @je_eset_nextents_get(ptr noundef readonly captures(none) %0, 
 define hidden i64 @je_eset_nbytes_get(ptr noundef readonly captures(none) %0, i32 noundef %1) local_unnamed_addr #1 {
   %3 = zext i32 %1 to i64
   %4 = getelementptr inbounds nuw %struct.eset_bin_stats_s, ptr %0, i64 %3
-  %5 = getelementptr inbounds nuw i8, ptr %4, i64 6440
+  %4 = getelementptr inbounds nuw i8, ptr %4, i64 6440
   %6 = load atomic i64, ptr %5 monotonic, align 8
   ret i64 %6
 }
@@ -422,28 +422,28 @@ fb_ffs.exit.i:                                    ; preds = %45, %36
 
 .lr.ph.i:                                         ; preds = %fb_ffs.exit.i
   %53 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  br label %54
+  br label %56
 
-54:                                               ; preds = %fb_ffs.exit37.i, %.lr.ph.i
+55:                                               ; preds = %fb_ffs.exit37.i, %.lr.ph.i
   %.025.in46.i = phi i64 [ %51, %.lr.ph.i ], [ %92, %fb_ffs.exit37.i ]
   %.02645.i = phi i32 [ %4, %.lr.ph.i ], [ %spec.store.select.i, %fb_ffs.exit37.i ]
   %.sroa.5.044.i = phi i64 [ 0, %.lr.ph.i ], [ %.sroa.5.1.i, %fb_ffs.exit37.i ]
   %.sroa.0.043.i = phi i64 [ 0, %.lr.ph.i ], [ %.sroa.0.1.i, %fb_ffs.exit37.i ]
   %.02742.i = phi ptr [ null, %.lr.ph.i ], [ %.2.i, %fb_ffs.exit37.i ]
-  %55 = icmp eq i32 %.02645.i, 64
-  %spec.store.select.i = select i1 %55, i32 63, i32 %.02645.i
-  %56 = getelementptr inbounds nuw i64, ptr @je_sz_pind2sz_tab, i64 %.025.in46.i
-  %57 = load i64, ptr %56, align 8, !tbaa !24
-  %58 = zext nneg i32 %spec.store.select.i to i64
-  %59 = lshr i64 %57, %58
-  %60 = icmp ugt i64 %59, %9
-  br i1 %60, label %eset_first_fit.exit, label %61
+  %56 = icmp eq i32 %.02645.i, 64
+  %spec.store.select.i = select i1 %56, i32 63, i32 %.02645.i
+  %57 = getelementptr inbounds nuw i64, ptr @je_sz_pind2sz_tab, i64 %.025.in46.i
+  %58 = load i64, ptr %57, align 8, !tbaa !24
+  %59 = zext nneg i32 %spec.store.select.i to i64
+  %60 = lshr i64 %58, %59
+  %61 = icmp ugt i64 %60, %9
+  br i1 %61, label %eset_first_fit.exit, label %62
 
-61:                                               ; preds = %54
-  %62 = icmp eq ptr %.02742.i, null
-  br i1 %62, label %70, label %63
+62:                                               ; preds = %55
+  %63 = icmp eq ptr %.02742.i, null
+  br i1 %63, label %70, label %64
 
-63:                                               ; preds = %61
+64:                                               ; preds = %62
   %64 = getelementptr inbounds nuw %struct.eset_bin_s, ptr %0, i64 %.025.in46.i
   %65 = getelementptr inbounds nuw i8, ptr %64, i64 48
   %66 = load i64, ptr %65, align 8
@@ -460,7 +460,7 @@ fb_ffs.exit.i:                                    ; preds = %45, %36
   %69 = icmp ult i128 %.sroa.02.0.insert.insert.i.i, %.sroa.0.0.insert.insert.i.i
   br i1 %69, label %70, label %74
 
-70:                                               ; preds = %63, %61
+70:                                               ; preds = %64, %62
   %71 = getelementptr inbounds nuw %struct.eset_bin_s, ptr %53, i64 %.025.in46.i
   %72 = tail call ptr @je_edata_heap_first(ptr noundef nonnull %71) #7
   %73 = getelementptr inbounds nuw i8, ptr %71, i64 16
@@ -469,7 +469,7 @@ fb_ffs.exit.i:                                    ; preds = %45, %36
   %.sroa.5.0.copyload.i = load i64, ptr %.sroa.5.0..sroa_idx.i, align 8, !tbaa !24
   br label %74
 
-74:                                               ; preds = %70, %63
+74:                                               ; preds = %70, %64
   %.2.i = phi ptr [ %72, %70 ], [ %.02742.i, %63 ]
   %.sroa.0.1.i = phi i64 [ %.sroa.0.0.copyload.i, %70 ], [ %.sroa.0.043.i, %63 ]
   %.sroa.5.1.i = phi i64 [ %.sroa.5.0.copyload.i, %70 ], [ %.sroa.5.044.i, %63 ]
@@ -506,9 +506,9 @@ fb_ffs.exit37.i:                                  ; preds = %86, %76
   %91 = shl nuw nsw i64 %.039.i.lcssa.i33.i, 6
   %92 = or disjoint i64 %91, %90
   %93 = icmp samesign ult i64 %92, 200
-  br i1 %93, label %54, label %eset_first_fit.exit, !llvm.loop !26
+  br i1 %93, label %55, label %eset_first_fit.exit, !llvm.loop !26
 
-eset_first_fit.exit:                              ; preds = %.lr.ph.i.i, %54, %74, %fb_ffs.exit37.i, %.lr.ph.i35.i, %30, %34, %fb_ffs.exit.i
+eset_first_fit.exit:                              ; preds = %.lr.ph.i.i, %55, %74, %fb_ffs.exit37.i, %.lr.ph.i35.i, %30, %34, %fb_ffs.exit.i
   %.0.i = phi ptr [ %35, %34 ], [ null, %30 ], [ null, %fb_ffs.exit.i ], [ %.2.i, %.lr.ph.i35.i ], [ %.2.i, %fb_ffs.exit37.i ], [ %.02742.i, %54 ], [ %.2.i, %74 ], [ null, %.lr.ph.i.i ]
   %94 = icmp ugt i64 %2, 4096
   %95 = icmp eq ptr %.0.i, null

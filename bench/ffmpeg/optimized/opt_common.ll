@@ -2257,14 +2257,14 @@ define noundef i32 @show_pix_fmts(ptr noundef readnone captures(none) %0, ptr no
 .lr.ph:                                           ; preds = %.lr.ph25, %.lr.ph
   %indvars.iv = phi i64 [ %indvars.iv.next, %.lr.ph ], [ 1, %.lr.ph25 ]
   %30 = getelementptr inbounds nuw %struct.AVComponentDescriptor, ptr %5, i64 %indvars.iv
-  %31 = getelementptr inbounds nuw i8, ptr %30, i64 40
-  %32 = load i32, ptr %31, align 4, !tbaa !97
-  %33 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.27, i32 noundef %32)
+  %30 = getelementptr inbounds nuw i8, ptr %30, i64 40
+  %31 = load i32, ptr %30, align 4, !tbaa !97
+  %32 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.27, i32 noundef %31)
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %34 = load i8, ptr %20, align 8, !tbaa !96
-  %35 = zext i8 %34 to i64
-  %36 = icmp samesign ult i64 %indvars.iv.next, %35
-  br i1 %36, label %.lr.ph, label %._crit_edge, !llvm.loop !100
+  %33 = load i8, ptr %20, align 8, !tbaa !96
+  %34 = zext i8 %33 to i64
+  %35 = icmp samesign ult i64 %indvars.iv.next, %34
+  br i1 %35, label %.lr.ph, label %._crit_edge, !llvm.loop !100
 
 ._crit_edge26:                                    ; preds = %._crit_edge, %3
   ret i32 0

@@ -714,9 +714,9 @@ define hidden void @av1_setup_frame_contexts(ptr noundef readonly captures(none)
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 27716
   %7 = load i32, ptr %6, align 4
   %.not = icmp eq i32 %7, 0
-  br i1 %.not, label %.loopexit, label %.preheader18
+  br i1 %.not, label %.loopexit, label %.preheader19
 
-.preheader18:                                     ; preds = %1
+.preheader19:                                     ; preds = %1
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 960
   %9 = getelementptr i8, ptr %0, i64 636
   br label %get_ref_frame_map_idx.exit.i
@@ -725,7 +725,7 @@ define hidden void @av1_setup_frame_contexts(ptr noundef readonly captures(none)
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 27728
   br label %19
 
-get_ref_frame_map_idx.exit.i:                     ; preds = %.preheader18, %get_ref_frame_buf.exit.thread
+get_ref_frame_map_idx.exit.i:                     ; preds = %.preheader19, %get_ref_frame_buf.exit.thread
   %indvars.iv = phi i64 [ 1, %.preheader18 ], [ %indvars.iv.next, %get_ref_frame_buf.exit.thread ]
   %11 = getelementptr i32, ptr %9, i64 %indvars.iv
   %12 = load i32, ptr %11, align 4
@@ -736,8 +736,8 @@ get_ref_frame_buf.exit:                           ; preds = %get_ref_frame_map_i
   %13 = sext i32 %12 to i64
   %14 = getelementptr inbounds ptr, ptr %8, i64 %13
   %15 = load ptr, ptr %14, align 8
-  %.not16 = icmp eq ptr %15, null
-  br i1 %.not16, label %get_ref_frame_buf.exit.thread, label %16
+  %.not17 = icmp eq ptr %15, null
+  br i1 %.not17, label %get_ref_frame_buf.exit.thread, label %16
 
 16:                                               ; preds = %get_ref_frame_buf.exit
   %17 = getelementptr inbounds nuw i8, ptr %15, i64 1552
@@ -751,7 +751,7 @@ get_ref_frame_buf.exit.thread:                    ; preds = %get_ref_frame_map_i
   br i1 %exitcond.not, label %.preheader, label %get_ref_frame_map_idx.exit.i, !llvm.loop !14
 
 19:                                               ; preds = %.preheader, %19
-  %indvars.iv22 = phi i64 [ 0, %.preheader ], [ %indvars.iv.next23, %19 ]
+  %indvars.iv23 = phi i64 [ 0, %.preheader ], [ %indvars.iv.next23, %19 ]
   %20 = load ptr, ptr %10, align 16
   %21 = getelementptr inbounds nuw %struct.RefCntBuffer, ptr %20, i64 %indvars.iv22, i32 22, i32 0, i64 0, i64 10, i64 2
   %22 = load ptr, ptr %4, align 16
@@ -953,9 +953,9 @@ define hidden void @av1_setup_past_independence(ptr noundef %0) local_unnamed_ad
   %99 = getelementptr inbounds nuw i8, ptr %0, i64 27716
   %100 = load i32, ptr %99, align 4
   %.not.i = icmp eq i32 %100, 0
-  br i1 %.not.i, label %av1_setup_frame_contexts.exit, label %.preheader18.i
+  br i1 %.not.i, label %av1_setup_frame_contexts.exit, label %.preheader19.i
 
-.preheader18.i:                                   ; preds = %14
+.preheader19.i:                                   ; preds = %14
   %101 = getelementptr inbounds nuw i8, ptr %0, i64 960
   %102 = getelementptr i8, ptr %0, i64 636
   br label %get_ref_frame_map_idx.exit.i.i
@@ -964,7 +964,7 @@ define hidden void @av1_setup_past_independence(ptr noundef %0) local_unnamed_ad
   %103 = getelementptr inbounds nuw i8, ptr %0, i64 27728
   br label %112
 
-get_ref_frame_map_idx.exit.i.i:                   ; preds = %get_ref_frame_buf.exit.thread.i, %.preheader18.i
+get_ref_frame_map_idx.exit.i.i:                   ; preds = %get_ref_frame_buf.exit.thread.i, %.preheader19.i
   %indvars.iv.i = phi i64 [ 1, %.preheader18.i ], [ %indvars.iv.next.i, %get_ref_frame_buf.exit.thread.i ]
   %104 = getelementptr i32, ptr %102, i64 %indvars.iv.i
   %105 = load i32, ptr %104, align 4
@@ -975,8 +975,8 @@ get_ref_frame_buf.exit.i:                         ; preds = %get_ref_frame_map_i
   %106 = sext i32 %105 to i64
   %107 = getelementptr inbounds ptr, ptr %101, i64 %106
   %108 = load ptr, ptr %107, align 8
-  %.not16.i = icmp eq ptr %108, null
-  br i1 %.not16.i, label %get_ref_frame_buf.exit.thread.i, label %109
+  %.not17.i = icmp eq ptr %108, null
+  br i1 %.not17.i, label %get_ref_frame_buf.exit.thread.i, label %109
 
 109:                                              ; preds = %get_ref_frame_buf.exit.i
   %110 = getelementptr inbounds nuw i8, ptr %108, i64 1552
@@ -990,7 +990,7 @@ get_ref_frame_buf.exit.thread.i:                  ; preds = %109, %get_ref_frame
   br i1 %exitcond.not.i, label %.preheader.i, label %get_ref_frame_map_idx.exit.i.i, !llvm.loop !14
 
 112:                                              ; preds = %112, %.preheader.i
-  %indvars.iv22.i = phi i64 [ 0, %.preheader.i ], [ %indvars.iv.next23.i, %112 ]
+  %indvars.iv23.i = phi i64 [ 0, %.preheader.i ], [ %indvars.iv.next23.i, %112 ]
   %113 = load ptr, ptr %103, align 16
   %114 = getelementptr inbounds nuw %struct.RefCntBuffer, ptr %113, i64 %indvars.iv22.i, i32 22, i32 0, i64 0, i64 10, i64 2
   %115 = load ptr, ptr %39, align 16

@@ -965,9 +965,9 @@ define hidden void @je_arena_extent_dalloc_large_prep(ptr noundef readnone captu
 
 arena_large_dalloc_stats_update.exit:             ; preds = %3, %9
   %.0.i.i = phi i64 [ %24, %9 ], [ 196, %3 ]
-  %25 = getelementptr inbounds nuw %struct.arena_stats_large_s, ptr %1, i64 %.0.i.i
-  %26 = getelementptr inbounds nuw i8, ptr %25, i64 984
-  %27 = atomicrmw add ptr %26, i64 1 monotonic, align 8
+  %26 = getelementptr inbounds nuw %struct.arena_stats_large_s, ptr %1, i64 %.0.i.i
+  %27 = getelementptr inbounds nuw i8, ptr %26, i64 984
+  %28 = atomicrmw add ptr %27, i64 1 monotonic, align 8
   ret void
 }
 
@@ -1031,9 +1031,9 @@ arena_large_malloc_stats_update.exit.i:           ; preds = %10, %4
 
 arena_large_ralloc_stats_update.exit:             ; preds = %arena_large_malloc_stats_update.exit.i, %30
   %.0.i.i7.i = phi i64 [ %45, %30 ], [ 196, %arena_large_malloc_stats_update.exit.i ]
-  %46 = getelementptr inbounds nuw %struct.arena_stats_large_s, ptr %1, i64 %.0.i.i7.i
-  %47 = getelementptr inbounds nuw i8, ptr %46, i64 984
-  %48 = atomicrmw add ptr %47, i64 1 monotonic, align 8
+  %47 = getelementptr inbounds nuw %struct.arena_stats_large_s, ptr %1, i64 %.0.i.i7.i
+  %48 = getelementptr inbounds nuw i8, ptr %47, i64 984
+  %49 = atomicrmw add ptr %48, i64 1 monotonic, align 8
   ret void
 }
 
@@ -1097,9 +1097,9 @@ arena_large_malloc_stats_update.exit.i:           ; preds = %10, %4
 
 arena_large_ralloc_stats_update.exit:             ; preds = %arena_large_malloc_stats_update.exit.i, %30
   %.0.i.i7.i = phi i64 [ %45, %30 ], [ 196, %arena_large_malloc_stats_update.exit.i ]
-  %46 = getelementptr inbounds nuw %struct.arena_stats_large_s, ptr %1, i64 %.0.i.i7.i
-  %47 = getelementptr inbounds nuw i8, ptr %46, i64 984
-  %48 = atomicrmw add ptr %47, i64 1 monotonic, align 8
+  %47 = getelementptr inbounds nuw %struct.arena_stats_large_s, ptr %1, i64 %.0.i.i7.i
+  %48 = getelementptr inbounds nuw i8, ptr %47, i64 984
+  %49 = atomicrmw add ptr %48, i64 1 monotonic, align 8
   ret void
 }
 

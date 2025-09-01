@@ -2749,44 +2749,44 @@ ggml_are_same_layout.exit.thread:                 ; preds = %136, %131, %125, %7
   %214 = load i32, ptr %213, align 8, !tbaa !37
   %215 = add i32 %214, -1
   %216 = icmp sgt i32 %214, 1
-  br i1 %216, label %.lr.ph.preheader.i, label %._crit_edge.thread.i
+  br i1 %216, label %.lr.ph.i, label %._crit_edge.thread.i
 
-.lr.ph.preheader.i:                               ; preds = %.critedge66
+.lr.ph.i:                                         ; preds = %.critedge66
   %wide.trip.count.i = zext nneg i32 %215 to i64
-  br label %.lr.ph.i
+  br label %220
 
-._crit_edge.i:                                    ; preds = %.lr.ph.i
-  %217 = icmp eq i32 %.1.i, -1
-  br i1 %217, label %._crit_edge.thread.i, label %._crit_edge._crit_edge.i
+._crit_edge.i:                                    ; preds = %220
+  %218 = icmp eq i32 %.1.i, -1
+  br i1 %218, label %._crit_edge.thread.i, label %._crit_edge._crit_edge.i
 
 ._crit_edge._crit_edge.i:                         ; preds = %._crit_edge.i
   %.pre.i = sext i32 %.1.i to i64
-  %218 = icmp slt i32 %.1.i, %215
-  br label %228
+  %219 = icmp slt i32 %.1.i, %215
+  br label %229
 
-.lr.ph.i:                                         ; preds = %.lr.ph.i, %.lr.ph.preheader.i
+220:                                              ; preds = %220, %.lr.ph.i
   %indvars.iv.i80 = phi i64 [ 0, %.lr.ph.preheader.i ], [ %indvars.iv.next.i81, %.lr.ph.i ]
   %.0545.i = phi i64 [ 0, %.lr.ph.preheader.i ], [ %.054..i, %.lr.ph.i ]
   %.0554.i = phi i32 [ -1, %.lr.ph.preheader.i ], [ %.1.i, %.lr.ph.i ]
   %.0563.i = phi i64 [ -1, %.lr.ph.preheader.i ], [ %.157.i, %.lr.ph.i ]
   %219 = getelementptr inbounds nuw %struct.free_block, ptr %203, i64 %indvars.iv.i80
-  %220 = getelementptr inbounds nuw i8, ptr %219, i64 24
-  %221 = load i64, ptr %220, align 8, !tbaa !39
-  %.054..i = tail call i64 @llvm.umax.i64(i64 %.0545.i, i64 %221)
-  %.not66.i = icmp ult i64 %221, %212
-  %.not67.i = icmp ugt i64 %221, %.0563.i
-  %or.cond.i = select i1 %.not66.i, i1 true, i1 %.not67.i
-  %.157.i = select i1 %or.cond.i, i64 %.0563.i, i64 %221
-  %222 = trunc nuw nsw i64 %indvars.iv.i80 to i32
-  %.1.i = select i1 %or.cond.i, i32 %.0554.i, i32 %222
+  %221 = getelementptr inbounds nuw i8, ptr %219, i64 24
+  %222 = load i64, ptr %221, align 8, !tbaa !39
+  %.054..i = tail call i64 @llvm.umax.i64(i64 %.0545.i, i64 %222)
+  %.not67.i = icmp ult i64 %222, %212
+  %.not68.i = icmp ugt i64 %222, %.0563.i
+  %or.cond.i = select i1 %.not67.i, i1 true, i1 %.not68.i
+  %.157.i = select i1 %or.cond.i, i64 %.0563.i, i64 %222
+  %223 = trunc nuw nsw i64 %indvars.iv.i80 to i32
+  %.1.i = select i1 %or.cond.i, i32 %.0554.i, i32 %223
   %indvars.iv.next.i81 = add nuw nsw i64 %indvars.iv.i80, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i81, %wide.trip.count.i
-  br i1 %exitcond.not.i, label %._crit_edge.i, label %.lr.ph.i, !llvm.loop !132
+  br i1 %exitcond.not.i, label %._crit_edge.i, label %220, !llvm.loop !132
 
 ._crit_edge.thread.i:                             ; preds = %._crit_edge.i, %.critedge66
   %.054.lcssa18.i = phi i64 [ %.054..i, %._crit_edge.i ], [ 0, %.critedge66 ]
-  %223 = sext i32 %215 to i64
-  %224 = getelementptr %struct.free_block, ptr %203, i64 %223
+  %224 = sext i32 %215 to i64
+  %224 = getelementptr %struct.free_block, ptr %203, i64 %224
   %225 = getelementptr i8, ptr %224, i64 24
   %226 = load i64, ptr %225, align 8, !tbaa !39
   %.not.i79 = icmp ult i64 %226, %212
@@ -2798,45 +2798,45 @@ ggml_are_same_layout.exit.thread:                 ; preds = %136, %131, %125, %7
   tail call void (ptr, i32, ptr, ...) @ggml_abort(ptr noundef nonnull @.str.1, i32 noundef 182, ptr noundef nonnull @.str.2) #13
   unreachable
 
-228:                                              ; preds = %._crit_edge.thread.i, %._crit_edge._crit_edge.i
-  %.pre-phi.i = phi i64 [ %.pre.i, %._crit_edge._crit_edge.i ], [ %223, %._crit_edge.thread.i ]
-  %.2.i = phi i1 [ %218, %._crit_edge._crit_edge.i ], [ false, %._crit_edge.thread.i ]
-  %229 = getelementptr inbounds nuw i8, ptr %203, i64 16
-  %230 = getelementptr inbounds %struct.free_block, ptr %229, i64 %.pre-phi.i
-  %231 = load i64, ptr %230, align 8, !tbaa !85
-  %232 = add i64 %231, %212
-  store i64 %232, ptr %230, align 8, !tbaa !85
-  %233 = getelementptr inbounds nuw i8, ptr %230, i64 8
-  %234 = load i64, ptr %233, align 8, !tbaa !39
-  %235 = sub i64 %234, %212
-  store i64 %235, ptr %233, align 8, !tbaa !39
-  %236 = icmp eq i64 %234, %212
-  br i1 %236, label %237, label %ggml_dyn_tallocr_alloc.exit
+229:                                              ; preds = %._crit_edge.thread.i, %._crit_edge._crit_edge.i
+  %.pre-phi.i = phi i64 [ %.pre.i, %._crit_edge._crit_edge.i ], [ %224, %._crit_edge.thread.i ]
+  %.2.i = phi i1 [ %219, %._crit_edge._crit_edge.i ], [ false, %._crit_edge.thread.i ]
+  %230 = getelementptr inbounds nuw i8, ptr %203, i64 16
+  %231 = getelementptr inbounds %struct.free_block, ptr %230, i64 %.pre-phi.i
+  %232 = load i64, ptr %231, align 8, !tbaa !85
+  %233 = add i64 %232, %212
+  store i64 %233, ptr %231, align 8, !tbaa !85
+  %234 = getelementptr inbounds nuw i8, ptr %231, i64 8
+  %235 = load i64, ptr %234, align 8, !tbaa !39
+  %236 = sub i64 %235, %212
+  store i64 %236, ptr %234, align 8, !tbaa !39
+  %237 = icmp eq i64 %235, %212
+  br i1 %237, label %238, label %ggml_dyn_tallocr_alloc.exit
 
-237:                                              ; preds = %228
+238:                                              ; preds = %229
   store i32 %215, ptr %213, align 8, !tbaa !37
   br i1 %.2.i, label %.lr.ph10.i, label %ggml_dyn_tallocr_alloc.exit
 
-.lr.ph10.i:                                       ; preds = %237, %.lr.ph10.i
+.lr.ph10.i:                                       ; preds = %238, %.lr.ph10.i
   %indvars.iv12.i = phi i64 [ %indvars.iv.next13.i, %.lr.ph10.i ], [ %.pre-phi.i, %237 ]
-  %238 = getelementptr inbounds %struct.free_block, ptr %229, i64 %indvars.iv12.i
+  %239 = getelementptr inbounds %struct.free_block, ptr %230, i64 %indvars.iv12.i
   %indvars.iv.next13.i = add nsw i64 %indvars.iv12.i, 1
-  %239 = getelementptr inbounds %struct.free_block, ptr %229, i64 %indvars.iv.next13.i
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %238, ptr noundef nonnull align 8 dereferenceable(16) %239, i64 16, i1 false), !tbaa.struct !86
-  %240 = load i32, ptr %213, align 8, !tbaa !37
-  %241 = sext i32 %240 to i64
-  %242 = icmp slt i64 %indvars.iv.next13.i, %241
-  br i1 %242, label %.lr.ph10.i, label %ggml_dyn_tallocr_alloc.exit, !llvm.loop !133
+  %240 = getelementptr inbounds %struct.free_block, ptr %230, i64 %indvars.iv.next13.i
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %239, ptr noundef nonnull align 8 dereferenceable(16) %240, i64 16, i1 false), !tbaa.struct !86
+  %241 = load i32, ptr %213, align 8, !tbaa !37
+  %242 = sext i32 %241 to i64
+  %243 = icmp slt i64 %indvars.iv.next13.i, %242
+  br i1 %243, label %.lr.ph10.i, label %ggml_dyn_tallocr_alloc.exit, !llvm.loop !133
 
-ggml_dyn_tallocr_alloc.exit:                      ; preds = %.lr.ph10.i, %228, %237
-  %243 = getelementptr inbounds nuw i8, ptr %203, i64 4112
-  %244 = load i64, ptr %243, align 8, !tbaa !41
-  %..i = tail call i64 @llvm.umax.i64(i64 %244, i64 %232)
-  store i64 %..i, ptr %243, align 8, !tbaa !41
-  %245 = getelementptr inbounds nuw i8, ptr %41, i64 8
-  store i32 %2, ptr %245, align 8, !tbaa !83
-  %246 = getelementptr inbounds nuw i8, ptr %41, i64 16
-  store i64 %231, ptr %246, align 8, !tbaa !82
+ggml_dyn_tallocr_alloc.exit:                      ; preds = %.lr.ph10.i, %229, %238
+  %244 = getelementptr inbounds nuw i8, ptr %203, i64 4112
+  %245 = load i64, ptr %244, align 8, !tbaa !41
+  %..i = tail call i64 @llvm.umax.i64(i64 %245, i64 %233)
+  store i64 %..i, ptr %244, align 8, !tbaa !41
+  %246 = getelementptr inbounds nuw i8, ptr %41, i64 8
+  store i32 %2, ptr %246, align 8, !tbaa !83
+  %247 = getelementptr inbounds nuw i8, ptr %41, i64 16
+  store i64 %232, ptr %247, align 8, !tbaa !82
   br label %ggml_gallocr_is_allocated.exit.thread
 
 ggml_gallocr_is_allocated.exit.thread:            ; preds = %ggml_gallocr_hash_get.exit, %191, %.critedge, %ggml_gallocr_is_allocated.exit, %67, %ggml_dyn_tallocr_alloc.exit

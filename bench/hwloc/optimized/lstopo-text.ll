@@ -353,14 +353,14 @@ define internal fastcc void @output_distances(ptr noundef readonly captures(none
   %12 = load i32, ptr %4, align 4
   %13 = icmp ne i32 %12, 0
   %or.cond = select i1 %11, i1 %13, i1 false
-  br i1 %or.cond, label %14, label %150
+  br i1 %or.cond, label %14, label %159
 
 14:                                               ; preds = %1
   %15 = zext i32 %12 to i64
   %16 = shl nuw nsw i64 %15, 3
   %17 = call noalias ptr @malloc(i64 noundef %16) #23
   %.not = icmp eq ptr %17, null
-  br i1 %.not, label %150, label %18
+  br i1 %.not, label %159, label %18
 
 18:                                               ; preds = %14
   %19 = call i32 @hwloc_distances_get(ptr noundef %5, ptr noundef nonnull %4, ptr noundef nonnull %17, i64 noundef 0, i64 noundef 0) #19
@@ -543,27 +543,27 @@ define internal fastcc void @output_distances(ptr noundef readonly captures(none
   br label %112
 
 .preheader.i:                                     ; preds = %124
-  %.not129.i = icmp eq i32 %65, 0
-  br i1 %.not129.i, label %._crit_edge.thread.i, label %.lr.ph118.i
+  %.not125.i = icmp eq i32 %65, 0
+  br i1 %.not125.i, label %._crit_edge.thread.i, label %.lr.ph118.i
 
 ._crit_edge.thread.i:                             ; preds = %.preheader.i
-  %fputc163.i = call i32 @fputc(i32 10, ptr %9)
+  %fputc159.i = call i32 @fputc(i32 10, ptr %9)
   %.pre81 = sub nsw i64 0, %spec.select103.i
-  br label %.lr.ph124.i
+  br label %.lr.ph122.i
 
 .lr.ph118.i:                                      ; preds = %.preheader.i, %75
-  %.288.lcssa160.i = phi i64 [ %spec.select103.i, %.preheader.i ], [ 5, %75 ]
-  %111 = sub nsw i64 0, %.288.lcssa160.i
+  %.288.lcssa156.i = phi i64 [ %spec.select103.i, %.preheader.i ], [ 5, %75 ]
+  %111 = sub nsw i64 0, %.288.lcssa156.i
   %invariant.gep.i = getelementptr i8, ptr %68, i64 %111
   %wide.trip.count141.i = zext i32 %65 to i64
   br label %126
 
 112:                                              ; preds = %112, %.preheader104.i
-  %indvars.iv132.i = phi i64 [ 0, %.preheader104.i ], [ %indvars.iv.next133.i, %112 ]
+  %indvars.iv128.i = phi i64 [ 0, %.preheader104.i ], [ %indvars.iv.next129.i, %112 ]
   %.389111.i = phi i64 [ %.288114.i, %.preheader104.i ], [ %spec.select103.i, %112 ]
   %.293110.i = phi ptr [ %.192113.i, %.preheader104.i ], [ %123, %112 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
-  %113 = trunc nuw i64 %indvars.iv132.i to i32
+  %113 = trunc nuw i64 %indvars.iv128.i to i32
   %114 = add i32 %110, %113
   %115 = zext i32 %114 to i64
   %116 = getelementptr inbounds nuw i64, ptr %62, i64 %115
@@ -577,22 +577,22 @@ define internal fastcc void @output_distances(ptr noundef readonly captures(none
   call void @llvm.memcpy.p0.p0.i64(ptr align 1 %121, ptr nonnull align 16 %3, i64 %122, i1 false)
   call void @llvm.memset.p0.i64(ptr align 1 %.293110.i, i8 32, i64 %120, i1 false)
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
-  %indvars.iv.next133.i = add nuw nsw i64 %indvars.iv132.i, 1
+  %indvars.iv.next129.i = add nuw nsw i64 %indvars.iv128.i, 1
   %123 = getelementptr inbounds nuw i8, ptr %.293110.i, i64 17
-  %exitcond136.not.i = icmp eq i64 %indvars.iv.next133.i, %wide.trip.count.i
-  br i1 %exitcond136.not.i, label %124, label %112, !llvm.loop !63
+  %exitcond132.not.i = icmp eq i64 %indvars.iv.next129.i, %wide.trip.count.i
+  br i1 %exitcond132.not.i, label %124, label %112, !llvm.loop !63
 
 124:                                              ; preds = %112
   %125 = add nuw i32 %.1115.i, 1
-  %exitcond137.not.i = icmp eq i32 %125, %58
-  br i1 %exitcond137.not.i, label %.preheader.i, label %.preheader104.i, !llvm.loop !64
+  %exitcond133.not.i = icmp eq i32 %125, %58
+  br i1 %exitcond133.not.i, label %.preheader.i, label %.preheader104.i, !llvm.loop !64
 
 126:                                              ; preds = %126, %.lr.ph118.i
-  %indvars.iv138.i = phi i64 [ 0, %.lr.ph118.i ], [ %indvars.iv.next139.i, %126 ]
-  %127 = mul i64 %indvars.iv138.i, 17
+  %indvars.iv134.i = phi i64 [ 0, %.lr.ph118.i ], [ %indvars.iv.next139.i, %126 ]
+  %127 = mul i64 %indvars.iv134.i, 17
   %128 = and i64 %127, 4294967295
-  %gep.i = getelementptr i8, ptr %invariant.gep.i, i64 %128
-  %129 = getelementptr i8, ptr %gep.i, i64 16
+  %129 = getelementptr i8, ptr %invariant.gep.i, i64 %128
+  %130 = getelementptr i8, ptr %129, i64 16
   %130 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %9, ptr noundef nonnull @.str.33, ptr noundef %129) #19
   %indvars.iv.next139.i = add nuw nsw i64 %indvars.iv138.i, 1
   %exitcond142.not.i = icmp eq i64 %indvars.iv.next139.i, %wide.trip.count141.i
@@ -600,65 +600,65 @@ define internal fastcc void @output_distances(ptr noundef readonly captures(none
 
 ._crit_edge.i:                                    ; preds = %126
   %fputc.i = call i32 @fputc(i32 10, ptr %9)
-  br i1 %.not.i, label %hwloc_utils_print_distance_matrix.exit, label %._crit_edge.i..lr.ph124.i_crit_edge
+  br i1 %.not.i, label %hwloc_utils_print_distance_matrix.exit, label %._crit_edge.i..lr.ph122.i_crit_edge
 
-._crit_edge.i..lr.ph124.i_crit_edge:              ; preds = %._crit_edge.i
+._crit_edge.i..lr.ph122.i_crit_edge:              ; preds = %._crit_edge.i
   %.pre82 = zext i32 %58 to i64
-  br label %.lr.ph124.i
+  br label %.lr.ph122.i
 
-.lr.ph124.i:                                      ; preds = %._crit_edge.i..lr.ph124.i_crit_edge, %._crit_edge.thread.i
-  %wide.trip.count151.i.pre-phi = phi i64 [ %.pre82, %._crit_edge.i..lr.ph124.i_crit_edge ], [ 4294967295, %._crit_edge.thread.i ]
+.lr.ph122.i:                                      ; preds = %._crit_edge.i..lr.ph122.i_crit_edge, %._crit_edge.thread.i
+  %wide.trip.count147.i.pre-phi = phi i64 [ %.pre82, %._crit_edge.i..lr.ph124.i_crit_edge ], [ 4294967295, %._crit_edge.thread.i ]
   %.pre-phi = phi i64 [ %111, %._crit_edge.i..lr.ph124.i_crit_edge ], [ %.pre81, %._crit_edge.thread.i ]
   %invariant.gep126.i = getelementptr i8, ptr %68, i64 %.pre-phi
   %invariant.gep119.i = getelementptr i8, ptr %72, i64 %.pre-phi
   br label %131
 
-131:                                              ; preds = %145, %.lr.ph124.i
+131:; preds = %145, %.lr.ph124.i
   %indvars.iv148.i = phi i64 [ 0, %.lr.ph124.i ], [ %indvars.iv.next149.i, %145 ]
   %indvars.iv.next149.i = add nuw nsw i64 %indvars.iv148.i, 1
   %132 = mul i64 %indvars.iv.next149.i, 17
   %133 = and i64 %132, 4294967295
-  %gep127.i = getelementptr i8, ptr %invariant.gep126.i, i64 %133
-  %134 = getelementptr i8, ptr %gep127.i, i64 16
-  %135 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %9, ptr noundef nonnull @.str.33, ptr noundef %134) #19
-  %136 = trunc nuw i64 %indvars.iv148.i to i32
-  %137 = mul i32 %58, %136
-  br label %138
+  %139 = getelementptr i8, ptr %invariant.gep126.i, i64 %133
+  %140 = getelementptr i8, ptr %139, i64 16
+  %141 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %9, ptr noundef nonnull @.str.33, ptr noundef %140) #19
+  %142 = trunc nuw i64 %indvars.iv148.i to i32
+  %143 = mul i32 %58, %142
+  br label %144
 
-138:                                              ; preds = %138, %131
-  %indvars.iv143.i = phi i64 [ 0, %131 ], [ %indvars.iv.next144.i, %138 ]
-  %139 = trunc nuw i64 %indvars.iv143.i to i32
-  %140 = add i32 %137, %139
-  %141 = mul i32 %140, 17
-  %142 = zext i32 %141 to i64
-  %gep120.i = getelementptr i8, ptr %invariant.gep119.i, i64 %142
-  %143 = getelementptr i8, ptr %gep120.i, i64 16
-  %144 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %9, ptr noundef nonnull @.str.33, ptr noundef %143) #19
+144:                                              ; preds = %144, %131
+  %indvars.iv139.i = phi i64 [ 0, %131 ], [ %indvars.iv.next144.i, %138 ]
+  %145 = trunc nuw i64 %indvars.iv139.i to i32
+  %146 = add i32 %143, %145
+  %147 = mul i32 %146, 17
+  %148 = zext i32 %147 to i64
+  %149 = getelementptr i8, ptr %invariant.gep119.i, i64 %148
+  %150 = getelementptr i8, ptr %149, i64 16
+  %144 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %9, ptr noundef nonnull @.str.33, ptr noundef %150) #19
   %indvars.iv.next144.i = add nuw nsw i64 %indvars.iv143.i, 1
   %exitcond147.not.i = icmp eq i64 %indvars.iv.next144.i, %wide.trip.count151.i.pre-phi
   br i1 %exitcond147.not.i, label %145, label %138, !llvm.loop !66
 
-145:                                              ; preds = %138
+145:; preds = %144
   %fputc99.i = call i32 @fputc(i32 10, ptr %9)
-  %exitcond152.not.i = icmp eq i64 %indvars.iv.next149.i, %wide.trip.count151.i.pre-phi
-  br i1 %exitcond152.not.i, label %hwloc_utils_print_distance_matrix.exit, label %131, !llvm.loop !67
+  %exitcond148.not.i = icmp eq i64 %indvars.iv.next149.i, %wide.trip.count147.i.pre-phi
+  br i1 %exitcond148.not.i, label %hwloc_utils_print_distance_matrix.exit, label %131, !llvm.loop !67
 
 hwloc_utils_print_distance_matrix.exit:           ; preds = %145, %56, %._crit_edge.i
   call void @free(ptr noundef %68) #19
   call void @free(ptr noundef %72) #19
-  %146 = load ptr, ptr %25, align 8, !tbaa !42
-  call void @hwloc_distances_release(ptr noundef %5, ptr noundef %146) #19
+  %155 = load ptr, ptr %25, align 8, !tbaa !42
+  call void @hwloc_distances_release(ptr noundef %5, ptr noundef %155) #19
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %147 = load i32, ptr %4, align 4, !tbaa !23
-  %148 = zext i32 %147 to i64
-  %149 = icmp samesign ult i64 %indvars.iv.next, %148
-  br i1 %149, label %24, label %.loopexit, !llvm.loop !68
+  %156 = load i32, ptr %4, align 4, !tbaa !23
+  %157 = zext i32 %156 to i64
+  %158 = icmp samesign ult i64 %indvars.iv.next, %157
+  br i1 %158, label %24, label %.loopexit, !llvm.loop !68
 
 .loopexit:                                        ; preds = %hwloc_utils_print_distance_matrix.exit, %18
   call void @free(ptr noundef nonnull %17) #19
-  br label %150
+  br label %159
 
-150:                                              ; preds = %14, %1, %.loopexit
+159:                                              ; preds = %14, %1, %.loopexit
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret void
 }

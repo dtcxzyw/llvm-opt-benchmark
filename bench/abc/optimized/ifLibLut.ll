@@ -1114,7 +1114,7 @@ define float @If_LibLutSlowestPinDelay(ptr noundef readonly captures(address_is_
   %11 = getelementptr i8, ptr %10, i64 144
   br label %18
 
-12:                                               ; preds = %2
+12:; preds = %2
   %13 = getelementptr inbounds nuw i8, ptr %0, i64 148
   %14 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %15 = load i32, ptr %14, align 8, !tbaa !15

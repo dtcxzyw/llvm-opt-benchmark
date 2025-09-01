@@ -1384,7 +1384,7 @@ define internal fastcc i32 @getdec(ptr noundef nonnull captures(none) %0, i8 nou
 34:                                               ; preds = %.loopexit
   %35 = lshr i32 %30, 16
   %36 = getelementptr inbounds nuw %struct.DICT_HELPER, ptr %0, i64 %5
-  %37 = getelementptr inbounds nuw i8, ptr %36, i64 248
+  %36 = getelementptr inbounds nuw i8, ptr %36, i64 248
   %38 = load ptr, ptr %37, align 8, !tbaa !11
   %39 = zext nneg i32 %35 to i64
   %40 = getelementptr inbounds nuw i8, ptr %38, i64 %39

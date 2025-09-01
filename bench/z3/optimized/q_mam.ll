@@ -24235,11 +24235,11 @@ _ZNK3euf5enode11num_parentsEv.exit39:             ; preds = %_ZNK3euf5enode11num
 
 53:                                               ; preds = %_ZNK3euf5enode11num_parentsEv.exit39
   tail call void @_ZN1q8mam_impl15collect_parentsEPN3euf5enodeEPNS_9path_treeE(ptr noundef nonnull align 8 dereferenceable(98912) %0, ptr noundef nonnull %.085, ptr noundef %52)
-  br label %76
+  br label %74
 
 54:                                               ; preds = %_ZNK3euf5enode11num_parentsEv.exit39
   tail call void @_ZN1q8mam_impl15collect_parentsEPN3euf5enodeEPNS_9path_treeE(ptr noundef nonnull align 8 dereferenceable(98912) %0, ptr noundef nonnull %.0, ptr noundef %52)
-  br label %76
+  br label %74
 
 55:                                               ; preds = %33
   br i1 %37, label %_ZNK3euf5enode11num_parentsEv.exit41, label %56
@@ -24268,12 +24268,12 @@ _ZNK3euf5enode11num_parentsEv.exit43:             ; preds = %_ZNK3euf5enode11num
   %66 = zext i32 %.086 to i64
   br i1 %.not, label %71, label %67
 
-67:                                               ; preds = %_ZNK3euf5enode11num_parentsEv.exit43
-  %68 = getelementptr inbounds nuw [64 x %"struct.std::pair"], ptr %19, i64 %65
+68:                                               ; preds = %_ZNK3euf5enode11num_parentsEv.exit43
+  %69 = getelementptr inbounds nuw [64 x %"struct.std::pair"], ptr %19, i64 %65
   %69 = getelementptr inbounds nuw %"struct.std::pair", ptr %68, i64 %66
   %70 = load ptr, ptr %69, align 8, !tbaa !682
   tail call void @_ZN1q8mam_impl15collect_parentsEPN3euf5enodeEPNS_9path_treeE(ptr noundef nonnull align 8 dereferenceable(98912) %0, ptr noundef nonnull %.085, ptr noundef %70)
-  br label %76
+  br label %74
 
 71:                                               ; preds = %_ZNK3euf5enode11num_parentsEv.exit43
   %72 = getelementptr inbounds nuw [64 x %"struct.std::pair"], ptr %0, i64 %65
@@ -24283,55 +24283,55 @@ _ZNK3euf5enode11num_parentsEv.exit43:             ; preds = %_ZNK3euf5enode11num
   tail call void @_ZN1q8mam_impl15collect_parentsEPN3euf5enodeEPNS_9path_treeE(ptr noundef nonnull align 8 dereferenceable(98912) %0, ptr noundef nonnull %.0, ptr noundef %75)
   br label %76
 
-76:                                               ; preds = %67, %71, %53, %54
-  %77 = add i32 %.sroa.7.099, 1
-  %78 = lshr i64 %.sroa.074.098, 1
+74:                                               ; preds = %68, %71, %53, %54
+  %75 = add i32 %.sroa.7.099, 1
+  %76 = lshr i64 %.sroa.074.098, 1
   %.not2.i.i = icmp ne i64 %.sroa.074.098, 1
-  %79 = and i64 %.sroa.074.098, 2
-  %.not13.i.i = icmp eq i64 %79, 0
+  %77 = and i64 %.sroa.074.098, 2
+  %.not13.i.i = icmp eq i64 %77, 0
   %or.cond4.i.i = and i1 %.not2.i.i, %.not13.i.i
   br i1 %or.cond4.i.i, label %.lr.ph.i.i, label %_ZN10approx_set8iteratorppEv.exit
 
-.lr.ph.i.i:                                       ; preds = %76, %.lr.ph.i.i
-  %80 = phi i32 [ %82, %.lr.ph.i.i ], [ %77, %76 ]
-  %81 = phi i64 [ %83, %.lr.ph.i.i ], [ %78, %76 ]
-  %82 = add i32 %80, 1
-  %83 = lshr exact i64 %81, 1
-  %.not.i.i = icmp ne i64 %81, 0
-  %84 = and i64 %81, 2
-  %.not1.i.i = icmp eq i64 %84, 0
+.lr.ph.i.i:                                       ; preds = %74, %.lr.ph.i.i
+  %78 = phi i32 [ %80, %.lr.ph.i.i ], [ %75, %76 ]
+  %79 = phi i64 [ %81, %.lr.ph.i.i ], [ %76, %76 ]
+  %80 = add i32 %78, 1
+  %81 = lshr exact i64 %79, 1
+  %.not.i.i = icmp ne i64 %79, 0
+  %82 = and i64 %79, 2
+  %.not1.i.i = icmp eq i64 %82, 0
   %or.cond.i.i = and i1 %.not.i.i, %.not1.i.i
   br i1 %or.cond.i.i, label %.lr.ph.i.i, label %_ZN10approx_set8iteratorppEv.exit, !llvm.loop !803
 
-_ZN10approx_set8iteratorppEv.exit:                ; preds = %.lr.ph.i.i, %76
-  %.sroa.074.1 = phi i64 [ %78, %76 ], [ %83, %.lr.ph.i.i ]
-  %.sroa.7.1 = phi i32 [ %77, %76 ], [ %82, %.lr.ph.i.i ]
+_ZN10approx_set8iteratorppEv.exit:                ; preds = %.lr.ph.i.i, %74
+  %.sroa.074.1 = phi i64 [ %76, %76 ], [ %81, %.lr.ph.i.i ]
+  %.sroa.7.1 = phi i32 [ %75, %76 ], [ %80, %.lr.ph.i.i ]
   %.not89 = icmp eq i64 %.sroa.074.1, 0
   br i1 %.not89, label %._crit_edge, label %.lr.ph
 
 ._crit_edge:                                      ; preds = %_ZN10approx_set8iteratorppEv.exit, %_ZNK10approx_set5beginEv.exit37
-  %85 = add i32 %.sroa.782.0102, 1
-  %86 = lshr i64 %.sroa.080.0101, 1
+  %83 = add i32 %.sroa.782.0102, 1
+  %84 = lshr i64 %.sroa.080.0101, 1
   %.not2.i.i44 = icmp ne i64 %.sroa.080.0101, 1
-  %87 = and i64 %.sroa.080.0101, 2
-  %.not13.i.i45 = icmp eq i64 %87, 0
+  %85 = and i64 %.sroa.080.0101, 2
+  %.not13.i.i45 = icmp eq i64 %85, 0
   %or.cond4.i.i46 = and i1 %.not2.i.i44, %.not13.i.i45
   br i1 %or.cond4.i.i46, label %.lr.ph.i.i47, label %_ZN10approx_set8iteratorppEv.exit52
 
 .lr.ph.i.i47:                                     ; preds = %._crit_edge, %.lr.ph.i.i47
-  %88 = phi i32 [ %90, %.lr.ph.i.i47 ], [ %85, %._crit_edge ]
-  %89 = phi i64 [ %91, %.lr.ph.i.i47 ], [ %86, %._crit_edge ]
-  %90 = add i32 %88, 1
-  %91 = lshr exact i64 %89, 1
-  %.not.i.i48 = icmp ne i64 %89, 0
-  %92 = and i64 %89, 2
-  %.not1.i.i49 = icmp eq i64 %92, 0
+  %86 = phi i32 [ %88, %.lr.ph.i.i47 ], [ %83, %._crit_edge ]
+  %87 = phi i64 [ %89, %.lr.ph.i.i47 ], [ %84, %._crit_edge ]
+  %88 = add i32 %86, 1
+  %89 = lshr exact i64 %87, 1
+  %.not.i.i48 = icmp ne i64 %87, 0
+  %90 = and i64 %87, 2
+  %.not1.i.i49 = icmp eq i64 %90, 0
   %or.cond.i.i50 = and i1 %.not.i.i48, %.not1.i.i49
   br i1 %or.cond.i.i50, label %.lr.ph.i.i47, label %_ZN10approx_set8iteratorppEv.exit52, !llvm.loop !803
 
 _ZN10approx_set8iteratorppEv.exit52:              ; preds = %.lr.ph.i.i47, %._crit_edge
-  %.sroa.080.1 = phi i64 [ %86, %._crit_edge ], [ %91, %.lr.ph.i.i47 ]
-  %.sroa.782.1 = phi i32 [ %85, %._crit_edge ], [ %90, %.lr.ph.i.i47 ]
+  %.sroa.080.1 = phi i64 [ %84, %._crit_edge ], [ %89, %.lr.ph.i.i47 ]
+  %.sroa.782.1 = phi i32 [ %83, %._crit_edge ], [ %88, %.lr.ph.i.i47 ]
   %.not88 = icmp eq i64 %.sroa.080.1, 0
   br i1 %.not88, label %.critedge, label %20
 

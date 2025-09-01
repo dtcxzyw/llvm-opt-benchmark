@@ -3965,7 +3965,7 @@ define dso_local void @_ZNK11btMultiBody22compTreeLinkVelocitiesEP9btVector3S1_(
   %.pre = load ptr, ptr %89, align 8, !tbaa !36
   br label %90
 
-.loopexit:                                        ; preds = %197, %90
+.loopexit:                                        ; preds = %198, %90
   %exitcond84.not = icmp eq i64 %indvars.iv.next81, %wide.trip.count83
   br i1 %exitcond84.not, label %._crit_edge, label %90, !llvm.loop !104
 
@@ -4097,34 +4097,34 @@ define dso_local void @_ZNK11btMultiBody22compTreeLinkVelocitiesEP9btVector3S1_(
   %195 = getelementptr inbounds nuw i8, ptr %137, i64 4
   %196 = getelementptr inbounds nuw i8, ptr %138, i64 4
   %wide.trip.count = zext nneg i32 %192 to i64
-  br label %197
+  br label %198
 
-197:                                              ; preds = %.lr.ph, %197
+198:                                              ; preds = %.lr.ph, %198
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %197 ]
-  %198 = getelementptr inbounds nuw float, ptr %190, i64 %indvars.iv
-  %199 = getelementptr inbounds nuw %struct.btSpatialMotionVector, ptr %194, i64 %indvars.iv
-  %200 = load float, ptr %199, align 4, !tbaa !4
-  %201 = load float, ptr %198, align 4, !tbaa !4
-  %202 = fmul float %200, %201
-  %203 = getelementptr inbounds nuw i8, ptr %199, i64 4
-  %204 = load float, ptr %203, align 4, !tbaa !4
-  %205 = fmul float %201, %204
-  %206 = getelementptr inbounds nuw i8, ptr %199, i64 8
-  %207 = load float, ptr %206, align 4, !tbaa !4
-  %208 = fmul float %201, %207
-  %209 = load float, ptr %137, align 4, !tbaa !4
-  %210 = fadd float %202, %209
-  store float %210, ptr %137, align 4, !tbaa !4
-  %211 = load float, ptr %195, align 4, !tbaa !4
-  %212 = fadd float %205, %211
-  store float %212, ptr %195, align 4, !tbaa !4
-  %213 = load float, ptr %.sroa.42.0..sroa_idx.i, align 4, !tbaa !4
-  %214 = fadd float %208, %213
-  store float %214, ptr %.sroa.42.0..sroa_idx.i, align 4, !tbaa !4
+  %199 = getelementptr inbounds nuw float, ptr %190, i64 %indvars.iv
+  %200 = getelementptr inbounds nuw %struct.btSpatialMotionVector, ptr %194, i64 %indvars.iv
+  %201 = load float, ptr %200, align 4, !tbaa !4
+  %202 = load float, ptr %199, align 4, !tbaa !4
+  %203 = fmul float %201, %202
+  %204 = getelementptr inbounds nuw i8, ptr %200, i64 4
+  %205 = load float, ptr %204, align 4, !tbaa !4
+  %206 = fmul float %202, %205
+  %207 = getelementptr inbounds nuw i8, ptr %200, i64 8
+  %208 = load float, ptr %207, align 4, !tbaa !4
+  %209 = fmul float %202, %208
+  %210 = load float, ptr %137, align 4, !tbaa !4
+  %211 = fadd float %203, %210
+  store float %211, ptr %137, align 4, !tbaa !4
+  %212 = load float, ptr %195, align 4, !tbaa !4
+  %213 = fadd float %206, %212
+  store float %213, ptr %195, align 4, !tbaa !4
+  %214 = load float, ptr %.sroa.42.0..sroa_idx.i, align 4, !tbaa !4
+  %215 = fadd float %209, %214
+  store float %215, ptr %.sroa.42.0..sroa_idx.i, align 4, !tbaa !4
   %215 = getelementptr %struct.btSpatialMotionVector, ptr %92, i64 %indvars.iv
   %216 = getelementptr i8, ptr %215, i64 152
   %217 = load float, ptr %216, align 4, !tbaa !4
-  %218 = load float, ptr %198, align 4, !tbaa !4
+  %218 = load float, ptr %199, align 4, !tbaa !4
   %219 = fmul float %217, %218
   %220 = getelementptr i8, ptr %215, i64 156
   %221 = load float, ptr %220, align 4, !tbaa !4
@@ -4143,7 +4143,7 @@ define dso_local void @_ZNK11btMultiBody22compTreeLinkVelocitiesEP9btVector3S1_(
   store float %231, ptr %.sroa.4.0..sroa_idx.i, align 4, !tbaa !4
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %.loopexit, label %197, !llvm.loop !105
+  br i1 %exitcond.not, label %.loopexit, label %198, !llvm.loop !105
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(write, argmem: readwrite, inaccessiblemem: none) uwtable
@@ -16318,26 +16318,26 @@ _ZNK12btQuaternion9serializeER21btQuaternionFloatData.exit178.preheader: ; preds
   %166 = getelementptr i8, ptr %165, i64 24
   %167 = getelementptr inbounds nuw i8, ptr %.0192, i64 364
   %wide.trip.count = zext nneg i32 %80 to i64
-  br label %171
+  br label %172
 
 .preheader:                                       ; preds = %_ZNK9btVector39serializeER18btVector3FloatData.exit186, %_ZNK12btQuaternion9serializeER21btQuaternionFloatData.exit178.preheader
-  %168 = icmp sgt i32 %83, 0
-  br i1 %168, label %.lr.ph190, label %._crit_edge
+  %169 = icmp sgt i32 %83, 0
+  br i1 %169, label %.lr.ph190, label %._crit_edge
 
 .lr.ph190:                                        ; preds = %.preheader
-  %169 = getelementptr inbounds nuw i8, ptr %75, i64 464
-  %170 = getelementptr inbounds nuw i8, ptr %.0192, i64 336
+  %170 = getelementptr inbounds nuw i8, ptr %75, i64 464
+  %171 = getelementptr inbounds nuw i8, ptr %.0192, i64 336
   %wide.trip.count206 = zext nneg i32 %83 to i64
   br label %202
 
-171:                                              ; preds = %.lr.ph, %_ZNK9btVector39serializeER18btVector3FloatData.exit186
+172:                                              ; preds = %.lr.ph, %_ZNK9btVector39serializeER18btVector3FloatData.exit186
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %_ZNK9btVector39serializeER18btVector3FloatData.exit186 ]
   %172 = getelementptr %struct.btSpatialMotionVector, ptr %75, i64 %indvars.iv
   %173 = getelementptr i8, ptr %172, i64 152
   %174 = getelementptr inbounds nuw %struct.btVector3FloatData, ptr %156, i64 %indvars.iv
   br label %175
 
-175:                                              ; preds = %175, %171
+175:                                              ; preds = %175, %172
   %indvars.iv.i179 = phi i64 [ 0, %171 ], [ %indvars.iv.next.i180, %175 ]
   %176 = getelementptr inbounds nuw float, ptr %173, i64 %indvars.iv.i179
   %177 = load float, ptr %176, align 4, !tbaa !4
@@ -16373,7 +16373,7 @@ _ZNK9btVector39serializeER18btVector3FloatData.exit186: ; preds = %181
   store float %189, ptr %190, align 4, !tbaa !4
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %.preheader, label %171, !llvm.loop !408
+  br i1 %exitcond.not, label %.preheader, label %172, !llvm.loop !408
 
 ._crit_edge:                                      ; preds = %202, %.preheader
   %191 = getelementptr inbounds nuw %struct.btMultibodyLink, ptr %74, i64 %indvars.iv208, i32 29
@@ -16393,9 +16393,9 @@ _ZNK9btVector39serializeER18btVector3FloatData.exit186: ; preds = %181
 
 202:                                              ; preds = %.lr.ph190, %202
   %indvars.iv203 = phi i64 [ 0, %.lr.ph190 ], [ %indvars.iv.next204, %202 ]
-  %203 = getelementptr inbounds nuw float, ptr %169, i64 %indvars.iv203
+  %203 = getelementptr inbounds nuw float, ptr %170, i64 %indvars.iv203
   %204 = load float, ptr %203, align 4, !tbaa !4
-  %205 = getelementptr inbounds nuw float, ptr %170, i64 %indvars.iv203
+  %205 = getelementptr inbounds nuw float, ptr %171, i64 %indvars.iv203
   store float %204, ptr %205, align 4, !tbaa !4
   %indvars.iv.next204 = add nuw nsw i64 %indvars.iv203, 1
   %exitcond207.not = icmp eq i64 %indvars.iv.next204, %wide.trip.count206

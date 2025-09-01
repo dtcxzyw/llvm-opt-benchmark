@@ -5872,7 +5872,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit186: ; preds = %_Z
   %277 = load ptr, ptr %0, align 8, !tbaa !121
   call void @llvm.lifetime.start.p0(ptr nonnull %15)
   %278 = getelementptr inbounds nuw %"struct.cmCTest::Private::PartInfo", ptr %277, i64 %indvars.iv
-  %279 = getelementptr inbounds nuw i8, ptr %278, i64 696
+  %278 = getelementptr inbounds nuw i8, ptr %278, i64 696
   invoke void @_ZN5cmsys11SystemTools9LowerCaseERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr dead_on_unwind nonnull writable sret(%"class.std::__cxx11::basic_string") align 8 %15, ptr noundef nonnull align 8 dereferenceable(32) %279)
           to label %280 unwind label %291
 
@@ -12874,14 +12874,14 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %_ZNKS
   %17 = load ptr, ptr %0, align 8, !tbaa !121
   br label %18
 
-18:                                               ; preds = %.preheader, %18
+19:                                               ; preds = %.preheader, %19
   %indvars.iv = phi i64 [ 0, %.preheader ], [ %indvars.iv.next, %18 ]
   %19 = getelementptr inbounds nuw %"struct.cmCTest::Private::PartInfo", ptr %17, i64 %indvars.iv
   %20 = getelementptr inbounds nuw i8, ptr %19, i64 688
   store i8 1, ptr %20, align 8, !tbaa !367
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %.not17 = icmp eq i64 %indvars.iv.next, 12
-  br i1 %.not17, label %.loopexit, label %18, !llvm.loop !369
+  br i1 %.not17, label %.loopexit, label %19, !llvm.loop !369
 
 21:                                               ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit
   %22 = call noundef i32 @_ZN7cmCTest15GetPartFromNameERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef nonnull align 8 dereferenceable(32) %1)
@@ -12892,7 +12892,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %_ZNKS
   %24 = load ptr, ptr %0, align 8, !tbaa !121
   %25 = zext i32 %22 to i64
   %26 = getelementptr inbounds nuw %"struct.cmCTest::Private::PartInfo", ptr %24, i64 %25
-  %27 = getelementptr inbounds nuw i8, ptr %26, i64 688
+  %26 = getelementptr inbounds nuw i8, ptr %26, i64 688
   store i8 1, ptr %27, align 8, !tbaa !367
   br label %.loopexit
 
@@ -13105,7 +13105,7 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i22
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   resume { ptr, i32 } %.pn
 
-.loopexit:                                        ; preds = %18, %23, %_ZNSt7__cxx1119basic_ostringstreamIcSt11char_traitsIcESaIcEED1Ev.exit, %28
+.loopexit:                                        ; preds = %19, %23, %_ZNSt7__cxx1119basic_ostringstreamIcSt11char_traitsIcESaIcEED1Ev.exit, %28
   %.0 = phi i1 [ false, %28 ], [ false, %_ZNSt7__cxx1119basic_ostringstreamIcSt11char_traitsIcESaIcEED1Ev.exit ], [ true, %23 ], [ true, %18 ]
   ret i1 %.0
 }
@@ -83896,14 +83896,14 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.i.i.i.i: ; preds 
   %20 = load ptr, ptr %9, align 8, !tbaa !121
   br label %21
 
-21:                                               ; preds = %21, %.preheader.i.i.i.i
+22:                                               ; preds = %22, %.preheader.i.i.i.i
   %indvars.iv.i.i.i.i = phi i64 [ 0, %.preheader.i.i.i.i ], [ %indvars.iv.next.i.i.i.i, %21 ]
   %22 = getelementptr inbounds nuw %"struct.cmCTest::Private::PartInfo", ptr %20, i64 %indvars.iv.i.i.i.i
   %23 = getelementptr inbounds nuw i8, ptr %22, i64 688
   store i8 1, ptr %23, align 8, !tbaa !367
   %indvars.iv.next.i.i.i.i = add nuw nsw i64 %indvars.iv.i.i.i.i, 1
   %.not17.i.i.i.i = icmp eq i64 %indvars.iv.next.i.i.i.i, 12
-  br i1 %.not17.i.i.i.i, label %.loopexit.i.i.i, label %21, !llvm.loop !369
+  br i1 %.not17.i.i.i.i, label %.loopexit.i.i.i, label %22, !llvm.loop !369
 
 24:                                               ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.i.i.i.i
   %25 = call noundef i32 @_ZN7cmCTest15GetPartFromNameERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull readonly align 8 dereferenceable(8) %9, ptr noundef nonnull align 8 dereferenceable(32) %1)
@@ -83914,7 +83914,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.i.i.i.i: ; preds 
   %27 = load ptr, ptr %9, align 8, !tbaa !121
   %28 = zext i32 %25 to i64
   %29 = getelementptr inbounds nuw %"struct.cmCTest::Private::PartInfo", ptr %27, i64 %28
-  %30 = getelementptr inbounds nuw i8, ptr %29, i64 688
+  %29 = getelementptr inbounds nuw i8, ptr %29, i64 688
   store i8 1, ptr %30, align 8, !tbaa !367
   br label %.loopexit.i.i.i
 
@@ -84485,7 +84485,7 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i96
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   br label %294
 
-.loopexit.i.i.i:                                  ; preds = %21, %26
+.loopexit.i.i.i:                                  ; preds = %22, %26
   %292 = getelementptr inbounds nuw i8, ptr %.val, i64 8
   %293 = load ptr, ptr %292, align 8, !tbaa !3025
   store i8 1, ptr %293, align 1, !tbaa !172

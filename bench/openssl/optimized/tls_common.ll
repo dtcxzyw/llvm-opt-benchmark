@@ -3271,7 +3271,7 @@ define i32 @tls_write_records(ptr noundef %0, ptr noundef %1, i64 noundef %2) #0
 
 8:                                                ; preds = %3
   %9 = getelementptr inbounds nuw %struct.tls_buffer_st, ptr %0, i64 %5
-  %10 = getelementptr inbounds nuw i8, ptr %9, i64 128
+  %9 = getelementptr inbounds nuw i8, ptr %9, i64 128
   %11 = load i64, ptr %10, align 8, !tbaa !45
   %12 = icmp eq i64 %11, 0
   br i1 %12, label %.critedge, label %13, !prof !76

@@ -1356,47 +1356,47 @@ define internal fastcc ptr @hash_dir_entry(ptr noundef %0, ptr noundef %1, i32 n
   %9 = load i8, ptr %8, align 1, !tbaa !68
   %.not = icmp eq i8 %9, 47
   %10 = add nsw i32 %.02832, -1
-  br i1 %.not, label %.critedge, label %11
+  br i1 %.not, label %13, label %11
 
-11:                                               ; preds = %.lr.ph
+11:; preds = %.lr.ph
   %12 = icmp sgt i32 %.02832, 1
   br i1 %12, label %.lr.ph, label %.critedge.thread, !llvm.loop !78
 
-.critedge:                                        ; preds = %.lr.ph
+13:                                               ; preds = %.lr.ph
   %13 = getelementptr inbounds nuw i8, ptr %1, i64 108
   %14 = zext nneg i32 %10 to i64
   %15 = tail call i32 @memihash(ptr noundef nonnull %13, i64 noundef %14) #14
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
-  %16 = getelementptr inbounds nuw i8, ptr %4, i64 8
-  store i32 %15, ptr %16, align 8, !tbaa !55
+  %17 = getelementptr inbounds nuw i8, ptr %4, i64 8
+  store i32 %15, ptr %17, align 8, !tbaa !55
   store ptr null, ptr %4, align 8, !tbaa !58
-  %17 = getelementptr inbounds nuw i8, ptr %4, i64 28
-  store i32 %10, ptr %17, align 4, !tbaa !4
-  %18 = getelementptr inbounds nuw i8, ptr %0, i64 112
-  %19 = call ptr @hashmap_get(ptr noundef nonnull %18, ptr noundef nonnull %4, ptr noundef nonnull %13) #14
+  %18 = getelementptr inbounds nuw i8, ptr %4, i64 28
+  store i32 %10, ptr %18, align 4, !tbaa !4
+  %19 = getelementptr inbounds nuw i8, ptr %0, i64 112
+  %20 = call ptr @hashmap_get(ptr noundef nonnull %19, ptr noundef nonnull %4, ptr noundef nonnull %13) #14
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
-  %.not30 = icmp eq ptr %19, null
+  %.not30 = icmp eq ptr %20, null
   br i1 %.not30, label %st_add.exit, label %.critedge.thread
 
 st_add.exit:                                      ; preds = %.critedge
-  %20 = add nuw nsw i64 %14, 33
-  %21 = call ptr @xcalloc(i64 noundef 1, i64 noundef %20) #14
-  %22 = getelementptr inbounds nuw i8, ptr %21, i64 32
-  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %22, ptr nonnull align 4 %13, i64 %14, i1 false)
-  %23 = call i32 @memihash(ptr noundef nonnull %13, i64 noundef %14) #14
-  %24 = getelementptr inbounds nuw i8, ptr %21, i64 8
-  store i32 %23, ptr %24, align 8, !tbaa !55
-  store ptr null, ptr %21, align 8, !tbaa !58
-  %25 = getelementptr inbounds nuw i8, ptr %21, i64 28
-  store i32 %10, ptr %25, align 4, !tbaa !4
-  call void @hashmap_add(ptr noundef nonnull %18, ptr noundef nonnull %21) #14
-  %26 = call fastcc ptr @hash_dir_entry(ptr noundef nonnull %0, ptr noundef nonnull %1, i32 noundef %10)
-  %27 = getelementptr inbounds nuw i8, ptr %21, i64 16
-  store ptr %26, ptr %27, align 8, !tbaa !59
+  %21 = add nuw nsw i64 %14, 33
+  %22 = call ptr @xcalloc(i64 noundef 1, i64 noundef %21) #14
+  %23 = getelementptr inbounds nuw i8, ptr %22, i64 32
+  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %23, ptr nonnull align 4 %13, i64 %14, i1 false)
+  %24 = call i32 @memihash(ptr noundef nonnull %13, i64 noundef %14) #14
+  %25 = getelementptr inbounds nuw i8, ptr %22, i64 8
+  store i32 %24, ptr %25, align 8, !tbaa !55
+  store ptr null, ptr %22, align 8, !tbaa !58
+  %26 = getelementptr inbounds nuw i8, ptr %22, i64 28
+  store i32 %10, ptr %26, align 4, !tbaa !4
+  call void @hashmap_add(ptr noundef nonnull %19, ptr noundef nonnull %22) #14
+  %27 = call fastcc ptr @hash_dir_entry(ptr noundef nonnull %0, ptr noundef nonnull %1, i32 noundef %10)
+  %28 = getelementptr inbounds nuw i8, ptr %22, i64 16
+  store ptr %27, ptr %28, align 8, !tbaa !59
   br label %.critedge.thread
 
 .critedge.thread:                                 ; preds = %11, %3, %.critedge, %st_add.exit
-  %.0 = phi ptr [ %19, %.critedge ], [ %21, %st_add.exit ], [ null, %3 ], [ null, %11 ]
+  %.0 = phi ptr [ %20, %.critedge ], [ %22, %st_add.exit ], [ null, %3 ], [ null, %11 ]
   ret ptr %.0
 }
 

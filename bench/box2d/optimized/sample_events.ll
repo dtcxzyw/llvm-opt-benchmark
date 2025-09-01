@@ -4109,21 +4109,21 @@ define linkonce_odr dso_local noundef zeroext i1 @_ZN10Platformer14PreSolveStati
   %26 = getelementptr inbounds nuw i8, ptr %2, i64 108
   %27 = load i32, ptr %26, align 4, !tbaa !139
   %28 = icmp sgt i32 %27, 0
-  br i1 %28, label %.lr.ph.preheader.i, label %._crit_edge.i
+  br i1 %28, label %.lr.ph.i, label %._crit_edge.i
 
-.lr.ph.preheader.i:                               ; preds = %.preheader.i
+.lr.ph.i:                                         ; preds = %.preheader.i
   %wide.trip.count.i = zext nneg i32 %27 to i64
-  br label %.lr.ph.i
+  br label %34
 
-._crit_edge.i:                                    ; preds = %.lr.ph.i, %.preheader.i
+._crit_edge.i:                                    ; preds = %34, %.preheader.i
   %.019.lcssa.i = phi float [ 0.000000e+00, %.preheader.i ], [ %36, %.lr.ph.i ]
-  %29 = getelementptr inbounds nuw i8, ptr %3, i64 252
-  %30 = load float, ptr %29, align 4, !tbaa !164
-  %31 = fmul float %30, 0x3FB99999A0000000
-  %32 = fcmp ogt float %.019.lcssa.i, %31
+  %30 = getelementptr inbounds nuw i8, ptr %3, i64 252
+  %31 = load float, ptr %30, align 4, !tbaa !164
+  %32 = fmul float %31, 0x3FB99999A0000000
+  %33 = fcmp ogt float %.019.lcssa.i, %32
   br label %_ZNK10Platformer8PreSolveE9b2ShapeIdS0_P10b2Manifold.exit
 
-.lr.ph.i:                                         ; preds = %.lr.ph.i, %.lr.ph.preheader.i
+34:                                               ; preds = %34, %.lr.ph.i
   %indvars.iv.i = phi i64 [ 0, %.lr.ph.preheader.i ], [ %indvars.iv.next.i, %.lr.ph.i ]
   %.01932.i = phi float [ 0.000000e+00, %.lr.ph.preheader.i ], [ %36, %.lr.ph.i ]
   %33 = getelementptr inbounds nuw %struct.b2ManifoldPoint, ptr %2, i64 %indvars.iv.i, i32 6
@@ -4132,10 +4132,10 @@ define linkonce_odr dso_local noundef zeroext i1 @_ZN10Platformer14PreSolveStati
   %36 = select i1 %35, float %.01932.i, float %34
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %wide.trip.count.i
-  br i1 %exitcond.not.i, label %._crit_edge.i, label %.lr.ph.i, !llvm.loop !178
+  br i1 %exitcond.not.i, label %._crit_edge.i, label %34, !llvm.loop !178
 
 _ZNK10Platformer8PreSolveE9b2ShapeIdS0_P10b2Manifold.exit: ; preds = %17, %23, %._crit_edge.i
-  %.0.i = phi i1 [ true, %17 ], [ %32, %._crit_edge.i ], [ true, %23 ]
+  %.0.i = phi i1 [ true, %17 ], [ %33, %._crit_edge.i ], [ true, %23 ]
   ret i1 %.0.i
 }
 

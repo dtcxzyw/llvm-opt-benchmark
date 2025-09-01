@@ -9765,7 +9765,7 @@ _ZNSt11char_traitsIcE7compareEPKcS2_m.exit:       ; preds = %8, %6, %2
 define weak_odr hidden noundef zeroext i1 @_ZNK5boost14static_strings19basic_static_stringILm420EcSt11char_traitsIcEE9ends_withEc(ptr noundef nonnull align 2 dereferenceable(423) %0, i8 noundef signext %1) local_unnamed_addr #3 comdat align 2 {
   %3 = load i16, ptr %0, align 2, !tbaa !4
   %4 = icmp eq i16 %3, 0
-  br i1 %4, label %11, label %5
+  br i1 %4, label %12, label %5
 
 5:                                                ; preds = %2
   %6 = zext i16 %3 to i64
@@ -9775,9 +9775,9 @@ define weak_odr hidden noundef zeroext i1 @_ZNK5boost14static_strings19basic_sta
   %10 = icmp eq i8 %9, %1
   br label %11
 
-11:                                               ; preds = %5, %2
-  %12 = phi i1 [ false, %2 ], [ %10, %5 ]
-  ret i1 %12
+12:                                               ; preds = %5, %2
+  %13 = phi i1 [ false, %2 ], [ %10, %5 ]
+  ret i1 %13
 }
 
 ; Function Attrs: mustprogress nounwind uwtable

@@ -1524,7 +1524,7 @@ define internal void @reverse_color16(ptr noundef readonly captures(none) %0, pt
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %9 ]
   %10 = load ptr, ptr %0, align 8, !tbaa !99
   %11 = getelementptr inbounds nuw %struct.AVComponentDescriptor, ptr %10, i64 %indvars.iv
-  %12 = getelementptr inbounds nuw i8, ptr %11, i64 40
+  %11 = getelementptr inbounds nuw i8, ptr %11, i64 40
   %13 = load i32, ptr %12, align 4, !tbaa !74
   %14 = shl nuw i32 1, %13
   %15 = lshr i32 %14, 1
@@ -3331,7 +3331,7 @@ define internal void @draw_trace8(ptr noundef readonly captures(none) %0, ptr no
   %94 = phi i32 [ %182, %.loopexit.i ], [ %93, %.preheader111.i ]
   %95 = load ptr, ptr %12, align 8, !tbaa !99
   %96 = getelementptr inbounds nuw %struct.AVComponentDescriptor, ptr %95, i64 %indvars.iv125.i
-  %97 = getelementptr inbounds nuw i8, ptr %96, i64 40
+  %96 = getelementptr inbounds nuw i8, ptr %96, i64 40
   %98 = load i32, ptr %97, align 4, !tbaa !74
   %99 = icmp eq i32 %98, 8
   %100 = icmp eq i32 %94, 1
@@ -3636,7 +3636,7 @@ define internal void @draw_trace16(ptr noundef readonly captures(none) %0, ptr n
   %98 = phi i32 [ %186, %.loopexit.i ], [ %97, %.preheader111.i ]
   %99 = load ptr, ptr %13, align 8, !tbaa !99
   %100 = getelementptr inbounds nuw %struct.AVComponentDescriptor, ptr %99, i64 %indvars.iv125.i
-  %101 = getelementptr inbounds nuw i8, ptr %100, i64 40
+  %100 = getelementptr inbounds nuw i8, ptr %100, i64 40
   %102 = load i32, ptr %101, align 4, !tbaa !74
   %103 = icmp eq i32 %102, 8
   %104 = icmp eq i32 %98, 1

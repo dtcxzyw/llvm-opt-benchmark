@@ -94,7 +94,7 @@ _ZN15crossbeam_utils7backoff7Backoff6snooze17h711eb9f39cdff2f8E.exit: ; preds = 
   br label %.backedge.backedge
 
 .backedge.backedge:                               ; preds = %_ZN15crossbeam_utils7backoff7Backoff6snooze17h711eb9f39cdff2f8E.exit, %_ZN15crossbeam_utils7backoff7Backoff6snooze17h711eb9f39cdff2f8E.exit27, %_ZN15crossbeam_utils7backoff7Backoff4spin17h4c387f456af71e22E.exit
-  %.sroa.0.0.be = phi i32 [ %.sroa.0.1, %_ZN15crossbeam_utils7backoff7Backoff6snooze17h711eb9f39cdff2f8E.exit ], [ %.sroa.0.2, %_ZN15crossbeam_utils7backoff7Backoff6snooze17h711eb9f39cdff2f8E.exit27 ], [ %spec.select52, %_ZN15crossbeam_utils7backoff7Backoff4spin17h4c387f456af71e22E.exit ]
+  %.sroa.0.0.be = phi i32 [ %.sroa.0.1, %_ZN15crossbeam_utils7backoff7Backoff6snooze17h711eb9f39cdff2f8E.exit ], [ %.sroa.0.2, %_ZN15crossbeam_utils7backoff7Backoff6snooze17h711eb9f39cdff2f8E.exit27 ], [ %spec.select53, %_ZN15crossbeam_utils7backoff7Backoff4spin17h4c387f456af71e22E.exit ]
   %.sroa.07.0.be = phi i64 [ %21, %_ZN15crossbeam_utils7backoff7Backoff6snooze17h711eb9f39cdff2f8E.exit ], [ %39, %_ZN15crossbeam_utils7backoff7Backoff6snooze17h711eb9f39cdff2f8E.exit27 ], [ %.sroa.01.0.i, %_ZN15crossbeam_utils7backoff7Backoff4spin17h4c387f456af71e22E.exit ]
   %.sroa.012.0.be = phi ptr [ %22, %_ZN15crossbeam_utils7backoff7Backoff6snooze17h711eb9f39cdff2f8E.exit ], [ %40, %_ZN15crossbeam_utils7backoff7Backoff6snooze17h711eb9f39cdff2f8E.exit27 ], [ %44, %_ZN15crossbeam_utils7backoff7Backoff4spin17h4c387f456af71e22E.exit ]
   br label %.backedge
@@ -166,7 +166,7 @@ _ZN15crossbeam_utils7backoff7Backoff6snooze17h711eb9f39cdff2f8E.exit27: ; preds 
 _ZN15crossbeam_utils7backoff7Backoff4spin17h4c387f456af71e22E.exit: ; preds = %47
   %45 = icmp ult i32 %.sroa.0.0, 7
   %46 = zext i1 %45 to i32
-  %spec.select52 = add nuw nsw i32 %.sroa.0.0, %46
+  %spec.select53 = add nuw nsw i32 %.sroa.0.0, %46
   br label %.backedge.backedge
 
 47:                                               ; preds = %47, %43
@@ -222,7 +222,7 @@ _ZN15crossbeam_utils7backoff7Backoff6snooze17h711eb9f39cdff2f8E.exit.i: ; preds 
 
 "_ZN15crossbeam_queue9seg_queue13Slot$LT$T$GT$10wait_write17he9c363fd17ebb97eE.exit": ; preds = %_ZN15crossbeam_utils7backoff7Backoff6snooze17h711eb9f39cdff2f8E.exit.i, %53
   call void @llvm.memmove.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %3, ptr noundef nonnull align 8 dereferenceable(32) %55, i64 32, i1 false)
-  br i1 %52, label %.lr.ph.i39, label %83
+  br i1 %52, label %87, label %83
 
 68:                                               ; preds = %50
   %69 = load atomic ptr, ptr %.sroa.012.0 acquire, align 8
@@ -275,7 +275,7 @@ _ZN15crossbeam_utils7backoff7Backoff6snooze17h711eb9f39cdff2f8E.exit.i33: ; pred
   %86 = icmp eq i64 %85, 0
   br i1 %86, label %"_ZN15crossbeam_queue9seg_queue14Block$LT$T$GT$7destroy17h8206de74bf3947bdE.exit", label %98
 
-.lr.ph.i39:                                       ; preds = %"_ZN15crossbeam_queue9seg_queue13Slot$LT$T$GT$10wait_write17he9c363fd17ebb97eE.exit", %97
+87:                                               ; preds = %"_ZN15crossbeam_queue9seg_queue13Slot$LT$T$GT$10wait_write17he9c363fd17ebb97eE.exit", %97
   %.sroa.0.04.i = phi i64 [ %87, %97 ], [ 0, %"_ZN15crossbeam_queue9seg_queue13Slot$LT$T$GT$10wait_write17he9c363fd17ebb97eE.exit" ]
   %87 = add nuw nsw i64 %.sroa.0.04.i, 1
   %88 = getelementptr inbounds nuw { { { [4 x i64] } }, { i64 } }, ptr %.sroa.012.0, i64 %.sroa.0.04.i
@@ -285,21 +285,21 @@ _ZN15crossbeam_utils7backoff7Backoff6snooze17h711eb9f39cdff2f8E.exit.i33: ; pred
   %92 = icmp eq i64 %91, 0
   br i1 %92, label %93, label %97
 
-93:                                               ; preds = %.lr.ph.i39
+93:; preds = %87
   %94 = atomicrmw or ptr %89, i64 4 acq_rel, align 8
   %95 = and i64 %94, 2
   %96 = icmp eq i64 %95, 0
   br i1 %96, label %"_ZN15crossbeam_queue9seg_queue14Block$LT$T$GT$7destroy17h8206de74bf3947bdE.exit", label %97
 
-97:                                               ; preds = %93, %.lr.ph.i39
-  %exitcond.not.i = icmp eq i64 %87, 30
-  br i1 %exitcond.not.i, label %"_ZN15crossbeam_queue9seg_queue14Block$LT$T$GT$7destroy17h8206de74bf3947bdE.exit.sink.split", label %.lr.ph.i39
+97:; preds = %93, %87
+  %98 = icmp eq i64 %87, 30
+  br i1 %98, label %"_ZN15crossbeam_queue9seg_queue14Block$LT$T$GT$7destroy17h8206de74bf3947bdE.exit.sink.split", label %87
 
-98:                                               ; preds = %83
-  %99 = icmp samesign ult i64 %9, 29
-  br i1 %99, label %.lr.ph.i43, label %"_ZN15crossbeam_queue9seg_queue14Block$LT$T$GT$7destroy17h8206de74bf3947bdE.exit.sink.split"
+99:                                               ; preds = %83
+  %exitcond.not.i = icmp samesign ult i64 %9, 29
+  br i1 %exitcond.not.i, label %100, label %"_ZN15crossbeam_queue9seg_queue14Block$LT$T$GT$7destroy17h8206de74bf3947bdE.exit.sink.split"
 
-.lr.ph.i43:                                       ; preds = %98, %110
+100:                                              ; preds = %98, %110
   %.sroa.0.04.i44 = phi i64 [ %100, %110 ], [ %51, %98 ]
   %100 = add nuw nsw i64 %.sroa.0.04.i44, 1
   %101 = getelementptr inbounds nuw { { { [4 x i64] } }, { i64 } }, ptr %.sroa.012.0, i64 %.sroa.0.04.i44
@@ -309,17 +309,17 @@ _ZN15crossbeam_utils7backoff7Backoff6snooze17h711eb9f39cdff2f8E.exit.i33: ; pred
   %105 = icmp eq i64 %104, 0
   br i1 %105, label %106, label %110
 
-106:                                              ; preds = %.lr.ph.i43
+106:; preds = %.lr.ph.i43
   %107 = atomicrmw or ptr %102, i64 4 acq_rel, align 8
   %108 = and i64 %107, 2
   %109 = icmp eq i64 %108, 0
   br i1 %109, label %"_ZN15crossbeam_queue9seg_queue14Block$LT$T$GT$7destroy17h8206de74bf3947bdE.exit", label %110
 
-110:                                              ; preds = %106, %.lr.ph.i43
+110:; preds = %106, %100
   %exitcond.not.i45 = icmp eq i64 %100, 30
   br i1 %exitcond.not.i45, label %"_ZN15crossbeam_queue9seg_queue14Block$LT$T$GT$7destroy17h8206de74bf3947bdE.exit.sink.split", label %.lr.ph.i43
 
-"_ZN15crossbeam_queue9seg_queue14Block$LT$T$GT$7destroy17h8206de74bf3947bdE.exit.sink.split": ; preds = %110, %97, %98
+"_ZN15crossbeam_queue9seg_queue14Block$LT$T$GT$7destroy17h8206de74bf3947bdE.exit.sink.split":; preds = %110, %97, %98
   tail call void @_RNvCshjvJWTf7CV5_7___rustc14___rust_dealloc(ptr noundef nonnull %.sroa.012.0, i64 noundef 1248, i64 noundef 8) #17
   br label %"_ZN15crossbeam_queue9seg_queue14Block$LT$T$GT$7destroy17h8206de74bf3947bdE.exit"
 

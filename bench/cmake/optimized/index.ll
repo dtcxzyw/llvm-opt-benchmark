@@ -287,7 +287,7 @@ define dso_local range(i64 -1, -9223372036854775808) i64 @lzma_index_file_size(p
   %10 = getelementptr inbounds nuw i8, ptr %5, i64 56
   %11 = load i64, ptr %10, align 8, !tbaa !36
   %12 = getelementptr inbounds nuw %struct.index_record, ptr %5, i64 %11
-  %13 = getelementptr inbounds nuw i8, ptr %12, i64 72
+  %12 = getelementptr inbounds nuw i8, ptr %12, i64 72
   %14 = load i64, ptr %13, align 8, !tbaa !37
   %15 = add i64 %14, 3
   %16 = and i64 %15, -4
@@ -422,7 +422,7 @@ define dso_local range(i32 0, 12) i32 @lzma_index_stream_padding(ptr noundef rea
   %17 = getelementptr inbounds nuw i8, ptr %12, i64 56
   %18 = load i64, ptr %17, align 8, !tbaa !36
   %19 = getelementptr inbounds nuw %struct.index_record, ptr %12, i64 %18
-  %20 = getelementptr inbounds nuw i8, ptr %19, i64 72
+  %19 = getelementptr inbounds nuw i8, ptr %19, i64 72
   %21 = load i64, ptr %20, align 8, !tbaa !37
   %22 = add i64 %21, 3
   %23 = and i64 %22, -4
@@ -487,7 +487,7 @@ define dso_local range(i32 0, 12) i32 @lzma_index_append(ptr noundef captures(ad
   %17 = getelementptr inbounds nuw i8, ptr %14, i64 56
   %18 = load i64, ptr %17, align 8, !tbaa !36
   %19 = getelementptr inbounds nuw %struct.index_record, ptr %14, i64 %18
-  %20 = getelementptr inbounds nuw i8, ptr %19, i64 72
+  %19 = getelementptr inbounds nuw i8, ptr %19, i64 72
   %21 = load i64, ptr %20, align 8, !tbaa !37
   %22 = add i64 %21, 3
   %23 = and i64 %22, -4
@@ -633,8 +633,8 @@ index_file_size.exit:                             ; preds = %37
 
 118:                                              ; preds = %118, %115
   %.038.i = phi i32 [ %117, %115 ], [ %121, %118 ]
-  %.0.i80 = phi ptr [ %90, %115 ], [ %120, %118 ]
-  %119 = getelementptr inbounds nuw i8, ptr %.0.i80, i64 16
+  %.0.i81 = phi ptr [ %90, %115 ], [ %120, %118 ]
+  %119 = getelementptr inbounds nuw i8, ptr %.0.i81, i64 16
   %120 = load ptr, ptr %119, align 8, !tbaa !21
   %121 = add nsw i32 %.038.i, -1
   %.not41.i = icmp eq i32 %121, 0
@@ -683,8 +683,8 @@ index_tree_append.exit:                           ; preds = %137, %110, %108, %8
   %140 = load i64, ptr %139, align 8, !tbaa !36
   %141 = getelementptr inbounds nuw %struct.index_record, ptr %138, i64 %140
   store i64 %32, ptr %141, align 8, !tbaa !46
-  %.idx = shl nuw nsw i64 %140, 4
-  %142 = getelementptr inbounds nuw i8, ptr %138, i64 %.idx
+  %.idx80 = shl nuw nsw i64 %140, 4
+  %142 = getelementptr inbounds nuw i8, ptr %138, i64 %.idx80
   %143 = getelementptr inbounds nuw i8, ptr %142, i64 8
   store i64 %35, ptr %143, align 8, !tbaa !37
   %144 = load i64, ptr %40, align 8, !tbaa !40
@@ -743,7 +743,7 @@ define dso_local range(i32 0, 12) i32 @lzma_index_cat(ptr noalias noundef %0, pt
   %16 = getelementptr inbounds nuw i8, ptr %11, i64 56
   %17 = load i64, ptr %16, align 8, !tbaa !36
   %18 = getelementptr inbounds nuw %struct.index_record, ptr %11, i64 %17
-  %19 = getelementptr inbounds nuw i8, ptr %18, i64 72
+  %18 = getelementptr inbounds nuw i8, ptr %18, i64 72
   %20 = load i64, ptr %19, align 8, !tbaa !37
   %21 = add i64 %20, 3
   %22 = and i64 %21, -4
@@ -789,7 +789,7 @@ lzma_index_file_size.exit:                        ; preds = %23, %31
   %51 = getelementptr inbounds nuw i8, ptr %46, i64 56
   %52 = load i64, ptr %51, align 8, !tbaa !36
   %53 = getelementptr inbounds nuw %struct.index_record, ptr %46, i64 %52
-  %54 = getelementptr inbounds nuw i8, ptr %53, i64 72
+  %53 = getelementptr inbounds nuw i8, ptr %53, i64 72
   %55 = load i64, ptr %54, align 8, !tbaa !37
   %56 = add i64 %55, 3
   %57 = and i64 %56, -4
@@ -803,7 +803,7 @@ lzma_index_file_size.exit:                        ; preds = %23, %31
   %63 = add i64 %62, %59
   %64 = add i64 %63, %61
   %65 = icmp slt i64 %64, 0
-  br i1 %65, label %lzma_index_file_size.exit84, label %66
+  br i1 %65, label %lzma_index_file_size.exit85, label %66
 
 66:                                               ; preds = %58
   %67 = getelementptr inbounds nuw i8, ptr %44, i64 96
@@ -817,16 +817,16 @@ lzma_index_file_size.exit:                        ; preds = %23, %31
   %75 = add i64 %74, %73
   %76 = and i64 %75, -4
   %77 = add i64 %76, %64
-  %..i.i82 = tail call i64 @llvm.smax.i64(i64 %77, i64 -1)
-  br label %lzma_index_file_size.exit84
+  %..i.i83 = tail call i64 @llvm.smax.i64(i64 %77, i64 -1)
+  br label %lzma_index_file_size.exit85
 
-lzma_index_file_size.exit84:                      ; preds = %58, %66
-  %.0.i.i83 = phi i64 [ -1, %58 ], [ %..i.i82, %66 ]
-  %78 = add i64 %.0.i.i83, %.0.i.i
+lzma_index_file_size.exit85:                      ; preds = %58, %66
+  %.0.i.i84 = phi i64 [ -1, %58 ], [ %..i.i83, %66 ]
+  %78 = add i64 %.0.i.i84, %.0.i.i
   %79 = icmp slt i64 %78, 0
   br i1 %79, label %174, label %80
 
-80:                                               ; preds = %lzma_index_file_size.exit84
+80:                                               ; preds = %lzma_index_file_size.exit85
   %81 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %82 = load i64, ptr %81, align 8, !tbaa !41
   %83 = getelementptr inbounds nuw i8, ptr %1, i64 32
@@ -909,19 +909,19 @@ lzma_index_file_size.exit84:                      ; preds = %58, %66
   %138 = getelementptr inbounds nuw i8, ptr %9, i64 64
   %139 = load ptr, ptr %138, align 8, !tbaa !51
   %140 = icmp eq ptr %139, %11
-  br i1 %140, label %141, label %.thread87
+  br i1 %140, label %141, label %.thread88
 
 141:                                              ; preds = %137
   store ptr %120, ptr %138, align 8, !tbaa !51
   store ptr %120, ptr %109, align 8, !tbaa !52
-  br label %.thread87
+  br label %.thread88
 
-.thread87:                                        ; preds = %137, %141
+.thread88:                                        ; preds = %137, %141
   store ptr %120, ptr %10, align 8, !tbaa !34
   tail call void @lzma_free(ptr noundef nonnull %11, ptr noundef %2) #17
   br label %.thread
 
-.thread:                                          ; preds = %108, %110, %.thread87
+.thread:                                          ; preds = %108, %110, %.thread88
   %142 = getelementptr inbounds nuw i8, ptr %0, i64 72
   %143 = load i32, ptr %142, align 8, !tbaa !13
   %144 = getelementptr inbounds nuw i8, ptr %9, i64 104
@@ -979,7 +979,7 @@ lzma_index_checks.exit:                           ; preds = %.thread, %146
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br label %174
 
-174:                                              ; preds = %117, %lzma_index_checks.exit, %87, %80, %lzma_index_file_size.exit84, %3
+174:                                              ; preds = %117, %lzma_index_checks.exit, %87, %80, %lzma_index_file_size.exit85, %3
   %.0 = phi i32 [ 11, %3 ], [ 0, %lzma_index_checks.exit ], [ 9, %87 ], [ 9, %80 ], [ 9, %lzma_index_file_size.exit84 ], [ 5, %117 ]
   ret i32 %.0
 }
@@ -1935,7 +1935,7 @@ define internal fastcc void @iter_set_info(ptr noundef captures(none) initialize
 
 98:                                               ; preds = %85
   %99 = getelementptr %struct.index_record, ptr %5, i64 %7
-  %100 = getelementptr i8, ptr %99, i64 56
+  %99 = getelementptr i8, ptr %99, i64 56
   %101 = load i64, ptr %100, align 8, !tbaa !37
   %102 = add i64 %101, 3
   %103 = and i64 %102, -4

@@ -9653,25 +9653,25 @@ _ZN6LibRaw10getbithuffEiPt.exit199:               ; preds = %227, %179, %233
   %312 = getelementptr inbounds nuw i16, ptr %311, i64 %indvars.iv288
   store i16 %307, ptr %312, align 2, !tbaa !86
   %indvars.iv.next289 = add nuw nsw i64 %indvars.iv288, 1
-  %313 = load i16, ptr %3, align 2, !tbaa !148
-  %314 = zext i16 %313 to i64
-  %315 = icmp samesign ult i64 %indvars.iv.next289, %314
-  br i1 %315, label %301, label %._crit_edge263, !llvm.loop !232
+  %314 = load i16, ptr %3, align 2, !tbaa !148
+  %315 = zext i16 %314 to i64
+  %316 = icmp samesign ult i64 %indvars.iv.next289, %315
+  br i1 %316, label %301, label %._crit_edge263, !llvm.loop !232
 
 ._crit_edge263:                                   ; preds = %301, %.preheader
   %indvars.iv.next292 = add nuw nsw i64 %indvars.iv291, 1
-  %316 = load i16, ptr %7, align 4, !tbaa !145
-  %317 = zext i16 %316 to i64
-  %318 = icmp samesign ult i64 %indvars.iv.next292, %317
-  br i1 %318, label %296, label %_ZNSt6vectorIhSaIhEED2Ev.exit201, !llvm.loop !233
+  %317 = load i16, ptr %7, align 4, !tbaa !145
+  %318 = zext i16 %317 to i64
+  %319 = icmp samesign ult i64 %indvars.iv.next292, %318
+  br i1 %319, label %296, label %_ZNSt6vectorIhSaIhEED2Ev.exit201, !llvm.loop !233
 
 _ZNSt6vectorIhSaIhEED2Ev.exit201:                 ; preds = %._crit_edge263, %.preheader210, %.preheader209
-  %319 = getelementptr inbounds nuw i8, ptr %0, i64 153000
-  store i32 1023, ptr %319, align 8, !tbaa !96
+  %320 = getelementptr inbounds nuw i8, ptr %0, i64 153000
+  store i32 1023, ptr %320, align 8, !tbaa !96
   tail call void @_ZdlPvm(ptr noundef nonnull %2, i64 noundef 311696) #17
   ret void
 
-320:                                              ; preds = %10
+321:                                              ; preds = %10
   unreachable
 }
 

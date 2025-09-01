@@ -1699,31 +1699,31 @@ define noundef i32 @_ZN6LibRaw18find_ifd_by_offsetEi(ptr noundef nonnull readonl
   br i1 %5, label %._crit_edge, label %.lr.ph.preheader
 
 .lr.ph.preheader:                                 ; preds = %2
-  %6 = add i32 %4, -1
-  %umin = tail call i32 @llvm.umin.i32(i32 %6, i32 9)
-  %7 = add nuw nsw i32 %umin, 1
-  %wide.trip.count = zext nneg i32 %7 to i64
+  %7 = add i32 %4, -1
+  %umin = tail call i32 @llvm.umin.i32(i32 %7, i32 9)
+  %8 = add nuw nsw i32 %umin, 1
+  %wide.trip.count = zext nneg i32 %8 to i64
   br label %.lr.ph
 
-.lr.ph:                                           ; preds = %.lr.ph.preheader, %12
+.lr.ph:                                           ; preds = %.lr.ph.preheader, %14
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %12 ]
   %8 = getelementptr inbounds nuw %struct.tiff_ifd_t, ptr %0, i64 %indvars.iv
-  %9 = getelementptr inbounds nuw i8, ptr %8, i64 433356
-  %10 = load i32, ptr %9, align 4, !tbaa !137
+  %10 = getelementptr inbounds nuw i8, ptr %8, i64 433356
+  %10 = load i32, ptr %10, align 4, !tbaa !137
   %11 = icmp eq i32 %10, %1
   br i1 %11, label %._crit_edge.loopexit.split.loop.exit, label %12
 
-12:                                               ; preds = %.lr.ph
+14:                                               ; preds = %.lr.ph
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond = icmp eq i64 %indvars.iv.next, %wide.trip.count
   br i1 %exitcond, label %._crit_edge, label %.lr.ph, !llvm.loop !139
 
 ._crit_edge.loopexit.split.loop.exit:             ; preds = %.lr.ph
-  %13 = trunc nuw nsw i64 %indvars.iv to i32
+  %15 = trunc nuw nsw i64 %indvars.iv to i32
   br label %._crit_edge
 
-._crit_edge:                                      ; preds = %12, %._crit_edge.loopexit.split.loop.exit, %2
-  %spec.select = phi i32 [ -1, %2 ], [ %13, %._crit_edge.loopexit.split.loop.exit ], [ -1, %12 ]
+._crit_edge:                                      ; preds = %14, %._crit_edge.loopexit.split.loop.exit, %2
+  %spec.select = phi i32 [ -1, %2 ], [ %15, %._crit_edge.loopexit.split.loop.exit ], [ -1, %12 ]
   ret i32 %spec.select
 }
 

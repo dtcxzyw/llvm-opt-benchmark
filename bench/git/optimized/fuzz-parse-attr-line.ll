@@ -14,7 +14,7 @@ define dso_local noundef i32 @LLVMFuzzerTestOneInput(ptr noundef readonly captur
   %3 = add i64 %1, 1
   %4 = tail call noalias ptr @malloc(i64 noundef %3) #5
   %.not = icmp eq ptr %4, null
-  br i1 %.not, label %23, label %5
+  br i1 %.not, label %24, label %5
 
 5:                                                ; preds = %2
   tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %4, ptr align 1 %0, i64 %1, i1 false)
@@ -22,7 +22,7 @@ define dso_local noundef i32 @LLVMFuzzerTestOneInput(ptr noundef readonly captur
   store i8 0, ptr %6, align 1, !tbaa !4
   %7 = tail call ptr @parse_attr_line(ptr noundef nonnull %4, ptr noundef nonnull @.str, i32 noundef 0, i32 noundef 0) #6
   %.not26 = icmp eq ptr %7, null
-  br i1 %.not26, label %22, label %.preheader
+  br i1 %.not26, label %23, label %.preheader
 
 .preheader:                                       ; preds = %5
   %8 = getelementptr inbounds nuw i8, ptr %7, i64 32
@@ -43,26 +43,26 @@ define dso_local noundef i32 @LLVMFuzzerTestOneInput(ptr noundef readonly captur
   %or.cond3 = or i1 %16, %or.cond
   br i1 %or.cond3, label %18, label %17
 
-17:                                               ; preds = %.lr.ph
+17:; preds = %.lr.ph
   tail call void @free(ptr noundef nonnull %13) #6
   %.pre = load i64, ptr %8, align 8, !tbaa !7
-  br label %18
+  br label %19
 
-18:                                               ; preds = %.lr.ph, %17
-  %19 = phi i64 [ %10, %.lr.ph ], [ %.pre, %17 ]
-  %20 = add nuw i64 %.02327, 1
-  %21 = icmp ult i64 %20, %19
-  br i1 %21, label %.lr.ph, label %._crit_edge, !llvm.loop !14
+19:                                               ; preds = %.lr.ph, %17
+  %20 = phi i64 [ %10, %.lr.ph ], [ %.pre, %17 ]
+  %21 = add nuw i64 %.02327, 1
+  %22 = icmp ult i64 %21, %20
+  br i1 %22, label %.lr.ph, label %._crit_edge, !llvm.loop !14
 
-._crit_edge:                                      ; preds = %18, %.preheader
+._crit_edge:                                      ; preds = %19, %.preheader
   tail call void @free(ptr noundef nonnull %7) #6
-  br label %22
-
-22:                                               ; preds = %._crit_edge, %5
-  tail call void @free(ptr noundef %4) #6
   br label %23
 
-23:                                               ; preds = %2, %22
+23:                                               ; preds = %._crit_edge, %5
+  tail call void @free(ptr noundef %4) #6
+  br label %24
+
+24:                                               ; preds = %2, %23
   ret i32 0
 }
 

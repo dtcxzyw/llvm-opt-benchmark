@@ -914,7 +914,7 @@ define internal fastcc void @StoreSideInfo(ptr noundef nonnull readonly captures
   %85 = and i8 %84, 3
   %86 = zext nneg i8 %85 to i64
   %87 = getelementptr inbounds nuw %struct.VP8SegmentInfo, ptr %3, i64 %86
-  %88 = getelementptr inbounds nuw i8, ptr %87, i64 1288
+  %87 = getelementptr inbounds nuw i8, ptr %87, i64 1288
   %89 = load i32, ptr %88, align 8, !tbaa !96
   %90 = trunc i32 %89 to i8
   br label %.sink.split

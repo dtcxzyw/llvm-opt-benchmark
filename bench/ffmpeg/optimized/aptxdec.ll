@@ -243,7 +243,7 @@ aptx_check_parity.exit.i:                         ; preds = %116
   call void @llvm.lifetime.start.p0(ptr nonnull %8)
   br label %126
 
-126:                                              ; preds = %126, %123
+127:                                              ; preds = %127, %123
   %indvars.iv.i.i = phi i64 [ 0, %123 ], [ %indvars.iv.next.i.i, %126 ]
   %127 = getelementptr inbounds nuw %struct.Prediction, ptr %125, i64 %indvars.iv.i.i
   %128 = getelementptr inbounds nuw i8, ptr %127, i64 1220
@@ -252,9 +252,9 @@ aptx_check_parity.exit.i:                         ; preds = %116
   store i32 %129, ptr %130, align 4, !tbaa !49
   %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i.i, 1
   %exitcond.not.i.i = icmp eq i64 %indvars.iv.next.i.i, 4
-  br i1 %exitcond.not.i.i, label %131, label %126, !llvm.loop !52
+  br i1 %exitcond.not.i.i, label %131, label %127, !llvm.loop !52
 
-131:                                              ; preds = %126
+131:                                              ; preds = %127
   call void @llvm.lifetime.start.p0(ptr nonnull %7)
   %132 = getelementptr inbounds nuw i8, ptr %125, i64 288
   br label %134

@@ -216,7 +216,7 @@ define dso_local void @quicklistRelease(ptr noundef %0) local_unnamed_addr #1 {
   %.not.i = icmp eq i32 %38, 0
   br i1 %.not.i, label %quicklistBookmarksClear.exit, label %.lr.ph.i, !llvm.loop !22
 
-quicklistBookmarksClear.exit:                     ; preds = %.lr.ph.i, %._crit_edge
+quicklistBookmarksClear.exit:; preds = %.lr.ph.i, %._crit_edge
   tail call void @zfree(ptr noundef nonnull %0) #23
   ret void
 }
@@ -253,7 +253,7 @@ define dso_local void @quicklistBookmarksClear(ptr noundef captures(none) %0) lo
   %.not = icmp eq i32 %20, 0
   br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !22
 
-._crit_edge:                                      ; preds = %.lr.ph, %1
+._crit_edge:; preds = %.lr.ph, %1
   ret void
 }
 

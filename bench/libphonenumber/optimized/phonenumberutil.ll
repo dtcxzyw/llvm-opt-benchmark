@@ -10154,12 +10154,12 @@ define dso_local noundef ptr @_ZNK4i18n12phonenumbers15PhoneNumberUtil32ChooseFo
   br label %10
 
 10:                                               ; preds = %.lr.ph, %.thread32
-  %.sroa.024.041 = phi ptr [ %spec.select.i.i, %.lr.ph ], [ %63, %.thread32 ]
+  %.sroa.024.041 = phi ptr [ %spec.select.i.i, %.lr.ph ], [ %65, %.thread32 ]
   %11 = load ptr, ptr %.sroa.024.041, align 8, !tbaa !83
   %12 = getelementptr inbounds nuw i8, ptr %11, i64 32
   %13 = load i32, ptr %12, align 8, !tbaa !76
   %14 = icmp sgt i32 %13, 0
-  br i1 %14, label %15, label %50
+  br i1 %14, label %15, label %52
 
 15:                                               ; preds = %10
   %16 = load ptr, ptr %9, align 8, !tbaa !19
@@ -10181,79 +10181,79 @@ define dso_local noundef ptr @_ZNK4i18n12phonenumbers15PhoneNumberUtil32ChooseFo
   %32 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZN4i18n12phonenumbers11RegExpCache9GetRegExpERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(56) %25, ptr noundef nonnull align 8 dereferenceable(32) %31)
           to label %33 unwind label %43
 
-33:                                               ; preds = %15
-  %34 = load ptr, ptr %32, align 8, !tbaa !10
-  %35 = getelementptr inbounds nuw i8, ptr %34, i64 16
-  %36 = load ptr, ptr %35, align 8
-  %37 = invoke noundef zeroext i1 %36(ptr noundef nonnull align 8 dereferenceable(8) %32, ptr noundef %22, i1 noundef zeroext true, ptr noundef null, ptr noundef null, ptr noundef null, ptr noundef null, ptr noundef null, ptr noundef null)
-          to label %_ZNK4i18n12phonenumbers6RegExp7ConsumeEPNS0_11RegExpInputE.exit unwind label %43
+35:                                               ; preds = %15
+  %36 = load ptr, ptr %32, align 8, !tbaa !10
+  %37 = getelementptr inbounds nuw i8, ptr %36, i64 16
+  %38 = load ptr, ptr %37, align 8
+  %39 = invoke noundef zeroext i1 %36(ptr noundef nonnull align 8 dereferenceable(8) %32, ptr noundef %22, i1 noundef zeroext true, ptr noundef null, ptr noundef null, ptr noundef null, ptr noundef null, ptr noundef null, ptr noundef null)
+          to label %_ZNK4i18n12phonenumbers6RegExp7ConsumeEPNS0_11RegExpInputE.exit unwind label %45
 
-_ZNK4i18n12phonenumbers6RegExp7ConsumeEPNS0_11RegExpInputE.exit: ; preds = %33
-  %38 = icmp eq ptr %22, null
-  br i1 %38, label %_ZN5boost10scoped_ptrIN4i18n12phonenumbers11RegExpInputEED2Ev.exit, label %39
+_ZNK4i18n12phonenumbers6RegExp7ConsumeEPNS0_11RegExpInputE.exit: ; preds = %35
+  %40 = icmp eq ptr %22, null
+  br i1 %40, label %_ZN5boost10scoped_ptrIN4i18n12phonenumbers11RegExpInputEED2Ev.exit, label %41
 
-39:                                               ; preds = %_ZNK4i18n12phonenumbers6RegExp7ConsumeEPNS0_11RegExpInputE.exit
-  %40 = load ptr, ptr %22, align 8, !tbaa !10
-  %41 = getelementptr inbounds nuw i8, ptr %40, i64 8
-  %42 = load ptr, ptr %41, align 8
+41:                                               ; preds = %_ZNK4i18n12phonenumbers6RegExp7ConsumeEPNS0_11RegExpInputE.exit
+  %42 = load ptr, ptr %22, align 8, !tbaa !10
+  %43 = getelementptr inbounds nuw i8, ptr %42, i64 8
+  %44 = load ptr, ptr %43, align 8
   tail call void %42(ptr noundef nonnull align 8 dereferenceable(8) %22) #33
   br label %_ZN5boost10scoped_ptrIN4i18n12phonenumbers11RegExpInputEED2Ev.exit
 
-_ZN5boost10scoped_ptrIN4i18n12phonenumbers11RegExpInputEED2Ev.exit: ; preds = %_ZNK4i18n12phonenumbers6RegExp7ConsumeEPNS0_11RegExpInputE.exit, %39
-  br i1 %37, label %_ZN5boost10scoped_ptrIN4i18n12phonenumbers11RegExpInputEED2Ev.exit._crit_edge, label %.thread32
+_ZN5boost10scoped_ptrIN4i18n12phonenumbers11RegExpInputEED2Ev.exit: ; preds = %_ZNK4i18n12phonenumbers6RegExp7ConsumeEPNS0_11RegExpInputE.exit, %41
+  br i1 %39, label %_ZN5boost10scoped_ptrIN4i18n12phonenumbers11RegExpInputEED2Ev.exit._crit_edge, label %.thread32
 
 _ZN5boost10scoped_ptrIN4i18n12phonenumbers11RegExpInputEED2Ev.exit._crit_edge: ; preds = %_ZN5boost10scoped_ptrIN4i18n12phonenumbers11RegExpInputEED2Ev.exit
   %.pre = load ptr, ptr %.sroa.024.041, align 8, !tbaa !83
-  br label %50
+  br label %52
 
-43:                                               ; preds = %33, %15
-  %44 = landingpad { ptr, i32 }
+45:                                               ; preds = %35, %15
+  %46 = landingpad { ptr, i32 }
           cleanup
-  %45 = icmp eq ptr %22, null
-  br i1 %45, label %_ZN5boost10scoped_ptrIN4i18n12phonenumbers11RegExpInputEED2Ev.exit20, label %46
+  %47 = icmp eq ptr %22, null
+  br i1 %47, label %_ZN5boost10scoped_ptrIN4i18n12phonenumbers11RegExpInputEED2Ev.exit20, label %48
 
-46:                                               ; preds = %43
-  %47 = load ptr, ptr %22, align 8, !tbaa !10
-  %48 = getelementptr inbounds nuw i8, ptr %47, i64 8
-  %49 = load ptr, ptr %48, align 8
+48:                                               ; preds = %45
+  %49 = load ptr, ptr %22, align 8, !tbaa !10
+  %50 = getelementptr inbounds nuw i8, ptr %49, i64 8
+  %51 = load ptr, ptr %50, align 8
   tail call void %49(ptr noundef nonnull align 8 dereferenceable(8) %22) #33
   br label %_ZN5boost10scoped_ptrIN4i18n12phonenumbers11RegExpInputEED2Ev.exit20
 
-_ZN5boost10scoped_ptrIN4i18n12phonenumbers11RegExpInputEED2Ev.exit20: ; preds = %43, %46
-  resume { ptr, i32 } %44
+_ZN5boost10scoped_ptrIN4i18n12phonenumbers11RegExpInputEED2Ev.exit20: ; preds = %45, %48
+  resume { ptr, i32 } %46
 
-50:                                               ; preds = %_ZN5boost10scoped_ptrIN4i18n12phonenumbers11RegExpInputEED2Ev.exit._crit_edge, %10
-  %51 = phi ptr [ %.pre, %_ZN5boost10scoped_ptrIN4i18n12phonenumbers11RegExpInputEED2Ev.exit._crit_edge ], [ %11, %10 ]
-  %52 = load ptr, ptr %9, align 8, !tbaa !19
-  %53 = getelementptr inbounds nuw i8, ptr %52, i64 200
-  %54 = load ptr, ptr %53, align 8, !tbaa !198
-  %55 = getelementptr inbounds nuw i8, ptr %51, i64 48
-  %56 = load ptr, ptr %55, align 8, !tbaa !84
-  %57 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZN4i18n12phonenumbers11RegExpCache9GetRegExpERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(56) %54, ptr noundef nonnull align 8 dereferenceable(32) %56)
-  %58 = load ptr, ptr %57, align 8, !tbaa !10
-  %59 = getelementptr inbounds nuw i8, ptr %58, i64 24
-  %60 = load ptr, ptr %59, align 8
-  %61 = tail call noundef zeroext i1 %60(ptr noundef nonnull align 8 dereferenceable(8) %57, ptr noundef nonnull align 8 dereferenceable(32) %2, i1 noundef zeroext true, ptr noundef null)
-  br i1 %61, label %.thread, label %.thread32
+52:                                               ; preds = %_ZN5boost10scoped_ptrIN4i18n12phonenumbers11RegExpInputEED2Ev.exit._crit_edge, %10
+  %53 = phi ptr [ %.pre, %_ZN5boost10scoped_ptrIN4i18n12phonenumbers11RegExpInputEED2Ev.exit._crit_edge ], [ %11, %10 ]
+  %54 = load ptr, ptr %9, align 8, !tbaa !19
+  %55 = getelementptr inbounds nuw i8, ptr %54, i64 200
+  %56 = load ptr, ptr %55, align 8, !tbaa !198
+  %57 = getelementptr inbounds nuw i8, ptr %53, i64 48
+  %58 = load ptr, ptr %57, align 8, !tbaa !84
+  %59 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZN4i18n12phonenumbers11RegExpCache9GetRegExpERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(56) %56, ptr noundef nonnull align 8 dereferenceable(32) %58)
+  %60 = load ptr, ptr %59, align 8, !tbaa !10
+  %61 = getelementptr inbounds nuw i8, ptr %60, i64 24
+  %62 = load ptr, ptr %61, align 8
+  %63 = tail call noundef zeroext i1 %60(ptr noundef nonnull align 8 dereferenceable(8) %59, ptr noundef nonnull align 8 dereferenceable(32) %2, i1 noundef zeroext true, ptr noundef null)
+  br i1 %63, label %.thread, label %.thread32
 
-.thread:                                          ; preds = %50
-  %62 = load ptr, ptr %.sroa.024.041, align 8, !tbaa !83
+.thread:                                          ; preds = %52
+  %64 = load ptr, ptr %.sroa.024.041, align 8, !tbaa !83
   br label %.loopexit
 
-.thread32:                                        ; preds = %_ZN5boost10scoped_ptrIN4i18n12phonenumbers11RegExpInputEED2Ev.exit, %50
-  %63 = getelementptr inbounds nuw i8, ptr %.sroa.024.041, i64 8
-  %64 = load ptr, ptr %4, align 8, !tbaa !80
-  %.not.i.i18 = icmp eq ptr %64, null
-  %65 = getelementptr inbounds nuw i8, ptr %64, i64 8
-  %spec.select.i.i19 = select i1 %.not.i.i18, ptr null, ptr %65
-  %66 = load i32, ptr %5, align 8, !tbaa !76
-  %67 = sext i32 %66 to i64
-  %68 = getelementptr inbounds ptr, ptr %spec.select.i.i19, i64 %67
-  %.not = icmp eq ptr %63, %68
+.thread32:                                        ; preds = %_ZN5boost10scoped_ptrIN4i18n12phonenumbers11RegExpInputEED2Ev.exit, %52
+  %65 = getelementptr inbounds nuw i8, ptr %.sroa.024.041, i64 8
+  %66 = load ptr, ptr %4, align 8, !tbaa !80
+  %.not.i.i18 = icmp eq ptr %66, null
+  %67 = getelementptr inbounds nuw i8, ptr %66, i64 8
+  %spec.select.i.i19 = select i1 %.not.i.i18, ptr null, ptr %67
+  %68 = load i32, ptr %5, align 8, !tbaa !76
+  %69 = sext i32 %68 to i64
+  %70 = getelementptr inbounds ptr, ptr %spec.select.i.i19, i64 %69
+  %.not = icmp eq ptr %65, %70
   br i1 %.not, label %.loopexit, label %10, !llvm.loop !284
 
 .loopexit:                                        ; preds = %.thread32, %3, %.thread
-  %spec.select = phi ptr [ %62, %.thread ], [ null, %3 ], [ null, %.thread32 ]
+  %spec.select = phi ptr [ %64, %.thread ], [ null, %3 ], [ null, %.thread32 ]
   ret ptr %spec.select
 }
 

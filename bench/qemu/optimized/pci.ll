@@ -966,25 +966,25 @@ vfio_msi_disable.exit:                            ; preds = %68, %71, %73, %79, 
 
 145:                                              ; preds = %141
   call void @pci_default_write_config(ptr noundef nonnull %0, i32 noundef %1, i32 noundef %2, i32 noundef %3) #27
-  br label %146
+  br label %147
 
-146:                                              ; preds = %145, %161
+147:                                              ; preds = %145, %161
   %indvars.iv91 = phi i64 [ 0, %145 ], [ %indvars.iv.next92, %161 ]
-  %147 = getelementptr inbounds nuw i64, ptr %9, i64 %indvars.iv91
-  %148 = load i64, ptr %147, align 8
-  %149 = getelementptr inbounds nuw %struct.PCIIORegion, ptr %140, i64 %indvars.iv91
-  %150 = load i64, ptr %149, align 8
-  %.not82 = icmp eq i64 %148, %150
-  br i1 %.not82, label %161, label %151
+  %148 = getelementptr inbounds nuw i64, ptr %9, i64 %indvars.iv91
+  %149 = load i64, ptr %148, align 8
+  %150 = getelementptr inbounds nuw %struct.PCIIORegion, ptr %140, i64 %indvars.iv91
+  %151 = load i64, ptr %150, align 8
+  %.not82 = icmp eq i64 %149, %151
+  br i1 %.not82, label %161, label %152
 
-151:                                              ; preds = %146
+152:                                              ; preds = %147
   %152 = getelementptr inbounds nuw %struct.VFIOBAR, ptr %10, i64 %indvars.iv91
   %153 = getelementptr inbounds nuw i8, ptr %152, i64 3120
   %154 = load i64, ptr %153, align 8
   %.not83 = icmp eq i64 %154, 0
   br i1 %.not83, label %161, label %155
 
-155:                                              ; preds = %151
+155:                                              ; preds = %152
   %156 = tail call i32 @getpagesize() #28
   %157 = sext i32 %156 to i64
   %158 = icmp ult i64 %154, %157
@@ -995,10 +995,10 @@ vfio_msi_disable.exit:                            ; preds = %68, %71, %73, %79, 
   call fastcc void @vfio_sub_page_bar_update_mapping(ptr noundef nonnull %0, i32 noundef %160)
   br label %161
 
-161:                                              ; preds = %146, %151, %155, %159
+161:                                              ; preds = %147, %152, %155, %159
   %indvars.iv.next92 = add nuw nsw i64 %indvars.iv91, 1
   %exitcond94.not = icmp eq i64 %indvars.iv.next92, 6
-  br i1 %exitcond94.not, label %162, label %146, !llvm.loop !15
+  br i1 %exitcond94.not, label %162, label %147, !llvm.loop !15
 
 162:                                              ; preds = %161
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
@@ -3369,25 +3369,25 @@ define internal i32 @vfio_pci_load_config(ptr noundef %0, ptr noundef %1) #0 {
   %.val = load i16, ptr %15, align 1
   %16 = zext i16 %.val to i32
   tail call void @vfio_pci_write_config(ptr noundef nonnull %10, i32 noundef 4, i32 noundef %16, i32 noundef 2)
-  br label %17
+  br label %18
 
-17:                                               ; preds = %12, %32
+18:                                               ; preds = %12, %32
   %indvars.iv39 = phi i64 [ 0, %12 ], [ %indvars.iv.next40, %32 ]
-  %18 = getelementptr inbounds nuw i64, ptr %3, i64 %indvars.iv39
-  %19 = load i64, ptr %18, align 8
-  %20 = getelementptr inbounds nuw %struct.PCIIORegion, ptr %4, i64 %indvars.iv39
-  %21 = load i64, ptr %20, align 8
-  %.not34 = icmp eq i64 %19, %21
-  br i1 %.not34, label %32, label %22
+  %19 = getelementptr inbounds nuw i64, ptr %3, i64 %indvars.iv39
+  %20 = load i64, ptr %19, align 8
+  %21 = getelementptr inbounds nuw %struct.PCIIORegion, ptr %4, i64 %indvars.iv39
+  %22 = load i64, ptr %21, align 8
+  %.not34 = icmp eq i64 %20, %22
+  br i1 %.not34, label %32, label %23
 
-22:                                               ; preds = %17
+23:                                               ; preds = %18
   %23 = getelementptr inbounds nuw %struct.VFIOBAR, ptr %0, i64 %indvars.iv39
   %24 = getelementptr inbounds nuw i8, ptr %23, i64 368
   %25 = load i64, ptr %24, align 8
   %.not35 = icmp eq i64 %25, 0
   br i1 %.not35, label %32, label %26
 
-26:                                               ; preds = %22
+26:                                               ; preds = %23
   %27 = tail call i32 @getpagesize() #28
   %28 = sext i32 %27 to i64
   %29 = icmp ult i64 %25, %28
@@ -3398,10 +3398,10 @@ define internal i32 @vfio_pci_load_config(ptr noundef %0, ptr noundef %1) #0 {
   tail call fastcc void @vfio_sub_page_bar_update_mapping(ptr noundef nonnull %10, i32 noundef %31)
   br label %32
 
-32:                                               ; preds = %17, %22, %26, %30
+32:                                               ; preds = %18, %23, %26, %30
   %indvars.iv.next40 = add nuw nsw i64 %indvars.iv39, 1
   %exitcond42.not = icmp eq i64 %indvars.iv.next40, 6
-  br i1 %exitcond42.not, label %33, label %17, !llvm.loop !29
+  br i1 %exitcond42.not, label %33, label %18, !llvm.loop !29
 
 33:                                               ; preds = %32
   %34 = tail call zeroext i1 @msi_enabled(ptr noundef nonnull %10) #27
@@ -5247,7 +5247,7 @@ define internal fastcc noundef zeroext i1 @vfio_msix_early_setup(ptr noundef %0,
   %68 = load i8, ptr %48, align 1
   %69 = zext i8 %68 to i64
   %70 = getelementptr inbounds nuw %struct.VFIOBAR, ptr %0, i64 %69
-  %71 = getelementptr inbounds nuw i8, ptr %70, i64 3120
+  %70 = getelementptr inbounds nuw i8, ptr %70, i64 3120
   %72 = load i64, ptr %71, align 8
   %.not53 = icmp ugt i64 %72, %67
   br i1 %.not53, label %88, label %73

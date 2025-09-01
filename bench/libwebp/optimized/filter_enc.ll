@@ -283,7 +283,7 @@ define hidden void @VP8AdjustFilterStrength(ptr noundef readonly captures(none) 
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 320
   %5 = load ptr, ptr %4, align 8, !tbaa !6
   %.not = icmp eq ptr %5, null
-  br i1 %.not, label %17, label %.preheader45
+  br i1 %.not, label %18, label %.preheader45
 
 .preheader45:                                     ; preds = %1, %14
   %indvars.iv53 = phi i64 [ %indvars.iv.next54, %14 ], [ 0, %1 ]
@@ -292,7 +292,7 @@ define hidden void @VP8AdjustFilterStrength(ptr noundef readonly captures(none) 
   %8 = fmul double %7, 1.000010e+00
   br label %9
 
-9:                                                ; preds = %.preheader45, %9
+9:; preds = %.preheader45, %9
   %indvars.iv = phi i64 [ 1, %.preheader45 ], [ %indvars.iv.next, %9 ]
   %.03647 = phi i32 [ 0, %.preheader45 ], [ %.1, %9 ]
   %.04046 = phi double [ %8, %.preheader45 ], [ %.141, %9 ]
@@ -304,69 +304,69 @@ define hidden void @VP8AdjustFilterStrength(ptr noundef readonly captures(none) 
   %.1 = select i1 %12, i32 %13, i32 %.03647
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 64
-  br i1 %exitcond.not, label %14, label %9, !llvm.loop !51
+  br i1 %exitcond.not, label %16, label %9, !llvm.loop !51
 
-14:                                               ; preds = %9
+16:                                               ; preds = %9
   %15 = getelementptr inbounds nuw %struct.VP8SegmentInfo, ptr %3, i64 %indvars.iv53
-  %16 = getelementptr inbounds nuw i8, ptr %15, i64 1292
-  store i32 %.1, ptr %16, align 4, !tbaa !20
+  %17 = getelementptr inbounds nuw i8, ptr %15, i64 1292
+  store i32 %.1, ptr %17, align 4, !tbaa !20
   %indvars.iv.next54 = add nuw nsw i64 %indvars.iv53, 1
   %exitcond56.not = icmp eq i64 %indvars.iv.next54, 4
   br i1 %exitcond56.not, label %.loopexit, label %.preheader45, !llvm.loop !52
 
-17:                                               ; preds = %1
-  %18 = load ptr, ptr %3, align 8, !tbaa !32
-  %19 = getelementptr inbounds nuw i8, ptr %18, i64 32
-  %20 = load i32, ptr %19, align 4, !tbaa !53
-  %21 = icmp sgt i32 %20, 0
-  br i1 %21, label %.preheader, label %.loopexit
+18:                                               ; preds = %1
+  %19 = load ptr, ptr %3, align 8, !tbaa !32
+  %20 = getelementptr inbounds nuw i8, ptr %19, i64 32
+  %21 = load i32, ptr %20, align 4, !tbaa !53
+  %22 = icmp sgt i32 %21, 0
+  br i1 %22, label %.preheader, label %.loopexit
 
-.preheader:                                       ; preds = %17
-  %22 = getelementptr inbounds nuw i8, ptr %3, i64 608
-  %23 = getelementptr inbounds nuw i8, ptr %3, i64 24
-  %24 = load i32, ptr %23, align 8, !tbaa !54
-  %25 = sext i32 %24 to i64
-  %26 = getelementptr inbounds [64 x i8], ptr @kLevelsFromDelta, i64 %25
-  br label %27
+.preheader:                                       ; preds = %18
+  %23 = getelementptr inbounds nuw i8, ptr %3, i64 608
+  %24 = getelementptr inbounds nuw i8, ptr %3, i64 24
+  %25 = load i32, ptr %24, align 8, !tbaa !54
+  %26 = sext i32 %25 to i64
+  %27 = getelementptr inbounds [64 x i8], ptr @kLevelsFromDelta, i64 %26
+  br label %28
 
-27:                                               ; preds = %.preheader, %45
+28:                                               ; preds = %.preheader, %46
   %indvars.iv57 = phi i64 [ 0, %.preheader ], [ %indvars.iv.next58, %45 ]
   %.03850 = phi i32 [ 0, %.preheader ], [ %spec.select, %45 ]
-  %28 = getelementptr inbounds nuw %struct.VP8SegmentInfo, ptr %22, i64 %indvars.iv57
-  %29 = getelementptr inbounds nuw i8, ptr %28, i64 688
-  %30 = load i32, ptr %29, align 8, !tbaa !55
-  %31 = getelementptr inbounds nuw i8, ptr %28, i64 226
-  %32 = load i16, ptr %31, align 2, !tbaa !56
-  %33 = zext i16 %32 to i32
-  %34 = mul nsw i32 %30, %33
-  %35 = ashr i32 %34, 3
-  %36 = tail call i32 @llvm.smin.i32(i32 %35, i32 63)
-  %37 = sext i32 %36 to i64
-  %38 = getelementptr inbounds i8, ptr %26, i64 %37
-  %39 = load i8, ptr %38, align 1, !tbaa !3
-  %40 = zext i8 %39 to i32
-  %41 = getelementptr inbounds nuw i8, ptr %28, i64 684
-  %42 = load i32, ptr %41, align 4, !tbaa !20
-  %43 = icmp slt i32 %42, %40
-  br i1 %43, label %44, label %45
+  %29 = getelementptr inbounds nuw %struct.VP8SegmentInfo, ptr %23, i64 %indvars.iv57
+  %30 = getelementptr inbounds nuw i8, ptr %29, i64 688
+  %31 = load i32, ptr %30, align 8, !tbaa !55
+  %32 = getelementptr inbounds nuw i8, ptr %29, i64 226
+  %33 = load i16, ptr %32, align 2, !tbaa !56
+  %34 = zext i16 %33 to i32
+  %35 = mul nsw i32 %31, %34
+  %36 = ashr i32 %35, 3
+  %37 = tail call i32 @llvm.smin.i32(i32 %36, i32 63)
+  %38 = sext i32 %37 to i64
+  %39 = getelementptr inbounds i8, ptr %27, i64 %38
+  %40 = load i8, ptr %39, align 1, !tbaa !3
+  %41 = zext i8 %40 to i32
+  %42 = getelementptr inbounds nuw i8, ptr %29, i64 684
+  %43 = load i32, ptr %42, align 4, !tbaa !20
+  %44 = icmp slt i32 %43, %41
+  br i1 %44, label %45, label %46
 
-44:                                               ; preds = %27
-  store i32 %40, ptr %41, align 4, !tbaa !20
-  br label %45
+45:                                               ; preds = %28
+  store i32 %41, ptr %42, align 4, !tbaa !20
+  br label %46
 
-45:                                               ; preds = %44, %27
-  %46 = phi i32 [ %40, %44 ], [ %42, %27 ]
-  %spec.select = tail call i32 @llvm.smax.i32(i32 %.03850, i32 %46)
+46:                                               ; preds = %45, %28
+  %47 = phi i32 [ %41, %44 ], [ %43, %27 ]
+  %spec.select = tail call i32 @llvm.smax.i32(i32 %.03850, i32 %47)
   %indvars.iv.next58 = add nuw nsw i64 %indvars.iv57, 1
   %exitcond60.not = icmp eq i64 %indvars.iv.next58, 4
-  br i1 %exitcond60.not, label %47, label %27, !llvm.loop !58
+  br i1 %exitcond60.not, label %48, label %28, !llvm.loop !58
 
-47:                                               ; preds = %45
-  %48 = getelementptr inbounds nuw i8, ptr %3, i64 20
-  store i32 %spec.select, ptr %48, align 4, !tbaa !59
+48:                                               ; preds = %46
+  %49 = getelementptr inbounds nuw i8, ptr %3, i64 20
+  store i32 %spec.select, ptr %49, align 4, !tbaa !59
   br label %.loopexit
 
-.loopexit:                                        ; preds = %14, %17, %47
+.loopexit:                                        ; preds = %16, %18, %48
   ret void
 }
 

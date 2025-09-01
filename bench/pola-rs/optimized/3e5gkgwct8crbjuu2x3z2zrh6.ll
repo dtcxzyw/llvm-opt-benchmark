@@ -16227,7 +16227,7 @@ _ZN3std4sync4mpmc5utils7Backoff10spin_heavy17he2bf177356802424E.exit.i: ; preds 
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %2, ptr noundef nonnull align 8 dereferenceable(64) %8, i64 64, i1 false)
   %22 = add nuw nsw i64 %.24.val, 1
   %23 = icmp eq i64 %22, 31
-  br i1 %23, label %.lr.ph.i2, label %25
+  br i1 %23, label %29, label %25
 
 24:                                               ; preds = %"_ZN3std4sync4mpmc4list14Block$LT$T$GT$7destroy17h36dda420a4512f6aE.exit", %4
   ret void
@@ -16238,7 +16238,7 @@ _ZN3std4sync4mpmc5utils7Backoff10spin_heavy17he2bf177356802424E.exit.i: ; preds 
   %28 = icmp eq i64 %27, 0
   br i1 %28, label %"_ZN3std4sync4mpmc4list14Block$LT$T$GT$7destroy17h36dda420a4512f6aE.exit", label %40
 
-.lr.ph.i2:                                        ; preds = %"_ZN3std4sync4mpmc4list13Slot$LT$T$GT$10wait_write17h622857c8aaaf9881E.exit", %39
+29:                                               ; preds = %"_ZN3std4sync4mpmc4list13Slot$LT$T$GT$10wait_write17h622857c8aaaf9881E.exit", %39
   %.sroa.0.04.i = phi i64 [ %29, %39 ], [ 0, %"_ZN3std4sync4mpmc4list13Slot$LT$T$GT$10wait_write17h622857c8aaaf9881E.exit" ]
   %29 = add nuw nsw i64 %.sroa.0.04.i, 1
   %30 = getelementptr inbounds nuw { { { [8 x i64] } }, { i64 } }, ptr %.16.val, i64 %.sroa.0.04.i
@@ -16248,21 +16248,21 @@ _ZN3std4sync4mpmc5utils7Backoff10spin_heavy17he2bf177356802424E.exit.i: ; preds 
   %34 = icmp eq i64 %33, 0
   br i1 %34, label %35, label %39
 
-35:                                               ; preds = %.lr.ph.i2
+35:; preds = %29
   %36 = atomicrmw or ptr %31, i64 4 acq_rel, align 8
   %37 = and i64 %36, 2
   %38 = icmp eq i64 %37, 0
   br i1 %38, label %"_ZN3std4sync4mpmc4list14Block$LT$T$GT$7destroy17h36dda420a4512f6aE.exit", label %39
 
-39:                                               ; preds = %35, %.lr.ph.i2
-  %exitcond.not.i = icmp eq i64 %29, 30
-  br i1 %exitcond.not.i, label %"_ZN3std4sync4mpmc4list14Block$LT$T$GT$7destroy17h36dda420a4512f6aE.exit.sink.split", label %.lr.ph.i2
+39:; preds = %35, %29
+  %40 = icmp eq i64 %29, 30
+  br i1 %40, label %"_ZN3std4sync4mpmc4list14Block$LT$T$GT$7destroy17h36dda420a4512f6aE.exit.sink.split", label %29
 
-40:                                               ; preds = %25
-  %41 = icmp samesign ult i64 %.24.val, 29
-  br i1 %41, label %.lr.ph.i4, label %"_ZN3std4sync4mpmc4list14Block$LT$T$GT$7destroy17h36dda420a4512f6aE.exit.sink.split"
+41:                                               ; preds = %25
+  %exitcond.not.i = icmp samesign ult i64 %.24.val, 29
+  br i1 %exitcond.not.i, label %42, label %"_ZN3std4sync4mpmc4list14Block$LT$T$GT$7destroy17h36dda420a4512f6aE.exit.sink.split"
 
-.lr.ph.i4:                                        ; preds = %40, %52
+42:                                               ; preds = %40, %52
   %.sroa.0.04.i5 = phi i64 [ %42, %52 ], [ %22, %40 ]
   %42 = add nuw nsw i64 %.sroa.0.04.i5, 1
   %43 = getelementptr inbounds nuw { { { [8 x i64] } }, { i64 } }, ptr %.16.val, i64 %.sroa.0.04.i5
@@ -16272,17 +16272,17 @@ _ZN3std4sync4mpmc5utils7Backoff10spin_heavy17he2bf177356802424E.exit.i: ; preds 
   %47 = icmp eq i64 %46, 0
   br i1 %47, label %48, label %52
 
-48:                                               ; preds = %.lr.ph.i4
+48:; preds = %.lr.ph.i4
   %49 = atomicrmw or ptr %44, i64 4 acq_rel, align 8
   %50 = and i64 %49, 2
   %51 = icmp eq i64 %50, 0
   br i1 %51, label %"_ZN3std4sync4mpmc4list14Block$LT$T$GT$7destroy17h36dda420a4512f6aE.exit", label %52
 
-52:                                               ; preds = %48, %.lr.ph.i4
+52:; preds = %48, %.lr.ph.i4
   %exitcond.not.i6 = icmp eq i64 %42, 30
   br i1 %exitcond.not.i6, label %"_ZN3std4sync4mpmc4list14Block$LT$T$GT$7destroy17h36dda420a4512f6aE.exit.sink.split", label %.lr.ph.i4
 
-"_ZN3std4sync4mpmc4list14Block$LT$T$GT$7destroy17h36dda420a4512f6aE.exit.sink.split": ; preds = %52, %39, %40
+"_ZN3std4sync4mpmc4list14Block$LT$T$GT$7destroy17h36dda420a4512f6aE.exit.sink.split":; preds = %52, %39, %40
   tail call void @_RNvCsjH7bwORMyv9_7___rustc14___rust_dealloc(ptr noundef nonnull %.16.val, i64 noundef 2240, i64 noundef 8) #21
   br label %"_ZN3std4sync4mpmc4list14Block$LT$T$GT$7destroy17h36dda420a4512f6aE.exit"
 

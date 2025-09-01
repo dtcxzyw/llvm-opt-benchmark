@@ -443,34 +443,34 @@ _ZN23btGeneric6DofConstraint20setAngularLowerLimitERK9btVector3.exit: ; preds = 
   store float 0.000000e+00, ptr %247, align 4, !tbaa !11
   br label %248
 
-248:                                              ; preds = %_Z16btNormalizeAnglef.exit.i49, %_ZN23btGeneric6DofConstraint20setAngularLowerLimitERK9btVector3.exit
+249:                                              ; preds = %_Z16btNormalizeAnglef.exit.i49, %_ZN23btGeneric6DofConstraint20setAngularLowerLimitERK9btVector3.exit
   %indvars.iv.i48 = phi i64 [ 0, %_ZN23btGeneric6DofConstraint20setAngularLowerLimitERK9btVector3.exit ], [ %indvars.iv.next.i51, %_Z16btNormalizeAnglef.exit.i49 ]
-  %249 = getelementptr inbounds nuw float, ptr %8, i64 %indvars.iv.i48
-  %250 = load float, ptr %249, align 4, !tbaa !11
-  %251 = tail call noundef float @fmodf(float noundef %250, float noundef 0x401921FB60000000) #15, !tbaa !25
-  %252 = fcmp olt float %251, 0xC00921FB60000000
-  br i1 %252, label %253, label %255
+  %250 = getelementptr inbounds nuw float, ptr %8, i64 %indvars.iv.i48
+  %251 = load float, ptr %250, align 4, !tbaa !11
+  %252 = tail call noundef float @fmodf(float noundef %251, float noundef 0x401921FB60000000) #15, !tbaa !25
+  %253 = fcmp olt float %252, 0xC00921FB60000000
+  br i1 %253, label %254, label %256
 
-253:                                              ; preds = %248
-  %254 = fadd float %251, 0x401921FB60000000
+254:                                              ; preds = %249
+  %255 = fadd float %252, 0x401921FB60000000
   br label %_Z16btNormalizeAnglef.exit.i49
 
-255:                                              ; preds = %248
-  %256 = fcmp ogt float %251, 0x400921FB60000000
-  br i1 %256, label %257, label %_Z16btNormalizeAnglef.exit.i49
+256:                                              ; preds = %249
+  %257 = fcmp ogt float %252, 0x400921FB60000000
+  br i1 %257, label %258, label %_Z16btNormalizeAnglef.exit.i49
 
-257:                                              ; preds = %255
-  %258 = fadd float %251, 0xC01921FB60000000
+258:                                              ; preds = %256
+  %259 = fadd float %252, 0xC01921FB60000000
   br label %_Z16btNormalizeAnglef.exit.i49
 
-_Z16btNormalizeAnglef.exit.i49:                   ; preds = %257, %255, %253
-  %.0.i.i50 = phi float [ %254, %253 ], [ %258, %257 ], [ %251, %255 ]
+_Z16btNormalizeAnglef.exit.i49:                   ; preds = %258, %256, %254
+  %.0.i.i50 = phi float [ %255, %253 ], [ %259, %257 ], [ %252, %255 ]
   %259 = getelementptr inbounds nuw %class.btRotationalLimitMotor, ptr %0, i64 %indvars.iv.i48
   %260 = getelementptr inbounds nuw i8, ptr %259, i64 896
   store float %.0.i.i50, ptr %260, align 8, !tbaa !32
   %indvars.iv.next.i51 = add nuw nsw i64 %indvars.iv.i48, 1
   %exitcond.not.i52 = icmp eq i64 %indvars.iv.next.i51, 3
-  br i1 %exitcond.not.i52, label %_ZN23btGeneric6DofConstraint20setAngularUpperLimitERK9btVector3.exit, label %248, !llvm.loop !33
+  br i1 %exitcond.not.i52, label %_ZN23btGeneric6DofConstraint20setAngularUpperLimitERK9btVector3.exit, label %249, !llvm.loop !33
 
 _ZN23btGeneric6DofConstraint20setAngularUpperLimitERK9btVector3.exit: ; preds = %_Z16btNormalizeAnglef.exit.i49
   call void @llvm.lifetime.end.p0(ptr nonnull %8)

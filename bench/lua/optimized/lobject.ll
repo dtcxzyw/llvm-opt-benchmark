@@ -2171,13 +2171,13 @@ define hidden void @luaO_chunkid(ptr noundef writeonly captures(none) %0, ptr no
 
 8:                                                ; preds = %5
   tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %0, ptr nonnull align 1 %7, i64 %2, i1 false)
-  br label %33
+  br label %34
 
 9:                                                ; preds = %5
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(59) %0, ptr noundef nonnull align 1 dereferenceable(59) %7, i64 59, i1 false)
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 59
   store i8 0, ptr %10, align 1, !tbaa !4
-  br label %33
+  br label %34
 
 11:                                               ; preds = %3
   %12 = icmp ult i64 %2, 61
@@ -2186,7 +2186,7 @@ define hidden void @luaO_chunkid(ptr noundef writeonly captures(none) %0, ptr no
 13:                                               ; preds = %11
   %14 = getelementptr inbounds nuw i8, ptr %1, i64 1
   tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %0, ptr nonnull align 1 %14, i64 %2, i1 false)
-  br label %33
+  br label %34
 
 15:                                               ; preds = %11
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(3) %0, ptr noundef nonnull align 1 dereferenceable(3) @.str.4, i64 3, i1 false)
@@ -2196,7 +2196,7 @@ define hidden void @luaO_chunkid(ptr noundef writeonly captures(none) %0, ptr no
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(57) %16, ptr noundef nonnull align 1 dereferenceable(57) %18, i64 57, i1 false)
   br label %33
 
-19:                                               ; preds = %3
+27:                                               ; preds = %3
   %20 = tail call ptr @strchr(ptr noundef nonnull dereferenceable(1) %1, i32 noundef 10) #19
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(9) %0, ptr noundef nonnull align 1 dereferenceable(9) @.str.5, i64 9, i1 false)
   %21 = getelementptr inbounds nuw i8, ptr %0, i64 9
@@ -2217,17 +2217,17 @@ define hidden void @luaO_chunkid(ptr noundef writeonly captures(none) %0, ptr no
   %.052 = select i1 %23, i64 %2, i64 %29
   %.1 = tail call i64 @llvm.umin.i64(i64 %.052, i64 45)
   tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %21, ptr nonnull align 1 %1, i64 %.1, i1 false)
-  %30 = getelementptr inbounds nuw i8, ptr %21, i64 %.1
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(3) %30, ptr noundef nonnull align 1 dereferenceable(3) @.str.4, i64 3, i1 false)
-  %31 = getelementptr inbounds nuw i8, ptr %30, i64 3
-  br label %32
-
-32:                                               ; preds = %26, %24
-  %.0 = phi ptr [ %25, %24 ], [ %31, %26 ]
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(3) %.0, ptr noundef nonnull align 1 dereferenceable(3) @.str.6, i64 3, i1 false)
+  %31 = getelementptr inbounds nuw i8, ptr %21, i64 %.1
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(3) %31, ptr noundef nonnull align 1 dereferenceable(3) @.str.4, i64 3, i1 false)
+  %32 = getelementptr inbounds nuw i8, ptr %31, i64 3
   br label %33
 
-33:                                               ; preds = %32, %15, %13, %8, %9
+33:                                               ; preds = %26, %24
+  %.0 = phi ptr [ %25, %24 ], [ %32, %26 ]
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(3) %.0, ptr noundef nonnull align 1 dereferenceable(3) @.str.6, i64 3, i1 false)
+  br label %34
+
+34:                                               ; preds = %33, %15, %13, %8, %9
   ret void
 }
 

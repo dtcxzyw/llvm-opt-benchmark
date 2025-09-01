@@ -625,9 +625,9 @@ define void @_ZN5ropey5slice9RopeSlice14new_with_range17h9efacf7b135c4655E(ptr d
 
 _ZN5ropey4tree13node_children12NodeChildren4info17h8db7ec58898630d7E.exit.i.i: ; preds = %33
   %.not.i.i228 = icmp eq i8 %35, 0
-  br i1 %.not.i.i228, label %_ZN5ropey4tree4node4Node9text_info17h9289799a1c03cf13E.exit, label %.lr.ph.i.i
+  br i1 %.not.i.i228, label %_ZN5ropey4tree4node4Node9text_info17h9289799a1c03cf13E.exit, label %.lr.ph.i.i.preheader
 
-.lr.ph.i.i:                                       ; preds = %_ZN5ropey4tree13node_children12NodeChildren4info17h8db7ec58898630d7E.exit.i.i, %.lr.ph.i.i
+.lr.ph.i.i.preheader:                             ; preds = %_ZN5ropey4tree13node_children12NodeChildren4info17h8db7ec58898630d7E.exit.i.i, %.lr.ph.i.i
   %.sroa.01.08.i.i = phi i64 [ %40, %.lr.ph.i.i ], [ 0, %_ZN5ropey4tree13node_children12NodeChildren4info17h8db7ec58898630d7E.exit.i.i ]
   %39 = phi i64 [ %44, %.lr.ph.i.i ], [ 0, %_ZN5ropey4tree13node_children12NodeChildren4info17h8db7ec58898630d7E.exit.i.i ]
   %40 = add nuw nsw i64 %.sroa.01.08.i.i, 1
@@ -688,9 +688,9 @@ _ZN5ropey4tree4node4Node9text_info17h9289799a1c03cf13E.exit: ; preds = %.lr.ph.i
 
 _ZN5ropey4tree13node_children12NodeChildren4info17h8db7ec58898630d7E.exit.i.i230: ; preds = %55
   %.not.i.i231 = icmp eq i8 %57, 0
-  br i1 %.not.i.i231, label %_ZN5ropey4tree4node4Node9text_info17h9289799a1c03cf13E.exit241, label %.lr.ph.i.i232
+  br i1 %.not.i.i231, label %_ZN5ropey4tree4node4Node9text_info17h9289799a1c03cf13E.exit241, label %.lr.ph.i.i232.preheader
 
-.lr.ph.i.i232:                                    ; preds = %_ZN5ropey4tree13node_children12NodeChildren4info17h8db7ec58898630d7E.exit.i.i230, %.lr.ph.i.i232
+.lr.ph.i.i232.preheader:                          ; preds = %_ZN5ropey4tree13node_children12NodeChildren4info17h8db7ec58898630d7E.exit.i.i230, %.lr.ph.i.i232
   %.sroa.01.08.i.i233 = phi i64 [ %62, %.lr.ph.i.i232 ], [ 0, %_ZN5ropey4tree13node_children12NodeChildren4info17h8db7ec58898630d7E.exit.i.i230 ]
   %61 = phi i64 [ %66, %.lr.ph.i.i232 ], [ 0, %_ZN5ropey4tree13node_children12NodeChildren4info17h8db7ec58898630d7E.exit.i.i230 ]
   %62 = add nuw nsw i64 %.sroa.01.08.i.i233, 1
@@ -985,8 +985,8 @@ _ZN11str_indices5utf1621count_surrogates_impl17he841adeda45da07eE.exit159: ; pre
   br label %.thread
 
 _ZN11str_indices5lines18count_breaks_up_to17hd3ee043fc4e28476E.exit126: ; preds = %.thread
-  %.not2187 = icmp ult i64 %.sroa.08.0.i1201811, %104
-  br i1 %.not2187, label %"_ZN110_$LT$core..ops..range..RangeFrom$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$5index17h06e5dcfa222d39b0E.exit", label %194
+  %.not2189 = icmp ult i64 %.sroa.08.0.i1201811, %104
+  br i1 %.not2189, label %"_ZN110_$LT$core..ops..range..RangeFrom$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$5index17h06e5dcfa222d39b0E.exit", label %194
 
 194:                                              ; preds = %_ZN11str_indices5lines18count_breaks_up_to17hd3ee043fc4e28476E.exit126
   tail call void @_ZN4core5slice5index26slice_start_index_len_fail17h9fca8563b179f90fE(i64 noundef %184, i64 noundef %104, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.524e13faaf100fdd7a55ca9d7171e439.22) #16, !noalias !138
@@ -1470,9 +1470,9 @@ _ZN11str_indices5lines18count_breaks_up_to17hd3ee043fc4e28476E.exit: ; preds = %
   %420 = add nuw nsw <16 x i8> %419, %417
   %421 = tail call <2 x i64> @llvm.x86.sse2.psad.bw(<16 x i8> %420, <16 x i8> zeroinitializer) #17
   %.neg1543 = add i64 %.sroa.014.1.i891656, 64
-  %shift2276 = shufflevector <2 x i64> %421, <2 x i64> poison, <2 x i32> <i32 1, i32 poison>
-  %foldExtExtBinop2277 = add <2 x i64> %shift2276, %421
-  %422 = extractelement <2 x i64> %foldExtExtBinop2277, i64 0
+  %shift2278 = shufflevector <2 x i64> %421, <2 x i64> poison, <2 x i32> <i32 1, i32 poison>
+  %foldExtExtBinop2279 = add <2 x i64> %shift2278, %421
+  %422 = extractelement <2 x i64> %foldExtExtBinop2279, i64 0
   %423 = sub i64 %.neg1543, %422
   %424 = add i64 %.sroa.0.1.i901657, 64
   %425 = icmp eq i64 %402, 0
@@ -1628,9 +1628,9 @@ _ZN5ropey4tree13node_children12NodeChildren4info17h8db7ec58898630d7E.exit: ; pre
   %494 = zext <16 x i1> %493 to <16 x i8>
   %495 = tail call <2 x i64> @llvm.x86.sse2.psad.bw(<16 x i8> %494, <16 x i8> zeroinitializer) #17
   %.neg1546 = add i64 %.sroa.014.2.i1690, 16
-  %shift2279 = shufflevector <2 x i64> %495, <2 x i64> poison, <2 x i32> <i32 1, i32 poison>
-  %foldExtExtBinop2280 = add <2 x i64> %shift2279, %495
-  %496 = extractelement <2 x i64> %foldExtExtBinop2280, i64 0
+  %shift2281 = shufflevector <2 x i64> %495, <2 x i64> poison, <2 x i32> <i32 1, i32 poison>
+  %foldExtExtBinop2282 = add <2 x i64> %shift2281, %495
+  %496 = extractelement <2 x i64> %foldExtExtBinop2282, i64 0
   %497 = sub i64 %.neg1546, %496
   %.not52.i = icmp ult i64 %497, %464
   br i1 %.not52.i, label %504, label %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h5013c2266248ec04E.exit325.thread"
@@ -1705,9 +1705,9 @@ _ZN5ropey4tree13node_children12NodeChildren4info17h8db7ec58898630d7E.exit: ; pre
   %536 = add nuw nsw <16 x i8> %535, %533
   %537 = tail call <2 x i64> @llvm.x86.sse2.psad.bw(<16 x i8> %536, <16 x i8> zeroinitializer) #17
   %.neg1545 = add i64 %.sroa.014.1.i1683, 64
-  %shift2282 = shufflevector <2 x i64> %537, <2 x i64> poison, <2 x i32> <i32 1, i32 poison>
-  %foldExtExtBinop2283 = add <2 x i64> %shift2282, %537
-  %538 = extractelement <2 x i64> %foldExtExtBinop2283, i64 0
+  %shift2284 = shufflevector <2 x i64> %537, <2 x i64> poison, <2 x i32> <i32 1, i32 poison>
+  %foldExtExtBinop2285 = add <2 x i64> %shift2284, %537
+  %538 = extractelement <2 x i64> %foldExtExtBinop2285, i64 0
   %539 = sub i64 %.neg1545, %538
   %540 = add i64 %.sroa.0.1.i1684, 64
   %541 = icmp eq i64 %518, 0
@@ -2062,8 +2062,8 @@ _ZN11str_indices5utf1621count_surrogates_impl17he841adeda45da07eE.exit: ; preds 
   br label %.thread1494
 
 _ZN11str_indices5lines18count_breaks_up_to17hd3ee043fc4e28476E.exit142: ; preds = %.thread1494
-  %.not2186 = icmp ult i64 %.sroa.08.0.i1361719, %.sroa.0.4.i
-  br i1 %.not2186, label %"_ZN110_$LT$core..ops..range..RangeFrom$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$5index17h06e5dcfa222d39b0E.exit370", label %701
+  %.not2188 = icmp ult i64 %.sroa.08.0.i1361719, %.sroa.0.4.i
+  br i1 %.not2188, label %"_ZN110_$LT$core..ops..range..RangeFrom$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$5index17h06e5dcfa222d39b0E.exit370", label %701
 
 701:                                              ; preds = %_ZN11str_indices5lines18count_breaks_up_to17hd3ee043fc4e28476E.exit142
   tail call void @_ZN4core5slice5index26slice_start_index_len_fail17h9fca8563b179f90fE(i64 noundef %691, i64 noundef %.sroa.0.4.i, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.524e13faaf100fdd7a55ca9d7171e439.22) #16, !noalias !229
@@ -2462,9 +2462,9 @@ _ZN5ropey4tree13node_children12NodeChildren4info17h8db7ec58898630d7E.exit._crit_
   %893 = zext <16 x i1> %892 to <16 x i8>
   %894 = tail call <2 x i64> @llvm.x86.sse2.psad.bw(<16 x i8> %893, <16 x i8> zeroinitializer) #17
   %.neg1548 = add i64 %.sroa.014.2.i.i1755, 16
-  %shift2285 = shufflevector <2 x i64> %894, <2 x i64> poison, <2 x i32> <i32 1, i32 poison>
-  %foldExtExtBinop2286 = add <2 x i64> %shift2285, %894
-  %895 = extractelement <2 x i64> %foldExtExtBinop2286, i64 0
+  %shift2287 = shufflevector <2 x i64> %894, <2 x i64> poison, <2 x i32> <i32 1, i32 poison>
+  %foldExtExtBinop2288 = add <2 x i64> %shift2287, %894
+  %895 = extractelement <2 x i64> %foldExtExtBinop2288, i64 0
   %896 = sub i64 %.neg1548, %895
   %.not52.i.i = icmp ult i64 %896, %863
   br i1 %.not52.i.i, label %902, label %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h5013c2266248ec04E.exit382.thread"
@@ -2538,9 +2538,9 @@ _ZN5ropey4tree13node_children12NodeChildren4info17h8db7ec58898630d7E.exit._crit_
   %934 = add nuw nsw <16 x i8> %933, %931
   %935 = tail call <2 x i64> @llvm.x86.sse2.psad.bw(<16 x i8> %934, <16 x i8> zeroinitializer) #17
   %.neg1547 = add i64 %.sroa.014.1.i.i1748, 64
-  %shift2288 = shufflevector <2 x i64> %935, <2 x i64> poison, <2 x i32> <i32 1, i32 poison>
-  %foldExtExtBinop2289 = add <2 x i64> %shift2288, %935
-  %936 = extractelement <2 x i64> %foldExtExtBinop2289, i64 0
+  %shift2290 = shufflevector <2 x i64> %935, <2 x i64> poison, <2 x i32> <i32 1, i32 poison>
+  %foldExtExtBinop2291 = add <2 x i64> %shift2290, %935
+  %936 = extractelement <2 x i64> %foldExtExtBinop2291, i64 0
   %937 = sub i64 %.neg1547, %936
   %938 = add i64 %.sroa.0.1.i.i1749, 64
   %939 = icmp eq i64 %916, 0
@@ -2663,9 +2663,9 @@ _ZN5ropey4tree4node4Node17char_to_text_info17ha7237754ab237ee7E.exit: ; preds = 
   %1002 = zext <16 x i1> %1001 to <16 x i8>
   %1003 = tail call <2 x i64> @llvm.x86.sse2.psad.bw(<16 x i8> %1002, <16 x i8> zeroinitializer) #17
   %.neg1550 = add i64 %.sroa.014.2.i.i2141782, 16
-  %shift2291 = shufflevector <2 x i64> %1003, <2 x i64> poison, <2 x i32> <i32 1, i32 poison>
-  %foldExtExtBinop2292 = add <2 x i64> %shift2291, %1003
-  %1004 = extractelement <2 x i64> %foldExtExtBinop2292, i64 0
+  %shift2293 = shufflevector <2 x i64> %1003, <2 x i64> poison, <2 x i32> <i32 1, i32 poison>
+  %foldExtExtBinop2294 = add <2 x i64> %shift2293, %1003
+  %1004 = extractelement <2 x i64> %foldExtExtBinop2294, i64 0
   %1005 = sub i64 %.neg1550, %1004
   %.not52.i.i218 = icmp ult i64 %1005, %972
   br i1 %.not52.i.i218, label %1011, label %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h5013c2266248ec04E.exit396.thread"
@@ -2739,9 +2739,9 @@ _ZN5ropey4tree4node4Node17char_to_text_info17ha7237754ab237ee7E.exit: ; preds = 
   %1043 = add nuw nsw <16 x i8> %1042, %1040
   %1044 = tail call <2 x i64> @llvm.x86.sse2.psad.bw(<16 x i8> %1043, <16 x i8> zeroinitializer) #17
   %.neg1549 = add i64 %.sroa.014.1.i.i2061775, 64
-  %shift2294 = shufflevector <2 x i64> %1044, <2 x i64> poison, <2 x i32> <i32 1, i32 poison>
-  %foldExtExtBinop2295 = add <2 x i64> %shift2294, %1044
-  %1045 = extractelement <2 x i64> %foldExtExtBinop2295, i64 0
+  %shift2296 = shufflevector <2 x i64> %1044, <2 x i64> poison, <2 x i32> <i32 1, i32 poison>
+  %foldExtExtBinop2297 = add <2 x i64> %shift2296, %1044
+  %1045 = extractelement <2 x i64> %foldExtExtBinop2297, i64 0
   %1046 = sub i64 %.neg1549, %1045
   %1047 = add i64 %.sroa.0.1.i.i2071776, 64
   %1048 = icmp eq i64 %1025, 0

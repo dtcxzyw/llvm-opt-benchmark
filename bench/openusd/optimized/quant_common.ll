@@ -185,18 +185,18 @@ av1_get_adjusted_tx_size.exit:                    ; preds = %5, %5, %5, %11, %12
   %18 = sext i32 %2 to i64
   %19 = getelementptr %struct.macroblockd_plane, ptr %1, i64 %18, i32 11, i64 0, i64 2
   %20 = zext nneg i16 %17 to i64
-  %21 = getelementptr inbounds nuw [19 x ptr], ptr %19, i64 %20
+  %20 = getelementptr inbounds nuw [19 x ptr], ptr %19, i64 %20
   br label %24
 
-22:                                               ; preds = %av1_get_adjusted_tx_size.exit
+22:; preds = %av1_get_adjusted_tx_size.exit
   %23 = getelementptr inbounds nuw i8, ptr %0, i64 6960
   br label %24
 
-24:                                               ; preds = %22, %16
+24:; preds = %22, %16
   %.pn = phi ptr [ %21, %16 ], [ %23, %22 ]
   %.in = getelementptr inbounds nuw ptr, ptr %.pn, i64 %.0.i
-  %25 = load ptr, ptr %.in, align 8
-  ret ptr %25
+  %26 = load ptr, ptr %.in, align 8
+  ret ptr %26
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
@@ -234,18 +234,18 @@ av1_get_adjusted_tx_size.exit:                    ; preds = %5, %5, %5, %11, %12
   %18 = sext i32 %2 to i64
   %19 = getelementptr %struct.macroblockd_plane, ptr %1, i64 %18, i32 12, i64 0, i64 2
   %20 = zext nneg i16 %17 to i64
-  %21 = getelementptr inbounds nuw [19 x ptr], ptr %19, i64 %20
+  %20 = getelementptr inbounds nuw [19 x ptr], ptr %19, i64 %20
   br label %24
 
-22:                                               ; preds = %av1_get_adjusted_tx_size.exit
+22:; preds = %av1_get_adjusted_tx_size.exit
   %23 = getelementptr inbounds nuw i8, ptr %0, i64 14256
   br label %24
 
-24:                                               ; preds = %22, %16
+24:; preds = %22, %16
   %.pn = phi ptr [ %21, %16 ], [ %23, %22 ]
   %.in = getelementptr inbounds nuw ptr, ptr %.pn, i64 %.0.i
-  %25 = load ptr, ptr %.in, align 8
-  ret ptr %25
+  %26 = load ptr, ptr %.in, align 8
+  ret ptr %26
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable

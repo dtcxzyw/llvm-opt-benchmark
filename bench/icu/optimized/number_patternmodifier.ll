@@ -2299,21 +2299,21 @@ define linkonce_odr noundef ptr @_ZNK6icu_776number4impl21AdoptingModifierStore1
   %4 = zext i32 %2 to i64
   %5 = getelementptr inbounds nuw %"class.icu_77::number::impl::AdoptingSignumModifierStore", ptr %0, i64 %4, i32 1, i64 1
   %6 = zext i32 %1 to i64
-  %7 = getelementptr inbounds nuw ptr, ptr %5, i64 %6
+  %6 = getelementptr inbounds nuw ptr, ptr %5, i64 %6
   %8 = load ptr, ptr %7, align 8, !tbaa !52
   %9 = icmp eq ptr %8, null
   %10 = icmp ne i32 %2, 5
   %or.cond = and i1 %10, %9
-  br i1 %or.cond, label %11, label %15
+  br i1 %or.cond, label %12, label %15
 
-11:                                               ; preds = %3
-  %12 = getelementptr inbounds nuw i8, ptr %0, i64 216
-  %13 = getelementptr inbounds nuw ptr, ptr %12, i64 %6
-  %14 = load ptr, ptr %13, align 8, !tbaa !52
-  br label %15
+12:                                               ; preds = %3
+  %13 = getelementptr inbounds nuw i8, ptr %0, i64 216
+  %14 = getelementptr inbounds nuw ptr, ptr %13, i64 %6
+  %15 = load ptr, ptr %14, align 8, !tbaa !52
+  br label %16
 
-15:                                               ; preds = %11, %3
-  %.0 = phi ptr [ %14, %11 ], [ %8, %3 ]
+16:                                               ; preds = %12, %3
+  %.0 = phi ptr [ %15, %11 ], [ %8, %3 ]
   ret ptr %.0
 }
 

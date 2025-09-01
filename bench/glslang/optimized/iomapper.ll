@@ -4895,16 +4895,16 @@ define noundef zeroext i1 @_ZN7glslang9TIoMapper8addStageE11EShLanguageRNS_13TIn
 
 .lr.ph:                                           ; preds = %5
   %38 = getelementptr inbounds nuw i8, ptr %2, i64 892
-  br label %39
+  br label %40
 
-39:                                               ; preds = %42, %.lr.ph
+40:                                               ; preds = %43, %.lr.ph
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %42 ]
-  %40 = getelementptr inbounds nuw i32, ptr %38, i64 %indvars.iv
-  %41 = load i32, ptr %40, align 4
-  %.not109 = icmp eq i32 %41, 0
-  br i1 %.not109, label %42, label %._crit_edge.thread
+  %41 = getelementptr inbounds nuw i32, ptr %38, i64 %indvars.iv
+  %42 = load i32, ptr %41, align 4
+  %.not109 = icmp eq i32 %42, 0
+  br i1 %.not109, label %43, label %._crit_edge.thread
 
-42:                                               ; preds = %39
+43:                                               ; preds = %40
   %43 = getelementptr inbounds nuw %"class.std::map", ptr %2, i64 %indvars.iv
   %44 = getelementptr inbounds nuw i8, ptr %43, i64 960
   %45 = load i64, ptr %44, align 8
@@ -4912,13 +4912,13 @@ define noundef zeroext i1 @_ZN7glslang9TIoMapper8addStageE11EShLanguageRNS_13TIn
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %47 = icmp samesign ugt i64 %indvars.iv, 4
   %.not108 = or i1 %47, %46
-  br i1 %.not108, label %._crit_edge, label %39, !llvm.loop !22
+  br i1 %.not108, label %._crit_edge, label %40, !llvm.loop !22
 
-._crit_edge.thread:                               ; preds = %39, %5
+._crit_edge.thread:                               ; preds = %40, %5
   %48 = icmp ne ptr %4, null
   br label %50
 
-._crit_edge:                                      ; preds = %42
+._crit_edge:                                      ; preds = %43
   %49 = icmp ne ptr %4, null
   %or.cond.not = or i1 %49, %46
   br i1 %or.cond.not, label %50, label %_ZN7glslang18TDefaultIoResolverD2Ev.exit
@@ -7050,16 +7050,16 @@ define noundef zeroext i1 @_ZN7glslang13TGlslIoMapper8addStageE11EShLanguageRNS_
 
 .lr.ph:                                           ; preds = %25
   %35 = getelementptr inbounds nuw i8, ptr %2, i64 892
-  br label %36
+  br label %37
 
-36:                                               ; preds = %39, %.lr.ph
+37:                                               ; preds = %40, %.lr.ph
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %39 ]
-  %37 = getelementptr inbounds nuw i32, ptr %35, i64 %indvars.iv
-  %38 = load i32, ptr %37, align 4
-  %.not112 = icmp eq i32 %38, 0
-  br i1 %.not112, label %39, label %._crit_edge.thread
+  %38 = getelementptr inbounds nuw i32, ptr %35, i64 %indvars.iv
+  %39 = load i32, ptr %38, align 4
+  %.not112 = icmp eq i32 %39, 0
+  br i1 %.not112, label %40, label %._crit_edge.thread
 
-39:                                               ; preds = %36
+40:                                               ; preds = %37
   %40 = getelementptr inbounds nuw %"class.std::map", ptr %2, i64 %indvars.iv
   %41 = getelementptr inbounds nuw i8, ptr %40, i64 960
   %42 = load i64, ptr %41, align 8
@@ -7067,13 +7067,13 @@ define noundef zeroext i1 @_ZN7glslang13TGlslIoMapper8addStageE11EShLanguageRNS_
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %44 = icmp samesign ugt i64 %indvars.iv, 4
   %.not111 = or i1 %44, %43
-  br i1 %.not111, label %._crit_edge, label %36, !llvm.loop !93
+  br i1 %.not111, label %._crit_edge, label %37, !llvm.loop !93
 
-._crit_edge.thread:                               ; preds = %36, %25, %.thread
+._crit_edge.thread:                               ; preds = %37, %25, %.thread
   %45 = icmp ne ptr %4, null
   br label %47
 
-._crit_edge:                                      ; preds = %39
+._crit_edge:                                      ; preds = %40
   %46 = icmp ne ptr %4, null
   %or.cond.not = or i1 %46, %43
   br i1 %or.cond.not, label %47, label %300

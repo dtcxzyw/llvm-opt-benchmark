@@ -718,7 +718,7 @@ define hidden signext range(i8 0, 2) i8 @nfaExecLimEx64_Q(ptr noundef %0, ptr no
   %23 = load i32, ptr %22, align 8
   %24 = zext i32 %23 to i64
   %25 = getelementptr inbounds nuw %struct.mq_item, ptr %1, i64 %24
-  %26 = getelementptr inbounds nuw i8, ptr %25, i64 112
+  %25 = getelementptr inbounds nuw i8, ptr %25, i64 112
   %27 = load i64, ptr %26, align 8
   %28 = add i64 %27, %21
   %29 = getelementptr inbounds nuw i8, ptr %1, i64 88
@@ -2628,7 +2628,7 @@ define hidden signext range(i8 0, 3) i8 @nfaExecLimEx64_Q2(ptr noundef %0, ptr n
   %25 = load i32, ptr %24, align 8
   %26 = zext i32 %25 to i64
   %27 = getelementptr inbounds nuw %struct.mq_item, ptr %1, i64 %26
-  %28 = getelementptr inbounds nuw i8, ptr %27, i64 112
+  %27 = getelementptr inbounds nuw i8, ptr %27, i64 112
   %29 = load i64, ptr %28, align 8
   %30 = add i64 %29, %23
   %31 = getelementptr inbounds nuw i8, ptr %1, i64 88
@@ -6288,7 +6288,7 @@ define hidden noundef signext i8 @nfaExecLimEx64_reportCurrent(ptr noundef reado
   %18 = load i32, ptr %17, align 8
   %19 = zext i32 %18 to i64
   %20 = getelementptr inbounds nuw %struct.mq_item, ptr %1, i64 %19
-  %21 = getelementptr inbounds nuw i8, ptr %20, i64 112
+  %20 = getelementptr inbounds nuw i8, ptr %20, i64 112
   %22 = load i64, ptr %21, align 8
   %23 = add i64 %22, %16
   %24 = getelementptr inbounds nuw i8, ptr %1, i64 88
@@ -6797,7 +6797,7 @@ define hidden signext range(i8 0, 2) i8 @nfaExecLimEx64_inAccept(ptr noundef %0,
   %19 = add i32 %18, -1
   %20 = zext i32 %19 to i64
   %21 = getelementptr inbounds nuw %struct.mq_item, ptr %2, i64 %20
-  %22 = getelementptr inbounds nuw i8, ptr %21, i64 112
+  %21 = getelementptr inbounds nuw i8, ptr %21, i64 112
   %23 = load i64, ptr %22, align 8
   %24 = add i64 %16, 1
   %25 = add i64 %24, %23
@@ -6995,7 +6995,7 @@ define hidden signext range(i8 0, 2) i8 @nfaExecLimEx64_inAnyAccept(ptr noundef 
   %18 = add i32 %17, -1
   %19 = zext i32 %18 to i64
   %20 = getelementptr inbounds nuw %struct.mq_item, ptr %1, i64 %19
-  %21 = getelementptr inbounds nuw i8, ptr %20, i64 112
+  %20 = getelementptr inbounds nuw i8, ptr %20, i64 112
   %22 = load i64, ptr %21, align 8
   %23 = add i64 %15, 1
   %24 = add i64 %23, %22

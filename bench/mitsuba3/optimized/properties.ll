@@ -3782,42 +3782,42 @@ _ZN7mitsuba9TransformINS_5PointIdLm3EEEEC2Ev.exit.preheader: ; preds = %32
   br label %.preheader
 
 .preheader:                                       ; preds = %_ZN7mitsuba9TransformINS_5PointIdLm3EEEEC2Ev.exit.preheader, %.preheader
-  %38 = phi i1 [ true, %_ZN7mitsuba9TransformINS_5PointIdLm3EEEEC2Ev.exit.preheader ], [ false, %.preheader ]
+  %39 = phi i1 [ true, %_ZN7mitsuba9TransformINS_5PointIdLm3EEEEC2Ev.exit.preheader ], [ false, %.preheader ]
   %.0124 = phi i64 [ 0, %_ZN7mitsuba9TransformINS_5PointIdLm3EEEEC2Ev.exit.preheader ], [ 1, %.preheader ]
-  %39 = shl nuw nsw i64 %.0124, 5
-  %40 = getelementptr nuw i8, ptr %0, i64 %39
-  %scevgep126 = getelementptr nuw i8, ptr %40, i64 96
-  %41 = getelementptr i8, ptr %22, i64 %39
-  %scevgep127 = getelementptr i8, ptr %41, i64 192
-  %scevgep = getelementptr nuw i8, ptr %0, i64 %39
-  %42 = getelementptr i8, ptr %22, i64 %39
-  %scevgep125 = getelementptr i8, ptr %42, i64 64
+  %40 = shl nuw nsw i64 %.0124, 5
+  %41 = getelementptr nuw i8, ptr %0, i64 %40
+  %scevgep126 = getelementptr nuw i8, ptr %41, i64 96
+  %42 = getelementptr i8, ptr %22, i64 %40
+  %scevgep127 = getelementptr i8, ptr %42, i64 192
+  %scevgep = getelementptr nuw i8, ptr %0, i64 %40
+  %43 = getelementptr i8, ptr %22, i64 %40
+  %scevgep125 = getelementptr i8, ptr %43, i64 64
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 32 dereferenceable(16) %scevgep, ptr noundef nonnull align 8 dereferenceable(16) %scevgep125, i64 16, i1 false)
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 32 dereferenceable(16) %scevgep126, ptr noundef nonnull align 8 dereferenceable(16) %scevgep127, i64 16, i1 false)
-  %43 = getelementptr inbounds nuw double, ptr %36, i64 %.0124
-  %44 = load double, ptr %43, align 8
-  %45 = getelementptr inbounds nuw double, ptr %37, i64 %.0124
-  store double %44, ptr %45, align 8
-  %46 = getelementptr inbounds nuw %"struct.drjit::Array.69", ptr %23, i64 %.0124
-  %47 = getelementptr inbounds nuw i8, ptr %46, i64 152
-  %48 = load double, ptr %47, align 8
-  %49 = getelementptr inbounds nuw %"struct.drjit::Array.15", ptr %0, i64 %.0124
-  %50 = getelementptr inbounds nuw i8, ptr %49, i64 112
-  store double %48, ptr %50, align 16
-  br i1 %38, label %.preheader, label %51, !llvm.loop !62
+  %44 = getelementptr inbounds nuw double, ptr %36, i64 %.0124
+  %45 = load double, ptr %44, align 8
+  %46 = getelementptr inbounds nuw double, ptr %37, i64 %.0124
+  store double %45, ptr %46, align 8
+  %47 = getelementptr inbounds nuw %"struct.drjit::Array.69", ptr %23, i64 %.0124
+  %48 = getelementptr inbounds nuw i8, ptr %47, i64 152
+  %49 = load double, ptr %48, align 8
+  %50 = getelementptr inbounds nuw %"struct.drjit::Array.15", ptr %0, i64 %.0124
+  %51 = getelementptr inbounds nuw i8, ptr %50, i64 112
+  store double %49, ptr %51, align 16
+  br i1 %39, label %.preheader, label %52, !llvm.loop !62
 
-51:                                               ; preds = %.preheader
-  %52 = getelementptr inbounds nuw i8, ptr %22, i64 184
-  %53 = load double, ptr %52, align 8
-  %54 = getelementptr inbounds nuw i8, ptr %0, i64 80
-  store double %53, ptr %54, align 16
-  %55 = getelementptr inbounds nuw i8, ptr %22, i64 312
-  %56 = load double, ptr %55, align 8
-  %57 = getelementptr inbounds nuw i8, ptr %0, i64 176
-  store double %56, ptr %57, align 16
-  br label %62
+52:                                               ; preds = %.preheader
+  %53 = getelementptr inbounds nuw i8, ptr %22, i64 184
+  %54 = load double, ptr %53, align 8
+  %55 = getelementptr inbounds nuw i8, ptr %0, i64 80
+  store double %54, ptr %55, align 16
+  %56 = getelementptr inbounds nuw i8, ptr %22, i64 312
+  %57 = load double, ptr %56, align 8
+  %58 = getelementptr inbounds nuw i8, ptr %0, i64 176
+  store double %57, ptr %58, align 16
+  br label %63
 
-58:                                               ; preds = %20
+61:                                               ; preds = %20
   %59 = icmp eq ptr %25, @_ZTIN7mitsuba9TransformINS_5PointIdLm3EEEEE
   br i1 %59, label %_ZN7mitsuba7variantIJbldN5drjit5ArrayIdLm3EEENSt3__112basic_stringIcNS4_11char_traitsIcEENS4_9allocatorIcEEEENS_9TransformINS_5PointIdLm3EEEEENSB_INSC_IdLm4EEEEENS4_10shared_ptrIvEENS_5ColorIdLm3EEENS_14NamedReferenceENS_3refINS_6ObjectEEEPKvEEcvRT_IKSE_EEv.exit, label %60
 
@@ -3829,9 +3829,9 @@ _ZN7mitsuba9TransformINS_5PointIdLm3EEEEC2Ev.exit.preheader: ; preds = %32
 
 _ZN7mitsuba7variantIJbldN5drjit5ArrayIdLm3EEENSt3__112basic_stringIcNS4_11char_traitsIcEENS4_9allocatorIcEEEENS_9TransformINS_5PointIdLm3EEEEENSB_INSC_IdLm4EEEEENS4_10shared_ptrIvEENS_5ColorIdLm3EEENS_14NamedReferenceENS_3refINS_6ObjectEEEPKvEEcvRT_IKSE_EEv.exit: ; preds = %58
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 32 dereferenceable(192) %0, ptr noundef nonnull align 32 dereferenceable(192) %23, i64 192, i1 false)
-  br label %62
+  br label %63
 
-62:                                               ; preds = %_ZN7mitsuba7variantIJbldN5drjit5ArrayIdLm3EEENSt3__112basic_stringIcNS4_11char_traitsIcEENS4_9allocatorIcEEEENS_9TransformINS_5PointIdLm3EEEEENSB_INSC_IdLm4EEEEENS4_10shared_ptrIvEENS_5ColorIdLm3EEENS_14NamedReferenceENS_3refINS_6ObjectEEEPKvEEcvRT_IKSE_EEv.exit, %51
+63:                                               ; preds = %_ZN7mitsuba7variantIJbldN5drjit5ArrayIdLm3EEENSt3__112basic_stringIcNS4_11char_traitsIcEENS4_9allocatorIcEEEENS_9TransformINS_5PointIdLm3EEEEENSB_INSC_IdLm4EEEEENS4_10shared_ptrIvEENS_5ColorIdLm3EEENS_14NamedReferenceENS_3refINS_6ObjectEEEPKvEEcvRT_IKSE_EEv.exit, %52
   ret void
 }
 

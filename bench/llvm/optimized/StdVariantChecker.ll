@@ -1731,7 +1731,7 @@ _ZNK4llvm5APInt12getSExtValueEv.exit:             ; preds = %115, %121
 125:                                              ; preds = %_ZNK4llvm5APInt12getSExtValueEv.exit
   %126 = and i64 %.0.i, 4294967295
   %127 = getelementptr inbounds nuw %"class.clang::TemplateArgument", ptr %124, i64 %126
-  %128 = getelementptr inbounds nuw i8, ptr %127, i64 56
+  %127 = getelementptr inbounds nuw i8, ptr %127, i64 56
   %129 = load i64, ptr %128, align 8, !tbaa !20
   br label %_ZL32getNthTemplateTypeArgFromVariantPKN5clang4TypeEj.exit
 

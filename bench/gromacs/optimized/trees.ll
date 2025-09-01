@@ -567,8 +567,8 @@ detect_data_type.exit:                            ; preds = %17, %31, %.preheade
   %.03651.i.i = phi i32 [ %46, %.lr.ph.i.i ], [ %56, %89 ]
   %.03849.i.i = phi i32 [ -1, %.lr.ph.i.i ], [ %.139.i.i, %89 ]
   %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i.i, 1
-  %.idx.i = shl nuw nsw i64 %indvars.iv.next.i.i, 2
-  %53 = getelementptr inbounds nuw i8, ptr %37, i64 %.idx.i
+  %.idx37.i = shl nuw nsw i64 %indvars.iv.next.i.i, 2
+  %53 = getelementptr inbounds nuw i8, ptr %37, i64 %.idx37.i
   %54 = getelementptr inbounds nuw i8, ptr %53, i64 2
   %55 = load i16, ptr %54, align 2, !tbaa !25
   %56 = zext i16 %55 to i32
@@ -680,8 +680,8 @@ scan_tree.exit.i:                                 ; preds = %89, %34
   %.03651.i23.i = phi i32 [ %99, %.lr.ph.i15.i ], [ %109, %142 ]
   %.03849.i24.i = phi i32 [ -1, %.lr.ph.i15.i ], [ %.139.i31.i, %142 ]
   %indvars.iv.next.i25.i = add nuw nsw i64 %indvars.iv.i19.i, 1
-  %.idx37.i = shl nuw nsw i64 %indvars.iv.next.i25.i, 2
-  %106 = getelementptr inbounds nuw i8, ptr %90, i64 %.idx37.i
+  %.idx38.i = shl nuw nsw i64 %indvars.iv.next.i25.i, 2
+  %106 = getelementptr inbounds nuw i8, ptr %90, i64 %.idx38.i
   %107 = getelementptr inbounds nuw i8, ptr %106, i64 2
   %108 = load i16, ptr %107, align 2, !tbaa !25
   %109 = zext i16 %108 to i32
@@ -764,25 +764,25 @@ scan_tree.exit36.i:                               ; preds = %142, %scan_tree.exi
   tail call fastcc void @build_tree(ptr noundef nonnull %0, ptr noundef nonnull %143)
   br label %144
 
-144:                                              ; preds = %152, %scan_tree.exit36.i
-  %.038.i = phi i32 [ 18, %scan_tree.exit36.i ], [ %153, %152 ]
-  %145 = zext nneg i32 %.038.i to i64
-  %146 = getelementptr inbounds nuw i8, ptr @bl_order, i64 %145
-  %147 = load i8, ptr %146, align 1, !tbaa !25
-  %148 = zext i8 %147 to i64
-  %149 = getelementptr inbounds nuw %struct.ct_data_s, ptr %0, i64 %148
+145:                                              ; preds = %152, %scan_tree.exit36.i
+  %.039.i = phi i32 [ 18, %scan_tree.exit36.i ], [ %153, %152 ]
+  %146 = zext nneg i32 %.039.i to i64
+  %147 = getelementptr inbounds nuw i8, ptr @bl_order, i64 %146
+  %148 = load i8, ptr %147, align 1, !tbaa !25
+  %149 = zext i8 %148 to i64
+  %149 = getelementptr inbounds nuw %struct.ct_data_s, ptr %0, i64 %149
   %150 = getelementptr inbounds nuw i8, ptr %149, i64 2734
   %151 = load i16, ptr %150, align 2, !tbaa !25
   %.not.i92 = icmp eq i16 %151, 0
   br i1 %.not.i92, label %152, label %build_bl_tree.exit
 
-152:                                              ; preds = %144
-  %153 = add nsw i32 %.038.i, -1
-  %154 = icmp samesign ugt i32 %.038.i, 3
-  br i1 %154, label %144, label %build_bl_tree.exit, !llvm.loop !44
+152:                                              ; preds = %145
+  %153 = add nsw i32 %.039.i, -1
+  %154 = icmp samesign ugt i32 %.039.i, 3
+  br i1 %154, label %145, label %build_bl_tree.exit, !llvm.loop !44
 
-build_bl_tree.exit:                               ; preds = %144, %152
-  %.0.lcssa.i = phi i32 [ %.038.i, %144 ], [ 2, %152 ]
+build_bl_tree.exit:                               ; preds = %145, %152
+  %.0.lcssa.i = phi i32 [ %.039.i, %144 ], [ 2, %152 ]
   %155 = mul i32 %.0.lcssa.i, 3
   %156 = add i32 %155, 17
   %157 = sext i32 %156 to i64
@@ -1098,27 +1098,27 @@ build_bl_tree.exit:                               ; preds = %144, %152
   %373 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %374 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %wide.trip.count.i = zext nneg i32 %.081 to i64
-  br label %375
+  br label %376
 
-375:                                              ; preds = %411, %.lr.ph.i
-  %376 = phi i16 [ %370, %.lr.ph.i ], [ %412, %411 ]
-  %377 = phi i32 [ %storemerge106.i, %.lr.ph.i ], [ %storemerge107.i, %411 ]
+376:                                              ; preds = %411, %.lr.ph.i
+  %377 = phi i16 [ %370, %.lr.ph.i ], [ %412, %411 ]
+  %378 = phi i32 [ %storemerge106.i, %.lr.ph.i ], [ %storemerge107.i, %411 ]
   %indvars.iv.i93 = phi i64 [ 0, %.lr.ph.i ], [ %indvars.iv.next.i94, %411 ]
-  %378 = icmp sgt i32 %377, 13
-  %379 = getelementptr inbounds nuw i8, ptr @bl_order, i64 %indvars.iv.i93
-  %380 = load i8, ptr %379, align 1, !tbaa !25
-  %381 = zext i8 %380 to i64
-  %382 = getelementptr inbounds nuw %struct.ct_data_s, ptr %0, i64 %381
+  %379 = icmp sgt i32 %378, 13
+  %380 = getelementptr inbounds nuw i8, ptr @bl_order, i64 %indvars.iv.i93
+  %381 = load i8, ptr %380, align 1, !tbaa !25
+  %382 = zext i8 %381 to i64
+  %382 = getelementptr inbounds nuw %struct.ct_data_s, ptr %0, i64 %382
   %383 = getelementptr inbounds nuw i8, ptr %382, i64 2734
   %384 = load i16, ptr %383, align 2, !tbaa !25
   %385 = zext i16 %384 to i32
-  %386 = shl i32 %385, %377
+  %386 = shl i32 %385, %378
   %387 = trunc i32 %386 to i16
-  %388 = or i16 %376, %387
+  %388 = or i16 %377, %387
   store i16 %388, ptr %372, align 8, !tbaa !23
-  br i1 %378, label %389, label %409
+  br i1 %379, label %389, label %409
 
-389:                                              ; preds = %375
+389:                                              ; preds = %376
   %390 = trunc i16 %388 to i8
   %391 = load ptr, ptr %373, align 8, !tbaa !31
   %392 = load i32, ptr %374, align 8, !tbaa !32
@@ -1145,8 +1145,8 @@ build_bl_tree.exit:                               ; preds = %144, %152
   %408 = add nsw i32 %404, -13
   br label %411
 
-409:                                              ; preds = %375
-  %410 = add nsw i32 %377, 3
+409:                                              ; preds = %376
+  %410 = add nsw i32 %378, 3
   br label %411
 
 411:                                              ; preds = %409, %389
@@ -1155,7 +1155,7 @@ build_bl_tree.exit:                               ; preds = %144, %152
   store i32 %storemerge107.i, ptr %179, align 4, !tbaa !24
   %indvars.iv.next.i94 = add nuw nsw i64 %indvars.iv.i93, 1
   %exitcond.not.i95 = icmp eq i64 %indvars.iv.next.i94, %wide.trip.count.i
-  br i1 %exitcond.not.i95, label %send_all_trees.exit, label %375, !llvm.loop !48
+  br i1 %exitcond.not.i95, label %send_all_trees.exit, label %376, !llvm.loop !48
 
 send_all_trees.exit:                              ; preds = %411, %369
   %413 = getelementptr inbounds nuw i8, ptr %0, i64 196

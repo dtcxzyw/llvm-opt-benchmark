@@ -7290,21 +7290,21 @@ index2adr.exit19:                                 ; preds = %77, %86, %93, %99, 
   %.not = icmp eq i8 %156, 0
   br i1 %.not, label %165, label %157
 
-157:                                              ; preds = %index2adr.exit19
+157:; preds = %index2adr.exit19
   %158 = getelementptr inbounds nuw i8, ptr %75, i64 8
   %159 = load i8, ptr %158, align 8, !tbaa !17
   %160 = and i8 %159, 4
   %.not16 = icmp eq i8 %160, 0
   br i1 %.not16, label %165, label %161
 
-161:                                              ; preds = %157
+161:; preds = %157
   %162 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %163 = load i64, ptr %162, align 8, !tbaa !21
   %164 = inttoptr i64 %163 to ptr
   tail call void @lj_gc_barrierf(ptr noundef %164, ptr noundef nonnull %75, ptr noundef nonnull %153) #13
   br label %165
 
-165:                                              ; preds = %161, %157, %index2adr.exit19
+167:                                              ; preds = %161, %157, %index2adr.exit19
   ret void
 }
 

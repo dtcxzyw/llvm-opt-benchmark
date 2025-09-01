@@ -1124,7 +1124,7 @@ define dso_local void @threadlocal_stats_aggregate(ptr noundef initializes((0, 6
   %38 = getelementptr inbounds nuw i8, ptr %0, i64 6440
   br label %39
 
-39:                                               ; preds = %.lr.ph, %219
+39:                                               ; preds = %.lr.ph, %220
   %indvars.iv123 = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next124, %219 ]
   %40 = load ptr, ptr @threads, align 8, !tbaa !4
   %41 = getelementptr inbounds nuw %struct.LIBEVENT_THREAD, ptr %40, i64 %indvars.iv123, i32 9
@@ -1358,38 +1358,38 @@ define dso_local void @threadlocal_stats_aggregate(ptr noundef initializes((0, 6
   store i64 %218, ptr %216, align 8, !tbaa !161
   %indvars.iv.next120 = add nuw nsw i64 %indvars.iv119, 1
   %exitcond122.not = icmp eq i64 %indvars.iv.next120, 256
-  br i1 %exitcond122.not, label %219, label %207, !llvm.loop !169
+  br i1 %exitcond122.not, label %220, label %207, !llvm.loop !169
 
-219:                                              ; preds = %207
-  %220 = getelementptr inbounds nuw %struct.LIBEVENT_THREAD, ptr %43, i64 %indvars.iv123, i32 12
-  %221 = load ptr, ptr %220, align 8, !tbaa !170
-  %222 = getelementptr inbounds nuw i8, ptr %221, i64 76
-  %223 = load i32, ptr %222, align 4, !tbaa !171
-  %224 = sext i32 %223 to i64
-  %225 = load i64, ptr %36, align 8, !tbaa !176
-  %226 = add i64 %225, %224
-  store i64 %226, ptr %36, align 8, !tbaa !176
-  %227 = shl nsw i32 %223, 14
-  %228 = sext i32 %227 to i64
-  %229 = load i64, ptr %37, align 8, !tbaa !177
-  %230 = add i64 %229, %228
-  store i64 %230, ptr %37, align 8, !tbaa !177
-  %231 = getelementptr inbounds nuw i8, ptr %221, i64 80
-  %232 = load i32, ptr %231, align 8, !tbaa !178
-  %233 = shl nsw i32 %232, 14
-  %234 = sext i32 %233 to i64
-  %235 = load i64, ptr %38, align 8, !tbaa !179
-  %236 = add i64 %235, %234
-  store i64 %236, ptr %38, align 8, !tbaa !179
-  %237 = getelementptr inbounds nuw %struct.LIBEVENT_THREAD, ptr %43, i64 %indvars.iv123, i32 9
-  %238 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull %237) #15
+220:                                              ; preds = %207
+  %221 = getelementptr inbounds nuw %struct.LIBEVENT_THREAD, ptr %43, i64 %indvars.iv123, i32 12
+  %222 = load ptr, ptr %221, align 8, !tbaa !170
+  %223 = getelementptr inbounds nuw i8, ptr %222, i64 76
+  %224 = load i32, ptr %223, align 4, !tbaa !171
+  %225 = sext i32 %224 to i64
+  %226 = load i64, ptr %36, align 8, !tbaa !176
+  %227 = add i64 %226, %225
+  store i64 %227, ptr %36, align 8, !tbaa !176
+  %228 = shl nsw i32 %224, 14
+  %229 = sext i32 %228 to i64
+  %230 = load i64, ptr %37, align 8, !tbaa !177
+  %231 = add i64 %230, %229
+  store i64 %231, ptr %37, align 8, !tbaa !177
+  %232 = getelementptr inbounds nuw i8, ptr %222, i64 80
+  %233 = load i32, ptr %232, align 8, !tbaa !178
+  %234 = shl nsw i32 %233, 14
+  %235 = sext i32 %234 to i64
+  %236 = load i64, ptr %38, align 8, !tbaa !179
+  %237 = add i64 %236, %235
+  store i64 %237, ptr %38, align 8, !tbaa !179
+  %238 = getelementptr inbounds nuw %struct.LIBEVENT_THREAD, ptr %43, i64 %indvars.iv123, i32 9
+  %239 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull %238) #15
   %indvars.iv.next124 = add nuw nsw i64 %indvars.iv123, 1
-  %239 = load i32, ptr getelementptr inbounds nuw (i8, ptr @settings, i64 84), align 4, !tbaa !17
-  %240 = sext i32 %239 to i64
-  %241 = icmp slt i64 %indvars.iv.next124, %240
-  br i1 %241, label %39, label %._crit_edge, !llvm.loop !180
+  %240 = load i32, ptr getelementptr inbounds nuw (i8, ptr @settings, i64 84), align 4, !tbaa !17
+  %241 = sext i32 %240 to i64
+  %242 = icmp slt i64 %indvars.iv.next124, %241
+  br i1 %242, label %39, label %._crit_edge, !llvm.loop !180
 
-._crit_edge:                                      ; preds = %219, %1
+._crit_edge:                                      ; preds = %220, %1
   ret void
 }
 

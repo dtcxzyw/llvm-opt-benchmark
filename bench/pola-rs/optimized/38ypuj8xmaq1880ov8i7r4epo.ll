@@ -26511,7 +26511,7 @@ define hidden void @"_ZN16concurrent_queue9unbounded18Unbounded$LT$T$GT$3pop17ha
 
 "_ZN16concurrent_queue9unbounded13Slot$LT$T$GT$10wait_write17h0a0d84a98ee3a95eE.exit": ; preds = %.lr.ph.i, %43
   call void @llvm.memmove.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %4, ptr noundef nonnull align 8 dereferenceable(32) %45, i64 32, i1 false)
-  br i1 %42, label %.lr.ph.i24, label %63
+  br i1 %42, label %67, label %63
 
 53:                                               ; preds = %40
   %54 = load atomic ptr, ptr %.sroa.012.0 acquire, align 8
@@ -26542,7 +26542,7 @@ define hidden void @"_ZN16concurrent_queue9unbounded18Unbounded$LT$T$GT$3pop17ha
   %66 = icmp eq i64 %65, 0
   br i1 %66, label %"_ZN16concurrent_queue9unbounded14Block$LT$T$GT$7destroy17hfe736ed74dc7b208E.exit", label %78
 
-.lr.ph.i24:                                       ; preds = %"_ZN16concurrent_queue9unbounded13Slot$LT$T$GT$10wait_write17h0a0d84a98ee3a95eE.exit", %77
+67:                                               ; preds = %"_ZN16concurrent_queue9unbounded13Slot$LT$T$GT$10wait_write17h0a0d84a98ee3a95eE.exit", %77
   %.sroa.0.04.i = phi i64 [ %67, %77 ], [ 0, %"_ZN16concurrent_queue9unbounded13Slot$LT$T$GT$10wait_write17h0a0d84a98ee3a95eE.exit" ]
   %67 = add nuw nsw i64 %.sroa.0.04.i, 1
   %68 = getelementptr inbounds nuw { { { [4 x i64] } }, { i64 } }, ptr %.sroa.012.0, i64 %.sroa.0.04.i
@@ -26550,23 +26550,23 @@ define hidden void @"_ZN16concurrent_queue9unbounded18Unbounded$LT$T$GT$3pop17ha
   %70 = load atomic i64, ptr %69 acquire, align 8
   %71 = and i64 %70, 2
   %72 = icmp eq i64 %71, 0
-  br i1 %72, label %73, label %77
+  br i1 %72, label %.lr.ph.i26, label %77
 
-73:                                               ; preds = %.lr.ph.i24
+.lr.ph.i26:                                       ; preds = %67
   %74 = atomicrmw or ptr %69, i64 4 acq_rel, align 8
   %75 = and i64 %74, 2
   %76 = icmp eq i64 %75, 0
   br i1 %76, label %"_ZN16concurrent_queue9unbounded14Block$LT$T$GT$7destroy17hfe736ed74dc7b208E.exit", label %77
 
-77:                                               ; preds = %73, %.lr.ph.i24
+83:                                               ; preds = %73, %.lr.ph.i24
   %exitcond.not.i = icmp eq i64 %67, 30
   br i1 %exitcond.not.i, label %"_ZN16concurrent_queue9unbounded14Block$LT$T$GT$7destroy17hfe736ed74dc7b208E.exit.sink.split", label %.lr.ph.i24
 
-78:                                               ; preds = %63
+89:                                               ; preds = %63
   %79 = icmp samesign ult i64 %11, 29
-  br i1 %79, label %.lr.ph.i26, label %"_ZN16concurrent_queue9unbounded14Block$LT$T$GT$7destroy17hfe736ed74dc7b208E.exit.sink.split"
+  br i1 %79, label %93, label %"_ZN16concurrent_queue9unbounded14Block$LT$T$GT$7destroy17hfe736ed74dc7b208E.exit.sink.split"
 
-.lr.ph.i26:                                       ; preds = %78, %90
+93:                                               ; preds = %89, %90
   %.sroa.0.04.i27 = phi i64 [ %80, %90 ], [ %41, %78 ]
   %80 = add nuw nsw i64 %.sroa.0.04.i27, 1
   %81 = getelementptr inbounds nuw { { { [4 x i64] } }, { i64 } }, ptr %.sroa.012.0, i64 %.sroa.0.04.i27

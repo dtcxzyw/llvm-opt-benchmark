@@ -410,7 +410,7 @@ define hidden void @je_tcache_bin_flush_small(ptr noundef %0, ptr noundef readon
   %7 = load ptr, ptr %1, align 8, !tbaa !42
   %8 = zext i32 %3 to i64
   %9 = getelementptr inbounds nuw %struct.cache_bin_fill_ctl_s, ptr %7, i64 %8
-  %10 = getelementptr inbounds nuw i8, ptr %9, i64 77
+  %9 = getelementptr inbounds nuw i8, ptr %9, i64 77
   store i8 0, ptr %10, align 1, !tbaa !51
   %11 = getelementptr i8, ptr %2, i64 20
   tail call void @je_tcache_bin_flush_stashed(ptr noundef %0, ptr noundef nonnull %1, ptr noundef %2, i32 noundef %3, i1 noundef zeroext true)
@@ -3999,8 +3999,8 @@ define hidden noundef zeroext i1 @je_tcache_bins_ncached_max_write(ptr noundef %
   %indvars.iv.i = phi i64 [ 0, %3 ], [ %indvars.iv.next.i, %6 ]
   %7 = getelementptr inbounds nuw %struct.cache_bin_info_s, ptr %4, i64 %indvars.iv.i
   %8 = getelementptr %struct.cache_bin_s, ptr %5, i64 %indvars.iv.i
-  %9 = getelementptr i8, ptr %8, i64 30
-  %.val.i = load i16, ptr %9, align 2, !tbaa !44
+  %8 = getelementptr i8, ptr %8, i64 30
+  %.val.i = load i16, ptr %8, align 2, !tbaa !44
   call void @je_cache_bin_info_init(ptr noundef nonnull %7, i16 noundef zeroext %.val.i) #16
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, 73

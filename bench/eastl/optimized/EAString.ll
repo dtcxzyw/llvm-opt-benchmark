@@ -771,9 +771,9 @@ for.cond.i.preheader.i:                           ; preds = %if.else.i.i
   %conv1.i.i = zext i8 %2 to i32
   %sub.i.i = add nsw i32 %conv1.i.i, -1
   %cmp7.i60.not.i = icmp eq i32 %sub.i.i, 0
-  br i1 %cmp7.i60.not.i, label %for.end.i.i, label %for.body.i.i
+  br i1 %cmp7.i60.not.i, label %for.end.i.i, label %for.body.i.preheader.i
 
-for.body.i.i:                                     ; preds = %for.cond.i.preheader.i, %if.end18.i.i
+for.body.i.preheader.i:                           ; preds = %for.cond.i.preheader.i, %if.end18.i.i
   %pSource.i.163.i = phi ptr [ %incdec.ptr8.i.i, %if.end18.i.i ], [ %incdec.ptr.i.i, %for.cond.i.preheader.i ]
   %c.i.162.i = phi i32 [ %add.i.i, %if.end18.i.i ], [ %conv.i.i, %for.cond.i.preheader.i ]
   %i.i.061.i = phi i32 [ %inc.i.i, %if.end18.i.i ], [ 0, %for.cond.i.preheader.i ]
@@ -794,17 +794,17 @@ for.end.i.i:                                      ; preds = %if.end18.i.i, %for.
   %c.i.1.lcssa.i = phi i32 [ %conv.i.i, %for.cond.i.preheader.i ], [ %add.i.i, %if.end18.i.i ]
   %pSource.i.1.lcssa.i = phi ptr [ %incdec.ptr.i.i, %for.cond.i.preheader.i ], [ %add.ptr.i.i, %if.end18.i.i ]
   %arrayidx21.i.i = getelementptr inbounds nuw i32, ptr @_ZN2EA4StdCL23utf8DecodingOffsetTableE, i64 %idx.ext.i.i
-  %4 = load i32, ptr %arrayidx21.i.i, align 4
-  %sub22.i.i = sub i32 %c.i.1.lcssa.i, %4
+  %5 = load i32, ptr %arrayidx21.i.i, align 4
+  %sub22.i.i = sub i32 %c.i.1.lcssa.i, %5
   %arrayidx24.i.i = getelementptr inbounds nuw i32, ptr @_ZN2EA4StdCL21utf8MinimumValueTableE, i64 %idx.ext.i.i
-  %5 = load i32, ptr %arrayidx24.i.i, align 4
-  %cmp25.i.i = icmp ult i32 %sub22.i.i, %5
+  %6 = load i32, ptr %arrayidx24.i.i, align 4
+  %cmp25.i.i = icmp ult i32 %sub22.i.i, %6
   br i1 %cmp25.i.i, label %while.end.i, label %lor.lhs.false26.i.i
 
 lor.lhs.false26.i.i:                              ; preds = %for.end.i.i
   %arrayidx28.i.i = getelementptr inbounds nuw i32, ptr @_ZN2EA4StdCL21utf8MaximumValueTableE, i64 %idx.ext.i.i
-  %6 = load i32, ptr %arrayidx28.i.i, align 4
-  %cmp29.i.not.i = icmp ult i32 %sub22.i.i, %6
+  %7 = load i32, ptr %arrayidx28.i.i, align 4
+  %cmp29.i.not.i = icmp ult i32 %sub22.i.i, %7
   br i1 %cmp29.i.not.i, label %_ZN2EA4StdC15DecodeCodePointERPKcS2_.exit.i, label %while.end.i
 
 _ZN2EA4StdC15DecodeCodePointERPKcS2_.exit.i:      ; preds = %lor.lhs.false26.i.i, %while.body.i
@@ -962,9 +962,9 @@ for.cond.i.preheader.i:                           ; preds = %if.else.i.i
   %conv1.i.i = zext i8 %2 to i32
   %sub.i.i = add nsw i32 %conv1.i.i, -1
   %cmp7.i60.not.i = icmp eq i32 %sub.i.i, 0
-  br i1 %cmp7.i60.not.i, label %for.end.i.i, label %for.body.i.i
+  br i1 %cmp7.i60.not.i, label %for.end.i.i, label %for.body.i.preheader.i
 
-for.body.i.i:                                     ; preds = %for.cond.i.preheader.i, %if.end18.i.i
+for.body.i.preheader.i:                           ; preds = %for.cond.i.preheader.i, %if.end18.i.i
   %pSource.i.163.i = phi ptr [ %incdec.ptr8.i.i, %if.end18.i.i ], [ %incdec.ptr.i.i, %for.cond.i.preheader.i ]
   %c.i.162.i = phi i32 [ %add.i.i, %if.end18.i.i ], [ %conv.i.i, %for.cond.i.preheader.i ]
   %i.i.061.i = phi i32 [ %inc.i.i, %if.end18.i.i ], [ 0, %for.cond.i.preheader.i ]
@@ -985,17 +985,17 @@ for.end.i.i:                                      ; preds = %if.end18.i.i, %for.
   %c.i.1.lcssa.i = phi i32 [ %conv.i.i, %for.cond.i.preheader.i ], [ %add.i.i, %if.end18.i.i ]
   %pSource.i.1.lcssa.i = phi ptr [ %incdec.ptr.i.i, %for.cond.i.preheader.i ], [ %add.ptr.i.i, %if.end18.i.i ]
   %arrayidx21.i.i = getelementptr inbounds nuw i32, ptr @_ZN2EA4StdCL23utf8DecodingOffsetTableE, i64 %idx.ext.i.i
-  %4 = load i32, ptr %arrayidx21.i.i, align 4
-  %sub22.i.i = sub i32 %c.i.1.lcssa.i, %4
+  %5 = load i32, ptr %arrayidx21.i.i, align 4
+  %sub22.i.i = sub i32 %c.i.1.lcssa.i, %5
   %arrayidx24.i.i = getelementptr inbounds nuw i32, ptr @_ZN2EA4StdCL21utf8MinimumValueTableE, i64 %idx.ext.i.i
-  %5 = load i32, ptr %arrayidx24.i.i, align 4
-  %cmp25.i.i = icmp ult i32 %sub22.i.i, %5
+  %6 = load i32, ptr %arrayidx24.i.i, align 4
+  %cmp25.i.i = icmp ult i32 %sub22.i.i, %6
   br i1 %cmp25.i.i, label %while.end.i, label %lor.lhs.false26.i.i
 
 lor.lhs.false26.i.i:                              ; preds = %for.end.i.i
   %arrayidx28.i.i = getelementptr inbounds nuw i32, ptr @_ZN2EA4StdCL21utf8MaximumValueTableE, i64 %idx.ext.i.i
-  %6 = load i32, ptr %arrayidx28.i.i, align 4
-  %cmp29.i.not.i = icmp ult i32 %sub22.i.i, %6
+  %7 = load i32, ptr %arrayidx28.i.i, align 4
+  %cmp29.i.not.i = icmp ult i32 %sub22.i.i, %7
   br i1 %cmp29.i.not.i, label %_ZN2EA4StdC15DecodeCodePointERPKcS2_.exit.i, label %while.end.i
 
 _ZN2EA4StdC15DecodeCodePointERPKcS2_.exit.i:      ; preds = %lor.lhs.false26.i.i, %while.body.i

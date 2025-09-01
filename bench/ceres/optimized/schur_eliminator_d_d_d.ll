@@ -2564,7 +2564,7 @@ define weak_odr hidden void @_ZN5ceres8internal15SchurEliminatorILin1ELin1ELin1E
 
 .lr.ph:                                           ; preds = %55, %_ZN5ceres9FindOrDieIN4absl12lts_202401169btree_mapIiiSt4lessIiESaISt4pairIKiiEEEEEERKNT_10value_type11second_typeERKSB_RKNSC_10first_typeE.exit
   %indvars.iv = phi i64 [ %indvars.iv.next, %_ZN5ceres9FindOrDieIN4absl12lts_202401169btree_mapIiiSt4lessIiESaISt4pairIKiiEEEEEERKNT_10value_type11second_typeERKSB_RKNSC_10first_typeE.exit ], [ 1, %55 ]
-  %67 = phi ptr [ %132, %_ZN5ceres9FindOrDieIN4absl12lts_202401169btree_mapIiiSt4lessIiESaISt4pairIKiiEEEEEERKNT_10value_type11second_typeERKSB_RKNSC_10first_typeE.exit ], [ %57, %55 ]
+  %67 = phi ptr [ %133, %_ZN5ceres9FindOrDieIN4absl12lts_202401169btree_mapIiiSt4lessIiESaISt4pairIKiiEEEEEERKNT_10value_type11second_typeERKSB_RKNSC_10first_typeE.exit ], [ %57, %55 ]
   %68 = getelementptr inbounds nuw %"struct.ceres::internal::Cell", ptr %67, i64 %indvars.iv
   %69 = load i32, ptr %68, align 4, !tbaa !96
   %70 = sext i32 %69 to i64
@@ -2690,8 +2690,8 @@ _ZN5ceres9FindOrDieIN4absl12lts_202401169btree_mapIiiSt4lessIiESaISt4pairIKiiEEE
   %130 = getelementptr inbounds double, ptr %14, i64 %129
   tail call void @_ZN5ceres8internal34MatrixTransposeMatrixMultiplyNaiveILin1ELin1ELin1ELin1ELi1EEEvPKdiiS3_iiPdiiii(ptr noundef %125, i32 noundef %126, i32 noundef %18, ptr noundef %130, i32 noundef %126, i32 noundef %73, ptr noundef %122, i32 noundef 0, i32 noundef 0, i32 noundef %18, i32 noundef %73)
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %131 = load ptr, ptr %31, align 8, !tbaa !106
-  %132 = load ptr, ptr %30, align 8, !tbaa !126
+  %132 = load ptr, ptr %31, align 8, !tbaa !106
+  %133 = load ptr, ptr %30, align 8, !tbaa !126
   %133 = ptrtoint ptr %131 to i64
   %134 = ptrtoint ptr %132 to i64
   %135 = sub i64 %133, %134

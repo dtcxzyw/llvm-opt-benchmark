@@ -4962,7 +4962,7 @@ _ZN3std4sync4mpmc5utils7Backoff10spin_heavy17h08f5cd562da91181E.llvm.14413389980
   %34 = icmp eq i64 %33, 0
   br i1 %34, label %"_ZN3std4sync4mpmc4list14Block$LT$T$GT$7destroy17hd85856d577cd4b5cE.exit", label %46
 
-.lr.ph.i4:                                        ; preds = %"_ZN3std4sync4mpmc4list13Slot$LT$T$GT$10wait_write17h6a33a637cef1163fE.exit", %45
+.lr.ph.i6:                                        ; preds = %"_ZN3std4sync4mpmc4list13Slot$LT$T$GT$10wait_write17h6a33a637cef1163fE.exit", %45
   %.sroa.01.010.i = phi i64 [ %35, %45 ], [ 0, %"_ZN3std4sync4mpmc4list13Slot$LT$T$GT$10wait_write17h6a33a637cef1163fE.exit" ]
   %35 = add nuw nsw i64 %.sroa.01.010.i, 1
   %36 = getelementptr inbounds nuw { { { [6 x i64] } }, { i64 } }, ptr %6, i64 %.sroa.01.010.i
@@ -4978,15 +4978,15 @@ _ZN3std4sync4mpmc5utils7Backoff10spin_heavy17h08f5cd562da91181E.llvm.14413389980
   %44 = icmp eq i64 %43, 0
   br i1 %44, label %"_ZN3std4sync4mpmc4list14Block$LT$T$GT$7destroy17hd85856d577cd4b5cE.exit", label %45
 
-45:                                               ; preds = %41, %.lr.ph.i4
+51:                                               ; preds = %41, %.lr.ph.i6
   %exitcond.not.i = icmp eq i64 %35, 30
   br i1 %exitcond.not.i, label %"_ZN3std4sync4mpmc4list14Block$LT$T$GT$7destroy17hd85856d577cd4b5cE.exit.sink.split", label %.lr.ph.i4
 
-46:                                               ; preds = %31
+46: ; preds = %31
   %47 = icmp samesign ult i64 %11, 29
   br i1 %47, label %.lr.ph.i6, label %"_ZN3std4sync4mpmc4list14Block$LT$T$GT$7destroy17hd85856d577cd4b5cE.exit.sink.split"
 
-.lr.ph.i6:                                        ; preds = %46, %58
+.lr.ph.i6:; preds = %46, %61
   %.sroa.01.010.i7 = phi i64 [ %48, %58 ], [ %28, %46 ]
   %48 = add nuw nsw i64 %.sroa.01.010.i7, 1
   %49 = getelementptr inbounds nuw { { { [6 x i64] } }, { i64 } }, ptr %6, i64 %.sroa.01.010.i7
@@ -4996,21 +4996,21 @@ _ZN3std4sync4mpmc5utils7Backoff10spin_heavy17h08f5cd562da91181E.llvm.14413389980
   %53 = icmp eq i64 %52, 0
   br i1 %53, label %54, label %58
 
-54:                                               ; preds = %.lr.ph.i6
-  %55 = atomicrmw or ptr %50, i64 4 acq_rel, align 8
-  %56 = and i64 %55, 2
-  %57 = icmp eq i64 %56, 0
-  br i1 %57, label %"_ZN3std4sync4mpmc4list14Block$LT$T$GT$7destroy17hd85856d577cd4b5cE.exit", label %58
+57:                                               ; preds = %.lr.ph.i6
+  %58 = atomicrmw or ptr %50, i64 4 acq_rel, align 8
+  %59 = and i64 %58, 2
+  %60 = icmp eq i64 %59, 0
+  br i1 %60, label %"_ZN3std4sync4mpmc4list14Block$LT$T$GT$7destroy17hd85856d577cd4b5cE.exit", label %61
 
-58:                                               ; preds = %54, %.lr.ph.i6
-  %exitcond.not.i8 = icmp eq i64 %48, 30
-  br i1 %exitcond.not.i8, label %"_ZN3std4sync4mpmc4list14Block$LT$T$GT$7destroy17hd85856d577cd4b5cE.exit.sink.split", label %.lr.ph.i6
+61:                                               ; preds = %57, %.lr.ph.i6
+  %exitcond.not.i9 = icmp eq i64 %48, 30
+  br i1 %exitcond.not.i9, label %"_ZN3std4sync4mpmc4list14Block$LT$T$GT$7destroy17hd85856d577cd4b5cE.exit.sink.split", label %.lr.ph.i6
 
-"_ZN3std4sync4mpmc4list14Block$LT$T$GT$7destroy17hd85856d577cd4b5cE.exit.sink.split": ; preds = %58, %45, %46
+"_ZN3std4sync4mpmc4list14Block$LT$T$GT$7destroy17hd85856d577cd4b5cE.exit.sink.split": ; preds = %61, %45, %46
   tail call void @__rust_dealloc(ptr noundef nonnull %6, i64 noundef 1744, i64 noundef 8) #22
   br label %"_ZN3std4sync4mpmc4list14Block$LT$T$GT$7destroy17hd85856d577cd4b5cE.exit"
 
-"_ZN3std4sync4mpmc4list14Block$LT$T$GT$7destroy17hd85856d577cd4b5cE.exit": ; preds = %54, %41, %"_ZN3std4sync4mpmc4list14Block$LT$T$GT$7destroy17hd85856d577cd4b5cE.exit.sink.split", %31
+"_ZN3std4sync4mpmc4list14Block$LT$T$GT$7destroy17hd85856d577cd4b5cE.exit": ; preds = %57, %41, %"_ZN3std4sync4mpmc4list14Block$LT$T$GT$7destroy17hd85856d577cd4b5cE.exit.sink.split", %31
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %0, ptr noundef nonnull align 8 dereferenceable(48) %4, i64 48, i1 false)
   br label %30
 }

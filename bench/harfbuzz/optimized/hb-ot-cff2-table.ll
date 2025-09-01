@@ -340,14 +340,14 @@ _ZN3CFF20cff2_cs_interp_env_tINS_8number_tEED2Ev.exit: ; preds = %100, %103
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr dso_local noundef i32 @_ZNK3CFF12CFF2FDSelect6get_fdEj(ptr noundef nonnull align 1 dereferenceable(11) %0, i32 noundef %1) local_unnamed_addr #0 comdat align 2 {
   %3 = icmp eq ptr %0, @_hb_NullPool
-  br i1 %3, label %75, label %4
+  br i1 %3, label %76, label %4
 
 4:                                                ; preds = %2
   %5 = load i8, ptr %0, align 1, !tbaa !95
   switch i8 %5, label %75 [
     i8 0, label %6
     i8 3, label %12
-    i8 4, label %44
+    i8 4, label %45
   ]
 
 6:                                                ; preds = %4
@@ -357,7 +357,7 @@ define linkonce_odr dso_local noundef i32 @_ZNK3CFF12CFF2FDSelect6get_fdEj(ptr n
   %9 = getelementptr inbounds nuw %"struct.OT::IntType", ptr %7, i64 %8
   %10 = load i8, ptr %9, align 1, !tbaa !95
   %11 = zext i8 %10 to i32
-  br label %75
+  br label %76
 
 12:                                               ; preds = %4
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #9, !srcloc !97
@@ -433,91 +433,91 @@ _ZN3CFF11FDSelect3_4IN2OT7IntTypeItLj2EEENS2_IhLj1EEEE10_cmp_rangeEPKvS7_.exit.t
 
 _ZNK3CFF11FDSelect3_4IN2OT7IntTypeItLj2EEENS2_IhLj1EEEE6get_fdEj.exit: ; preds = %_ZN3CFF11FDSelect3_4IN2OT7IntTypeItLj2EEENS2_IhLj1EEEE10_cmp_rangeEPKvS7_.exit.i.i.i, %.loopexit.i, %37
   %.pn.i = phi ptr [ %40, %37 ], [ @_hb_NullPool, %.loopexit.i ], [ %24, %_ZN3CFF11FDSelect3_4IN2OT7IntTypeItLj2EEENS2_IhLj1EEEE10_cmp_rangeEPKvS7_.exit.i.i.i ]
-  %41 = getelementptr inbounds nuw i8, ptr %.pn.i, i64 2
-  %42 = load i8, ptr %41, align 1, !tbaa !95
-  %43 = zext i8 %42 to i32
-  br label %75
+  %42 = getelementptr inbounds nuw i8, ptr %.pn.i, i64 2
+  %43 = load i8, ptr %42, align 1, !tbaa !95
+  %44 = zext i8 %43 to i32
+  br label %76
 
-44:                                               ; preds = %4
+45:                                               ; preds = %4
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #9, !srcloc !97
-  %45 = getelementptr inbounds nuw i8, ptr %0, i64 1
-  %46 = load i32, ptr %45, align 1, !tbaa !102
-  %.not.i.not.i5 = icmp eq i32 %46, 0
-  br i1 %.not.i.not.i5, label %_ZNK2OT7ArrayOfIN3CFF17FDSelect3_4_RangeINS_7IntTypeIjLj4EEENS3_ItLj2EEEEES4_EixEi.exit.i, label %47, !prof !30
+  %46 = getelementptr inbounds nuw i8, ptr %0, i64 1
+  %47 = load i32, ptr %46, align 1, !tbaa !102
+  %.not.i.not.i5 = icmp eq i32 %47, 0
+  br i1 %.not.i.not.i5, label %_ZNK2OT7ArrayOfIN3CFF17FDSelect3_4_RangeINS_7IntTypeIjLj4EEENS3_ItLj2EEEEES4_EixEi.exit.i, label %48, !prof !30
 
-47:                                               ; preds = %44
+48:                                               ; preds = %45
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #9, !srcloc !97
-  %48 = getelementptr inbounds nuw i8, ptr %0, i64 5
-  %.sroa.0.0.copyload.i.pre.i6 = load i32, ptr %45, align 1, !tbaa !78
+  %49 = getelementptr inbounds nuw i8, ptr %0, i64 5
+  %.sroa.0.0.copyload.i.pre.i6 = load i32, ptr %46, align 1, !tbaa !78
   br label %_ZNK2OT7ArrayOfIN3CFF17FDSelect3_4_RangeINS_7IntTypeIjLj4EEENS3_ItLj2EEEEES4_EixEi.exit.i
 
-_ZNK2OT7ArrayOfIN3CFF17FDSelect3_4_RangeINS_7IntTypeIjLj4EEENS3_ItLj2EEEEES4_EixEi.exit.i: ; preds = %47, %44
+_ZNK2OT7ArrayOfIN3CFF17FDSelect3_4_RangeINS_7IntTypeIjLj4EEENS3_ItLj2EEEEES4_EixEi.exit.i: ; preds = %48, %45
   %.sroa.0.0.copyload.i.i7 = phi i32 [ %.sroa.0.0.copyload.i.pre.i6, %47 ], [ 0, %44 ]
-  %.0.i.i8 = phi ptr [ %48, %47 ], [ @_hb_NullPool, %44 ]
-  %49 = tail call noundef i32 @llvm.bswap.i32(i32 %.sroa.0.0.copyload.i.i7)
-  %50 = add i32 %49, -1
-  %.not3.i.i.i9 = icmp sgt i32 %50, 0
+  %.0.i.i8 = phi ptr [ %49, %47 ], [ @_hb_NullPool, %44 ]
+  %50 = tail call noundef i32 @llvm.bswap.i32(i32 %.sroa.0.0.copyload.i.i7)
+  %51 = add i32 %50, -1
+  %.not3.i.i.i9 = icmp sgt i32 %51, 0
   br i1 %.not3.i.i.i9, label %.lr.ph.preheader.i.i.i13, label %.loopexit.i10
 
 .lr.ph.preheader.i.i.i13:                         ; preds = %_ZNK2OT7ArrayOfIN3CFF17FDSelect3_4_RangeINS_7IntTypeIjLj4EEENS3_ItLj2EEEEES4_EixEi.exit.i
-  %51 = add i32 %49, -2
+  %52 = add i32 %50, -2
   br label %.lr.ph.i.i.i14
 
-.lr.ph.i.i.i14:                                   ; preds = %66, %.lr.ph.preheader.i.i.i13
+.lr.ph.i.i.i14:                                   ; preds = %67, %.lr.ph.preheader.i.i.i13
   %.0215.i.i.i15 = phi i32 [ %.223.i.i.i19, %66 ], [ 0, %.lr.ph.preheader.i.i.i13 ]
-  %.0244.i.i.i16 = phi i32 [ %.226.i.i.i18, %66 ], [ %51, %.lr.ph.preheader.i.i.i13 ]
-  %52 = add i32 %.0244.i.i.i16, %.0215.i.i.i15
-  %53 = lshr i32 %52, 1
-  %54 = zext nneg i32 %53 to i64
-  %55 = mul nuw nsw i64 %54, 6
-  %56 = getelementptr inbounds nuw i8, ptr %.0.i.i8, i64 %55
-  %57 = load i32, ptr %56, align 1, !tbaa !102
-  %58 = tail call noundef i32 @llvm.bswap.i32(i32 %57)
-  %59 = icmp ult i32 %1, %58
-  br i1 %59, label %_ZN3CFF11FDSelect3_4IN2OT7IntTypeIjLj4EEENS2_ItLj2EEEE10_cmp_rangeEPKvS7_.exit.thread.i.i.i, label %_ZN3CFF11FDSelect3_4IN2OT7IntTypeIjLj4EEENS2_ItLj2EEEE10_cmp_rangeEPKvS7_.exit.i.i.i
+  %.0244.i.i.i16 = phi i32 [ %.226.i.i.i18, %66 ], [ %52, %.lr.ph.preheader.i.i.i13 ]
+  %53 = add i32 %.0244.i.i.i16, %.0215.i.i.i15
+  %54 = lshr i32 %53, 1
+  %55 = zext nneg i32 %54 to i64
+  %56 = mul nuw nsw i64 %55, 6
+  %57 = getelementptr inbounds nuw i8, ptr %.0.i.i8, i64 %56
+  %58 = load i32, ptr %57, align 1, !tbaa !102
+  %59 = tail call noundef i32 @llvm.bswap.i32(i32 %58)
+  %60 = icmp ult i32 %1, %59
+  br i1 %60, label %_ZN3CFF11FDSelect3_4IN2OT7IntTypeIjLj4EEENS2_ItLj2EEEE10_cmp_rangeEPKvS7_.exit.thread.i.i.i, label %_ZN3CFF11FDSelect3_4IN2OT7IntTypeIjLj4EEENS2_ItLj2EEEE10_cmp_rangeEPKvS7_.exit.i.i.i
 
 _ZN3CFF11FDSelect3_4IN2OT7IntTypeIjLj4EEENS2_ItLj2EEEE10_cmp_rangeEPKvS7_.exit.i.i.i: ; preds = %.lr.ph.i.i.i14
-  %60 = getelementptr inbounds nuw i8, ptr %56, i64 6
-  %61 = load i32, ptr %60, align 1, !tbaa !102
-  %62 = tail call noundef i32 @llvm.bswap.i32(i32 %61)
-  %.not2.i.i.i17 = icmp ult i32 %1, %62
-  br i1 %.not2.i.i.i17, label %_ZNK3CFF11FDSelect3_4IN2OT7IntTypeIjLj4EEENS2_ItLj2EEEE6get_fdEj.exit, label %64
+  %61 = getelementptr inbounds nuw i8, ptr %57, i64 6
+  %62 = load i32, ptr %61, align 1, !tbaa !102
+  %63 = tail call noundef i32 @llvm.bswap.i32(i32 %62)
+  %.not2.i.i.i17 = icmp ult i32 %1, %63
+  br i1 %.not2.i.i.i17, label %_ZNK3CFF11FDSelect3_4IN2OT7IntTypeIjLj4EEENS2_ItLj2EEEE6get_fdEj.exit, label %65
 
 _ZN3CFF11FDSelect3_4IN2OT7IntTypeIjLj4EEENS2_ItLj2EEEE10_cmp_rangeEPKvS7_.exit.thread.i.i.i: ; preds = %.lr.ph.i.i.i14
-  %63 = add nsw i32 %53, -1
-  br label %66
+  %64 = add nsw i32 %54, -1
+  br label %67
 
-64:                                               ; preds = %_ZN3CFF11FDSelect3_4IN2OT7IntTypeIjLj4EEENS2_ItLj2EEEE10_cmp_rangeEPKvS7_.exit.i.i.i
-  %65 = add nuw nsw i32 %53, 1
-  br label %66
+65:                                               ; preds = %_ZN3CFF11FDSelect3_4IN2OT7IntTypeIjLj4EEENS2_ItLj2EEEE10_cmp_rangeEPKvS7_.exit.i.i.i
+  %66 = add nuw nsw i32 %54, 1
+  br label %67
 
-66:                                               ; preds = %64, %_ZN3CFF11FDSelect3_4IN2OT7IntTypeIjLj4EEENS2_ItLj2EEEE10_cmp_rangeEPKvS7_.exit.thread.i.i.i
-  %.226.i.i.i18 = phi i32 [ %63, %_ZN3CFF11FDSelect3_4IN2OT7IntTypeIjLj4EEENS2_ItLj2EEEE10_cmp_rangeEPKvS7_.exit.thread.i.i.i ], [ %.0244.i.i.i16, %64 ]
-  %.223.i.i.i19 = phi i32 [ %.0215.i.i.i15, %_ZN3CFF11FDSelect3_4IN2OT7IntTypeIjLj4EEENS2_ItLj2EEEE10_cmp_rangeEPKvS7_.exit.thread.i.i.i ], [ %65, %64 ]
+67:                                               ; preds = %65, %_ZN3CFF11FDSelect3_4IN2OT7IntTypeIjLj4EEENS2_ItLj2EEEE10_cmp_rangeEPKvS7_.exit.thread.i.i.i
+  %.226.i.i.i18 = phi i32 [ %64, %_ZN3CFF11FDSelect3_4IN2OT7IntTypeIjLj4EEENS2_ItLj2EEEE10_cmp_rangeEPKvS7_.exit.thread.i.i.i ], [ %.0244.i.i.i16, %64 ]
+  %.223.i.i.i19 = phi i32 [ %.0215.i.i.i15, %_ZN3CFF11FDSelect3_4IN2OT7IntTypeIjLj4EEENS2_ItLj2EEEE10_cmp_rangeEPKvS7_.exit.thread.i.i.i ], [ %66, %64 ]
   %.not.not.i.i.i20 = icmp sgt i32 %.223.i.i.i19, %.226.i.i.i18
   br i1 %.not.not.i.i.i20, label %.loopexit.i10, label %.lr.ph.i.i.i14, !llvm.loop !104
 
-.loopexit.i10:                                    ; preds = %66, %_ZNK2OT7ArrayOfIN3CFF17FDSelect3_4_RangeINS_7IntTypeIjLj4EEENS3_ItLj2EEEEES4_EixEi.exit.i
+.loopexit.i10:                                    ; preds = %67, %_ZNK2OT7ArrayOfIN3CFF17FDSelect3_4_RangeINS_7IntTypeIjLj4EEENS3_ItLj2EEEEES4_EixEi.exit.i
   %.not.i4.not.i11 = icmp eq i32 %.sroa.0.0.copyload.i.i7, 0
-  br i1 %.not.i4.not.i11, label %_ZNK3CFF11FDSelect3_4IN2OT7IntTypeIjLj4EEENS2_ItLj2EEEE6get_fdEj.exit, label %67, !prof !30
+  br i1 %.not.i4.not.i11, label %_ZNK3CFF11FDSelect3_4IN2OT7IntTypeIjLj4EEENS2_ItLj2EEEE6get_fdEj.exit, label %68, !prof !30
 
-67:                                               ; preds = %.loopexit.i10
+68:                                               ; preds = %.loopexit.i10
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #9, !srcloc !97
-  %68 = getelementptr inbounds nuw i8, ptr %0, i64 5
-  %69 = zext i32 %50 to i64
-  %70 = getelementptr inbounds nuw %"struct.CFF::FDSelect3_4_Range.8", ptr %68, i64 %69
+  %69 = getelementptr inbounds nuw i8, ptr %0, i64 5
+  %70 = zext i32 %51 to i64
+  %71 = getelementptr inbounds nuw %"struct.CFF::FDSelect3_4_Range.8", ptr %69, i64 %70
   br label %_ZNK3CFF11FDSelect3_4IN2OT7IntTypeIjLj4EEENS2_ItLj2EEEE6get_fdEj.exit
 
-_ZNK3CFF11FDSelect3_4IN2OT7IntTypeIjLj4EEENS2_ItLj2EEEE6get_fdEj.exit: ; preds = %_ZN3CFF11FDSelect3_4IN2OT7IntTypeIjLj4EEENS2_ItLj2EEEE10_cmp_rangeEPKvS7_.exit.i.i.i, %.loopexit.i10, %67
-  %.pn.i12 = phi ptr [ %70, %67 ], [ @_hb_NullPool, %.loopexit.i10 ], [ %56, %_ZN3CFF11FDSelect3_4IN2OT7IntTypeIjLj4EEENS2_ItLj2EEEE10_cmp_rangeEPKvS7_.exit.i.i.i ]
-  %71 = getelementptr inbounds nuw i8, ptr %.pn.i12, i64 4
-  %72 = load i16, ptr %71, align 1, !tbaa !98
-  %73 = tail call noundef i16 @llvm.bswap.i16(i16 %72)
-  %74 = zext i16 %73 to i32
-  br label %75
+_ZNK3CFF11FDSelect3_4IN2OT7IntTypeIjLj4EEENS2_ItLj2EEEE6get_fdEj.exit: ; preds = %_ZN3CFF11FDSelect3_4IN2OT7IntTypeIjLj4EEENS2_ItLj2EEEE10_cmp_rangeEPKvS7_.exit.i.i.i, %.loopexit.i10, %68
+  %.pn.i12 = phi ptr [ %71, %67 ], [ @_hb_NullPool, %.loopexit.i10 ], [ %57, %_ZN3CFF11FDSelect3_4IN2OT7IntTypeIjLj4EEENS2_ItLj2EEEE10_cmp_rangeEPKvS7_.exit.i.i.i ]
+  %72 = getelementptr inbounds nuw i8, ptr %.pn.i12, i64 4
+  %73 = load i16, ptr %72, align 1, !tbaa !98
+  %74 = tail call noundef i16 @llvm.bswap.i16(i16 %73)
+  %75 = zext i16 %74 to i32
+  br label %76
 
-75:                                               ; preds = %4, %2, %_ZNK3CFF11FDSelect3_4IN2OT7IntTypeIjLj4EEENS2_ItLj2EEEE6get_fdEj.exit, %_ZNK3CFF11FDSelect3_4IN2OT7IntTypeItLj2EEENS2_IhLj1EEEE6get_fdEj.exit, %6
-  %.0 = phi i32 [ %11, %6 ], [ %43, %_ZNK3CFF11FDSelect3_4IN2OT7IntTypeItLj2EEENS2_IhLj1EEEE6get_fdEj.exit ], [ %74, %_ZNK3CFF11FDSelect3_4IN2OT7IntTypeIjLj4EEENS2_ItLj2EEEE6get_fdEj.exit ], [ 0, %2 ], [ 0, %4 ]
+76:                                               ; preds = %4, %2, %_ZNK3CFF11FDSelect3_4IN2OT7IntTypeIjLj4EEENS2_ItLj2EEEE6get_fdEj.exit, %_ZNK3CFF11FDSelect3_4IN2OT7IntTypeItLj2EEENS2_IhLj1EEEE6get_fdEj.exit, %6
+  %.0 = phi i32 [ %11, %6 ], [ %44, %_ZNK3CFF11FDSelect3_4IN2OT7IntTypeItLj2EEENS2_IhLj1EEEE6get_fdEj.exit ], [ %75, %_ZNK3CFF11FDSelect3_4IN2OT7IntTypeIjLj4EEENS2_ItLj2EEEE6get_fdEj.exit ], [ 0, %2 ], [ 0, %4 ]
   ret i32 %.0
 }
 

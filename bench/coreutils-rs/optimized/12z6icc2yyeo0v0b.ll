@@ -964,20 +964,20 @@ define hidden void @"_ZN5alloc4sync16Arc$LT$T$C$A$GT$9drop_slow17h2b3fbf35a75892
   %10 = and i64 %9, -16
   %11 = getelementptr i8, ptr %3, i64 %10
   tail call void @llvm.experimental.noalias.scope.decl(metadata !169)
-  %12 = add i64 %7, -1
-  %13 = and i64 %12, -5
-  %14 = getelementptr i8, ptr %11, i64 %13
-  %15 = getelementptr i8, ptr %14, i64 21
+  %13 = add i64 %7, -1
+  %14 = and i64 %13, -5
+  %15 = getelementptr i8, ptr %11, i64 %14
+  %16 = getelementptr i8, ptr %15, i64 21
   tail call void @llvm.experimental.noalias.scope.decl(metadata !172)
-  %16 = load ptr, ptr %5, align 8, !invariant.load !15, !alias.scope !175, !nonnull !15
-  tail call void %16(ptr noundef nonnull align 1 %15), !noalias !175
+  %17 = load ptr, ptr %5, align 8, !invariant.load !15, !alias.scope !175, !nonnull !15
+  tail call void %16(ptr noundef nonnull align 1 %16), !noalias !175
   call void @llvm.lifetime.start.p0(ptr nonnull %2)
-  %17 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  %18 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store ptr %3, ptr %2, align 8
-  %18 = getelementptr inbounds nuw i8, ptr %2, i64 8
-  store ptr %5, ptr %18, align 8
-  %19 = getelementptr inbounds nuw i8, ptr %2, i64 16
-  store ptr %17, ptr %19, align 8
+  %19 = getelementptr inbounds nuw i8, ptr %2, i64 8
+  store ptr %5, ptr %19, align 8
+  %20 = getelementptr inbounds nuw i8, ptr %2, i64 16
+  store ptr %18, ptr %20, align 8
   call void @"_ZN72_$LT$alloc..sync..Weak$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17h86921788fef984f1E.llvm.13937331920422269825"(ptr noalias noundef nonnull align 8 dereferenceable(24) %2)
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
   ret void
@@ -1133,20 +1133,20 @@ define hidden void @"_ZN5alloc4sync16Arc$LT$T$C$A$GT$9drop_slow17h9300e44ac2a11b
   %10 = and i64 %9, -16
   %11 = getelementptr i8, ptr %3, i64 %10
   tail call void @llvm.experimental.noalias.scope.decl(metadata !207)
-  %12 = add i64 %7, -1
-  %13 = and i64 %12, -5
-  %14 = getelementptr i8, ptr %11, i64 %13
-  %15 = getelementptr i8, ptr %14, i64 21
+  %13 = add i64 %7, -1
+  %14 = and i64 %13, -5
+  %15 = getelementptr i8, ptr %11, i64 %14
+  %16 = getelementptr i8, ptr %15, i64 21
   tail call void @llvm.experimental.noalias.scope.decl(metadata !210)
-  %16 = load ptr, ptr %5, align 8, !invariant.load !15, !alias.scope !213, !nonnull !15
-  tail call void %16(ptr noundef nonnull align 1 %15), !noalias !213
+  %17 = load ptr, ptr %5, align 8, !invariant.load !15, !alias.scope !213, !nonnull !15
+  tail call void %16(ptr noundef nonnull align 1 %16), !noalias !213
   call void @llvm.lifetime.start.p0(ptr nonnull %2)
-  %17 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  %18 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store ptr %3, ptr %2, align 8
-  %18 = getelementptr inbounds nuw i8, ptr %2, i64 8
-  store ptr %5, ptr %18, align 8
-  %19 = getelementptr inbounds nuw i8, ptr %2, i64 16
-  store ptr %17, ptr %19, align 8
+  %19 = getelementptr inbounds nuw i8, ptr %2, i64 8
+  store ptr %5, ptr %19, align 8
+  %20 = getelementptr inbounds nuw i8, ptr %2, i64 16
+  store ptr %18, ptr %20, align 8
   call void @"_ZN72_$LT$alloc..sync..Weak$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17h67c15234f8c5e999E.llvm.13937331920422269825"(ptr noalias noundef nonnull align 8 dereferenceable(24) %2)
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
   ret void

@@ -11465,7 +11465,7 @@ av_add_sf.exit297:                                ; preds = %av_add_sf.exit, %av
 define internal noundef i32 @sbr_x_gen(ptr noundef readonly captures(none) %0, ptr noundef writeonly captures(none) initializes((0, 19456)) %1, ptr noundef readonly captures(none) %2, ptr noundef readonly captures(none) %3, ptr noundef readonly captures(none) %4, i32 noundef %5) #9 {
   %7 = sext i32 %5 to i64
   %8 = getelementptr %struct.SBRData, ptr %0, i64 %7
-  %9 = getelementptr i8, ptr %8, i64 106753
+  %8 = getelementptr i8, ptr %8, i64 106753
   %10 = load i8, ptr %9, align 1, !tbaa !120
   %11 = icmp ugt i8 %10, 16
   %12 = zext i8 %10 to i32
